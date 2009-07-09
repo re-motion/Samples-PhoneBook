@@ -24,6 +24,11 @@ def FileWriteTransplantCsEmbellishment (sourceProject, targetProject, fileName):
 	sourcePath, targetPath = UiPathsFromProjectsAndFileName (sourceProject, targetProject, fileName)
 	FileWriteTransplantCenter (sourcePath, targetPath, kBeginCustom, kEndCustom)
 
+def FileWriteTransplantCsEmbellishmentHandler (sourceProject, targetProject, fileName):
+	sourcePath, targetPath = UiPathsFromProjectsAndFileName (sourceProject, targetProject, fileName)
+	FileWriteTransplantCenter (sourcePath, targetPath, kBeginHandler, kEndHandler)
+
+
 def FileWriteTransplantCsEmbellishmentEditForm (sourceProject, targetProject, fileName):
 	sourcePath, targetPath = UiPathsFromProjectsAndFileName (sourceProject, targetProject, fileName)
 	FileWriteTransplantCenter (sourcePath, targetPath, kBeginPageLoad, kEndPageLoad)
@@ -47,7 +52,7 @@ FileWriteTransplantColumns (sourceProject, targetProject, "SearchResultPersonCon
 FileWriteTransplantColumns (sourceProject, targetProject, "SearchResultPhoneNumberControl.ascx")
 
 FileWriteTransplantCsEmbellishment (sourceProject, targetProject, "EditPersonControl.ascx.cs")
-FileWriteTransplantCsEmbellishment (sourceProject, targetProject, "SearchResultLocationControl.ascx.cs")
+FileWriteTransplantCsEmbellishmentHandler (sourceProject, targetProject, "SearchResultLocationControl.ascx.cs")
 
 FileWriteTransplantWxeHeader (sourceProject, targetProject, "EditLocationForm.aspx.cs")
 FileWriteTransplantWxeHeader (sourceProject, targetProject, "EditPersonForm.aspx.cs")

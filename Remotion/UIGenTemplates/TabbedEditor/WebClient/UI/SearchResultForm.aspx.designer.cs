@@ -12,5 +12,6 @@ namespace $PROJECT_ROOTNAMESPACE$.UI
 		protected Remotion.Web.UI.Controls.FormGridManager FormGridManager;
 		protected $PROJECT_ROOTNAMESPACE$.UI.NavigationTabs NavigationTabs;
 		protected Remotion.ObjectBinding.Web.UI.Controls.BocList $DOMAIN_CLASSNAME$List;
+		protected global::System.Web.UI.HtmlControls.HtmlForm SearchResultForm;
 	}
 }

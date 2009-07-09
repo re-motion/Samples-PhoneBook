@@ -12,7 +12,7 @@
 
 <body>
   <remotion:FormGridManager id="FormGridManager" runat="server" />
-  <form id="Form1" method="post" runat="server">
+  <form id="SearchResultForm" method="post" runat="server">
     <remotion:BindableObjectDataSourceControl id="$DOMAIN_CLASSNAME$SearchDataSource" runat="server" Type="$DOMAIN_QUALIFIEDCLASSTYPENAME$" Mode="Read" />
     <remotion:TabbedMultiView ID="MultiView" runat="server" CssClass="tabbedMultiView">
       <TopControls>

@@ -30,6 +30,8 @@ namespace PhoneBook.Web.UI
         {
         }
       }
+      // BEGIN HANDLER
+      // END HANDLER
     }
 
     public override IBusinessObjectDataSourceControl DataSource

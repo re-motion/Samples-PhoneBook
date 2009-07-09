@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Domain", "PhoneBook.Domain\PhoneBook.Domain.csproj", "{60A3E040-4227-485F-90D5-BCCC13E16FBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Sample", "PhoneBook.Sample\PhoneBook.Sample.csproj", "{D4EEABB0-C81D-448C-8B89-BE21D3E6D903}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Web", "PhoneBook.Web\PhoneBook.Web.csproj", "{D38D000A-0D3C-49DF-854B-C96D638BBE14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60A3E040-4227-485F-90D5-BCCC13E16FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A3E040-4227-485F-90D5-BCCC13E16FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A3E040-4227-485F-90D5-BCCC13E16FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A3E040-4227-485F-90D5-BCCC13E16FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EEABB0-C81D-448C-8B89-BE21D3E6D903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EEABB0-C81D-448C-8B89-BE21D3E6D903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EEABB0-C81D-448C-8B89-BE21D3E6D903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EEABB0-C81D-448C-8B89-BE21D3E6D903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38D000A-0D3C-49DF-854B-C96D638BBE14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38D000A-0D3C-49DF-854B-C96D638BBE14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38D000A-0D3C-49DF-854B-C96D638BBE14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38D000A-0D3C-49DF-854B-C96D638BBE14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?><doc><assembly>
+        <name>Remotion.Data.Linq</name>
+    </assembly><members><member name="T:Remotion.Data.Linq.IDatabaseInfo"><summary>
+            The interface has to be implemented so that the linq provider can use the underlying system to get information of the data source.
+            </summary></member><member name="M:Remotion.Data.Linq.IDatabaseInfo.GetTableName(Remotion.Data.Linq.Clauses.FromClauseBase)"><summary>
+            Has to be implemented to get the table name of the given clause.
+            </summary><param name="fromClause">The clause identifies the query source.</param></member><member name="M:Remotion.Data.Linq.IDatabaseInfo.GetRelatedTableName(System.Reflection.MemberInfo)"><summary>
+            Has to be implemented to get the table name of the n-side of a relation.
+            </summary><param name="relationMember"><see cref="T:System.Reflection.MemberInfo" /></param></member><member name="M:Remotion.Data.Linq.IDatabaseInfo.GetColumnName(System.Reflection.MemberInfo)"><summary>
+            Has to be implemented to get the column name of a given member.
+            </summary><param name="member"><see cref="T:System.Reflection.MemberInfo" /></param></member><member name="M:Remotion.Data.Linq.IDatabaseInfo.GetJoinColumnNames(System.Reflection.MemberInfo)"><summary>
+            Has to be implemented to get affected columns of a join.
+            </summary><param name="relationMember"><see cref="T:System.Reflection.MemberInfo" /></param></member><member name="M:Remotion.Data.Linq.IDatabaseInfo.ProcessWhereParameter(System.Object)"><summary>
+            Has to be implemented to get value of a parameter in a where condition.
+            </summary><param name="parameter">The parameter in a where condition.</param></member><member name="M:Remotion.Data.Linq.IDatabaseInfo.GetPrimaryKeyMember(System.Type)"><summary>
+            Has to be implemented to get primary key member of a given entity.
+            </summary><param name="entityType">The type of the queried entity.</param></member><member name="M:Remotion.Data.Linq.IDatabaseInfo.IsTableType(System.Type)"><summary>
+            Has to be implemented to check whether a given type is a table.
+            </summary><param name="type">The type of a queried entity.</param></member><member name="T:Remotion.Data.Linq.IQueryExecutor"><summary>
+            The interface has to be impelemented so that a query can be executed against the used data backend.
+            </summary></member><member name="T:Remotion.Data.Linq.QueryableBase`1"><summary>
+            Acts as a common base class for <see cref="T:System.Linq.IQueryable`1" /> implementations based on re-linq.
+            </summary></member><member name="T:Remotion.Data.Linq.QueryModel"><summary>
+            The class implements an abstraction of the expression tree which is created when executing a linq query. 
+            The different parts of a linq query are mapped to clauses.
+            </summary></member><member name="M:Remotion.Data.Linq.QueryModel.#ctor(System.Type,Remotion.Data.Linq.Clauses.MainFromClause,Remotion.Data.Linq.Clauses.ISelectGroupClause)"><summary>
+            Initializes a new instance of <see cref="T:Remotion.Data.Linq.QueryModel" />
+            </summary><param name="resultType">The type of the result of a executed linq.</param><param name="mainFromClause">The first from in a linq query mapped to <see cref="P:Remotion.Data.Linq.QueryModel.MainFromClause" /></param><param name="selectOrGroupClause">The Select mapped to <see cref="T:Remotion.Data.Linq.Clauses.SelectClause" /> or Group clause mapped to <see cref="T:Remotion.Data.Linq.Clauses.GroupClause" /> depending to liqn query.</param></member><member name="M:Remotion.Data.Linq.QueryModel.SetParentQuery(Remotion.Data.Linq.QueryModel)"><summary>
+            Set parent <see cref="T:Remotion.Data.Linq.QueryModel" /> e.g. needed in a subquery.
+            </summary><param name="parentQuery">The parent <see cref="T:Remotion.Data.Linq.QueryModel" /> of another <see cref="T:Remotion.Data.Linq.QueryModel" /></param></member><member name="M:Remotion.Data.Linq.QueryModel.AddBodyClause(Remotion.Data.Linq.Clauses.IBodyClause)"><summary>
+            Method to add <see cref="T:Remotion.Data.Linq.Clauses.IBodyClause" /> to a <see cref="T:Remotion.Data.Linq.QueryModel" />
+            </summary><param name="clause"><see cref="T:Remotion.Data.Linq.Clauses.IBodyClause" /></param></member><member name="M:Remotion.Data.Linq.QueryModel.RegisterClause(System.Linq.Expressions.ParameterExpression,Remotion.Data.Linq.Clauses.IResolveableClause)"><summary>
+            Method to register clauses via <see cref="T:System.Linq.Expressions.ParameterExpression" /> 
+            </summary><param name="identifier"><see cref="T:System.Linq.Expressions.ParameterExpression" /></param><param name="clauseToBeRegistered"><see cref="T:Remotion.Data.Linq.Clauses.IResolveableClause" /></param></member><member name="M:Remotion.Data.Linq.QueryModel.GetResolveableClause(System.String,System.Type)"><summary>
+            Method to get <see cref="T:Remotion.Data.Linq.Clauses.IResolveableClause" />
+            </summary><param name="identifierName">The name of the identifier.</param><param name="identifierType">The type of the identifier.</param></member><member name="M:Remotion.Data.Linq.QueryModel.SetExpressionTree(System.Linq.Expressions.Expression)"><summary>
+            Set expression tree whenever the query model changes.
+            </summary><param name="expressionTree">The expression of a linq query.</param></member><member name="P:Remotion.Data.Linq.QueryModel.BodyClauses"><summary>
+            Collection of different clauses of a <see cref="T:Remotion.Data.Linq.QueryModel" />
+            </summary></member><member name="T:Remotion.Data.Linq.QueryProviderBase"><summary>
+            The class implements <see cref="T:System.Linq.IQueryProvider" /> to create and execute queries against a datasource.
+            </summary></member><member name="M:Remotion.Data.Linq.QueryProviderBase.#ctor(Remotion.Data.Linq.IQueryExecutor)"><summary>
+            Initializes a new instance of  <see cref="T:Remotion.Data.Linq.QueryProviderBase" /> 
+            </summary><param name="executor">The executor is used to execute queries against the backend.</param></member><member name="M:Remotion.Data.Linq.QueryProviderBase.CreateQuery``1(System.Linq.Expressions.Expression)"><summary>
+            Queryable's collection-returning standard query operators call this method.
+            </summary><param name="expression">The query as expression chain.</param></member><member name="M:Remotion.Data.Linq.QueryProviderBase.ExecuteCollection``1(System.Linq.Expressions.Expression)"><summary>
+            This is where the query is executed and the results are mapped to objects.
+            </summary><param name="expression">The query as expression chain.</param></member><member name="M:Remotion.Data.Linq.QueryProviderBase.ExecuteCollection(System.Linq.Expressions.Expression)"><summary>
+            This is where the query is executed and the results are mapped to objects.
+            </summary><param name="expression">The query as expression chain.</param></member><member name="M:Remotion.Data.Linq.QueryProviderBase.GetFetchRequests(System.Linq.Expressions.Expression@)"><summary>
+            Gets all the fetch requests embedded in a query's <see cref="T:System.Linq.Expressions.Expression" /> tree as a hierarchical set of <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase" /> objects.
+            </summary><param name="expression">The expression tree to search for fetch requests. If any is found, the parameter returns a new 
+            <see cref="T:System.Linq.Expressions.Expression" /> instance with all fetch expressions removed from the expression tree.</param></member><member name="M:Remotion.Data.Linq.QueryProviderBase.GenerateQueryModel(System.Linq.Expressions.Expression)"><summary>
+            The method generates a <see cref="T:Remotion.Data.Linq.QueryModel" />.
+            </summary><param name="expression">The query as expression chain.</param></member><member name="T:Remotion.Data.Linq.Clauses.AdditionalFromClause"><summary>
+            Extends <see cref="T:Remotion.Data.Linq.Clauses.FromClauseBase" />. <see cref="T:Remotion.Data.Linq.Clauses.AdditionalFromClause" /> is used for from clauses which is no <see cref="T:Remotion.Data.Linq.Clauses.MainFromClause" />.
+            example:from a in queryable1 from b in queryable (the additional <see cref="T:Remotion.Data.Linq.Clauses.AdditionalFromClause" /> is the second from)
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.FromClauseBase"><summary>
+            Base class for all kinds of from clauses in <see cref="T:Remotion.Data.Linq.QueryModel" />
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.FromClauseBase.#ctor(Remotion.Data.Linq.Clauses.IClause,System.Linq.Expressions.ParameterExpression)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.FromClauseBase" />
+            </summary><param name="previousClause">The previous clause of the current from clause.</param><param name="identifier">The identifier of the from clause</param></member><member name="M:Remotion.Data.Linq.Clauses.FromClauseBase.AddJoinClause(Remotion.Data.Linq.Clauses.JoinClause)"><summary>
+            Method for adding a <see cref="T:Remotion.Data.Linq.Clauses.JoinClause" />
+            </summary><param name="joinClause"><see cref="T:Remotion.Data.Linq.Clauses.JoinClause" /></param></member><member name="M:Remotion.Data.Linq.Clauses.FromClauseBase.GetFromSource(Remotion.Data.Linq.IDatabaseInfo)"><summary>
+            Method for getting source of a from clause.
+            </summary><param name="databaseInfo"></param></member><member name="M:Remotion.Data.Linq.Clauses.AdditionalFromClause.#ctor(Remotion.Data.Linq.Clauses.IClause,System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.LambdaExpression,System.Linq.Expressions.LambdaExpression)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.AdditionalFromClause" />
+            </summary><param name="previousClause">The previous <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> of this from clause.</param><param name="identifier">The identifierer of the from expression.</param><param name="fromExpression">The expression of the from expression.</param><param name="projectionExpression">The projection of identifier to from expression.</param></member><member name="P:Remotion.Data.Linq.Clauses.AdditionalFromClause.FromExpression"><summary>
+            The expression of a from expression.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.AdditionalFromClause.ProjectionExpression"><summary>
+            The projection of a from expression.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.AdditionalFromClause.QueryModel"><summary>
+            The appropriate <see cref="P:Remotion.Data.Linq.Clauses.AdditionalFromClause.QueryModel" /> of the <see cref="T:Remotion.Data.Linq.Clauses.AdditionalFromClause" />.
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.LetClause"><summary>
+            Represents the let part of a linq query.
+            example: let a = b
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.LetClause.#ctor(Remotion.Data.Linq.Clauses.IClause,System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.Expression,System.Linq.Expressions.LambdaExpression)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.LetClause" />
+            </summary><param name="previousClause">The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="P:Remotion.Data.Linq.Clauses.LetClause.QueryModel" />.</param><param name="identifier">The identifier of a let expression.</param><param name="expression">The expression in a let expression.</param><param name="projectionExpression">The projection within the let part of the linq query.</param></member><member name="P:Remotion.Data.Linq.Clauses.LetClause.PreviousClause"><summary>
+            The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="P:Remotion.Data.Linq.Clauses.LetClause.QueryModel" />.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.LetClause.ProjectionExpression"><summary>
+            The projection within the let part of the linq query.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.LetClause.QueryModel"><summary>
+            The <see cref="P:Remotion.Data.Linq.Clauses.LetClause.QueryModel" /> of the <see cref="T:Remotion.Data.Linq.Clauses.LetClause" />
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.LetClause.Expression"><summary>
+            The expression in a let expression.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.LetClause.Identifier"><summary>
+            The identifier of the let expression.
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.MainFromClause"><summary>
+            Extends <see cref="T:Remotion.Data.Linq.Clauses.FromClauseBase" />. <see cref="T:Remotion.Data.Linq.Clauses.MainFromClause" /> is used for the first from clause of a linq query.
+            A <see cref="T:Remotion.Data.Linq.Clauses.MainFromClause" /> does not have a previous clause.
+            example: from c in queryable
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.MainFromClause.#ctor(System.Linq.Expressions.ParameterExpression,System.Linq.Expressions.Expression)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.MainFromClause" />.
+            </summary><param name="identifier">The identifier of the clause.</param><param name="querySource">The source of the clause.</param></member><member name="P:Remotion.Data.Linq.Clauses.MainFromClause.QuerySource"><summary>
+            The query (data) source which is requested
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.MemberFromClause"><summary>
+            Extends <see cref="T:Remotion.Data.Linq.Clauses.FromClauseBase" />. Similar to <see cref="T:Remotion.Data.Linq.Clauses.AdditionalFromClause" /> but in contrast its expression body must contain a <see cref="P:Remotion.Data.Linq.Clauses.MemberFromClause.MemberExpression" />
+            example: from a in queryable.Queryable
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.OrderByClause"><summary>
+            Represents the whole order by part of a linq query.
+            example: orderby expression
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.OrderByClause.#ctor(Remotion.Data.Linq.Clauses.IClause)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.OrderByClause" />
+            </summary><param name="previousClause">The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="P:Remotion.Data.Linq.Clauses.OrderByClause.QueryModel" />.</param></member><member name="P:Remotion.Data.Linq.Clauses.OrderByClause.OrderingList"><summary>
+            A collection of <see cref="T:Remotion.Data.Linq.Clauses.Ordering" />
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.Ordering"><summary>
+            Represents one expression of a order by in a linq query.
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.Ordering.#ctor(Remotion.Data.Linq.Clauses.OrderByClause,System.Linq.Expressions.LambdaExpression,Remotion.Data.Linq.Clauses.OrderingDirection)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.Ordering" />
+            </summary><param name="orderByClause">The <see cref="P:Remotion.Data.Linq.Clauses.Ordering.OrderByClause" /> associated with this <see cref="T:Remotion.Data.Linq.Clauses.Ordering" />.</param><param name="expression">The expression from one part of a order by in a linq query.</param><param name="direction"></param></member><member name="P:Remotion.Data.Linq.Clauses.Ordering.OrderByClause"><summary>
+            The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="P:Remotion.Data.Linq.Clauses.Ordering.QueryModel" />.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.Ordering.Expression"><summary>
+            The expression from one part of a order by in a linq query.
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.SelectClause"><summary>
+            Represents the select part of a linq query.
+            example: select expression
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.SelectClause.#ctor(Remotion.Data.Linq.Clauses.IClause,System.Linq.Expressions.LambdaExpression)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.SelectClause" />.
+            </summary><param name="previousClause">The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="T:Remotion.Data.Linq.QueryModel" />.</param><param name="projectionExpression">The projection within the select part of the linq query.</param></member><member name="P:Remotion.Data.Linq.Clauses.SelectClause.PreviousClause"><summary>
+            The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="T:Remotion.Data.Linq.QueryModel" />.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.SelectClause.ProjectionExpression"><summary>
+            The projection within the select part of the linq query.
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.SubQueryFromClause"><summary>
+            Extends the <see cref="T:Remotion.Data.Linq.Clauses.FromClauseBase" />. <see cref="T:Remotion.Data.Linq.Clauses.SubQueryFromClause" /> is used for from clauses which are part of a subquery.
+            Represents a from clause which is part of a subquery in another from clause.
+            example: from identifier in (from identifier in datasource where ... select ...)
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.SubQueryFromClause.#ctor(Remotion.Data.Linq.Clauses.IClause,System.Linq.Expressions.ParameterExpression,Remotion.Data.Linq.QueryModel,System.Linq.Expressions.LambdaExpression)"><summary>
+            Initialize a new instance of <see cref="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel" />
+            </summary><param name="previousClause">The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel" />.</param><param name="identifier">The identifier of the expression which represents the subquery.</param><param name="subQuery">The subquery which contains the <see cref="T:Remotion.Data.Linq.Clauses.SubQueryFromClause" />with is represented by a new <see cref="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel" />.<see cref="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel" />.</param><param name="projectionExpression">The projection within the from part of the linq query.</param></member><member name="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.SubQueryModel"><summary>
+            The subquery which contains the <see cref="T:Remotion.Data.Linq.Clauses.SubQueryFromClause" />with is represented by a new <see cref="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel" />.<see cref="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel" />
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.ProjectionExpression"><summary>
+            The projection within the from part of the linq query.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel"><summary>
+            The <see cref="P:Remotion.Data.Linq.Clauses.SubQueryFromClause.QueryModel" /> of the entire linq query.
+            </summary></member><member name="T:Remotion.Data.Linq.Clauses.WhereClause"><summary>
+            Represents the where part of a linq query.
+            example: where a.A = "something useful"
+            </summary></member><member name="M:Remotion.Data.Linq.Clauses.WhereClause.#ctor(Remotion.Data.Linq.Clauses.IClause,System.Linq.Expressions.LambdaExpression)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Clauses.WhereClause" />
+            </summary><param name="previousClause">The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="P:Remotion.Data.Linq.Clauses.WhereClause.QueryModel" />.</param><param name="boolExpression">The expression which represents the where conditions.</param></member><member name="P:Remotion.Data.Linq.Clauses.WhereClause.PreviousClause"><summary>
+            The previous clause of type <see cref="T:Remotion.Data.Linq.Clauses.IClause" /> in the <see cref="P:Remotion.Data.Linq.Clauses.WhereClause.QueryModel" />.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.WhereClause.BoolExpression"><summary>
+            The expression which represents the where conditions.
+            </summary></member><member name="P:Remotion.Data.Linq.Clauses.WhereClause.QueryModel"><summary>
+            The <see cref="P:Remotion.Data.Linq.Clauses.WhereClause.QueryModel" /> to which the <see cref="T:Remotion.Data.Linq.Clauses.WhereClause" /> belongs.
+            </summary></member><member name="T:Remotion.Data.Linq.EagerFetching.FetchExpression"><summary>
+            Represents a fetch request in a query expression tree. This is generated by 
+            <see cref="M:Remotion.Data.Linq.ExtensionMethods.ExtensionMethods.FetchMany``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}})" />
+            and analyzed by <see cref="T:Remotion.Data.Linq.EagerFetching.FetchFilteringExpressionTreeVisitor" />.
+            </summary></member><member name="T:Remotion.Data.Linq.EagerFetching.FetchFilteringExpressionTreeVisitor"><summary>
+            Analyzes an expression tree for <see cref="T:Remotion.Data.Linq.EagerFetching.FetchExpression" /> and <see cref="T:Remotion.Data.Linq.EagerFetching.ThenFetchExpression" /> instances, removing them from the tree
+            and returning them as <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase" /> objects.
+            </summary></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchFilteringExpressionTreeVisitor.Visit(System.Linq.Expressions.Expression)"><summary>
+            Visits the specified expression tree, filtering it for <see cref="T:Remotion.Data.Linq.EagerFetching.FetchExpression" /> and <see cref="T:Remotion.Data.Linq.EagerFetching.ThenFetchExpression" /> instances.
+            </summary><param name="expression">The expression tree to search.</param></member><member name="T:Remotion.Data.Linq.EagerFetching.FetchManyRequest"><summary>
+            Represents a relation collection property that should be eager-fetched by means of a lambda expression.
+            </summary></member><member name="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase"><summary>
+            Base class for classes representing a property that should be eager-fetched by means of a lambda expression.
+            </summary></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchRequestBase.ModifyBodyClausesForFetching(Remotion.Data.Linq.QueryModel,Remotion.Data.Linq.Clauses.SelectClause)"><summary>
+            Modifies the given query model's body clauses for fetching, adding new <see cref="T:Remotion.Data.Linq.Clauses.AdditionalFromClause" />s as needed. This
+            method is called by <see cref="M:Remotion.Data.Linq.EagerFetching.FetchRequestBase.CreateFetchQueryModel(Remotion.Data.Linq.QueryModel)" /> in the process of creating the new fetch query model.
+            </summary><param name="fetchQueryModel">The fetch query model to modify.</param><param name="originalSelectClause">The original select clause <see cref="P:Remotion.Data.Linq.EagerFetching.FetchRequestBase.RelatedObjectSelector" /> should be applied to.</param></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchRequestBase.CreateSelectProjectionForFetching(Remotion.Data.Linq.QueryModel,Remotion.Data.Linq.Clauses.SelectClause)"><summary>
+            Creates the new select projection expression for the eager fetching query model. This
+            method is called by <see cref="M:Remotion.Data.Linq.EagerFetching.FetchRequestBase.CreateFetchQueryModel(Remotion.Data.Linq.QueryModel)" /> in the process of creating the new query model.
+            </summary><param name="fetchQueryModel">The fetch query model for which to create a new select projection.</param><param name="originalSelectClause">The original select clause <see cref="P:Remotion.Data.Linq.EagerFetching.FetchRequestBase.RelatedObjectSelector" /> should be applied to.</param></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchRequestBase.GetOrAddInnerFetchRequest(Remotion.Data.Linq.EagerFetching.FetchRequestBase)"><summary>
+            Gets or adds an inner eager-fetch request for this <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase" />.
+            </summary><param name="fetchRequest">The <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase" /> to be added.</param></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchRequestBase.CreateFetchQueryModel(Remotion.Data.Linq.QueryModel)"><summary>
+            Creates the fetch query model for this <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase" /> from a given <paramref name="originalQueryModel" />.
+            </summary><param name="originalQueryModel">The original query model to create a fetch query from.</param></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchRequestBase.CreateFetchSourceExpression(Remotion.Data.Linq.Clauses.SelectClause)"><summary>
+            Gets a <see cref="T:System.Linq.Expressions.LambdaExpression" /> that takes the same input as the given <paramref name="selectClauseToFetchFrom" /> and returns the
+            fetched object(s).
+            </summary><param name="selectClauseToFetchFrom">The select clause yielding the objects to apply <see cref="P:Remotion.Data.Linq.EagerFetching.FetchRequestBase.RelatedObjectSelector" /> to in order to
+            fetch the related object(s).</param></member><member name="P:Remotion.Data.Linq.EagerFetching.FetchRequestBase.RelatedObjectSelector"><summary>
+            Gets the <see cref="T:System.Linq.Expressions.LambdaExpression" /> acting as the selector of the related object(s) to be fetched.
+            </summary></member><member name="P:Remotion.Data.Linq.EagerFetching.FetchRequestBase.RelationMember"><summary>
+            Gets the <see cref="T:System.Reflection.MemberInfo" /> of the relation member whose contained object(s) should be fetched.
+            </summary></member><member name="P:Remotion.Data.Linq.EagerFetching.FetchRequestBase.InnerFetchRequests"><summary>
+            Gets the inner fetch requests that were issued for this <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase" />.
+            </summary></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchManyRequest.CreateFetchFromClause(Remotion.Data.Linq.Clauses.SelectClause,System.String)"><summary>
+            Creates a <see cref="T:Remotion.Data.Linq.Clauses.MemberFromClause" /> that represents the <see cref="P:Remotion.Data.Linq.EagerFetching.FetchRequestBase.RelatedObjectSelector" />. This can be inserted into a 
+            <see cref="T:Remotion.Data.Linq.QueryModel" /> in order to construct an eager-fetch query.
+            </summary><param name="selectClauseToFetchFrom">The <see cref="T:Remotion.Data.Linq.Clauses.SelectClause" /> that is used as a template to fetch from. The new 
+            <see cref="T:Remotion.Data.Linq.Clauses.MemberFromClause" /> is created in such a way that it can replace <paramref name="selectClauseToFetchFrom" />. Its 
+            <see cref="P:Remotion.Data.Linq.Clauses.AdditionalFromClause.ProjectionExpression" /> selects the fetched related objects.</param><param name="fromIdentifierName">The name of the <see cref="P:Remotion.Data.Linq.Clauses.FromClauseBase.Identifier" /> to use for the new <see cref="T:Remotion.Data.Linq.Clauses.MemberFromClause" />.</param></member><member name="T:Remotion.Data.Linq.EagerFetching.FetchRequestCollection"><summary>
+            Holds a number of <see cref="T:Remotion.Data.Linq.EagerFetching.FetchManyRequest" /> instances keyed by the <see cref="T:System.Reflection.MemberInfo" /> instances representing the relation members
+            to be eager-fetched.
+            </summary></member><member name="M:Remotion.Data.Linq.EagerFetching.FetchRequestCollection.GetOrAddFetchRequest(Remotion.Data.Linq.EagerFetching.FetchRequestBase)"><summary>
+            Gets or adds an eager-fetch request to this <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestCollection" />.
+            </summary><param name="fetchRequest">The <see cref="T:Remotion.Data.Linq.EagerFetching.FetchRequestBase" /> to be added.</param></member><member name="T:Remotion.Data.Linq.EagerFetching.FluentFetchRequest`2"><summary>
+            Provides a fluent interface to recursively fetch related objects of objects which themselves are eager-fetched.
+            </summary></member><member name="M:Remotion.Data.Linq.EagerFetching.FluentFetchRequest`2.ThenFetchMany``1(System.Linq.Expressions.Expression{System.Func{`1,System.Collections.Generic.IEnumerable{``0}}})"><summary>
+            Specifies that, when the previous fetch request is executed, the relation indicated by <paramref name="relatedObjectSelector" /> should be 
+            eagerly fetched, too, if supported by the query provider implementation. The relation must be a collection property.
+            </summary><param name="relatedObjectSelector">A lambda expression selecting the next related objects to be eager-fetched.</param></member><member name="M:Remotion.Data.Linq.EagerFetching.FluentFetchRequest`2.ThenFetchOne``1(System.Linq.Expressions.Expression{System.Func{`1,``0}})"><summary>
+            Specifies that, when the previous fetch request is executed, the relation indicated by <paramref name="relatedObjectSelector" /> should be 
+            eagerly fetched, too, if supported by the query provider implementation. The relation must be of cardinality one.
+            </summary><param name="relatedObjectSelector">A lambda expression selecting the next related object to be eager-fetched.</param></member><member name="T:Remotion.Data.Linq.EagerFetching.ThenFetchExpression"><summary>
+            Represents a fetch request that follows another <see cref="T:Remotion.Data.Linq.EagerFetching.FetchExpression" /> or <see cref="T:Remotion.Data.Linq.EagerFetching.ThenFetchExpression" /> in a query expression tree. 
+            This is generated by <see cref="M:Remotion.Data.Linq.EagerFetching.FluentFetchRequest`2.ThenFetchMany``1(System.Linq.Expressions.Expression{System.Func{`1,System.Collections.Generic.IEnumerable{``0}}})" /> and analyzed by 
+            <see cref="T:Remotion.Data.Linq.EagerFetching.FetchFilteringExpressionTreeVisitor" />.
+            </summary></member><member name="M:Remotion.Data.Linq.ExtensionMethods.ExtensionMethods.FetchMany``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Collections.Generic.IEnumerable{``1}}})"><summary>
+            Specifies that, when the <paramref name="query" /> is executed, the relation indicated by <paramref name="relatedObjectSelector" /> should be eagerly
+            fetched if supported by the query provider implementation. The relation must be a collection property.
+            </summary><param name="query">The query for which the fetch request should be made.</param><param name="relatedObjectSelector">A lambda expression selecting the related objects to be eager-fetched.</param></member><member name="M:Remotion.Data.Linq.ExtensionMethods.ExtensionMethods.FetchOne``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})"><summary>
+            Specifies that, when the <paramref name="query" /> is executed, the relation indicated by <paramref name="relatedObjectSelector" /> should be eagerly
+            fetched if supported by the query provider implementation. The relation must be of cardinality one.
+            </summary><param name="query">The query for which the fetch request should be made.</param><param name="relatedObjectSelector">A lambda expression selecting the related object to be eager-fetched.</param></member><member name="T:Remotion.Data.Linq.Parsing.Details.WhereConditionParsing.IWhereConditionParser"><summary>
+            
+            </summary></member><member name="T:Remotion.Data.Linq.Parsing.FieldResolving.ClauseFieldResolverVisitor"><summary>
+            identifies the parameter and members used by an expression of a field access
+            </summary></member><member name="T:Remotion.Data.Linq.Parsing.FieldResolving.IResolveFieldAccessPolicy"><summary>
+            Defines how members are resolved for a specific resolution use case.
+            </summary></member><member name="T:Remotion.Data.Linq.Parsing.FieldResolving.QueryModelFieldResolverVisitor"><summary>
+            removes transparent identifier from a expression representing a field access
+            </summary></member><member name="T:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector"><summary>
+            Caches information of expression. The stored informaion is used to generate <see cref="T:Remotion.Data.Linq.QueryModel" />.
+            </summary></member><member name="M:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.#ctor(System.Linq.Expressions.Expression)"><summary>
+            Initialize a new instance of <see cref="T:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector" />.
+            </summary><param name="expressionTreeRoot">expression tree of executed linq query</param></member><member name="M:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.AddResultModifierExpression(System.Linq.Expressions.MethodCallExpression)"><summary>
+            Add <see cref="T:System.Linq.Expressions.MethodCallExpression" /> of a modifier.
+            </summary><param name="expression">Expression of the method call which modifies the result of a linq query.</param></member><member name="M:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.AddBodyExpression(Remotion.Data.Linq.Parsing.Structure.BodyExpressionDataBase)"><summary>
+            Add <see cref="T:Remotion.Data.Linq.Parsing.Structure.BodyExpressionDataBase" />. 
+            </summary><param name="expression"></param></member><member name="M:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.AddProjectionExpression(System.Linq.Expressions.LambdaExpression)"><summary>
+            Add <see cref="T:System.Linq.Expressions.LambdaExpression" />
+            </summary><param name="expression"></param></member><member name="M:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.AddIdentityProjectionExpression(System.Linq.Expressions.ParameterExpression)"><summary>
+            Add <see cref="T:System.Linq.Expressions.ParameterExpression" />
+            </summary><param name="sourceParameterOfPreviousClause"></param></member><member name="M:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.ExtractMainFromExpression"><summary>
+            Removes a <see cref="T:Remotion.Data.Linq.Parsing.Structure.FromExpressionData" /> with represents the main from of a linq query.
+            </summary></member><member name="P:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.BodyExpressions"><summary>
+            Get all <see cref="T:Remotion.Data.Linq.Parsing.Structure.BodyExpressionDataBase" />. 
+            </summary></member><member name="P:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.ProjectionExpressions"><summary>
+            Get the projection of a expression.
+            </summary></member><member name="P:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector.ResultModifierExpression"><summary>
+            Get the modifier of a linq query (e.g. Distinct)
+            </summary></member><member name="M:Remotion.Data.Linq.Parsing.Structure.QueryModelCreator.CreateSelectClause"><summary>
+            Create a <see cref="T:Remotion.Data.Linq.Clauses.SelectClause" /> based on last entry for project expressions in <see cref="T:Remotion.Data.Linq.Parsing.Structure.ParseResultCollector" />.
+            </summary></member><member name="T:Remotion.Data.Linq.Parsing.Structure.SourceExpressionParser"><summary>
+            Delegates to the appropiate parser dependent to the used method expression in an expression chain.
+            </summary></member><member name="T:Remotion.Data.Linq.Parsing.Structure.SubQueryFindingVisitor"><summary>
+            Parses an expression tree, looks for sub-queries in that tree (ie. expressions that themselves are LINQ queries), parses and registers them, and
+            replaces them with an instance of <see cref="T:Remotion.Data.Linq.Expressions.SubQueryExpression" />.
+            </summary></member><member name="T:Remotion.Data.Linq.SqlGeneration.IMethodCallSqlGenerator"><summary>
+            This interface has to be implemented, when a new MethodCallGenerator is generated. This generator has to handle method calls which are not
+            supported as default by the framework. This generator has to be registered to <see cref="T:Remotion.Data.Linq.SqlGeneration.MethodCallSqlGeneratorRegistry" />.
+            </summary></member><member name="M:Remotion.Data.Linq.SqlGeneration.IMethodCallSqlGenerator.GenerateSql(Remotion.Data.Linq.DataObjectModel.MethodCall,Remotion.Data.Linq.SqlGeneration.ICommandBuilder)"><summary>
+            The method has to contain the logic for generating sql code for the method call. 
+            </summary><param name="methodCall"><see cref="T:Remotion.Data.Linq.DataObjectModel.MethodCall" /></param><param name="commandBuilder"><see cref="T:Remotion.Data.Linq.SqlGeneration.ICommandBuilder" /></param></member><member name="T:Remotion.Data.Linq.SqlGeneration.ICommandBuilder"><summary>
+            This interface has to be implemented for each sql code generation mechanism. It holds the information to generate the sql query.
+            </summary></member></members></doc>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><doc><assembly>
+        <name>Remotion.Development.Web</name>
+    </assembly><members><member name="T:Remotion.Development.Web.UnitTesting.AspNetFramework.HttpContextHelper"><summary> 
+              Provides helper methods for initalizing an <see cref="T:System.Web.HttpContext" /> object when simulating ASP.NET request
+              cycles. 
+            </summary></member><member name="T:Remotion.Development.Web.UnitTesting.Configuration.WebConfigurationMock"><summary> 
+              Provides helper methods for initalizing a <see cref="T:Remotion.Web.Configuration.WebConfiguration" /> object when simulating ASP.NET 
+              request cycles. 
+            </summary></member><member name="T:Remotion.Development.Web.UnitTesting.ExecutionEngine.WxeContextMock"><summary> Provides a <see cref="T:Remotion.Web.ExecutionEngine.WxeContext" /> for simualating ASP.NET request life cycles. </summary></member><member name="T:Remotion.Development.Web.UnitTesting.UI.WcagHelperMock"><summary> Provides programmatically accessible feedback on the WCAG conformance </summary></member></members></doc>

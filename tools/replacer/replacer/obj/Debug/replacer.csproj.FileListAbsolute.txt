@@ -1,0 +1,5 @@
+C:\replacer\replacer\bin\Debug\replacer.exe
+C:\replacer\replacer\bin\Debug\replacer.pdb
+C:\replacer\replacer\obj\Debug\ResolveAssemblyReference.cache
+C:\replacer\replacer\obj\Debug\replacer.exe
+C:\replacer\replacer\obj\Debug\replacer.pdb

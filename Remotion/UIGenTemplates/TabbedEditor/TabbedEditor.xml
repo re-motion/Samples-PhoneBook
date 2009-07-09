@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+TODO: create XSD
+TODO: <folder>
+-->
+<generator>
+	<global>
+		<!-- References -->
+		<!-- <copy source="References\*.*" target="$ReferencesDir$" mode="CopyIfNewer" recursive="true" /> -->
+
+		<!-- Domain -->
+    <!-- 
+    <files pattern="Domain\*.xml" target="$DomainProjectName$" />
+    -->
+    
+		<!-- WebClient -->
+		<file template="WebClient\WebClient.csproj" target="$WebClientName$\$WebClientName$.csproj" />
+		<files pattern="WebClient\*.cs" target="$WebClientName$" />
+    <files pattern="WebClient\*.asax" target="$WebClientName$" />
+    <files pattern="WebClient\*.aspx" target="$WebClientName$" />
+    <files pattern="WebClient\*.ashx" target="$WebClientName$" />
+		<files pattern="WebClient\*.xml" target="$WebClientName$" />
+		<files pattern="WebClient\*.xsd" target="$WebClientName$" />
+		<files pattern="WebClient\*.config" target="$WebClientName$" />
+
+		<copy source="WebClient\Images\*.*" target="$WebClientName$\Images" mode="CopyIfNewer" />
+		<copy source="..\..\res\*.*" target="$WebClientName$\res" mode="CopyIfNewer" recursive="true" />
+
+		<files pattern="WebClient\UI\NavigationTabs.*" target="$WebClientName$\UI" />
+		<files pattern="WebClient\Globalization\Global.*" target="$WebClientName$\Globalization" />
+
+		<files pattern="WebClient\Classes\*.cs" target="$WebClientName$\Classes" />
+		<file template="WebClient\Properties\AssemblyInfo.cs" target="$WebClientName$\Properties\AssemblyInfo.cs" />
+		<!-- <file template="WebClient\WxeFunctions\EditFunction.cs" target="$WebClientName$\WxeFunctions\EditFunction.cs" /> -->
+	</global>
+
+	<forEachClass>
+    
+		<!-- WebClient -->
+		<file template="WebClient\UI\EditControl.ascx" target="$WebClientName$\UI\Edit$DOMAIN_CLASSNAME$Control.ascx" />
+		<file template="WebClient\UI\EditControl.ascx.cs" target="$WebClientName$\UI\Edit$DOMAIN_CLASSNAME$Control.ascx.cs" />
+		<file template="WebClient\UI\EditControl.ascx.designer.cs" target="$WebClientName$\UI\Edit$DOMAIN_CLASSNAME$Control.ascx.designer.cs" />
+
+		<file template="WebClient\UI\EditForm.aspx" target="$WebClientName$\UI\Edit$DOMAIN_CLASSNAME$Form.aspx" />
+		<file template="WebClient\UI\EditForm.aspx.cs" target="$WebClientName$\UI\Edit$DOMAIN_CLASSNAME$Form.aspx.cs" />
+		<file template="WebClient\UI\EditForm.aspx.designer.cs" target="$WebClientName$\UI\Edit$DOMAIN_CLASSNAME$Form.aspx.designer.cs" />
+
+		<file template="WebClient\UI\SearchResultControl.ascx" target="$WebClientName$\UI\SearchResult$DOMAIN_CLASSNAME$Control.ascx" />
+		<file template="WebClient\UI\SearchResultControl.ascx.cs" target="$WebClientName$\UI\SearchResult$DOMAIN_CLASSNAME$Control.ascx.cs" />
+		<file template="WebClient\UI\SearchResultControl.ascx.designer.cs" target="$WebClientName$\UI\SearchResult$DOMAIN_CLASSNAME$Control.ascx.designer.cs" />
+
+		<file template="WebClient\UI\SearchResultForm.aspx" target="$WebClientName$\UI\SearchResult$DOMAIN_CLASSNAME$Form.aspx" />
+		<file template="WebClient\UI\SearchResultForm.aspx.cs" target="$WebClientName$\UI\SearchResult$DOMAIN_CLASSNAME$Form.aspx.cs" />
+		<file template="WebClient\UI\SearchResultForm.aspx.designer.cs" target="$WebClientName$\UI\SearchResult$DOMAIN_CLASSNAME$Form.aspx.designer.cs" />
+
+	</forEachClass>
+
+	<!-- TODO: remove ignore="ID;IsDiscarded;ClientTransaction;State" -->
+	<properties ignore="ID;IsDiscarded;ClientTransaction;State;DisplayName"	>
+		<controlMappings>
+      <mapping propertyType="Remotion.ObjectBinding.IBusinessObjectStringProperty" control="remotion:BocTextValue" />
+      <mapping propertyType="Remotion.ObjectBinding.IBusinessObjectNumericProperty" control="remotion:BocTextValue" />
+      <mapping propertyType="Remotion.ObjectBinding.IBusinessObjectDateTimeProperty" control="remotion:BocDateTimeValue" />
+      <mapping propertyType="Remotion.ObjectBinding.IBusinessObjectEnumerationProperty" control="remotion:BocEnumValue" />
+      <mapping propertyType="Remotion.ObjectBinding.IBusinessObjectStringProperty" isList="true" control="remotion:BocMultilineTextValue" />
+
+      <mapping propertyType="Remotion.ObjectBinding.IBusinessObjectReferenceProperty" isList="true" control="remotion:BocList">
+				<additionalAttributes>
+					OnMenuItemClick="$DOMAIN_PROPERTYNAME$Field_MenuItemClick"
+				</additionalAttributes>
+				<additionalElements>
+<![CDATA[<FixedColumns>
+          <remotion:BocAllPropertiesPlaceholderColumnDefinition />
+          <remotion:BocRowEditModeColumnDefinition CancelText="$res:Cancel" EditText="$res:Edit" SaveText="$res:Save" />
+        </FixedColumns>
+        <ListMenuItems>
+          <remotion:BocMenuItem ItemID="AddMenuItem" Text="$res:Add" />
+        </ListMenuItems>
+]]>
+				</additionalElements>
+			</mapping>
+
+			<mapping propertyType="Remotion.ObjectBinding.IBusinessObjectReferenceProperty" isList="false" control="remotion:BocReferenceValue">
+			</mapping>
+		</controlMappings>
+	</properties>
+
+</generator>

@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?><doc><assembly>
+        <name>Remotion.ObjectBinding</name>
+    </assembly><members><member name="T:Remotion.ObjectBinding.BindableObjectAttribute"><summary>
+            Apply to a class to add a reflection-based implementation of <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> to the class via <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectMixin" />.
+            Use this attribute if deriving from <see cref="T:Remotion.ObjectBinding.BindableObjectBase" /> is not possible.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObjectBase"><summary>
+            Provides a base implementation of <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> associated with the reflection-based <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider" />.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObjectWithIdentityAttribute"><summary>
+            Apply to a class to add a reflection-based implementation of <see cref="T:Remotion.ObjectBinding.IBusinessObjectWithIdentity" /> to the class via 
+            <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectWithIdentityMixin" />. Use this attribute if deriving from <see cref="T:Remotion.ObjectBinding.BindableObjectWithIdentityBase" /> is not possible.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObjectWithIdentityBase"><summary>
+            Provides a base implementation of <see cref="T:Remotion.ObjectBinding.IBusinessObjectWithIdentity" /> associated with the reflection-based <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider" />.
+            </summary></member><member name="T:Remotion.ObjectBinding.BooleanToEnumPropertyConverter"><summary>
+              Provides implementations for <see cref="T:Remotion.ObjectBinding.IBusinessObjectEnumerationProperty" /> methods that can be used by 
+              implementations of <see cref="T:Remotion.ObjectBinding.IBusinessObjectBooleanProperty" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.BooleanToEnumPropertyConverter.GetValues"><summary>Returns the <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> objects for <see langword="true" /> and <see langword="false" />.</summary></member><member name="M:Remotion.ObjectBinding.BooleanToEnumPropertyConverter.GetValueInfoByValue(System.Object)"><summary>
+              Returns an <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> if <paramref name="value" /> is <see langword="true" /> or
+              <see langword="false" /> and <see langword="null" /> if <paramref name="value" /> is <see langword="null" />.
+            </summary><param name="value">Can be any object that equals to <see langword="true" /> or <see langword="false" /> and <see langword="null" />.</param></member><member name="M:Remotion.ObjectBinding.BooleanToEnumPropertyConverter.GetValueInfoByIdentifier(System.String)"><summary>
+              Returns an <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> matching the <c>True</c> or <c>False</c> strings or 
+              <see langword="null" /> for an empty or null string.
+            </summary><param name="identifier"> Can be <see langword="true" />, <see langword="false" />, or an empty string or <see langword="null" />. </param></member><member name="T:Remotion.ObjectBinding.BusinessObject"><summary> The <see langword="abstract" /> default implementation of the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> interface. </summary></member><member name="M:Remotion.ObjectBinding.BusinessObject.GetBusinessObjectProperty(System.String)"><summary> Returns the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> for the passed <paramref name="propertyIdentifier" />. </summary><param name="propertyIdentifier"> 
+              A <see cref="T:System.String" /> uniquely identifying an <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> in this
+              business object.
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObject.GetProperty(Remotion.ObjectBinding.IBusinessObjectProperty)"><summary> Gets the value accessed through the specified <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />. </summary></member><member name="M:Remotion.ObjectBinding.BusinessObject.SetProperty(Remotion.ObjectBinding.IBusinessObjectProperty,System.Object)"><summary> Sets the value accessed through the specified <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />. </summary></member><member name="M:Remotion.ObjectBinding.BusinessObject.GetPropertyString(Remotion.ObjectBinding.IBusinessObjectProperty)"><summary> 
+              Gets the string representation of the value accessed through the specified 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.BusinessObject.GetPropertyString(Remotion.ObjectBinding.IBusinessObjectProperty,System.String)"><summary> 
+              Gets the formatted string representation of the value accessed through the specified 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObject.BusinessObjectClass"><summary> Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> of this business object. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObject.DisplayName"><summary> Gets the human readable representation of this <see cref="T:Remotion.ObjectBinding.IBusinessObject" />. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObject.Remotion#ObjectBinding#IBusinessObject#DisplayNameSafe"><summary>
+              Gets the value of <see cref="P:Remotion.ObjectBinding.BusinessObject.DisplayName" /> if it is accessible and otherwise falls back to the <see cref="T:System.String" /> returned by
+              <see cref="M:Remotion.ObjectBinding.IBusinessObjectProvider.GetNotAccessiblePropertyStringPlaceHolder" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObject.StringFormatterService"><summary>Gets the <see cref="T:Remotion.ObjectBinding.BusinessObjectStringFormatterService" /> used to convert the property values to strings.</summary></member><member name="T:Remotion.ObjectBinding.BusinessObjectDataSource"><summary> 
+              The <see langword="abstract" /> default implementation of the <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" /> interface. 
+            </summary></member><member name="T:Remotion.ObjectBinding.IBusinessObjectDataSource"><summary>
+              This interface provides funtionality for binding an <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> to an 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" />. Each business object model requires a specialized 
+              implementation of this interface.
+            </summary></member><member name="M:Remotion.ObjectBinding.IBusinessObjectDataSource.Register(Remotion.ObjectBinding.IBusinessObjectBoundControl)"><summary>
+              Adds the passed <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> to the list of controls bound to this
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />.
+            </summary><param name="control"> 
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> to be added to <see cref="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BoundControls" />. 
+            </param></member><member name="M:Remotion.ObjectBinding.IBusinessObjectDataSource.Unregister(Remotion.ObjectBinding.IBusinessObjectBoundControl)"><summary>
+              Removes the passed <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> from the list of controls bound to this
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />.
+            </summary><param name="control">
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> to be removed from <see cref="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BoundControls" />. 
+            </param></member><member name="M:Remotion.ObjectBinding.IBusinessObjectDataSource.LoadValues(System.Boolean)"><summary> Loads the values of the <see cref="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BusinessObject" /> into all bound controls. </summary><param name="interim"> Specifies whether this is the initial loading, or an interim loading. </param></member><member name="M:Remotion.ObjectBinding.IBusinessObjectDataSource.SaveValues(System.Boolean)"><summary> 
+              Saves the values of the <see cref="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BusinessObject" /> from all bound controls implementing
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundEditableControl" />.
+            </summary><param name="interim"> Specifies whether this is the final saving, or an interim saving. </param></member><member name="P:Remotion.ObjectBinding.IBusinessObjectDataSource.Mode"><summary> Gets or sets the current <see cref="T:Remotion.ObjectBinding.DataSourceMode" />. </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BusinessObjectClass"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> of the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> connected to this 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />. 
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BusinessObjectProvider"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> used for accessing supplementary information on the connected
+              <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> and assigned <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BusinessObject"><summary>
+              Gets or sets the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> connected to this <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectDataSource.BoundControls"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> objects bound to this 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectDataSource.LoadValues(System.Boolean)"><summary> Loads the values of the <see cref="P:Remotion.ObjectBinding.BusinessObjectDataSource.BusinessObject" /> into all bound controls. </summary><param name="interim"> Specifies whether this is the initial loading, or an interim loading. </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectDataSource.SaveValues(System.Boolean)"><summary> 
+              Saves the values of the <see cref="P:Remotion.ObjectBinding.BusinessObjectDataSource.BusinessObject" /> from all bound controls implementing <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundEditableControl" />.
+            </summary><param name="interim"> Specifies whether this is the final saving, or an interim saving. </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectDataSource.Register(Remotion.ObjectBinding.IBusinessObjectBoundControl)"><summary>
+              Adds the passed <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> to the list of controls bound to this <see cref="T:Remotion.ObjectBinding.BusinessObjectDataSource" />.
+            </summary><param name="control">The <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> to be added to <see cref="P:Remotion.ObjectBinding.BusinessObjectDataSource.BoundControls" />.</param></member><member name="M:Remotion.ObjectBinding.BusinessObjectDataSource.Unregister(Remotion.ObjectBinding.IBusinessObjectBoundControl)"><summary>
+              Removes the passed <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> from the list of controls bound to this <see cref="T:Remotion.ObjectBinding.BusinessObjectDataSource" />.
+            </summary><param name="control">The <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> to be removed from <see cref="P:Remotion.ObjectBinding.BusinessObjectDataSource.BoundControls" />.</param></member><member name="P:Remotion.ObjectBinding.BusinessObjectDataSource.BusinessObject"><summary>
+              Gets or sets the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> connected to this <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectDataSource.BusinessObjectClass"><summary> 
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> of the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> connected to this <see cref="T:Remotion.ObjectBinding.BusinessObjectDataSource" />. 
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectDataSource.Mode"><summary> Gets or sets the current <see cref="T:Remotion.ObjectBinding.DataSourceMode" />. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectDataSource.BusinessObjectProvider"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> used for accessing supplementary information on the connected
+              <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> and assigned <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectDataSource.BoundControls"><summary>Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> objects bound to this <see cref="T:Remotion.ObjectBinding.BusinessObjectDataSource" />.</summary></member><member name="T:Remotion.ObjectBinding.BusinessObjectExtensions"><summary>
+            This class contains extension methods for the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> interface.
+            </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectExtensions.GetProperty(Remotion.ObjectBinding.IBusinessObject,System.String)"><summary>
+              Gets the value accessed through the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> identified by the passed <paramref name="propertyIdentifier" />. 
+            </summary><param name="businessObject">The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> for which the property is declared. Must not be <see langword="null" />.</param><param name="propertyIdentifier">
+            A <see cref="T:System.String" /> identifing the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used to access the value. 
+            Must not be <see langword="null" /> or empty.
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectExtensions.SetProperty(Remotion.ObjectBinding.IBusinessObject,System.String,System.Object)"><summary>
+              Sets the value accessed through the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> identified by the passed <paramref name="propertyIdentifier" />. 
+            </summary><param name="businessObject">The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> for which the property is declared. Must not be <see langword="null" />.</param><param name="propertyIdentifier"> 
+              A <see cref="T:System.String" /> identifing the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used to access the value. 
+            </param><param name="value"> 
+              The new value for the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> identified by the 
+              <paramref name="propertyIdentifier" /> parameter. 
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectExtensions.GetPropertyString(Remotion.ObjectBinding.IBusinessObject,System.String)"><summary> 
+              Gets the string representation of the value accessed through the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> 
+              identified by the passed <paramref name="propertyIdentifier" />.
+            </summary><param name="businessObject">The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> for which the property is declared. Must not be <see langword="null" />.</param><param name="propertyIdentifier"> 
+              A <see cref="T:System.String" /> identifing the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used to access the value. 
+            </param></member><member name="T:Remotion.ObjectBinding.BusinessObjectPropertyPath"><summary> A collection of business object properties that result in each other. </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectPropertyPath.Parse(Remotion.ObjectBinding.IBusinessObjectClass,System.String)"><summary> Parses the string representation of a property path into a list of properties. </summary><param name="objectClass"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> containing the first property in the path. Must no be <see langword="null" />. </param><param name="propertyPathIdentifier"> A string with a valid property path syntax. Must no be <see langword="null" /> or empty. </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectPropertyPath.#ctor(Remotion.ObjectBinding.IBusinessObjectProperty[])"><summary> Initializes a new instance of the <b>BusinessObjectPropertyPath</b> class. </summary><param name="properties">
+              The properties comprising the property path. 
+              Must no be <see langword="null" /> or empty or contain items that are <see langword="null" />.
+              All but the last item must be of type <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" />.
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectPropertyPath.GetValue(Remotion.ObjectBinding.IBusinessObject,System.Boolean,System.Boolean)"><summary> Gets the value of this property path for the specified object. </summary><param name="obj"> The object that has the first property in the path. Must not be <see langword="null" />. </param><param name="throwExceptionIfNotReachable"> 
+              If <see langword="true" />, an <see cref="T:System.InvalidOperationException" /> is thrown if any but the last property 
+              in the path is <see langword="null" />. If <see langword="false" />, <see langword="null" /> is returned instead. 
+            </param><param name="getFirstListEntry">
+              If <see langword="true" />, the first value of each list property is processed.
+              If <see langword="false" />, evaluation of list properties causes an <see cref="T:System.InvalidOperationException" />.
+              (This does not apply to the last property in the path. If the last property is a list property, the return value is always a list.)
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectPropertyPath.GetString(Remotion.ObjectBinding.IBusinessObject,System.String)"><summary> Gets the string representation of the value of this property path for the specified object. </summary><param name="obj"> The object that has the first property in the path. Must not be <see langword="null" />. </param><param name="format"> The format string passed to <see cref="M:Remotion.ObjectBinding.IBusinessObject.GetPropertyString(Remotion.ObjectBinding.IBusinessObjectProperty,System.String)">IBusinessObject.GetPropertyString</see>. </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectPropertyPath.GetValueWithoutLast(Remotion.ObjectBinding.IBusinessObject,System.Boolean,System.Boolean)"><summary> Gets value of this property path minus the penultimate property for the specified object. </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectPropertyPath.SetValue(Remotion.ObjectBinding.IBusinessObject,System.Object)"><summary> Sets the value of this property path for the specified object. </summary><param name="obj">
+              The object that has the first property in the path. Must not be <see langword="null" />. 
+            </param><param name="value"> The value to be assiged to the property. </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectPropertyPath.ToString"><summary> Returns the <see cref="P:Remotion.ObjectBinding.BusinessObjectPropertyPath.Identifier" /> for this property path. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectPropertyPath.Properties"><summary> Gets the list of properties in this path. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectPropertyPath.LastProperty"><summary> Gets the last property in this property path. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectPropertyPath.Identifier"><summary> Gets the string representation of this property path. </summary></member><member name="T:Remotion.ObjectBinding.BusinessObjectPropertyPath.Formatter"><summary> Property path formatters can be passed to <see cref="M:System.String.Format(System.String,System.Object)" /> for full <see cref="T:System.IFormattable" /> support. </summary></member><member name="T:Remotion.ObjectBinding.BusinessObjectProvider"><summary>The <see langword="abstract" /> default implementation of the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> interface.</summary></member><member name="T:Remotion.ObjectBinding.IBusinessObjectProviderWithIdentity"><summary>
+            The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProviderWithIdentity" /> interface defines a getter and a set-method to associate a 
+            <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" /> with the provider. Through this attribute it is possible to identify the relationship
+            between a provider and its object model.
+            </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.GetProvider(System.Type)"><summary>
+            Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> associated with the <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" /> type specified.
+            </summary><param name="businessObjectProviderAttributeType">
+            A <see cref="T:System.Type" /> derived from <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" />. Must not be <see langword="null" />.
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.GetProvider``1"><summary>
+            Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> associated with the <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" /> type specified.
+            </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.SetProvider(System.Type,Remotion.ObjectBinding.IBusinessObjectProvider)"><summary>
+            Sets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> to be associated with the <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" /> type specified.
+            </summary><param name="businessObjectProviderAttributeType">
+            A <see cref="T:System.Type" /> derived from <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" />. Must not be <see langword="null" />.
+            </param><param name="provider">
+            The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> instance to be associated with the <paramref name="businessObjectProviderAttributeType" />. 
+            Pass <see langword="null" /> to remove the association.
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.SetProvider``1(Remotion.ObjectBinding.IBusinessObjectProvider)"><summary>
+            Sets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> to be associated with the <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" /> type specified.
+            </summary><param name="provider">
+            The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> instance to be associated with the <typeParamref name="TBusinessObjectProviderAttributeType" />. 
+            Pass <see langword="null" /> to remove the association.
+            </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.GetService(System.Type)"><summary> Retrieves the requested <see cref="T:Remotion.ObjectBinding.IBusinessObjectService" />. Must not be <see langword="null" />.</summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.GetService``1"><summary> Retrieves the requested <see cref="T:Remotion.ObjectBinding.IBusinessObjectService" />. </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.AddService(System.Type,Remotion.ObjectBinding.IBusinessObjectService)"><summary> Registers a new <see cref="T:Remotion.ObjectBinding.IBusinessObjectService" /> with this <see cref="T:Remotion.ObjectBinding.BusinessObjectProvider" />. </summary><param name="serviceType"> The <see cref="T:System.Type" /> of the <paramref name="service" /> to be registered. Must not be <see langword="null" />.</param><param name="service"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectService" /> to register. Must not be <see langword="null" />.</param></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.AddService``1(``0)"><summary> Registers a new <see cref="T:Remotion.ObjectBinding.IBusinessObjectService" /> with this <see cref="T:Remotion.ObjectBinding.BusinessObjectProvider" />. </summary><param name="service"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectService" /> to register. Must not be <see langword="null" />.</param></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.GetPropertyPathSeparator"><summary>Returns the <see cref="T:System.Char" /> to be used as a serparator when formatting the property path's identifier.</summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.CreatePropertyPath(Remotion.ObjectBinding.IBusinessObjectProperty[])"><summary>Creates a <see cref="T:Remotion.ObjectBinding.BusinessObjectPropertyPath" /> from the passed <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> list.</summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectProvider.GetNotAccessiblePropertyStringPlaceHolder"><summary> Returns a <see cref="T:System.String" /> to be used instead of the actual value if the property is not accessible. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectProvider.ServiceStore"><summary> Gets the <see cref="T:Remotion.Collections.IDataStore`2" /> used to store the references to the registered servies. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectProvider.ServiceFactory"><summary>Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectServiceFactory" /> passed during construction.</summary></member><member name="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute"><summary>
+            Use the <see cref="T:Remotion.ObjectBinding.BusinessObjectProviderAttribute" /> to associate a <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> with a business object implementation.
+            </summary></member><member name="T:Remotion.ObjectBinding.BusinessObjectReferenceDataSource"><summary>
+              This data source provides access to the objects returned by other data sources using the specified property.
+            </summary></member><member name="T:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase"><summary>
+              This <see langword="abstract" /> class provides base functionality usually required by an implementation of
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource" />.
+            </summary></member><member name="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource"><summary>
+              This interface provides functionality to access to the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> returned by other 
+              data sources using the specified <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource.ReferenceProperty"><summary>
+              Gets or sets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" /> used to access the 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> to which this <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource" /> connects.
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource.ReferencedDataSource"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" /> providing the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> 
+              to which this <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource" /> connects.
+            </summary></member><member name="F:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase._businessObject"><summary>
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> accessed through <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferenceProperty" /> and provided as 
+              the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObject" />.
+            </summary></member><member name="F:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase._hasBusinessObjectChanged"><summary>
+              A flag that is cleared when the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObject" /> is loaded from or saved to the
+              <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferencedDataSource" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.LoadValue(System.Boolean)"><summary> 
+              Loads the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObject" /> from the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferencedDataSource" /> using 
+              <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferenceProperty" /> and populates the bound controls using 
+              <see cref="M:Remotion.ObjectBinding.BusinessObjectDataSource.LoadValues(System.Boolean)" />.
+            </summary><param name="interim"> Specifies whether this is the initial loading, or an interim loading. </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.SaveValue(System.Boolean)"><summary> 
+              Saves the values from the bound controls using <see cref="M:Remotion.ObjectBinding.BusinessObjectDataSource.SaveValues(System.Boolean)" />
+              and writes the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObject" /> back into the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferencedDataSource" /> using 
+              <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferenceProperty" />.
+            </summary><param name="interim"> Specifies whether this is the final saving, or an interim saving. </param></member><member name="M:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.SupportsProperty(Remotion.ObjectBinding.IBusinessObjectProperty)"><summary>
+              Tests whether the <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource" /> can be bound to the 
+              <paramref name="property" />.
+            </summary><param name="property"> 
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> to be tested. Must not be <see langword="null" />.
+            </param></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.HasBusinessObjectChanged"><summary> 
+              Gets a flag that is <see langword="true" /> if the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObject" /> has been set since the last
+              call to <see cref="M:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.LoadValue(System.Boolean)" /> or <see cref="M:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.SaveValue(System.Boolean)" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObject"><summary>
+              Gets or sets the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> accessed through the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferenceProperty" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObjectClass"><summary> 
+              Gets the <see cref="P:Remotion.ObjectBinding.IBusinessObjectReferenceProperty.ReferenceClass" /> of the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferenceProperty" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.BusinessObjectProvider"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> used for accessing supplementary information on the bound
+              <see cref="T:Remotion.ObjectBinding.IBusinessObject" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferenceProperty"><summary>
+              See <see cref="P:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource.ReferenceProperty">IBusinessObjectReferenceDataSource.ReferenceProperty</see>
+              for information on how to implement this <see langword="abstract" /> property.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSourceBase.ReferencedDataSource"><summary>
+              See <see cref="P:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource.ReferencedDataSource">IBusinessObjectReferenceDataSource.ReferencedDataSource</see>
+              for information on how to implement this <see langword="abstract" /> property.
+            </summary></member><member name="T:Remotion.ObjectBinding.IBusinessObjectBoundEditableControl"><summary>
+              Extends an <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> with the option of writing the 
+              <see cref="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.Value" /> back into the bound <see cref="T:Remotion.ObjectBinding.IBusinessObject" />.
+            </summary></member><member name="T:Remotion.ObjectBinding.IBusinessObjectBoundControl"><summary>
+              Provides functionality for binding an <see cref="T:System.ComponentModel.IComponent" /> to an <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> using
+              an <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />. 
+            </summary></member><member name="M:Remotion.ObjectBinding.IBusinessObjectBoundControl.LoadValue(System.Boolean)"><summary> 
+              Loads the <see cref="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.Value" /> from the bound <see cref="T:Remotion.ObjectBinding.IBusinessObject" />. 
+            </summary><param name="interim"> Specifies whether this is the initial loading, or an interim loading. </param></member><member name="M:Remotion.ObjectBinding.IBusinessObjectBoundControl.SupportsProperty(Remotion.ObjectBinding.IBusinessObjectProperty)"><summary>
+              Tests whether the <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> can be bound to the <paramref name="property" />.
+            </summary><param name="property"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> to be testet.</param></member><member name="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.DataSource"><summary>
+              Gets or sets the <see cref="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.DataSource" /> providing the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> to which this
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> is bound.
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.PropertyIdentifier"><summary>
+              Gets or sets the string representation of the <see cref="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.Property" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.Property"><summary>
+              Gets or sets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used for accessing the data to be loaded into 
+              <see cref="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.Value" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.Value"><summary> Gets or sets the value provided by the <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" />. </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.HasValidBinding"><summary>
+              Gets a flag specifying whether the <see cref="T:Remotion.ObjectBinding.IBusinessObjectBoundControl" /> has a valid binding configuration.
+            </summary></member><member name="M:Remotion.ObjectBinding.IBusinessObjectBoundEditableControl.SaveValue(System.Boolean)"><summary>
+              Saves the <see cref="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.Value" /> back into the bound <see cref="T:Remotion.ObjectBinding.IBusinessObject" />.
+            </summary><param name="interim"> Specifies whether this is the final saving, or an interim saving. </param></member><member name="P:Remotion.ObjectBinding.IBusinessObjectBoundEditableControl.IsReadOnly"><summary>
+              Gets a flag that determines whether the control is to be displayed in read-only mode.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.DataSource"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" /> providing the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> 
+              to which this <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource" /> connects.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.ReferencedDataSource"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" /> providing the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> 
+              to which this <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource" /> connects.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.PropertyIdentifier"><summary>
+              Gets or sets the string representation of the <see cref="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.ReferenceProperty" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.Remotion#ObjectBinding#IBusinessObjectBoundControl#Property"><summary>
+              Gets or sets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" /> used to access the 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> to which this <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceDataSource" /> connects.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.ReferenceProperty"><summary>
+              Gets or sets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" /> used to access the 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> to which this <see cref="T:Remotion.ObjectBinding.BusinessObjectReferenceDataSource" /> connects.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.Remotion#ObjectBinding#IBusinessObjectBoundControl#Value"><summary> Gets or sets the value provided by the <see cref="T:Remotion.ObjectBinding.BusinessObjectReferenceDataSource" />. </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.HasValidBinding"><summary>
+              Gets a flag specifying whether the <see cref="T:Remotion.ObjectBinding.BusinessObjectReferenceDataSource" /> has a valid configuration.
+            </summary></member><member name="P:Remotion.ObjectBinding.BusinessObjectReferenceDataSource.Remotion#ObjectBinding#IBusinessObjectBoundEditableControl#IsReadOnly"><summary> Returns always <see langword="false" />. </summary></member><member name="M:Remotion.ObjectBinding.BusinessObjectStringFormatterService.GetPropertyString(Remotion.ObjectBinding.IBusinessObject,Remotion.ObjectBinding.IBusinessObjectProperty,System.String)"><summary> 
+              Gets the string representation of the value accessed through the specified <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> 
+              from the the passed <see cref="T:Remotion.ObjectBinding.IBusinessObject" />.
+            </summary><param name="businessObject"> The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> whose property value will be returned. </param><param name="property"> 
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used to access the value. Must not be <see langword="null" />.
+            </param><param name="format">
+            The format string passed to the value's <see cref="M:System.IFormattable.ToString(System.String,System.IFormatProvider)" /> method.
+            </param></member><member name="T:Remotion.ObjectBinding.DatePropertyAttribute"><summary>
+            Specifies that only the date component of a <see cref="T:System.DateTime" /> property should be used by the <b>ObjectBinding</b> infrastructure.
+            </summary></member><member name="T:Remotion.ObjectBinding.EnumerationValueInfo"><summary> Default implementation of the <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> interface. </summary></member><member name="M:Remotion.ObjectBinding.EnumerationValueInfo.#ctor(System.Object,System.String,System.String,System.Boolean)"><summary> Initializes a new instance of the <b>EnumerationValueInfo</b> type. </summary></member><member name="P:Remotion.ObjectBinding.EnumerationValueInfo.Value"><summary> Gets the object representing the original value, e.g. a System.Enum type. </summary></member><member name="P:Remotion.ObjectBinding.EnumerationValueInfo.Identifier"><summary> Gets the string presented to the user. </summary></member><member name="P:Remotion.ObjectBinding.EnumerationValueInfo.DisplayName"><summary> Gets the string presented to the user. </summary></member><member name="P:Remotion.ObjectBinding.EnumerationValueInfo.IsEnabled"><summary>
+              Gets a flag indicating whether this value should be presented as an option to the user. 
+              (If not, existing objects might still use this value.)
+            </summary></member><member name="T:Remotion.ObjectBinding.IBusinessObjectClassSource"><summary>
+              This interface is used for the <see cref="P:System.ComponentModel.ITypeDescriptorContext.Instance" /> argument of the 
+              Visual Studio .NET designer editor. 
+            </summary></member><member name="P:Remotion.ObjectBinding.IBusinessObjectClassSource.BusinessObjectClass"><summary>
+              Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> of an <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" />
+              or an <see cref="T:Remotion.ObjectBinding.IBusinessObjectDataSource" />, respectively.
+            </summary></member><member name="T:Remotion.ObjectBinding.IBusinessObjectServiceFactory"><summary>
+            Use the <see cref="T:Remotion.ObjectBinding.IBusinessObjectServiceFactory" /> to create default instances for <see cref="T:Remotion.ObjectBinding.IBusinessObjectService" /> types 
+            requested via the <see cref="M:Remotion.ObjectBinding.BusinessObjectProvider.GetService(System.Type)" /> method.
+            </summary></member><member name="T:Remotion.ObjectBinding.ItemTypeAttribute"><summary>
+            Specifies the type of items for properties returning an <see cref="T:System.Collections.IList" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.ItemTypeAttribute.#ctor(System.Type)"><summary>
+            Instantiates a new object.
+            </summary><param name="itemType">The type of items returned by the property. Must not be <see langword="null" />.</param></member><member name="P:Remotion.ObjectBinding.ItemTypeAttribute.ItemType"><summary>
+            Gets the type of items returned by the property.
+            </summary></member><member name="T:Remotion.ObjectBinding.ListUtility"><summary>
+            Provides utility methods for processing IList instances. 
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.AddRange(System.Collections.IList,System.Object,Remotion.ObjectBinding.IBusinessObjectReferenceProperty,System.Boolean,System.Boolean)"><summary>
+              Adds an objectto a list. The original list may be modified.
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.AddRange(System.Collections.IList,System.Object,Remotion.ObjectBinding.CreateListMethod,System.Boolean,System.Boolean)"><summary>
+              Adds an objectto a list. The original list may be modified.
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.AddRange(System.Collections.IList,System.Collections.IList,Remotion.ObjectBinding.IBusinessObjectReferenceProperty,System.Boolean,System.Boolean)"><summary>
+              Adds a range of objects to a list. The original list may be modified.
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.AddRange(System.Collections.IList,System.Collections.IList,Remotion.ObjectBinding.CreateListMethod,System.Boolean,System.Boolean)"><summary>
+              Adds a range of objects to a list. The original list may be modified.
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.Remove(System.Collections.IList,System.Collections.IList,Remotion.ObjectBinding.IBusinessObjectReferenceProperty,System.Boolean)"><summary>
+               Removes a range of values from a list and returns the resulting list. The original list may be modified.
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.Remove(System.Collections.IList,System.Collections.IList,Remotion.ObjectBinding.CreateListMethod,System.Boolean)"><summary>
+               Removes a range of values from a list and returns the resulting list. The original list may be modified.
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.Remove(System.Collections.IList,System.Object,Remotion.ObjectBinding.IBusinessObjectReferenceProperty,System.Boolean)"><summary>
+               Removes a range of values from a list and returns the resulting list. The original list may be modified.
+            </summary></member><member name="M:Remotion.ObjectBinding.ListUtility.Remove(System.Collections.IList,System.Object,Remotion.ObjectBinding.CreateListMethod,System.Boolean)"><summary>
+               Removes a range of values from a list and returns the resulting list. The original list may be modified.
+            </summary></member><member name="T:Remotion.ObjectBinding.ObjectBindingAttribute"><summary>
+            Specifies if a property or field is read only.
+            </summary></member><member name="T:Remotion.ObjectBinding.UndefinedEnumValueAttribute"><summary>
+            Indicates an value of an enum that should be the undefined value.
+            </summary></member><member name="M:Remotion.ObjectBinding.UndefinedEnumValueAttribute.#ctor(System.Object)"><summary>
+            Initializes a new instance.
+            </summary><param name="value">The enum value that should be the undefined value. Must not be <see langword="null" />.</param></member><member name="P:Remotion.ObjectBinding.UndefinedEnumValueAttribute.Value"><summary>
+            Gets the undefined value of the enum.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.IsAccessible(Remotion.ObjectBinding.IBusinessObjectClass,Remotion.ObjectBinding.IBusinessObject)"><summary> Indicates whether this property can be accessed by the user. </summary><param name="objectClass"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> of the <paramref name="obj" />. </param><param name="obj"> The object to evaluate this property for, or <see langword="null" />. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.IsReadOnly(Remotion.ObjectBinding.IBusinessObject)"><summary> Indicates whether this property can be modified by the user. </summary><param name="obj"> The object to evaluate this property for, or <see langword="null" />. </param></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.IsList"><summary> Gets a flag indicating whether this property contains multiple values. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.ListInfo"><summary>Gets the <see cref="T:Remotion.ObjectBinding.IListInfo" /> for this <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.PropertyType"><summary> Gets the type of the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.Identifier"><summary> Gets an identifier that uniquely defines this property within its class. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.DisplayName"><summary> Gets the property name as presented to the user. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.IsRequired"><summary> Gets a flag indicating whether this property is required. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.BusinessObjectProvider"><summary> Gets the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider" /> for this property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.Remotion#ObjectBinding#IBusinessObjectProperty#BusinessObjectProvider"><summary> Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> for this property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.Remotion#ObjectBinding#IBusinessObjectProperty#ReflectedClass"><summary>Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> that was used to retrieve this property.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.ReflectedClass"><summary>Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> that was used to retrieve this property.</summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.BooleanProperty.GetDisplayName(System.Boolean)"><summary> Returns the human readable value of the boolean property. </summary><param name="value"> The <see cref="T:System.Boolean" /> value to be formatted. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.BooleanProperty.GetDefaultValue(Remotion.ObjectBinding.IBusinessObjectClass)"><summary> Returns the default value to be assumed if the boolean property returns <see langword="null" />. </summary><param name="objectClass"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> for which to get the property's default value. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.BooleanProperty.GetAllValues(Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a list of all the enumeration's values. </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.BooleanProperty.GetEnabledValues(Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a list of the enumeration's values that can be used in the current context. </summary><param name="businessObject"> The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> used to determine the enabled enum values. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.BooleanProperty.GetValueInfoByValue(System.Object,Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a specific enumeration value. </summary><param name="value"> The enumeration value to return the <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> for. </param><param name="businessObject"> The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> used to determine whether the enum value is enabled. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.BooleanProperty.GetValueInfoByIdentifier(System.String,Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a specific enumeration value. </summary><param name="identifier">The string identifying the  enumeration value to return the <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> for.</param><param name="businessObject"> The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> used to determine whether the enum value is enabled. </param></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.NumericPropertyBase.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.NumericPropertyBase.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.ByteProperty.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.ByteProperty.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.DecimalProperty.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.DecimalProperty.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.DoubleProperty.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.DoubleProperty.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.EnumerationProperty.#ctor(Remotion.ObjectBinding.BindableObject.Properties.PropertyBase.Parameters)"></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.EnumerationProperty.GetAllValues(Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a list of all the enumeration's values. </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.EnumerationProperty.GetEnabledValues(Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a list of the enumeration's values that can be used in the current context. </summary><param name="businessObject"> The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> used to determine the enabled enum values. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.EnumerationProperty.GetValueInfoByValue(System.Object,Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a specific enumeration value. </summary><param name="value"> The enumeration value to return the <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> for. </param><param name="businessObject"> The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> used to determine whether the enum value is enabled. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.EnumerationProperty.GetValueInfoByIdentifier(System.String,Remotion.ObjectBinding.IBusinessObject)"><summary> Returns a specific enumeration value. </summary><param name="identifier">The string identifying the  enumeration value to return the <see cref="T:Remotion.ObjectBinding.IEnumerationValueInfo" /> for.</param><param name="businessObject"> The <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> used to determine whether the enum value is enabled. </param></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.GuidProperty.MaxLength"><summary>
+              Getsthe the maximum length of a string assigned to the property, or <see langword="null" /> if no maximum length is defined.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.Int16Property.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.Int16Property.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.Int32Property.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.Int32Property.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.Int64Property.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.Int64Property.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="T:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation"><summary>
+            Provides information about a property of a bindable object and offers a way to get or set the property's value.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.GetOriginalDeclaringType"><summary>
+            Gets the type the property was originally declared on.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.GetCustomAttribute``1(System.Boolean)"><summary>
+            Gets the one custom attribute of type <typeparamref name="T" /> declared on this property, or null if no such attribute exists.
+            </summary><param name="inherited">If set to true, the inheritance hierarchy is searched for the attribute. Otherwise, only the <see cref="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.DeclaringType" />
+            is checked.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.GetCustomAttributes``1(System.Boolean)"><summary>
+            Gets the custom attributes of type <typeparamref name="T" /> declared on this property, or null if no such attribute exists.
+            </summary><param name="inherited">If set to true, the inheritance hierarchy is searched for the attributes. Otherwise, only the <see cref="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.DeclaringType" />
+            is checked.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.IsDefined``1(System.Boolean)"><summary>
+            Determines whether a custom attribute of the specified type <typeparamref name="T" /> is defined on the property.
+            </summary><param name="inherited">If set to true, the inheritance hierarchy is searched for the attribute. Otherwise, only the <see cref="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.DeclaringType" />
+            is checked.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.GetValue(System.Object,System.Object[])"><summary>
+            Gets the value of the property for the given instance.
+            </summary><param name="instance">The instance to retrieve the value for, or <see langword="null" /> for a static property.</param><param name="indexParameters">The index parameters to be used for property value retrieval.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.SetValue(System.Object,System.Object,System.Object[])"><summary>
+            Sets the value of the property for the given instance.
+            </summary><param name="instance">The instance to set the value for, or <see langword="null" /> for a static property.</param><param name="value">The property's value for the given instance.</param><param name="indexParameters">The index parameters to be used for setting the property value.</param></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.PropertyType"><summary>
+            Gets the type of the property, i.e. the type of values the property can store.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.Name"><summary>
+            Gets the simple name of the property identifying it within its declaring type.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.DeclaringType"><summary>
+            Gets the type declaring the property.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.InterfacePropertyInfo"><summary>
+            Gets a reflection <see cref="T:System.Reflection.PropertyInfo" /> object representing the interface member implemented by this property.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.IPropertyInformation.CanBeSetFromOutside"><summary>
+            Determines whether the property can be set from the outside.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.ReferenceProperty.SearchAvailableObjects(Remotion.ObjectBinding.IBusinessObject,Remotion.ObjectBinding.ISearchAvailableObjectsArguments)"><summary>Searches the object model for the <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> instances that can be assigned to this property.</summary><param name="referencingObject"> The business object for which to search for the possible objects to be referenced. </param><param name="searchArguments">A parameter-object containing additional information for executing the search. Can be <see langword="null" />.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.Properties.ReferenceProperty.Create(Remotion.ObjectBinding.IBusinessObject)"><summary>
+              If <see cref="P:Remotion.ObjectBinding.BindableObject.Properties.ReferenceProperty.CreateIfNull" /> is <see langword="true" />, this method can be used to create a new business 
+              object.
+            </summary><param name="referencingObject"> 
+              The business object containing the reference property whose value will be assigned the newly created object. 
+            </param></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.ReferenceProperty.ReferenceClass"><summary> Gets the class information for elements of this property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.ReferenceProperty.SupportsSearchAvailableObjects"><summary>Gets a flag indicating whether it is possible to get a list of the objects that can be assigned to this property.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.ReferenceProperty.CreateIfNull"><summary>
+              Gets a flag indicating if <see cref="M:Remotion.ObjectBinding.BindableObject.Properties.ReferenceProperty.Create(Remotion.ObjectBinding.IBusinessObject)" /> may be called to implicitly create a new business object 
+              for editing in case the object reference is null.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.SingleProperty.AllowNegative"><summary> Gets a flag specifying whether negative numbers are valid for the property. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.SingleProperty.Type"><summary>Gets the numeric type associated with this <see cref="T:Remotion.ObjectBinding.IBusinessObjectNumericProperty" />.</summary></member><member name="P:Remotion.ObjectBinding.BindableObject.Properties.StringProperty.MaxLength"><summary>
+              Getsthe the maximum length of a string assigned to the property, or <see langword="null" /> if no maximum length is defined.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectBaseClassAttribute"><summary>
+            Marks a class to be a base class for the bindable object implementation of <see cref="T:Remotion.ObjectBinding.IBusinessObject" />. This interface is used by the Remotion
+            infrastructure, it should not be applied to arbitrary types.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectMixin"><summary>
+            Apply this mixin to a type in order to add an <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> implementation if you cannot derive from 
+            <see cref="T:Remotion.ObjectBinding.BindableObjectBase" />.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1"><summary>
+            Provides a base class for mixins introducing <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> to arbitrary target classes.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.GetProperty(Remotion.ObjectBinding.IBusinessObjectProperty)"><summary> Gets the value accessed through the specified <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />. </summary><param name="property"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used to access the value. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.IsDefaultValue(Remotion.ObjectBinding.BindableObject.Properties.PropertyBase,System.Object)"><summary>
+            Determines whether the given <paramref name="property" />, whose current value is <paramref name="nativeValue" />, still has its default value.
+            </summary><param name="property">The property to be checked.</param><param name="nativeValue">The property's current value in its native form.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.SetProperty(Remotion.ObjectBinding.IBusinessObjectProperty,System.Object)"><summary> Sets the value accessed through the specified <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />. </summary><param name="property"> 
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used to access the value. Must not be <see langword="null" />.
+            </param><param name="value"> The new value for the <paramref name="property" /> parameter. </param></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.GetPropertyString(Remotion.ObjectBinding.IBusinessObjectProperty,System.String)"><summary> 
+              Gets the formatted string representation of the value accessed through the specified 
+              <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />.
+            </summary><param name="property"> 
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> used to access the value. Must not be <see langword="null" />.
+            </param><param name="format"> The format string applied by the <b>ToString</b> method. </param></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.BusinessObjectClass"><summary> Gets the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" /> of this business object. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.Remotion#ObjectBinding#IBusinessObject#BusinessObjectClass"><summary> Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> of this business object. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.DisplayName"><summary> Gets the human readable representation of this <see cref="T:Remotion.ObjectBinding.IBusinessObject" />. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.DisplayNameSafe"><summary>
+              Gets the value of <see cref="P:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.DisplayName" /> if it is accessible and otherwise falls back to the <see cref="T:System.String" /> returned by
+              <see cref="M:Remotion.ObjectBinding.IBusinessObjectProvider.GetNotAccessiblePropertyStringPlaceHolder" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectClass.GetPropertyDefinition(System.String)"><summary> Returns the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> for the passed <paramref name="propertyIdentifier" />. </summary><param name="propertyIdentifier"> 
+              A <see cref="T:System.String" /> uniquely identifying an <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> in this
+              business object class.
+            </param></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectClass.GetPropertyDefinitions"><summary> 
+              Returns the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> instances defined for this business object class.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectClass.BusinessObjectProvider"><summary> Gets the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> for this business object class. </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectClass.RequiresWriteBack"><summary>
+              Gets a flag that specifies whether a referenced object of this business object class needs to be 
+              written back to its container if some of its values have changed.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectClass.Identifier"><summary> Gets the identifier (i.e. the type name) for this business object class. </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectMetadataFactory"><summary>
+            The <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectMetadataFactory" /> implements the <see cref="T:Remotion.ObjectBinding.BindableObject.IMetadataFactory" /> interface for the plain reflection based 
+            bindable object implementation.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.IMetadataFactory"><summary>
+            The <see cref="T:Remotion.ObjectBinding.BindableObject.IMetadataFactory" /> interface provides factory methods for creating the reflection objects used to create the 
+            <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" /> and it's associated attributes.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider"><summary>
+            The implementation for the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProvider" /> interface for the reflection based business object layer.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectProvider.GetProviderForBindableObjectType(System.Type)"><summary>
+            Use this method as a shortcut to retrieve the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider" /> for a <see cref="T:System.Type" /> 
+            that has the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1" /> applied or is derived from a bindable object base class without first retrieving the 
+            matching provider.
+            </summary><param name="type">The <see cref="T:System.Type" /> to retrieve the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider" /> for.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectProvider.GetBindableObjectClass(System.Type)"><summary>
+            Use this method as a shortcut to retrieve the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" /> for a <see cref="T:System.Type" /> 
+            that has the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1" /> applied or is derived from a bindable object base class without first retrieving the 
+            matching provider.
+            </summary><param name="type">The type to get a <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" /> for. This type must have a mixin derived from
+            <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1" /> configured or it must be derived from a bindable object class class, and it is 
+            recommended to specify the simple target type rather then the generated mixed type.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.BindableObjectProvider.IsBindableObjectImplementation(System.Type)"><summary>
+            Determines whether the specified type is a bindable object implementation.
+            </summary><param name="type">The type to check.</param></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectProvider.MetadataFactory"><summary>Gets the MetadataFactory for this <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider" /></summary></member><member name="P:Remotion.ObjectBinding.BindableObject.BindableObjectProvider.ServiceStore"><summary> The <see cref="T:System.Collections.IDictionary" /> used to store the references to the registered servies. </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectProviderAttribute"><summary>
+            Apply this attribute to your BindableObject-type to classify the this type as using the default reflection based object binding implementation.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectServiceFactory"><summary>
+            The <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectServiceFactory" /> is the default implementation of the <see cref="T:Remotion.ObjectBinding.IBusinessObjectServiceFactory" />
+            and provides service instances common for all bindable object implementations.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectWithIdentityMixin"><summary>
+            Apply this mixin to a type in order to add an <see cref="T:Remotion.ObjectBinding.IBusinessObjectWithIdentity" /> implementation.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.BindableObjectWithIdentityProviderAttribute"><summary>
+            Apply this attribute to your BindableObjectWithIdentity-type to classify the this type as using the default reflection based object binding implementation.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.ClassReflector"><summary>
+            The <see cref="T:Remotion.ObjectBinding.BindableObject.ClassReflector" /> is used to create an instance of type <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" /> for a <see cref="T:System.Type" />.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.IClassReflector"><summary>
+            Instances exposing the <see cref="T:Remotion.ObjectBinding.BindableObject.IClassReflector" /> interface can be used to create a <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" /> for a <see cref="T:System.Type" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.IClassReflector.GetMetadata"><summary>
+            Creates an instance of type <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" /> for the <see cref="P:Remotion.ObjectBinding.BindableObject.IClassReflector.TargetType" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.IClassReflector.TargetType"><summary>
+            The <see cref="T:System.Type" /> for which to create the <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClass" />.
+            </summary></member><member name="P:Remotion.ObjectBinding.BindableObject.IClassReflector.BusinessObjectProvider"><summary>
+            The <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectProvider" /> associated with the <see cref="P:Remotion.ObjectBinding.BindableObject.IClassReflector.TargetType" />.
+            </summary></member><member name="T:Remotion.ObjectBinding.BindableObject.IGetObjectService"><summary>
+            <see cref="T:Remotion.ObjectBinding.BindableObject.IGetObjectService" /> defines the interface required for retrieving an <see cref="T:Remotion.ObjectBinding.IBusinessObjectWithIdentity" /> by its unique identifier.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.IGetObjectService.GetObject(Remotion.ObjectBinding.BindableObject.BindableObjectClassWithIdentity,System.String)"><summary>
+            Retrieves the <see cref="T:Remotion.ObjectBinding.IBusinessObjectWithIdentity" /> identified by the <paramref name="uniqueIdentifier" />.
+            </summary><param name="classWithIdentity">
+            The <see cref="T:Remotion.ObjectBinding.BindableObject.BindableObjectClassWithIdentity" /> containing the metadata for the object's type. Must not be <see langword="null" />.
+            </param><param name="uniqueIdentifier">The unique identifier of the object. Must not be <see langword="null" /> or empty.</param></member><member name="T:Remotion.ObjectBinding.BindableObject.ISearchAvailableObjectsService"><summary>
+            <see cref="T:Remotion.ObjectBinding.BindableObject.ISearchAvailableObjectsService" /> defines the interface required for retrieving a list of <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> instances 
+            that may be assigned to the specified <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" />.
+            </summary></member><member name="M:Remotion.ObjectBinding.BindableObject.ISearchAvailableObjectsService.SupportsProperty(Remotion.ObjectBinding.IBusinessObjectReferenceProperty)"><summary>
+            Gets a flag that describes whether the serivce can be used to retrieve the available objects for this property.
+            </summary><param name="property">The <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" /> to be tested.</param></member><member name="M:Remotion.ObjectBinding.BindableObject.ISearchAvailableObjectsService.Search(Remotion.ObjectBinding.IBusinessObject,Remotion.ObjectBinding.IBusinessObjectReferenceProperty,Remotion.ObjectBinding.ISearchAvailableObjectsArguments)"><summary>
+            Retrieves the list of <see cref="T:Remotion.ObjectBinding.IBusinessObject" /> intances for the specified <paramref name="referencingObject" />, 
+            <paramref name="property" />, and <paramref name="searchArguments" />. 
+            </summary><param name="referencingObject">
+            The object containing the <paramref name="property" /> for which the list of possible values is to be retrieved.
+            </param><param name="property">
+            The <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" /> that will be assigned with one of the objects from the result. Must not be <see langword="null" />.
+            </param><param name="searchArguments">A parameter-object containing additional information for executing the search. Can be <see langword="null" />.</param></member><member name="T:Remotion.ObjectBinding.BindableObject.PropertyReflector"><summary>
+            Use the <see cref="T:Remotion.ObjectBinding.BindableObject.PropertyReflector" /> to create <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> implementations for the bindable object implementation
+            of the business object interfaces.
+            </summary></member><member name="F:Remotion.ObjectBinding.Design.BindableObject.BindableObjectTypePickerControl.components"><summary> 
+            Required designer variable.
+            </summary></member><member name="M:Remotion.ObjectBinding.Design.BindableObject.BindableObjectTypePickerControl.Dispose(System.Boolean)"><summary> 
+            Clean up any resources being used.
+            </summary><param name="disposing">true if managed resources should be disposed; otherwise, false.</param></member><member name="M:Remotion.ObjectBinding.Design.BindableObject.BindableObjectTypePickerControl.InitializeComponent"><summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary></member><member name="F:Remotion.ObjectBinding.Design.PropertyPathPickerControl.components"><summary> 
+            Required designer variable.
+            </summary></member><member name="M:Remotion.ObjectBinding.Design.PropertyPathPickerControl.AddProperty(System.Windows.Forms.TreeNodeCollection,Remotion.ObjectBinding.IBusinessObjectProperty,System.Boolean)"><summary>
+              Adds a <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> to the <see cref="T:System.Windows.Forms.TreeNodeCollection" />.
+            </summary><param name="nodes">
+              The <see cref="T:System.Windows.Forms.TreeNodeCollection" /> to which the <paramref name="property" /> will be added.
+            </param><param name="property"> The <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> to add. </param><param name="includeReferenceClassProperties"> 
+              <see langword="true" /> to call <see cref="M:Remotion.ObjectBinding.Design.PropertyPathPickerControl.AddReferenceClassProperties(System.Windows.Forms.TreeNodeCollection,Remotion.ObjectBinding.IBusinessObjectClass)" /> if the 
+              <paramref name="property" /> is of type <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" />.
+            </param></member><member name="M:Remotion.ObjectBinding.Design.PropertyPathPickerControl.AddReferenceClassProperties(System.Windows.Forms.TreeNodeCollection,Remotion.ObjectBinding.IBusinessObjectClass)"><summary>
+              Adds the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" /> objects found in 
+              <paramref name="businessObjectClass" /> to the <see cref="T:System.Windows.Forms.TreeNodeCollection" />.
+            </summary><param name="nodes">
+              The <see cref="T:System.Windows.Forms.TreeNodeCollection" /> to which the <see cref="T:Remotion.ObjectBinding.IBusinessObjectProperty" />
+              objects of the <paramref name="businessObjectClass" /> will be added.
+            </param><param name="businessObjectClass">
+              The <see cref="T:Remotion.ObjectBinding.IBusinessObjectClass" /> to use as a property source.
+            </param></member><member name="M:Remotion.ObjectBinding.Design.PropertyPathPickerControl.PopulateBranch(System.Windows.Forms.TreeNode)"><summary>
+              Populates the <see cref="P:System.Windows.Forms.TreeNode.Nodes" /> collection for each <see cref="T:System.Windows.Forms.TreeNode" />
+              in this branch representing a <see cref="T:Remotion.ObjectBinding.IBusinessObjectReferenceProperty" />.
+            </summary><param name="node"> The branch whose nodes will be populated. </param></member><member name="M:Remotion.ObjectBinding.Design.PropertyPathPickerControl.Dispose(System.Boolean)"><summary> 
+            Clean up any resources being used.
+            </summary></member><member name="M:Remotion.ObjectBinding.Design.PropertyPathPickerControl.InitializeComponent"><summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary></member><member name="T:Remotion.ObjectBinding.Design.PropertyPathPickerEditor"><summary>
+              Editor applied to the string property used to set the 
+              <see cref="P:Remotion.ObjectBinding.BusinessObjectPropertyPath.Identifier">BusinessObjectPropertyPath.Identifier</see>.
+            </summary></member><member name="F:Remotion.ObjectBinding.Design.PropertyPickerControl.components"><summary> 
+            Required designer variable.
+            </summary></member><member name="M:Remotion.ObjectBinding.Design.PropertyPickerControl.Dispose(System.Boolean)"><summary> 
+            Clean up any resources being used.
+            </summary></member><member name="M:Remotion.ObjectBinding.Design.PropertyPickerControl.InitializeComponent"><summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary></member><member name="T:Remotion.ObjectBinding.Design.PropertyPickerEditor"><summary>
+              Editor applied to an <see cref="P:Remotion.ObjectBinding.IBusinessObjectBoundControl.PropertyIdentifier">IBusinessObjectBoundControl.PropertyIdentifier</see>.
+            </summary></member><member name="T:Remotion.ObjectBinding.Globalization.BindableObjectGlobalizationService"><summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary></member><member name="P:Remotion.ObjectBinding.Globalization.BindableObjectGlobalizationService.ResourceManager"><summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary></member><member name="P:Remotion.ObjectBinding.Globalization.BindableObjectGlobalizationService.Culture"><summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary></member><member name="P:Remotion.ObjectBinding.Globalization.BindableObjectGlobalizationService.Remotion_ObjectBinding_BindableObject_BindableObjectGlobalizationService_False"><summary>
+              Looks up a localized string similar to No.
+            </summary></member><member name="P:Remotion.ObjectBinding.Globalization.BindableObjectGlobalizationService.Remotion_ObjectBinding_BindableObject_BindableObjectGlobalizationService_True"><summary>
+              Looks up a localized string similar to Yes.
+            </summary></member></members></doc>

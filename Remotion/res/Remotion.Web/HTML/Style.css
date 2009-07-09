@@ -1,0 +1,145 @@
+/*  Changes the font-size to 80%. 
+    Font-size is compatible with all browsers for pages displayed in quirks mode. (The default for ASP.NET projekts) */
+@import url("FontSize080Quirks.css");
+
+body
+{
+}
+
+body, input, select, textarea
+{
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+/*  The headings do not automatically scale with the body's font-size. Now they do. 
+    The font-size relation between headings and body is maintained with the used percentages. */
+h1
+{
+  font-size: 150%;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+h2
+{
+  font-size: 115%;
+}
+
+h3
+{
+  font-size: 100%;
+}
+
+h4
+{
+  font-size: 85%;
+}
+
+h5
+{
+  font-size: 70%;
+}
+
+h6
+{
+  font-size: 60%;
+}
+
+/*  All anchor elements on the page. */
+a
+{
+  text-decoration: none;
+  color: #0d4eba;
+}
+
+/*  All elements sporting the class "disabled". */
+.disabled,
+.disabled input,
+.disabled select,
+.disabled textarea,
+.disabled label
+{
+  color: Gray;
+}
+
+div#ErrorContainer
+{
+  background-color: White;
+  color: Red;
+  font-size: 1.1em;
+  font-weight: bold;
+  height: 1.1em;
+  padding: 0.5em;
+  padding-bottom: 0;
+}
+
+div.tabbedMultiView
+{
+  background-color:#083779;
+  padding: 0.3em;
+  padding-top: 0;
+}        
+
+td.tabbedMultiViewView
+{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+div.tabbedMultiViewView div.content
+{
+  padding-bottom: 0;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+td.tabbedMultiViewTopControls
+{
+  background-color: White;
+  padding-bottom: 0.5em;
+}
+
+td.tabbedMultiViewTopControls div.content
+{
+  background-color:#083779;
+}
+
+div.tabbedMultiViewBottomControls
+{
+  padding:0.5em;
+}
+
+td.tabbedMultiViewTopControls div.content h1.pageTitle
+{
+  width: 100%;
+  background-color: White;
+  padding: 0.5em;
+  padding-top: 0;
+}
+
+div.tabbedMultiViewBottomControls button
+{
+  width:1%;
+  margin-right:0.5em;
+}
+
+div.tabbedMultiViewBottomControls button span.buttonBody
+{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+button.imageButton
+{
+  border: none;
+  background-color: Transparent;
+}
+
+tr.underlinedMarkerCellRow td.formGridMarkersCell
+{
+  border-top: 0;
+  border-bottom: 0;
+}

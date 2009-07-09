@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><doc><assembly>
+        <name>Remotion.Data.Interfaces</name>
+    </assembly><members><member name="T:Remotion.Data.ITransaction"><summary> The <see cref="T:Remotion.Data.ITransaction" /> interface provides functionality needed when working with a transaction.</summary></member><member name="M:Remotion.Data.ITransaction.To``1"><summary> Gets the native transaction.</summary></member><member name="M:Remotion.Data.ITransaction.Commit"><summary> Commits the transaction. </summary></member><member name="M:Remotion.Data.ITransaction.Rollback"><summary> Rolls the transaction back. </summary></member><member name="M:Remotion.Data.ITransaction.CreateChild"><summary> Creates a new child transaction for the current transaction. </summary></member><member name="M:Remotion.Data.ITransaction.Release"><summary> Allows the transaction to implement clean up logic. </summary></member><member name="M:Remotion.Data.ITransaction.EnterScope"><summary>
+            Enters a new scope for the given transaction, making it the active transaction while the scope exists.
+            </summary></member><member name="M:Remotion.Data.ITransaction.RegisterObjects(System.Collections.IEnumerable)"><summary>Registers the <paramref name="objects" /> with the transaction.</summary><param name="objects">The objects to be registered. Must not be <see langword="null" />.</param></member><member name="M:Remotion.Data.ITransaction.Reset"><summary>Resets the transaction.</summary></member><member name="P:Remotion.Data.ITransaction.CanCreateChild"><summary> 
+              Gets a flag that describes whether the transaction supports creating child transactions by invoking
+              <see cref="M:Remotion.Data.ITransaction.CreateChild" />.
+            </summary></member><member name="P:Remotion.Data.ITransaction.Parent"><summary> Gets the transaction's parent transaction. </summary></member><member name="P:Remotion.Data.ITransaction.IsChild"><summary>Gets a flag describing whether the transaction is a child transaction.</summary></member><member name="P:Remotion.Data.ITransaction.HasUncommittedChanges"><summary>Gets a flag describing whether the transaction has been changed since the last commit or rollback.</summary></member><member name="P:Remotion.Data.ITransaction.IsReadOnly"><summary>Gets a flag describing whether the transaction is in a read-only state.</summary></member><member name="T:Remotion.Data.ITransactionFactory"><summary>
+            The <see cref="T:Remotion.Data.ITransactionFactory" /> interface defines a factory method for creating root transactions in 
+            user interface application such as a web application using the Execution Engine flow control infrastructure.
+            </summary></member><member name="M:Remotion.Data.ITransactionFactory.CreateRootTransaction"><summary>
+            Creates a new root transaction instance. This instance is not yet managed by a scope.
+            </summary></member><member name="T:Remotion.Data.ITransactionScope"><summary>
+            Represents a transaction scope, ie. an execution region where a certain <cref see="ITransaction" /> is the current transaction.
+            </summary></member><member name="M:Remotion.Data.ITransactionScope.Leave"><summary>
+            Leaves the scope, which means that <see cref="P:Remotion.Data.ITransactionScope.ScopedTransaction" /> is no loner the current transaction. 
+            </summary></member><member name="P:Remotion.Data.ITransactionScope.IsActiveScope"><summary>
+            Gets a flag that describes whether this is the active scope.
+            </summary></member><member name="P:Remotion.Data.ITransactionScope.ScopedTransaction"><summary>
+            Gets the transaction managed by this scope.
+            </summary></member></members></doc>

@@ -1,0 +1,151 @@
+/*  */
+div.dropDownMenuHead
+{
+  border-color: #083779 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+	background-color: White !important;
+}
+
+/*div.dropDownMenuHead
+{
+  padding: 1px;
+}
+
+div.dropDownMenuHeadFocus
+{
+  border-color: #083779;
+  border-style: solid;
+  border-width: 1px;
+	background-color: White;
+}*/
+
+td.dropDownMenuHeadTitle
+{
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  cursor: default !important;
+}
+
+/*div.dropDownMenuHeadFocus td.dropDownMenuHeadTitle
+{
+	background-color: White;
+}*/
+
+td.dropDownMenuHeadTitle a
+{
+  color: #083779 !important;
+}
+
+/*  */
+td.dropDownMenuHeadButton
+{
+  vertical-align: middle !important;
+  cursor: default !important;
+  background-color: #083779 !important;
+}
+
+/*div.dropDownMenuHead td.dropDownMenuHeadButton
+{
+  visibility: hidden;
+}
+
+div.dropDownMenuHeadFocus td.dropDownMenuHeadButton
+{
+  visibility: visible;
+}*/
+
+td.dropDownMenuHeadButton a
+{
+  cursor: default !important;
+  background-color: Transparent !important;
+  border-style: none !important;
+	padding: 0px !important;
+}
+
+td.dropDownMenuHeadButton a:hover
+{
+  cursor: default !important;
+  background-color: Transparent !important;
+  border-style: none !important;
+	padding: 0px !important;
+}
+
+/*  */
+div.dropDownMenuPopUp
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-color: #083779;
+  border-style: solid;
+  border-width: 1px;
+  background-image: url(../Image/DropDownMenuItemIconPane.gif);
+  background-repeat: repeat-y;  
+  background-color: white;
+}
+
+div.dropDownMenuItem
+{
+  color: #083779;
+	margin: 1px;
+	padding: 2px;
+	vertical-align: middle;	
+	white-space: nowrap;
+	cursor: default;
+}
+
+div.dropDownMenuItemFocus
+{
+  color: #083779;
+	margin: 1px;
+	padding: 1px;
+	vertical-align: middle;
+	white-space: nowrap;
+	border-color: #083779;
+	border-width: 1px;
+	border-style: solid;
+	background-color: #e6f0ff;	
+  cursor: default;
+}
+
+div.dropDownMenuItemDisabled
+{
+	margin: 1px;
+	padding: 2px;
+	vertical-align: middle;	
+	white-space: nowrap;
+  color: gray;
+	cursor: default;
+}
+
+/*  */
+span.dropDownMenuItemTextPane
+{
+  padding-left: 8px;
+  padding-right: 4px;
+  font-size: 85%;
+  border-style: none;
+	vertical-align: middle;
+}
+
+
+/*  */
+span.dropDownMenuItemIconPane
+{
+  width: 20px;
+	padding-right: 2px;
+  border-style: none;
+	vertical-align: middle;
+	text-align: center;
+}
+
+span.dropDownMenuTextPaneSeparator
+{
+	margin-left: 32px;
+	margin-right: 0px;
+  font-size: 1px;
+  line-height: 1px;
+  height: 1px;
+  background-color: #083779;
+}

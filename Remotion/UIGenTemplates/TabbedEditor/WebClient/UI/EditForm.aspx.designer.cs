@@ -13,7 +13,7 @@ namespace $PROJECT_ROOTNAMESPACE$.UI
 		protected global::$PROJECT_ROOTNAMESPACE$.UI.NavigationTabs TheNavigationTabs;
 		protected global::Remotion.Web.UI.Controls.TabView Edit$DOMAIN_CLASSNAME$View;
 		protected global::$PROJECT_ROOTNAMESPACE$.UI.Edit$DOMAIN_CLASSNAME$Control Edit$DOMAIN_CLASSNAME$Control;
-		protected global::System.Web.UI.HtmlControls.HtmlForm ThisForm;
+		protected global::System.Web.UI.HtmlControls.HtmlForm EditForm;
 		protected global::Remotion.Web.UI.Controls.WebButton SaveButton;
 		protected global::Remotion.Web.UI.Controls.WebButton CancelButton;
 	}

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <form id="ThisForm" runat="server">
+  <form id="EditForm" runat="server">
     <remotion:BindableObjectDataSourceControl ID="CurrentObject" runat="server" Type="$DOMAIN_QUALIFIEDCLASSTYPENAME$" />
     <remotion:TabbedMultiView ID="MultiView" runat="server" CssClass="tabbedMultiView" >
       <TopControls>

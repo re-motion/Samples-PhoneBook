@@ -37,7 +37,7 @@ namespace PhoneBook.Web.UI
         {
         }
       }
-      // BEGIN CUSTOM
+      // BEGIN HANDLER
       else if (e.Column.ItemID == "Delete")
       {
         ((Location) e.BusinessObject).DeleteMakeHomeless ();
@@ -46,12 +46,15 @@ namespace PhoneBook.Web.UI
         var listLocations = searchAllService.GetAllObjects (ClientTransaction.Current, typeof (Location));
         LocationList.LoadUnboundValue (listLocations, IsPostBack);
       }
-      // END CUSTOM
+      // END HANDLER
     }
 
     public override IBusinessObjectDataSourceControl DataSource
     {
       get { return CurrentObject; }
     }
+
+    // BEGIN CUSTOM
+    // END CUSTOM
   }
 }

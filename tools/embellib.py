@@ -29,6 +29,8 @@ kBeginSaveButtonClick = "void SaveButton_Click"
 kEndSaveButtonClick = "// END SaveButton_Click"
 kBeginCancelButtonClick = "void CancelButton_Click"
 kEndCancelButtonClick = "// END CancelButton_Click"
+kBeginHandler = "// BEGIN HANDLER"
+kEndHandler = "// END HANDLER"
 
 
 class NoBeginException (Exception):

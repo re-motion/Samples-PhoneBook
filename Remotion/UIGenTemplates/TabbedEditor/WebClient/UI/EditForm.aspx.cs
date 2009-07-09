@@ -31,7 +31,7 @@ namespace $PROJECT_ROOTNAMESPACE$.UI
     protected override IBusinessObjectDataSourceControl DataSource
     {
       get { return CurrentObject; }
-    }
+    } // END DataSource
 
     protected override TabbedMultiView UserControlMultiView
     {

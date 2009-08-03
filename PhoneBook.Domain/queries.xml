@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<queries xmlns="http://www.re-motion.org/Data/DomainObjects/Queries/1.0">
+
+  <query id="QueryManGetLocations" type="collection">
+    <statement> SELECT * FROM LocationView </statement>
+  </query>
+
+  <query id="QueryManFindPersonsByLocation" type="collection">
+    <statement> SELECT * FROM PersonView WHERE LocationID = @location </statement>
+  </query>
+
+  <query id="QueryManFindLocationsByCountry" type="collection">
+    <statement> SELECT * FROM LocationView WHERE Country = @country </statement>
+  </query>
+
+</queries> 

@@ -5,6 +5,7 @@ using System.Text;
 using Remotion.Data.DomainObjects;
 using Remotion.Data.DomainObjects.Queries;
 using Remotion.Data.DomainObjects.ObjectBinding;
+using Remotion.Data.DomainObjects.Queries.Configuration;
 using Remotion.Globalization;
 using Remotion.Utilities;
 
@@ -12,7 +13,7 @@ namespace PhoneBook.Domain
 {
   [DBTable]
   [MultiLingualResources("PhoneBook.Domain.Globalization.Location")]
-  public class Location : BindableDomainObject
+  public partial class Location : BindableDomainObject
   {
     [StringProperty(MaximumLength=60, IsNullable=false)]
     public virtual string Street { get; set; }

@@ -11,7 +11,7 @@ namespace PhoneBook.Domain
 {
   [DBTable]
   [MultiLingualResources("PhoneBook.Domain.Globalization.Person")]
-  public class Person : BindableDomainObject
+  public partial class Person : BindableDomainObject
   {
     [StringProperty(MaximumLength=60)]
     public virtual string FirstName { get; set; }
@@ -39,7 +39,7 @@ namespace PhoneBook.Domain
       base.Delete ();
     }
 
-    public static Person[] FindPersons ()
+    public static Person[] GetPersons ()
     {
       var query = from p in QueryFactory.CreateLinqQuery<Person> ()
                   select p;
@@ -74,6 +74,13 @@ namespace PhoneBook.Domain
         displayName += Surname;
         return displayName;
       }
+    }
+
+    public static Person[] QueryManFindPersonsByLocation (Location location)
+    {
+      var query = QueryFactory.CreateQueryFromConfiguration ("QueryManFindPersonsByLocation");
+      query.Parameters.Add ("@location", location.ID.Value);
+      return ClientTransaction.Current.QueryManager.GetCollection<Person> (query).ToArray ();
     }
   }
 }

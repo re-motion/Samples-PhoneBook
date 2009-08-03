@@ -41,7 +41,7 @@ namespace PhoneBook.Web.Classes
         var id = ObjectID.Parse (eventArgument);
         var page = (IWxePage) arguments.List.Page;
         PhoneNumber number = PhoneNumber.GetObject (id);
-        var externalOption = new WxeCallOptionsExternal ("_self");
+        var externalOption = new WxeCallOptionsExternal ("_blank");
         var externalOptionArgument = new WxeCallArguments ((Control) page, externalOption);
         EditPhoneNumberForm.Call (page, externalOptionArgument, number);
         if (Commit)

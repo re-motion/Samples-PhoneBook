@@ -148,7 +148,7 @@ namespace PhoneBook.Sample
     {
       using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
       {
-        Person.FindPersons()[0].PhoneNumbers[0].Delete();
+        Person.GetPersons()[0].PhoneNumbers[0].Delete();
         ClientTransaction.Current.Commit ();
       }
     }
@@ -157,7 +157,7 @@ namespace PhoneBook.Sample
     {
       using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
       {
-        var persons = Person.FindPersons ();
+        var persons = Person.GetPersons ();
         persons[persons.Length - 1].Delete ();
         ClientTransaction.Current.Commit ();
       }
@@ -260,12 +260,29 @@ namespace PhoneBook.Sample
       }
     }
 
+    static void QueryManMain (string[] args)
+    {
+      Console.WriteLine ("All locations:");
+      QueryManGetLocationsSample ();
+      Console.WriteLine ();
+
+      Console.WriteLine ("All Austrian locations:");
+      QueryManFindLocationsByCountrySample ();
+      Console.WriteLine ();
+
+      QueryManFindPersonsByLocationsSample ();
+      Console.WriteLine ("Reporting all locations, and who lives there:");
+
+    }
+
     static void Main (string[] args)
     {
       // ReportAll ();
       // DeleteFirstPhoneNumberOfFirstPerson ();
       // DeleteLastPerson ();
-      DeleteDesireeDeletee ();
+      // DeleteDesireeDeletee ();
+      QueryManMain (args);
+      Console.ReadLine ();
     }
   }
 }

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "svn-del", "svn-del\svn-del.csproj", "{DBA662D1-D097-4040-86ED-8495044D41CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBA662D1-D097-4040-86ED-8495044D41CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA662D1-D097-4040-86ED-8495044D41CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA662D1-D097-4040-86ED-8495044D41CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA662D1-D097-4040-86ED-8495044D41CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

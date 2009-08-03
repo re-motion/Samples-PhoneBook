@@ -1,0 +1,102 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer>
+      <setting name="UsedSolutionBuilderID">0</setting>
+    </integer>
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="2028" scrollPosition="0|0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="1223" scrollPosition="0|0" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="282" scrollPosition="0|0" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="959" scrollPosition="0|18" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="797" scrollPosition="0|6" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="1694" scrollPosition="0|54" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="1934" scrollPosition="0|54" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="2449" scrollPosition="0|66" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="2688" scrollPosition="0|69" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="1432" scrollPosition="0|36" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="1096" scrollPosition="0|24" />
+      <File id="DBA662D1-D097-4040-86ED-8495044D41CD/f:Program.cs" caret="553" scrollPosition="0|12" />
+    </RecentEdits>
+  </RecentFiles>
+  <UnitTestRunner>
+    <CustomStartDirectory>
+    </CustomStartDirectory>
+    <UseShadowCopy>True</UseShadowCopy>
+    <UseCustomFolder>False</UseCustomFolder>
+    <EnableUnitTesting>True</EnableUnitTesting>
+    <Providers />
+  </UnitTestRunner>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:@System.IO.Directory">
+      <Item value="Delete" priority="3" />
+      <Item value="GetFiles" priority="0" />
+      <Item value="GetDirectories" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Default">
+      <Item value="static" priority="6" />
+      <Item value="void" priority="6" />
+      <Item value="string" priority="10" />
+      <Item value="if" priority="6" />
+      <Item value="Path" priority="4" />
+      <Item value="path" priority="20" />
+      <Item value="SvnDelete" priority="1" />
+      <Item value="args" priority="4" />
+      <Item value="else" priority="2" />
+      <Item value="throw" priority="3" />
+      <Item value="new" priority="4" />
+      <Item value="Exception" priority="1" />
+      <Item value="return" priority="1" />
+      <Item value="IsSvn" priority="2" />
+      <Item value="var" priority="6" />
+      <Item value="in" priority="5" />
+      <Item value="Directory" priority="5" />
+      <Item value="File" priority="1" />
+      <Item value="String" priority="6" />
+      <Item value="SvnEmpty" priority="0" />
+      <Item value="Console" priority="4" />
+      <Item value="fileName" priority="0" />
+      <Item value="foreach" priority="4" />
+      <Item value="dirName" priority="7" />
+      <Item value="FileAttributes" priority="0" />
+      <Item value="EmptyFiles" priority="1" />
+      <Item value="EmptyDirectories" priority="1" />
+      <Item value="List" priority="2" />
+      <Item value="accu" priority="4" />
+      <Item value="CollectSvns" priority="2" />
+      <Item value="iter" priority="1" />
+      <Item value="ArgumentException" priority="1" />
+      <Item value="SvnEmptyDelete" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Path">
+      <Item value="GetFileName" priority="1" />
+      <Item value="GetFullPath" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="Delete" priority="0" />
+      <Item value="SetAttributes" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="StartsWith" priority="1" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

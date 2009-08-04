@@ -281,6 +281,7 @@ namespace PhoneBook.Sample
       // DeleteLastPerson ();
       // DeleteDesireeDeletee ();
       QueryManMain (args);
+      Console.WriteLine ("Done.");
       Console.ReadLine ();
     }
   }

@@ -270,9 +270,8 @@ namespace PhoneBook.Sample
       QueryManFindLocationsByCountrySample ();
       Console.WriteLine ();
 
-      QueryManFindPersonsByLocationsSample ();
       Console.WriteLine ("Reporting all locations, and who lives there:");
-
+      QueryManFindPersonsByLocationsSample ();
     }
 
     static void Main (string[] args)

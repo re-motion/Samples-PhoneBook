@@ -86,7 +86,13 @@ namespace svn_del
 
     static void Main (string[] args)
     {
-      // SvnEmptyDelete (args[0]);
+      if (!(args.Length == 1))
+      {
+        Console.WriteLine ("use like this: svn-del <root-directory>");
+        Console.WriteLine ("WILL REMOVE ALL .svn-DIRECTORIES IN THE TREE");
+        return;
+      }
+
       var path = args[0];
       if (Path.GetFullPath (path).StartsWith (@"C:\Development"))
       {

@@ -5,6 +5,7 @@ using System.Text;
 using PhoneBook.Domain;
 using Remotion.Data.DomainObjects;
 using Remotion.Data.DomainObjects.Infrastructure;
+using Remotion.Logging;
 
 namespace PhoneBook.Sample
 {
@@ -30,9 +31,9 @@ namespace PhoneBook.Sample
         pn.CountryCode = "0043";
         pn.AreaCode = "1";
         pn.Number = "3191596";
+        pn.Person = person;
 
-        person.PhoneNumbers.Add (pn);
-
+        ClientTransaction.Current.Commit ();
       }
     }
 
@@ -144,35 +145,7 @@ namespace PhoneBook.Sample
       }
     }
 
-    static void DeleteFirstPhoneNumberOfFirstPerson ()
-    {
-      using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
-      {
-        Person.GetPersons()[0].PhoneNumbers[0].Delete();
-        ClientTransaction.Current.Commit ();
-      }
-    }
-
-    static void DeleteLastPerson ()
-    {
-      using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
-      {
-        var persons = Person.GetPersons ();
-        persons[persons.Length - 1].Delete ();
-        ClientTransaction.Current.Commit ();
-      }
-    }
-
-    static void DeleteDesireeDeletee ()
-    {
-      using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
-      {
-        Person.GetFirstPersonByFirstName ("Desiree").Delete ();
-        ClientTransaction.Current.Commit ();
-      }
-    }
-
-    static void ReportAll ()
+    public static void ReportAll ()
     {
       using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
       {
@@ -198,6 +171,22 @@ namespace PhoneBook.Sample
         }
       }
       Console.ReadLine ();
+    }
+
+    static void ClientTransactionLoggingDemo ()
+    {
+      Remotion.Implementation.FrameworkVersion.Value = new Version ("1.13.6.2");
+      LogManager.InitializeConsole ();
+
+      Console.WriteLine ("Fetching PhoneNumber");
+      using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
+      {
+        // Note that this will NOT work on your machine -- the GUIDs will be wrong
+        // find valid GUIDs by querying your database 
+        var pn = PhoneNumber.GetObject (new ObjectID ("PhoneNumber", new Guid ("E8512558-6EFF-42A2-B170-04B45599F742")));
+        Console.WriteLine ("Changing Person");
+        pn.Person = Person.GetObject (new ObjectID ("Person", new Guid ("0A7BF291-604D-46C5-A7CD-034923BA22A6")));
+      }
     }
 
     static void FreudsFirstNameDemo ()
@@ -260,29 +249,19 @@ namespace PhoneBook.Sample
       }
     }
 
-    static void QueryManMain (string[] args)
-    {
-      Console.WriteLine ("All locations:");
-      QueryManGetLocationsSample ();
-      Console.WriteLine ();
 
-      Console.WriteLine ("All Austrian locations:");
-      QueryManFindLocationsByCountrySample ();
-      Console.WriteLine ();
-
-      Console.WriteLine ("Reporting all locations, and who lives there:");
-      QueryManFindPersonsByLocationsSample ();
-    }
 
     static void Main (string[] args)
     {
-      // ReportAll ();
-      // DeleteFirstPhoneNumberOfFirstPerson ();
-      // DeleteLastPerson ();
-      // DeleteDesireeDeletee ();
-      QueryManMain (args);
+      // ReportAll
+      // QueryManMain (args);
+      EnterFreud ();
+
+      // ClientTransactionLoggingDemo ();
+      // FreudsFirstNameDemo ();
+
       Console.WriteLine ("Done.");
-      Console.ReadLine ();
+      // Console.ReadLine ();
     }
   }
 }

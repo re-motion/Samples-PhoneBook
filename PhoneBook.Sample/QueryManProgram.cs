@@ -45,5 +45,19 @@ namespace PhoneBook.Sample
         }
       }
     }
+
+    static void QueryManMain (string[] args)
+    {
+      Console.WriteLine ("All locations:");
+      QueryManGetLocationsSample ();
+      Console.WriteLine ();
+
+      Console.WriteLine ("All Austrian locations:");
+      QueryManFindLocationsByCountrySample ();
+      Console.WriteLine ();
+
+      Console.WriteLine ("Reporting all locations, and who lives there:");
+      QueryManFindPersonsByLocationsSample ();
+    }
   }
 }

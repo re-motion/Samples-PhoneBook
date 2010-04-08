@@ -41,8 +41,8 @@ namespace PhoneBook.Domain
 
     public static Location[] GetLocations ()
     {
-      var query = from l in QueryFactory.CreateLinqQuery<Location> ()
-                  select l;
+      var query = QueryFactory.CreateLinqQuery<Location> ();
+               
       return query.ToArray ();
     }
 

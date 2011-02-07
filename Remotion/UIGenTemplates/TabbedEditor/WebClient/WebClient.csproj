@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion = "3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion = "4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -210,18 +211,22 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-    <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-    <WebProjectProperties>
-    <UseIIS>False</UseIIS>
-    <AutoAssignPort>True</AutoAssignPort>
-    <DevelopmentServerPort>22809</DevelopmentServerPort>
-    <DevelopmentServerVPath>/</DevelopmentServerVPath>
-    <IISUrl>
-    </IISUrl>
-    <NTLMAuthentication>False</NTLMAuthentication>
-    <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-    </WebProjectProperties>
-    </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22809</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+	      <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
 </Project>

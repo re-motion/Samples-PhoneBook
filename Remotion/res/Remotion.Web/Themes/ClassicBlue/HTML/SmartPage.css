@@ -1,0 +1,16 @@
+/* Style applied to the SmartPage. */
+
+#SmartPageStatusIsSubmittingMessage
+{
+  background-color: White;
+  z-index: 100;
+}
+
+#SmartPageStatusIsSubmittingMessage td
+{
+  background-color: White;
+  border: solid 3pt Gray;
+  font-weight: bold;
+  font-size: 100%;
+  color: Gray;
+}

@@ -40,15 +40,6 @@ var _bocList_rowSelectionSingleCheckBox = 1;
 var _bocList_rowSelectionSingleRadioButton = 2;
 var _bocList_rowSelectionMultiple = 3;
 
-var _bocList_listMenuInfos = new Object();
-
-var _contentMenu_itemClassName = 'contentMenuItem';
-var _contentMenu_itemFocusClassName = 'contentMenuItemFocus';
-var _contentMenu_itemDisabledClassName = 'contentMenuItemDisabled';
-var _contentMenu_requiredSelectionAny = 0;
-var _contentMenu_requiredSelectionExactlyOne = 1;
-var _contentMenu_requiredSelectionOneOrMore = 2;
-
 function BocList_SelectedRows (selection)
 {
   this.Selection = selection;
@@ -83,7 +74,9 @@ function BocList_InitializeGlobals (trClassName, trClassNameSelected)
 //  selectorControlPrefix: The common part of the selectorControles' ID (everything before the index).
 //  count: The number of data rows in the BocList.
 //  selection: The RowSelection enum value defining the selection mode (disabled/single/multiple)
-function BocList_InitializeList (bocList, selectorControlPrefix, count, selection)
+//  hasClickSensitiveRows: true if the click event handler is bound to the data rows.
+//  listMenu: The BocList's ListMenu, which has to be notified of the new selection count
+function BocList_InitializeList(bocList, selectorControlPrefix, count, selection, hasClickSensitiveRows, listMenu)
 {
   var selectedRows = new BocList_SelectedRows (selection);
   if (   selectedRows.Selection != _bocList_rowSelectionUndefined
@@ -95,32 +88,101 @@ function BocList_InitializeList (bocList, selectorControlPrefix, count, selectio
       var selectorControl = document.getElementById (selectorControlID);
       if (selectorControl == null)
         continue;
-      var row =  selectorControl.parentNode.parentNode;
+      var row = selectorControl.parentNode.parentNode;
+  
+      if (hasClickSensitiveRows)
+        BocList_BindRowClickEventHandler(bocList, row, selectorControl, listMenu);
+  
       if (selectorControl.checked)      
       {
         var rowBlock = new BocList_RowBlock (row, selectorControl);
         selectedRows.Rows[selectorControl.id] = rowBlock;
         selectedRows.Length++;
-        
-        if (   selectedRows.Selection == _bocList_rowSelectionSingleCheckBox
-            || selectedRows.Selection == _bocList_rowSelectionSingleRadioButton)
-        {
-          break;
-        }
       }
     }
   }
   _bocList_selectedRows[bocList.id] = selectedRows;
+
+  var tableBlock = $(bocList).children().filter('.bocListTableBlock');
+  var hasDimensions = false;
+  if ($.browser.msie)
+  {
+    if ($(bocList).css('height') != 'auto' || $(bocList).css('width') != 'auto')
+    {
+      $(bocList).addClass('hasDimensions');
+      hasDimensions = true;
+    }
+  }
+  else
+  {
+    var isTableBlockBiggerThanBocList = $(bocList).css('height') < tableBlock.children().eq(0).children().eq(0).css('height');
+    if (isTableBlockBiggerThanBocList)
+    {
+      $(bocList).addClass('hasDimensions');
+      hasDimensions = true;
+    }
+  }
+
+  if (hasDimensions)
+  {
+    BocList_FixUpScrolling(tableBlock);
+  }
+
+  BocList_syncCheckboxes(bocList);
+}
+
+function BocList_FixUpScrolling(tableBlock)
+{
+  //activateTableHeader only on first scroll
+  var scrollTimer = null;
+  var container = tableBlock.children().eq(0);
+  var horizontalScroll = 0;
+
+  container.bind('scroll', function (event)
+  {
+    // return if is horizontal scrolling
+    var currentHorizontalScroll = $(this).scrollLeft();
+    if (currentHorizontalScroll != horizontalScroll && currentHorizontalScroll > 0)
+    {
+      horizontalScroll = currentHorizontalScroll;
+      return;
+    }
+
+    var currentBocList = $(this);
+    BocList_activateTableHeader(currentBocList);
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () { BocList_fixHeaderPosition(currentBocList) }, 50);
+  });
+
+  //activateTableHeader on window resize
+  var resizeTimer = null;
+  $(window).bind('resize', function ()
+  {
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { BocList_activateTableHeader(container); }, 50);
+  });
+}
+
+
+
+function BocList_BindRowClickEventHandler(bocList, row, selectorControl, listMenu)
+{
+  $(row).click( function(evt)
+  {
+    BocList_OnRowClick(evt, bocList, row, selectorControl);
+    ListMenu_Update(listMenu, function() { return BocList_GetSelectionCount(bocList.id); });
+  });
 }
 
 //  Event handler for a table row in the BocList. 
 //  Selects/unselects a row/all rows depending on its selection state,
 //      whether CTRL has been pressed and if _bocList_isSelectorControlClick is true.
 //  Aborts the execution if _bocList_isCommandClick or _bocList_isSelectorControlClick is true.
+//  evt: The jQuery event object representing the click event
 //  bocList: The BocList to which the row belongs.
 //  currentRow: The row that fired the click event.
 //  selectorControl: The selection selectorControl in this row.
-function BocList_OnRowClick (bocList, currentRow, selectorControl)
+function BocList_OnRowClick (evt, bocList, currentRow, selectorControl)
 {
   if (_bocList_isCommandClick)
   {
@@ -136,7 +198,9 @@ function BocList_OnRowClick (bocList, currentRow, selectorControl)
 
   var currentRowBlock = new BocList_RowBlock (currentRow, selectorControl);
   var selectedRows = _bocList_selectedRows[bocList.id];
-  var isCtrlKeyPress = window.event.ctrlKey;
+  var isCtrlKeyPress = false;
+  if (evt)
+    isCtrlKeyPress = evt.ctrlKey;
     
   if (   selectedRows.Selection == _bocList_rowSelectionUndefined
       || selectedRows.Selection == _bocList_rowSelectionDisabled)
@@ -183,8 +247,6 @@ function BocList_OnRowClick (bocList, currentRow, selectorControl)
   {
   }  
   _bocList_isSelectorControlClick = false;
-
-  BocList_UpdateListMenu (bocList);
 }
 
 //  Selects a row.
@@ -243,7 +305,7 @@ function BocList_UnselectRow (bocList, rowBlock)
 //  bocList: The BocList to which the selectorControl belongs.
 //  selectorControlPrefix: The common part of the selectorControles' ID (everything before the index).
 //  count: The number of data rows in the BocList.
-function BocList_OnSelectAllSelectorControlClick (bocList, selectAllSelectorControl, selectorControlPrefix, count)
+function BocList_OnSelectAllSelectorControlClick (bocList, selectAllSelectorControl, selectorControlPrefix, count, listMenu)
 {
   var selectedRows = _bocList_selectedRows[bocList.id];
 
@@ -269,8 +331,8 @@ function BocList_OnSelectAllSelectorControlClick (bocList, selectAllSelectorCont
   
   if (! selectAllSelectorControl.checked)      
     selectedRows.Length = 0;
-    
-  BocList_UpdateListMenu (bocList);
+
+  ListMenu_Update(listMenu, function() { return BocList_GetSelectionCount(bocList.id); });
 }
 
 //  Event handler for the selection selectorControl in a data row.
@@ -303,120 +365,72 @@ function BocList_GetSelectionCount (bocListID)
   return selectedRows.Length;
 }
 
-function ContentMenu_MenuInfo (id, itemInfos)
+function BocList_activateTableHeader(container)
 {
-  this.ID = id;
-  this.ItemInfos = itemInfos;
-}
+    var cointainerChildrens = container.children();
+    var realThead = cointainerChildrens.eq(0).find('thead');
+    var realTheadRow = realThead.children().eq(0);
+    var realTheadRowChildrens = realTheadRow.children();
 
-function BocList_AddMenuInfo (bocList, menuInfo)
-{
-  _bocList_listMenuInfos[bocList.id] = menuInfo;
-}
+    var fakeTableContainer = cointainerChildrens.eq(1);
+    var fakeThead = fakeTableContainer.find('thead');
+    var fakeTheadRow = fakeThead.children().eq(0);
+    var fakeTheadRowChildrens = fakeTheadRow.children();
 
-function ContentMenu_MenuItemInfo (id, category, text, icon, iconDisabled, requiredSelection, isDisabled, href, target)
-{
-  this.ID = id;
-  this.Category = category;
-  this.Text = text;
-  this.Icon = icon;
-  this.IconDisabled = iconDisabled;
-  this.RequiredSelection = requiredSelection;
-  this.IsDisabled = isDisabled;
-  this.Href = href;
-  this.Target = target;
-}
-
-function BocList_UpdateListMenu (bocList)
-{
-  var menuInfo = _bocList_listMenuInfos[bocList.id];
-  if (menuInfo == null)
-    return;
+    // hide bocListFakeTableHead if bocList is not scrollable
+    if (!checkScrollBarPresence(container))
+    {
+        fakeTableContainer.hide();
+        return;
+    }
     
-  var itemInfos = menuInfo.ItemInfos;
-  var selectionCount = BocList_GetSelectionCount (bocList.id);
-  
-  for (var i = 0; i < itemInfos.length; i++)
-  {
-    var itemInfo = itemInfos[i];
-    var isEnabled = true;
-    if (itemInfo.IsDisabled)
+    BocList_syncCheckboxes(container);
+
+    // store cell widths in array
+    var realTheadCellWidths = new Array();
+
+    realTheadRowChildrens.each(function(index)
     {
-      isEnabled = false;
-    }
-    else
+        realTheadCellWidths[index] = $(this).width();
+    });
+
+    // apply widths to fake header
+    $.each(realTheadCellWidths, function(index, item)
     {
-      if (   itemInfo.RequiredSelection == _contentMenu_requiredSelectionExactlyOne
-          && selectionCount != 1)
-      {
-        isEnabled = false;
-      }
-      if (   itemInfo.RequiredSelection == _contentMenu_requiredSelectionOneOrMore
-          && selectionCount < 1)
-      {
-        isEnabled = false;
-      }
-    }
-    var item = document.getElementById (itemInfo.ID);
-    var anchor = item.children[0];
-    var icon = anchor.children[0];
-    if (isEnabled)
-    {
-      if (icon != null)
-        icon.src = itemInfo.Icon;
-  	  item.className = _contentMenu_itemClassName;
-  	  if (itemInfo.Href != null)
-      {
-        if (itemInfo.Href.toLowerCase().indexOf ('javascript:') >= 0)
-        {
-          anchor.href = '#';
-          anchor.removeAttribute ('target');
-          anchor.setAttribute ('javascript', itemInfo.Href);
-          anchor.onclick = function () { eval (this.getAttribute ('javascript')); };
-        }
-        else
-        {
-          anchor.href = itemInfo.Href;
-          if (itemInfo.Target != null)
-      	    anchor.target = itemInfo.Target;
-          anchor.removeAttribute ('onclick');
-          anchor.removeAttribute ('javascript');
-        }
-      }
-    }
-    else
-    {
-      if (icon != null)
-      {
-        if (itemInfo.IconDisabled != null)
-          icon.src = itemInfo.IconDisabled;
-        else
-          icon.src = itemInfo.Icon;
-      }
-      item.className = _contentMenu_itemDisabledClassName;
-      anchor.removeAttribute ('href');
-      anchor.removeAttribute ('target');
-      anchor.removeAttribute ('onclick');
-      anchor.removeAttribute ('javascript');
-    }
-  }
+        fakeTheadRowChildrens.eq(index).width(item);
+    });
+
+    fakeTableContainer.width(realTheadRow.width());
 }
 
-function ContentMenu_GoTo (menuItem)
+function BocList_fixHeaderPosition(containerDiv)
 {
-  window.location = menuItem.href;
+    var bocListFakeTableHead = containerDiv.find('div.bocListFakeTableHead');
+    var scrollPosition = containerDiv.scrollTop();
+    if (scrollPosition == 0)
+    {
+        bocListFakeTableHead.hide();
+    } else
+    {
+        bocListFakeTableHead.show();
+    }
+    bocListFakeTableHead.css({ 'top': scrollPosition, 'left':'0' });
 }
 
-function ContentMenu_SelectItem (menuItem)
+function BocList_syncCheckboxes(container)
 {
-	if (menuItem == null)
-	  return;
-	menuItem.className = _contentMenu_itemFocusClassName;
+    // sync checkboxes
+    var checkboxes = $(container).find("th input:checkbox");
+    checkboxes.click(function()
+    {
+        var checkName = $(this).attr('name');
+        var realCheckName = checkName.replace('_fake', '');
+        var checkStatus = $(this).attr('checked');
+        $('input[name*=' + realCheckName + ']').attr('checked', checkStatus);
+    });
 }
 
-function ContentMenu_UnselectItem (menuItem)
+function checkScrollBarPresence(element)
 {
-	if (menuItem == null)
-	  return;
-	menuItem.className = _contentMenu_itemClassName;
+        return ((element.attr('scrollHeight') > element.innerHeight()) || (element.attr('scrollWidth') > element.innerWidth()));
 }

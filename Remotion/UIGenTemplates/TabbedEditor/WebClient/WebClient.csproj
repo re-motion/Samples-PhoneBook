@@ -82,7 +82,10 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\arrow.gif" />
-    <Content Include="Images\rublogo.bmp" />
+    <Content Include="Images\re-motion.jpg" />
+	<Content Include="Images\re-motion_big.jpg" />
+	<Content Include="Images\re-motion-logo-single.png" />
+	<Content Include="Images\rubicon.jpg" />
     <Content Include="UrlMapping.xml" />
     <Content Include="UI\NavigationTabs.ascx" />
     $REPEAT_FOREACHCLASS_BEGIN$

@@ -5,7 +5,7 @@
 
 <head runat="server">
   <title>$USER_APPNAME$</title>
-  <link type="text/css" rel="stylesheet" href="./res/Remotion.Web/HTML/Style.css">
+  <link type="text/css" rel="stylesheet" href="./res/Remotion.Web/HTML/Style.css" />
   <script language="javascript" type="text/javascript">
   function StartApp(url)
   {
@@ -39,14 +39,18 @@
 <body>
   <form id="defaultForm" method="post" runat="server">
     <div id="PageHeader">
-      <img src="Images/rublogo.bmp" alt="re-motion">
+      <img src="Images/re-motion_big.jpg" alt="re-motion">
     </div>
     <h1>$USER_DEFAULT_ASPX_TOPIC$</h1>
     <p>
       $USER_DEFAULT_ASPX_STARTINFO$
-      <br>
-      <img class="pfeil" src="Images/arrow.gif">&nbsp;<a href="javascript:StartApp('$USER_DEFAULT_STARTPAGE$');">Start</a>
+      <img class="pfeil" src="Images/arrow.gif" alt="goto"  />&nbsp;<a href="javascript:StartApp('$USER_DEFAULT_STARTPAGE$');">Start</a>
     </p>
+	<p>
+	  <br/>
+	    In case of troubles, questions or recommendations, please visit the <a href="http://www.re-motion.org/community" target="_blank"> re-motion community page</a>!
+	  <br/>
+	</p>
   </form>
 </body>
 

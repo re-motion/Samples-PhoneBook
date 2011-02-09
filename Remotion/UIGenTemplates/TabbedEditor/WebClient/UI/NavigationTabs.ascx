@@ -1,7 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NavigationTabs.ascx.cs" Inherits="$PROJECT_ROOTNAMESPACE$.UI.NavigationTabs" %>
 
 <div>    
-  <img alt="re-motion logo by Markus Giegl" src="../Images/re-motion-logo-single.png" />
+  <img alt="re-motion logo" src="../Images/re-motion-logo-single.png" />
 </div>
 
 <remotion:TabbedMenu ID="TheTabbedMenu" runat="server">

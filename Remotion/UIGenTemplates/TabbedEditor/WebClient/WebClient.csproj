@@ -37,6 +37,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Remotion, $STRONG_SUPPLEMENT$, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$RemotionAssembly$\Remotion.dll</HintPath>
@@ -75,12 +76,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+	<Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Xml" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+	<Content Include="Html\style.css" />
     <Content Include="Images\arrow.gif" />
     <Content Include="Images\re-motion.jpg" />
 	<Content Include="Images\re-motion_big.jpg" />

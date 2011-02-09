@@ -17,7 +17,10 @@ using System;
 using System.Threading;
 using System.Globalization;
 using Remotion.Globalization;
+using Remotion.ServiceLocation;
+using Remotion.Web;
 using Remotion.Web.ExecutionEngine;
+using Remotion.Web.Infrastructure;
 using Remotion.Web.UI.Globalization;
 
 namespace $PROJECT_ROOTNAMESPACE$.Classes
@@ -28,11 +31,13 @@ namespace $PROJECT_ROOTNAMESPACE$.Classes
 
     protected override void OnPreRender (EventArgs e)
     {
-      // register CSS
-      string url = Remotion.Web.ResourceUrlResolver.GetResourceUrl (
-          this, typeof(Remotion.Web.ResourceUrlResolver), Remotion.Web.ResourceType.Html, "style.css");
+      var themedResourceUrlResolver = SafeServiceLocator.Current.GetInstance<IThemedResourceUrlResolverFactory> ().CreateResourceUrlResolver ();
+      string url = themedResourceUrlResolver.GetResourceUrl (this, ResourceType.Html, "Style.css");
 
-      Remotion.Web.UI.HtmlHeadAppender.Current.RegisterStylesheetLink(GetType() + "style", url);
+      Remotion.Web.UI.HtmlHeadAppender.Current.RegisterStylesheetLink(GetType() + "remotionstyle", url);
+
+      url = ResolveClientUrl("~/Html/style.css");
+      Remotion.Web.UI.HtmlHeadAppender.Current.RegisterStylesheetLink (GetType () + "projectstyle", url);
 
       // globalization
       IResourceManager rm = ResourceManagerUtility.GetResourceManager (this);

@@ -39,7 +39,7 @@
 <body>
   <form id="defaultForm" method="post" runat="server">
     <div id="PageHeader">
-      <img src="Images/re-motion_big.jpg" alt="re-motion">
+      <img src="Images/re-motion_big.jpg" alt="re-motion" />
     </div>
     <h1>$USER_DEFAULT_ASPX_TOPIC$</h1>
     <p>

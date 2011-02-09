@@ -24,7 +24,8 @@ TODO: <folder>
 		<files pattern="WebClient\*.xsd" target="$WebClientName$" />
 		<files pattern="WebClient\*.config" target="$WebClientName$" />
 
-		<copy source="WebClient\Images\*.*" target="$WebClientName$\Images" mode="CopyIfNewer" />
+		<copy source="WebClient\Images\*.*" target="$WebClientName$\Images" mode="CopyIfNewer" /><br/>
+        <copy source="WebClient\Html\*.*" target="$WebClientName$\Html" mode="CopyIfNewer" />		
 		<copy source="..\..\res\*.*" target="$WebClientName$\res" mode="CopyIfNewer" recursive="true" />
 
 		<files pattern="WebClient\UI\NavigationTabs.*" target="$WebClientName$\UI" />

@@ -1,0 +1,253 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.65</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2972"><b>
+                  [RM-2972] ObjectBinding.Web:
+                </b>BocAutoComplete: In RenderBindScript ServicePath should not be converted to absolute URL</a></div><div class="listEntry"><a href="#RM-2961"><b>
+                  [RM-2961] SecurityManager:
+                </b>The relation between Postion and Role is bidirectional. This means only a limited number of Roles per Position are supported. </a></div><div class="listEntry"><a href="#RM-2956"><b>
+                  [RM-2956] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Clicking away from the open list does not always properly update the value</a></div><div class="listEntry"><a href="#RM-2955"><b>
+                  [RM-2955] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: The cursor did not abort an already running change request caused by user input</a></div><div class="listEntry"><a href="#RM-2945"><b>
+                  [RM-2945] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Clicking the scroll-element in the open dropdown list (without moving the scroll position) causes the list to close</a></div><div class="listEntry"><a href="#RM-2944"><b>
+                  [RM-2944] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: DropDown does not open again after changing the text to the same value as before</a></div><div class="listEntry"><a href="#RM-2920"><b>
+                  [RM-2920] Web:
+                </b>TabbedMultiView: div.content is missing style "height:100%" at least in standards mode</a></div><div class="listEntry"><a href="#RM-2874"><b>
+                  [RM-2874] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: The value should be reset (including the TextBox) when closing the drop-down via the button if no value was no selected</a></div><div class="listEntry"><a href="#RM-2850"><b>
+                  [RM-2850] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Selection should move to bottom and and then advance the list by a single step</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2966"><b>
+                  [RM-2966] Data:
+                </b>RootClientTransaction and SubClientTransaction have been transformed into IPersistenceStrategy implementations held by ClientTransaction</a></div><div class="listEntry"><a href="#RM-2953"><b>
+                  [RM-2953] Data:
+                </b>The original value collection returned for collection-valued properties is no longer retained between calls</a></div><div class="listEntry"><a href="#RM-2952"><b>
+                  [RM-2952] Data.Linq:
+                </b>DomainObjectCollection.Commit and Rollback have been removed</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2732"><b>
+                  [RM-2732] Data.Linq:
+                </b>Improve error message given when a delegate is used in an expression where a LambdaExpression is required</a></div><div class="listEntry"><a href="#RM-2707"><b>
+                  [RM-2707] Data.Linq:
+                </b>Automatically remove orderings from sub-statements</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2893"><b>
+                  [RM-2893] Core:
+                </b>Add PropertyInfoAdatper based on IPropertyInformation</a></div><div class="listEntry"><a href="#RM-2309"><b>
+                  [RM-2309] Data.Linq:
+                </b>ThrowingExpressionTreeVisitor should automatically reduce unknown extension expressions by default</a></div><div class="listEntry"><a href="#RM-2301"><b>
+                  [RM-2301] Data.Linq:
+                </b>Support for VB.NET string comparisons</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2964"><b>
+                  [RM-2964] Web:
+                </b>Removed BorderSpan-generation from StyleUtility in NovaBlue Theme</a></div><div class="listEntry"><a href="#RM-2950"><b>
+                  [RM-2950] Data:
+                </b>CollectionEndPoint should create the original value collection lazily, on write of its DomainObjectCollection</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-2972"></a><h4>[RM-2972] BocAutoComplete: In RenderBindScript ServicePath should not be converted to absolute URL</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2961"></a><h4>[RM-2961] The relation between Postion and Role is bidirectional. This means only a limited number of Roles per Position are supported. </h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2956"></a><h4>[RM-2956] BocAutoCompleteReferenceValue: Clicking away from the open list does not always properly update the value</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Repro:</p>
+<ul>
+	<li>Open the drop-down.</li>
+	<li>Use the cursor to select a value, the input element gets updated.</li>
+	<li>Use the mouse-hover to drag the selection, the input element does not get updated.</li>
+	<li>Click outside the drop-down to close the list.</li>
+</ul>
+
+
+<p>-&gt; Expected is, that the value remains set to the last value selected via cursor, but the value last highlighted in the drop-down gets inserted into the input element.</p></span></div></div><div class="detailEntry  "><a name="RM-2955"></a><h4>[RM-2955] BocAutoCompleteReferenceValue: The cursor did not abort an already running change request caused by user input</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Repro:</p>
+<ul>
+	<li>Input some text</li>
+	<li>Wait for drop-down to appear</li>
+	<li>Remove some/most of the text</li>
+	<li>Immediately continue navigating with the cursor-keys</li>
+</ul>
+
+
+<p>-&gt; After the completion-interval, the drop-down will update with the value from the user input.</p></span></div></div><div class="detailEntry  "><a name="RM-2945"></a><h4>[RM-2945] BocAutoCompleteReferenceValue: Clicking the scroll-element in the open dropdown list (without moving the scroll position) causes the list to close</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2944"></a><h4>[RM-2944] BocAutoCompleteReferenceValue: DropDown does not open again after changing the text to the same value as before</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul>
+	<li>Enter a character, e.g. a</li>
+	<li>Wait for the list to appear.</li>
+	<li>Click outside the dropdown list, causing it to close</li>
+	<li>Highlight the text in the input element, if there is any</li>
+	<li>Type the same character as before, replacing the text from the input element, if there was any.</li>
+	<li>The dropdown will not open automatically</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-2920"></a><h4>[RM-2920] TabbedMultiView: div.content is missing style "height:100%" at least in standards mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2874"></a><h4>[RM-2874] BocAutoCompleteReferenceValue: The value should be reset (including the TextBox) when closing the drop-down via the button if no value was no selected</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2850"></a><h4>[RM-2850] BocAutoCompleteReferenceValue: Selection should move to bottom and and then advance the list by a single step</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Cannot Reproduce</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Presently, the list hides the top element when moving the selection downwards. The selection should move to the end of the visible area and then advance the list only a single step in the respective scroll-direction.</p></span></div></div><div class="detailEntry  "><a name="RM-2966"></a><h4>[RM-2966] RootClientTransaction and SubClientTransaction have been transformed into IPersistenceStrategy implementations held by ClientTransaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This removes a lot of responsibilities from the ClientTransaction class (which is actually meant to be not much more than a facade) and moves them to to dedicated classes.</p>
+
+<p>For users, this means that:</p>
+<ul class="alternate" type="square">
+	<li>To extend ClientTransaction, derive from/mix ClientTransaction, not RootClientTransaction/SubClientTransaction.</li>
+	<li>To change the persistence behavior of a ClientTransaction, derive from/mix RootPersistenceStrategy/SubPersistenceStrategy, or implement your own IPersistenceStrategy. Mixins should work automatically. For a derived or new strategy, create a new IClientTransactionComponentFactory that creates the strategy together with the other components. You can derive from RootClientTransactionComponentFactory or SubClientTransactionComponentFactory if your strategy is compatible with the other components created by those factories. Then, create a new ClientTransaction to which you pass your component factory.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-2953"></a><h4>[RM-2953] The original value collection returned for collection-valued properties is no longer retained between calls</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the original value collection for a collection-valued property would be retained between calls:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> collection1 = Properties[typeof (Order), OrderItems].GetOriginalValue&lt;ObjectList&lt;OrderItem&gt;&gt;();
+<span class="code-keyword">var</span> collection2 = Properties[typeof (Order), OrderItems].GetOriginalValue&lt;ObjectList&lt;OrderItem&gt;&gt;();
+
+Assert.That (collection1, Is.SameAs (collection2)); <span class="code-comment">// no longer <span class="code-keyword">true</span></span></pre>
+</div></div>
+
+<p>This is no longer the case, the assertion above will now fail. Each call is now allowed to return a new instance of the collection.</p>
+
+<p>This change was made for performance reasons because it allows the original value collection to be lazily instantiated and garbage-collected. Instantiating a DomainObjectCollection with a given set of data is usually a very cheap operation. When implementing custom, derived collections that perform a lot of calculations in their constructors, care should be taken not to access the original value property too often.</p></span></div></div><div class="detailEntry  "><a name="RM-2952"></a><h4>[RM-2952] DomainObjectCollection.Commit and Rollback have been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Instead, there is now a single API called ReplaceItemsWithoutNotifications which describes what the operation does, not what it is used for. It should be overridden if a derived collection holds custom state, and the custom state must be recalculated when the API is called. ReplaceItemsWithoutNotifications is called by changed end points when the associated transaction is rolled back.</p>
+
+<p>When the transaction is committed, no API is called any more. The DomainObjectCollection.Commit API was previously called on the original value collection when the transaction was committed, but now the original value collection is no longer retained but instantiated on demand.</p></span></div></div><div class="detailEntry  "><a name="RM-2732"></a><h4>[RM-2732] Improve error message given when a delegate is used in an expression where a LambdaExpression is required</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2707"></a><h4>[RM-2707] Automatically remove orderings from sub-statements</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In SQL, substatements cannot hold ORDER BY clauses. In LINQ, however, subqueries with ordering expressions can easily be constructed:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from o in Orders
+from oi in (
+  from item in OrderItems
+  where item.Order == o
+  orderby item.Product
+  select item.Description
+)
+select oi</pre>
+</div></div>
+
+<p>The problem gets worse because we sometimes construct subqueries even though the user didn't write one, e.g., to handle incompatible result operators, to implement DefaultIfEmpty, etc.</p>
+
+<p>The solution would be to:</p>
+<ul class="alternate" type="square">
+	<li>remove the orderings from subqueries where it doesn't make a difference (Count, Distinct, Contains, Sum, etc.),</li>
+	<li>pull out the orderings from the subqueries to the surrounding query where it does make a difference.</li>
+</ul>
+
+
+<p>The problem is that pulling out the orderings from the subquery is not generally possible unless the select projection is also changed:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from o in Orders
+from oi in (
+  from item in OrderItems
+  where item.Order == o
+  select item.Description
+)
+orderby item.Product <span class="code-comment">// does not work, item is not known in <span class="code-keyword">this</span> query
+</span>select oi</pre>
+</div></div>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from o in Orders
+from oi in (
+  from item in OrderItems
+  where item.Order == o
+  select <span class="code-keyword">new</span> { item.Description, item.Product }
+)
+orderby oi.Product <span class="code-comment">// does not work, item is not known in <span class="code-keyword">this</span> query
+</span>select oi.Description</pre>
+</div></div>
+
+<p>This is a transformation that requires support for compound projections.</p>
+
+<p>To keep the solution simple, we can pull out orderings only from subqueries we create in result operator handlers and throw an exception for orderings in subqueries the user wrote (unless it is safe to remove or keep them due to Count, Distinct, aggregations, or Top). That would be easier because in the first case, we control all references to the subquery, whereas we'd have to substitute existing references to the subquery in the second case. A full solution requires handling of all subqueries, however.</p>
+
+<p>This issue also affects eager fetching; currently, eager fetching produces fetch query models that cannot be translated to SQL if the original query model contained an OrderByClause.</p>
+
+<p>Conception needed.</p></span></div></div><div class="detailEntry  "><a name="RM-2893"></a><h4>[RM-2893] Add PropertyInfoAdatper based on IPropertyInformation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Implementation is a simple wrapper for PropertyInfo</p></span></div></div><div class="detailEntry  "><a name="RM-2309"></a><h4>[RM-2309] ThrowingExpressionTreeVisitor should automatically reduce unknown extension expressions by default</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>By default, ThrowingExpressionTreeVisitor will throw an exception when an expression is encountered that is not handled by the specific visitor subclass. Until now, this would also happen for reducible expressions.</p>
+
+<p>Reducible expressions are extension expressions whose CanReduce property returns true. When the Reduce method is called on such an expression, it returns another expression with (mostly) equal semantics. For example, a VBCompareExpression would return a BinaryExpression with the same comparison semantics (but missing the VB-specific information).</p>
+
+<p>With this change, ThrowingExpressionVisitors will now automatically reduce such expressions and try to visit the reduced form before throwing an exception, thus taking a second chance on the expression tree being visited.</p>
+
+<p>Since the exception case usually means that the provider cannot handle the expression tree, this change should not break anything, but provide a convenient feature for dealing with reducible extension expressions.</p></span></div></div><div class="detailEntry  "><a name="RM-2301"></a><h4>[RM-2301] Support for VB.NET string comparisons</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>VB.NET has a very specific way of dealing with some operators, most notably string comparisons. The method call chain produced for an expression of</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">From c In Contacts _
+Where c.FirstName = <span class="code-quote">"Hugo"</span> _
+Select c</pre>
+</div></div>
+
+<p>is</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Contacts
+   .Where (c =&gt; (Operators.CompareString (c.FirstName, <span class="code-quote">"Hugo"</span>, False) == 0))
+   .Select (c =&gt; c)</pre>
+</div></div>
+
+<p>Therefore, the WhereClause produced by re-linq contains a Predicate with a MethodCallExpression invoking VisualBasic's CompareString method, whose result is then compared to 0.</p>
+
+<p>A similar behavior occurs with many operators on other data types as well, such as Add or GreaterThan, but for thise, VB.NET does not produce MethodCallExpressions. Instead, annotated BinaryExpressions (with a MethodInfo indicating the operation) are created, so LINQ providers won't even notice the difference.</p>
+
+<p>However, the VB operators do have very specific semantics; for example, VB compares Nothing and "" to equal (C# does not). Some LINQ providers might want to honor these semantics, others might not want to do so. LINQ-to-SQL does honor the semantics in part - if one side of a string comparison is a constant Nothing, it compares to string.Empty instead in the database.</p>
+
+<p>To enable LINQ providers to deal with VB.NET specifics, this feature introduces a new custom expression hierarchy - deriving from a new class VBExpression - and an IVBExpressionVisitor interface. It uses the extension expression approach, which allows VB expressions to be visited by classes implementing IVBExpressionVisitor. The VB expressions are reduced to ordinary BinaryExpressions (with a MethodInfo hinting at the original operator), so LINQ providers without VB support will never need to deal with those expressions (use automatic reduce). LINQ providers with VB support can choose.</p>
+
+<p>The VB transformation is included by default, but it can be removed by the LINQ provider if necessary.</p></span></div></div><div class="detailEntry  "><a name="RM-2964"></a><h4>[RM-2964] Removed BorderSpan-generation from StyleUtility in NovaBlue Theme</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2950"></a><h4>[RM-2950] CollectionEndPoint should create the original value collection lazily, on write of its DomainObjectCollection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.85</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3559"><b>
+                  [RM-3559] Data:
+                </b>The code required to define a custom storage provider has changed</a></div><div class="listEntry"><a href="#RM-3527"><b>
+                  [RM-3527] Data:
+                </b>Web.config and App.config configuration entries for defining storage providers have changed</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3559"></a><h4>[RM-3559] The code required to define a custom storage provider has changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The StorageProviderDefinition class has been changed, it no longer directly keeps the type of storage provider to use. Instead, it now holds a factory, which in turn instantiates storage providers (and other storage-relevant objects).</p>
+
+<p>In order to extend SqlProvider with a subclass (not a mixin), perform the following steps:</p>
+<ul class="alternate" type="square">
+	<li>Subclass SqlProvider as with previous versions of the framework.</li>
+	<li>Define a subclass of SqlStorageObjectFactory and override the CreateStorageProvider method to create your own provider.</li>
+	<li>Configure the RdbmsProviderDefinition to use your new factory type in the App.config or web.config file of your application.</li>
+</ul>
+
+
+<p>Extending SqlProvider with mixins requires no changes.</p>
+
+<p>In order to implement a completely new storage provider not based on SqlProvider:</p>
+<ul class="alternate" type="square">
+	<li>Determine whether you can continue to use the RdbmsProviderDefinition or need to define your own subclass of StorageProviderDefinition. You can reuse RdbmsProviderDefinition for ADO.NET-based storage providers.
+	<ul class="alternate" type="square">
+		<li>If you cannot reuse RdbmsProviderDefinition, implement a subclass of StorageProviderDefinition as with previous versions of the framework.</li>
+	</ul>
+	</li>
+	<li>Define your own storage provider as with previous versions of the framework.</li>
+	<li>Define a class implementing IPersistenceModelLoader.
+	<ul class="alternate" type="square">
+		<li>The loader must apply IStorageEntityDefinition and IStoragePropertyDefinition items to the ClassDefinitions and PropertyDefinitions defined by the mapping.</li>
+		<li>If you have an Rdbms-based storage provider, you can reuse the RdbmsPersistenceModelLoader, passing it a ColumnDefinitionFactory.
+		<ul class="alternate" type="square">
+			<li>Implement a class derived from StorageTypeCalculator in order to define the column types used by the target Rdbms.</li>
+		</ul>
+		</li>
+		<li>If you have a different storage provider, you must provide a persistence model by implementing IStorageEntityDefinition and IStoragePropertyDefinition, and apply instances of those implementations to all classes in the inheritance hierarchy passed to the loader.</li>
+	</ul>
+	</li>
+	<li>Define a class implementing the IStorageObjectFactory interface.
+	<ul class="alternate" type="square">
+		<li>Implement the CreateStorageProvider method to instantiate your own storage provider.</li>
+		<li>Implement the CreateTypeProvider and CreateTypeConversionProvider methods to instantiate and configure TypeProvider and TypeConversionProvider objects for your storage provider.</li>
+		<li>Implement the CreatePersistenceModelLoader to return your implementation of IPersistenceModelLoader.</li>
+	</ul>
+	</li>
+	<li>Configure your provider definition with your factory type in the App.config or web.config file of your application.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3527"></a><h4>[RM-3527] Web.config and App.config configuration entries for defining storage providers have changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The configuration elements used by applications in their web.config or app.config files in order to define storage providers have changed.</p>
+
+<p>Here is an example showing the new entries:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-xml"><span class="code-tag">&lt;remotion.data.domainObjects xmlns=<span class="code-quote">"http://www.re-motion.org/Data/DomainObjects/Configuration/2.1"</span>&gt;</span>
+  <span class="code-tag">&lt;storage defaultProviderDefinition=<span class="code-quote">"MyProvider"</span>&gt;</span>
+    <span class="code-tag">&lt;providerDefinitions&gt;</span>
+      <span class="code-tag">&lt;add type=<span class="code-quote">"Remotion.Data.DomainObjects::Persistence.Rdbms.RdbmsProviderDefinition"</span> name=<span class="code-quote">"MyProvider"</span> factoryType=<span class="code-quote">"Remotion.Data.DomainObjects::Persistence.Rdbms.SqlStorageObjectFactory"</span> connectionString=<span class="code-quote">"MyConnString"</span>/&gt;</span>
+    <span class="code-tag">&lt;/providerDefinitions&gt;</span>
+  <span class="code-tag">&lt;/storage&gt;</span>
+  <span class="code-tag">&lt;query&gt;</span>
+    <span class="code-tag">&lt;queryFiles&gt;</span>
+      <span class="code-tag">&lt;add filename=<span class="code-quote">"Queries1.xml"</span>/&gt;</span>
+      <span class="code-tag">&lt;add filename=<span class="code-quote">"Queries2.xml"</span>/&gt;</span>
+    <span class="code-tag">&lt;/queryFiles&gt;</span>
+  <span class="code-tag">&lt;/query&gt;</span>
+<span class="code-tag">&lt;/remotion.data.domainObjects&gt;</span></pre>
+</div></div>
+
+<p>These items have changed:</p>
+<ul class="alternate" type="square">
+	<li>The version number used in the xmlns namespace specification has changed from 2.0 to 2.1.</li>
+	<li>The &lt;add&gt; element within the &lt;providerDefinitions&gt; element now has a factoryType attribute instead of the old storageProviderType attribute. Specify "Remotion.Data.DomainObjects::Persistence.Rdbms.SqlStorageObjectFactory" as its value in order to define a SQL Server storage provider.</li>
+</ul>
+</span></div></div></body></html>

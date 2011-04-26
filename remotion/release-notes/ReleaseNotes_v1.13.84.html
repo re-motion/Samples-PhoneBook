@@ -1,0 +1,99 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.84</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3514"><b>
+                  [RM-3514] Core Data.Linq:
+                </b>Serializing objects of type ArgumentTypeException throws an exception</a></div><div class="listEntry"><a href="#RM-1144"><b>
+                  [RM-1144] Data:
+                </b>QueryDefinition and QueryFactory should get a StorageGroupType instead of a StorageProviderID</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3526"><b>
+                  [RM-3526] Data:
+                </b>The mandatory relation check now ignores unloaded collection relations</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3338"><b>
+                  [RM-3338] Data.Linq:
+                </b>Add List/ICollection.Contains() to default MethodCallExpressionNodeTypeRegistry</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3460"><b>
+                  [RM-3460] Data:
+                </b>Reduce calls to ClientTransactionScope.ActiveScope in ClientTransaction.Current</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3514"></a><h4>[RM-3514] Serializing objects of type ArgumentTypeException throws an exception</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The ArgumentTypeException's ISerializable ctor reads ExpectedType and ActualType from the SerializationInfo, but GetObjectData doesn't put it in there.</p></span></div></div><div class="detailEntry  "><a name="RM-1144"></a><h4>[RM-1144] QueryDefinition and QueryFactory should get a StorageGroupType instead of a StorageProviderID</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>StorageProviderID is set at deployment time and not at development time, so it must not have any semantics in code. Therefore, storage group (attribute type) should be passed instead of storageProviderID.</p>
+
+<p>QueryDefinition:<br/>
+public QueryDefinition (string queryID, string storageProviderID, string statement, QueryType queryType) <br/>
+public QueryDefinition (string queryID, string storageProviderID, string statement, QueryType queryType, Type collectionType)</p>
+
+<p>QueryFactory:<br/>
+public static IQuery CreateCollectionQuery (string id, string storageProviderID, string statement, QueryParameterCollection queryParameterCollection, Type collectionType)</p>
+
+<p>Additionally, since it is now a provider name (instead of an id as it was in older versions) the parameter and property names should be named consistently.</p></span></div></div><div class="detailEntry  "><a name="RM-3526"></a><h4>[RM-3526] The mandatory relation check now ignores unloaded collection relations</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, mandatory, unloaded collection relations of changed DomainObjects would be reloaded on commit, so that the constraint could be enforced. This was inconsistent with non-loaded collection relations, however, so this was changed.</p>
+
+<p>Now, neither non-loaded nor unloaded mandatory collection relations are checked (and loaded) on commit.<br/>
+Only loaded collection relations are checked.</p></span></div></div><div class="detailEntry  "><a name="RM-3338"></a><h4>[RM-3338] Add List/ICollection.Contains() to default MethodCallExpressionNodeTypeRegistry</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>until this is implemented, a LINQ provider can just register it manually:</p>
+
+<p>methodCallExpressionNodeTypeRegistry.Register (new[] { typeof (List&lt;&gt;).GetMethod ("Contains")}, typeof (ContainsExpressionNode));</p>
+
+<p>methodCallExpressionNodeTypeRegistry.Register (new[] { typeof (ICollection&lt;&gt;).GetMethod ("Contains")}, typeof (ContainsExpressionNode));</p></span></div></div><div class="detailEntry  "><a name="RM-3460"></a><h4>[RM-3460] Reduce calls to ClientTransactionScope.ActiveScope in ClientTransaction.Current</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This is in order to reduce the number of calls to SafeContext.<br/>
+(In a form with 6,000 objects, ClientTransaction.Current was called 140,000 times; the calls to ClientTransactionScope amounted to about 2-3% of the total request time, which could be reduced by half.)</p></span></div></div></body></html>

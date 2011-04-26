@@ -1,0 +1,166 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.51</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2478"><b>
+                  [COMMONS-2478] ObjectBinding.Web:
+                </b> BocAutoCompleteReferenceValue: bocAutoCompleteReferenceValueButton should toggle the drop down, not just open it</a></div><div class="listEntry"><a href="#COMMONS-2471"><b>
+                  [COMMONS-2471] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue (Legacy &amp; StandardMode): When scrolling in options list it disappears</a></div><div class="listEntry"><a href="#COMMONS-2465"><b>
+                  [COMMONS-2465] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: DropDownList should select the current element on open</a></div><div class="listEntry"><a href="#COMMONS-2463"><b>
+                  [COMMONS-2463] Security:
+                </b>PermissionReflector should use an InterlockedCache instead of the not thread-safe Cache</a></div><div class="listEntry"><a href="#COMMONS-2450"><b>
+                  [COMMONS-2450] ObjectBinding.Web:
+                </b>BocReferenceValue: Default size should be value similar to the default width of a Select-element</a></div><div class="listEntry"><a href="#COMMONS-2436"><b>
+                  [COMMONS-2436] DmsTray:
+                </b>PollingFileLockWatcher does not reset the successful-lock-count after a failed lock-attempt</a></div><div class="listEntry"><a href="#COMMONS-1812"><b>
+                  [COMMONS-1812] SecurityManager:
+                </b>EditAccessControlEntryControl: CurrentTenantID of SpecificUserControl is not reset after tenant selection changes</a></div><div class="listEntry"><a href="#COMMONS-1811"><b>
+                  [COMMONS-1811] SecurityManager:
+                </b>EditTenantControl.ascx.cs: RemoveMenuItem in ChildrenList does not work (EventHandler missing)</a></div><div class="listEntry"><a href="#COMMONS-1038"><b>
+                  [COMMONS-1038] SecurityManager:
+                </b>Security Manager Web allows creation of circular group hierarchies</a></div><div class="listEntry"><a href="#COMMONS-987"><b>
+                  [COMMONS-987] SecurityManager:
+                </b>Edit user and group should run with transactionmode "CreateRoot" instead of "None"</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2464"><b>
+                  [COMMONS-2464] Security:
+                </b>Renamed PrincipalUserProvider to NullPrincipalProvider</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2296"><b>
+                  [COMMONS-2296] SecurityManager:
+                </b>Tenant.GetHierarchy() should only return Tenants where the current user has ReadAccess</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2452"><b>
+                  [COMMONS-2452] SecurityManager:
+                </b>SecurityManagerPrincipial should enforce security on User, Group, and Substituion</a></div><div class="listEntry"><a href="#COMMONS-2394"><b>
+                  [COMMONS-2394] ObjectBinding.Web:
+                </b>BocList Scrolling</a></div><div class="listEntry"><a href="#COMMONS-1240"><b>
+                  [COMMONS-1240] ObjectBinding:
+                </b>Support for Dynamic Properties</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-2313"><b>
+                    [COMMONS-2313] Data.Linq:
+                  </b>New Sql Backend</a></span></div><div class="children"><a href="#COMMONS-2405"><b>
+            [COMMONS-2405] Data.Linq:
+          </b>Support entity comparisons in where clauses</a></div><div class="children"><a href="#COMMONS-2400"><b>
+            [COMMONS-2400] Data.Linq:
+          </b>Support for orderby clauses</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1777"><b>
+                  [COMMONS-1777] SecurityManager:
+                </b>SecurityManagerPrincipal should cache data by revision</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2478"></a><h4>[COMMONS-2478]  BocAutoCompleteReferenceValue: bocAutoCompleteReferenceValueButton should toggle the drop down, not just open it</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2471"></a><h4>[COMMONS-2471] BocAutoCompleteReferenceValue (Legacy &amp; StandardMode): When scrolling in options list it disappears</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>If more options are available than fit on the popups height you hav to scroll sometimes.<br/>
+When moving the scrollbar of the option list the option list popup disappears.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2465"></a><h4>[COMMONS-2465] BocAutoCompleteReferenceValue: DropDownList should select the current element on open</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2463"></a><h4>[COMMONS-2463] PermissionReflector should use an InterlockedCache instead of the not thread-safe Cache</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2450"></a><h4>[COMMONS-2450] BocReferenceValue: Default size should be value similar to the default width of a Select-element</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Presently: 100%</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2436"></a><h4>[COMMONS-2436] PollingFileLockWatcher does not reset the successful-lock-count after a failed lock-attempt</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The effect of this issue is that multiple saves accumulate, resulting in a false-positive for the file-locked event.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1812"></a><h4>[COMMONS-1812] EditAccessControlEntryControl: CurrentTenantID of SpecificUserControl is not reset after tenant selection changes</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>see EVB-1564</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1811"></a><h4>[COMMONS-1811] EditTenantControl.ascx.cs: RemoveMenuItem in ChildrenList does not work (EventHandler missing)</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1038"></a><h4>[COMMONS-1038] Security Manager Web allows creation of circular group hierarchies</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When editing a security group the user can add (existing) child groups to the currently edited group. The user can choose from a list of all groups, including groups that are parents of the currently edited group. this allows for creation of circular group hierarchies (no check is done on save as well).</p>
+
+<p>Circular group hierarchies cause an endless loop on the next security access check that involves looking for parent groups.<br/>
+This can consequently put the complete application to a halt because the security cache can be threadlocked by the endless loop.</p>
+
+<p>Solution:</p>
+<ul>
+	<li>Check during security evaluation and throw an exception if a circular hierarchy is detected</li>
+	<li>Validate during save if the current group shows up in its parent-hierarchy</li>
+	<li>Unload and touch the entire parent hierarchy during commit. Will throw a ConcurrencyViolationException if a circular hierarchy was created by two users committing nearly simultanously.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-987"></a><h4>[COMMONS-987] Edit user and group should run with transactionmode "CreateRoot" instead of "None"</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>otherwise changes to the edited object (e.g. new role created) are not discarded when cancelled and reedited</p>
+
+<p>From <a href="https://jira.rubicon.eu/browse/COMMONS-1843" title="All ListForms: New and Edit commands can lead to exceptions in certain circumstances"><del>COMMONS-1843</del></a>:</p>
+
+<p>e.g. UserListForm: When a user clicks the NewButton and then cancels the operation on the editform and then edits an existing user, changes the firstname and clicks the SaveButton, then a MandatoryRelationException is thrown because the previous created user still exists in the current transaction but is empty.</p>
+
+<p>The same issue occurs also if a user for example opens an existing user, creates a new substitution (without takeover!) and then cancels the operation ... see above</p>
+
+<p>This is because the New and Edit commands open the functions with transaction mode "None".</p>
+
+<p>One possible solution would be to use transaction mode "CreateRoot" and reset the listform after returning and re-run the query.</p>
+
+<p>Attention: In Acta Nova Branch only the New-Commands are changed to "CreateRoot"!!</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2464"></a><h4>[COMMONS-2464] Renamed PrincipalUserProvider to NullPrincipalProvider</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2296"></a><h4>[COMMONS-2296] Tenant.GetHierarchy() should only return Tenants where the current user has ReadAccess</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>If a user does not have read access to some Sub-Tenants of the current Tenant then Exceptions will be thrown with some SecurityManager operations which cannot be avoided.</p>
+
+<p>Therefore, Tenant.GetHierarchy() should only return Tenants where the current user has ReadAccess.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2452"></a><h4>[COMMONS-2452] SecurityManagerPrincipial should enforce security on User, Group, and Substituion</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2394"></a><h4>[COMMONS-2394] BocList Scrolling</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Provide support for horizontal and vertical scrolling of the BocList-table, if a width or height is defined for the BocList</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1240"></a><h4>[COMMONS-1240] Support for Dynamic Properties</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>BindableObjectClass provides a protected virtual member "Properties" that can be used to replace or augment the properties provided by this instance.</p>
+
+<p>A custom implementation of BindableObjectClass can be created by overriding the ClassReflector's GetMetadata() method.</p></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-2313"></a><h4>[COMMONS-2313] New Sql Backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">re-linq vNext</span></div><br></br><div class="description"><span><p>The new SQL backend should both be a good example of how to approach SQL generation using the new re-linq front-end (QueryModel, usw.) and provide a sound, extensible architecture backing re-store's LINQ provider.</p>
+
+<p>It will sport SQL generation in three phases:</p>
+<ul class="alternate" type="square">
+	<li>The first phase will take a query model and translate it into a SqlStatement model. SqlStatement is modeled to express the syntactical possibilities and constraints of actual SQL statements.</li>
+	<li>The second phase will allow an O/R mapper to resolve all elements of the SqlStatement into SQL-specific items such as tables or columns with names and aliases.</li>
+	<li>The third phase will then take the resolved SqlStatement and produce actual SQL text (and parameters).</li>
+</ul>
+
+
+<p>LINQ providers will be able to hook into each of the three steps for customization, optimization, and advanced query transformations.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2405"></a><h4>[COMMONS-2405] Support entity comparisons in where clauses</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following forms: <tt>where kitchen.Cook == otherKitchen.Cook</tt>, <tt>where kitchen.Cook == outerCook</tt> (where outerCook is a constant passed from outside the query).</p>
+
+<p>The SQL generated for such queries performs primary key comparisons.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2400"></a><h4>[COMMONS-2400] Support for orderby clauses</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the form: <tt>from s in ... orderby s.ID, s.FirstName orderby s.LastName, s.MiddleName select s</tt>.</p>
+
+<p>This generates a single SQL ORDER BY clause; the conditions are appended to each other, so that later LINQ orderby clauses have higher ordering priority (ORDER BY s.LastName, s.MiddleName, s.ID, s.FirstName).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1777"></a><h4>[COMMONS-1777] SecurityManagerPrincipal should cache data by revision</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>At the moment all data (user, tenant, substitution) is loaded every webrequest, for performance considerations this data should be cached by revision like AccessTypes</p>
+
+<p>solved in Acta Nova branch in revisions 12648 and 12663</p></span></div></div></body></html>

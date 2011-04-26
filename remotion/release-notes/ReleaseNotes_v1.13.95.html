@@ -1,0 +1,100 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.95</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-731"><b>
+                  [RM-731] Data:
+                </b>Loading DomainObjects with foreign keys inconsistent in the current transaction leads to inconsistent behavior</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3727"><b>
+                  [RM-3727] Data:
+                </b>Provide a synchronization API to include lazily-loaded relation collection items in a previously loaded relation collection</a></div><div class="listEntry"><a href="#RM-3718"><b>
+                  [RM-3718] Mixins:
+                </b>Auto-detect complete interface from composition base classes via a marker interface</a></div><div class="listEntry"><a href="#RM-3714"><b>
+                  [RM-3714] Mixins:
+                </b>Provide a ComposedObject base class for the Mixin-based composition pattern</a></div><div class="listEntry"><a href="#RM-3533"><b>
+                  [RM-3533] Mixins:
+                </b>Automatically detect complete interfaces from an interface implemented by the target type</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-731"></a><h4>[RM-731] Loading DomainObjects with foreign keys inconsistent in the current transaction leads to inconsistent behavior</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3727"></a><h4>[RM-3727] Provide a synchronization API to include lazily-loaded relation collection items in a previously loaded relation collection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When a relation collection is resolved, a query is executed against the underlying data source (or parent transaction) in order to load all collection items into the ClientTransaction. The collection is then built from the items currently in the ClientTransaction, and is ready to be used.</p>
+
+<p>When the data source now changes and, by ID, query, or via a different relation, an additional object is loaded that has a foreign key qualifying it as a collection item, the item's relation is marked as "unsynchronized". The relation can be read, but not changed, and the item is not made part of the collection. Only when the user uses the new BidirectionalRelationSyncService (with the Synchronize method) is the relation synchronized: the item is included into the collection and the relation can be changed again. BidirectionalRelationSyncService also provides an IsSynchronized method allowing to check whether a relation property is in-sync with the opposite property.</p></span></div></div><div class="detailEntry  "><a name="RM-3718"></a><h4>[RM-3718] Auto-detect complete interface from composition base classes via a marker interface</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When a class implements IHasCompleteInterface&lt;TInterface&gt;, TInterface is registered as a complete interface for that class. IHasCompleteInterface&lt;TInterface&gt; is implemented by the ComposedObject base class (but can also be implemented by user-defined classes).</p>
+
+<p>Complete interfaces are interfaces that comprise members implemented on a target class as well as members added by mixins to that target class. They can be used to access all members on a mixed instance without casting to mixin interfaces. Usually, complete interfaces are (declaratively) declared by applying a CompleteInterfaceAttribute (which specifies the associated target class) to the interface. IHasCompleteInterface&lt;TInterface&gt; can now be used instead of the CompleteInterfaceAttribute to a allow a <em>class</em> to declare its complete interface.</p>
+
+<p>IHasCompleteInterface&lt;TInterface&gt; is automatically taken into account when the declarative mixin configuration is analyzed. When building a mixin configuration using the fluent mixin building APIs (Remotion.Mixins.MixinConfiguration.BuildNew()&gt; and similar), it is not automatically taken into account. Register the interface by hand using Remotion.Mixins.Context.FluentBuilders.ClassContextBuilder.AddCompleteInterface&lt;TInterface&gt;().</p>
+
+<p>IHasCompleteInterface&lt;T&gt; is a marker interface rather than an attribute so that it can be used by generic base classes, especially the ComposedObject class. (It is not possible, though, to have a generic target class with an associated complete interface.)</p></span></div></div><div class="detailEntry  "><a name="RM-3714"></a><h4>[RM-3714] Provide a ComposedObject base class for the Mixin-based composition pattern</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Add a ComposedObject base class for the Mixin-based composition pattern.</p>
+
+<p>The class acts as a convenience base class for domain objects in the mixin-based composition pattern. It provides a <em>This</em> property that allows access to the composed interface, and a NewObject&lt;TComposite&gt; factory method that acts as a factory method for subclasses.</p>
+
+<p>When a class inherits members provided by mixins, those additional members are only available by casting the class instance to the respective interfaces introduced by the mixins. This can be cumbersome, so the concept of complete interfaces was added. A complete interface combines public members of the mixed class with members introduced by mixins. The target class members are added to the complete interface either by having the complete interface extend an interface also implemented by the target class, or by simply redeclaring the members of the target class on the complete interface. The mixin members are added to the complete interface by having the complete interface extend the interfaces introduced by the mixins.</p>
+
+<p>While complete interfaces provide easy access to the members added by mixins, they still require one cast (from the target class instance to the complete interface). To remove the need for this cast, classes implementing mixin-based composition can use the ComposedObject base class. When a class derives from ComposedObject&lt;TComposedInterface&gt;, it defines a complete interface for itself and all the mixins it composes via the UsesAttribute. That complete interface is called the <em>composed interface</em>.</p>
+
+<p>The ComposedObject base class associates the composed interface with the derived class and provides a <em>This</em> property allowing access to all the members provided by the class and the composed mixins.</p></span></div></div><div class="detailEntry  "><a name="RM-3533"></a><h4>[RM-3533] Automatically detect complete interfaces from an interface implemented by the target type</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When a mixed type implements IComposed&lt;T&gt;, assume that T is the composed/complete interface of the mixed type.</p></span></div></div></body></html>

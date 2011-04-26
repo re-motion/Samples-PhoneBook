@@ -1,0 +1,111 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.31</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1660"><b>
+                  [COMMONS-1660] SecurityManager:
+                </b>Stateless ACE shows extra Permission column</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1691"><b>
+                  [COMMONS-1691] Core:
+                </b>StopwatchScope.Create overload for console logging</a></div><div class="listEntry"><a href="#COMMONS-1690"><b>
+                  [COMMONS-1690] Core:
+                </b>Add StopwatchScope.Checkpoint method to enable incremental time measurements</a></div><div class="listEntry"><a href="#COMMONS-607"><b>
+                  [COMMONS-607] Mixins:
+                </b>Allow mixins to suppress their base classes via 'SuppressedMixins'</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1660"></a><h4>[COMMONS-1660] Stateless ACE shows extra Permission column</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1691"></a><h4>[COMMONS-1691] StopwatchScope.Create overload for console logging</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1690"></a><h4>[COMMONS-1690] Add StopwatchScope.Checkpoint method to enable incremental time measurements</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">using (<span class="code-keyword">var</span> scope = StopwatchScope.Create(s_log, <span class="code-quote">"Performing work: {elapsed} ({context})"</span>))
+{
+  <span class="code-object">Thread</span>.Sleep (1000);
+  scope.Checkpoint (<span class="code-quote">"step 1"</span>);
+  <span class="code-object">Thread</span>.Sleep (1000);
+  scope.Checkpoint (<span class="code-quote">"step 2"</span>);
+  <span class="code-object">Thread</span>.Sleep (1000);
+}</pre>
+</div></div>
+
+<p>This results in roughly the following output:</p>
+{pre}<br/>
+Performing work: 00:00:01 (step 1)<br/>
+Performing work: 00:00:02 (step 2)<br/>
+Performing work: 00:00:03 (end){pre}
+
+<p>The following placeholders are available:</p>
+<ul class="alternate" type="square">
+	<li>context - the context given to the Checkpoint method, "end" for the end of the scope</li>
+	<li>elapsed - the total elapsed time in the standard TimeSpan format (<span class="error">&#91;-&#93;</span><span class="error">&#91;d.&#93;</span>hh:mm:ss<span class="error">&#91;.fffffff&#93;</span>)</li>
+	<li>elapsed:ms - the total elapsed time in milliseconds</li>
+	<li>elapsedCP - the elapsed time since the last checkpoint in the standard TimeSpan format (<span class="error">&#91;-&#93;</span><span class="error">&#91;d.&#93;</span>hh:mm:ss<span class="error">&#91;.fffffff&#93;</span>)</li>
+	<li>elapsedCP:ms - the elapsed time since the last checkpoint in milliseconds</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-607"></a><h4>[COMMONS-607] Allow mixins to suppress their base classes via 'SuppressedMixins'</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

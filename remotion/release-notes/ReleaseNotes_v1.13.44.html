@@ -1,0 +1,205 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.44</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2210"><b>
+                  [COMMONS-2210] ObjectBinding.Web:
+                </b>BocDateTimeValue does not render css-class "dateTimeValue" when displayed with only a date-component.</a></div><div class="listEntry"><a href="#COMMONS-2209"><b>
+                  [COMMONS-2209] Data:
+                </b>LoggingClientTransactionListener will reload unloaded collection on RelationRead event</a></div><div class="listEntry"><a href="#COMMONS-2206"><b>
+                  [COMMONS-2206] ObjectBinding.Web:
+                </b> BocAutoCompleteReferenceValue: ClientID is not added to the root element (Quirksmode and Standardmode)</a></div><div class="listEntry"><a href="#COMMONS-2197"><b>
+                  [COMMONS-2197] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: MenuItems are not disabled when no value is selected</a></div><div class="listEntry"><a href="#COMMONS-2189"><b>
+                  [COMMONS-2189] ObjectBinding.Web:
+                </b>DropDownMenuSeparator is not displayed in DropDownMenuOptions</a></div><div class="listEntry"><a href="#COMMONS-2175"><b>
+                  [COMMONS-2175] Data:
+                </b>DomainObjectCollection.Clear should raise all Removing/Removed events before/after the collection cleared when it is bound to an end-point</a></div><div class="listEntry"><a href="#COMMONS-2169"><b>
+                  [COMMONS-2169] ObjectBinding:
+                </b>EnumValueFilterProvider.GetFilterFromType: The attribute evaluation is not working when PropertyInformation.PropertyType is a Nullable type</a></div><div class="listEntry"><a href="#COMMONS-2150"><b>
+                  [COMMONS-2150] ObjectBinding.Web:
+                </b>BocReferenceValue: ClientID is not added to the root div element in Quirksmode</a></div><div class="listEntry"><a href="#COMMONS-2087"><b>
+                  [COMMONS-2087] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Popup does not open to the top anymore if there is not enough space below the control</a></div><div class="listEntry"><a href="#COMMONS-2086"><b>
+                  [COMMONS-2086] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue : when value is null, OnSelectionChanged is fired every postback also if the value hasn't changed </a></div><div class="listEntry"><a href="#COMMONS-2051"><b>
+                  [COMMONS-2051] ObjectBinding.Web:
+                </b>BocList Rendering: With the new rendering strategy the markup structure has changed so that styles cannot be applied appropiate</a></div><div class="listEntry"><a href="#COMMONS-2033"><b>
+                  [COMMONS-2033] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue throws exception when DataSource.BusinessObject or DataSource.BusinessObjectClass is null</a></div><div class="listEntry"><a href="#COMMONS-2032"><b>
+                  [COMMONS-2032] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Property "Args" is not passed to the client (BocAutoCompleteReferenceValuePreRendererBase.RegisterBindScript does not use it)</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2219"><b>
+                  [COMMONS-2219] Data:
+                </b>DomainObjectCollection.Commit method now takes an IEnumerable&lt;DomainObject&gt; instead of a DomainObjectCollection</a></div><div class="listEntry"><a href="#COMMONS-2218"><b>
+                  [COMMONS-2218] Data:
+                </b>IClientTransactionListener.RelationRead and IClientTransactionExtension.RelationRead notification methods for collection-valued relations have changed</a></div><div class="listEntry"><a href="#COMMONS-2207"><b>
+                  [COMMONS-2207] Data:
+                </b>RepositoryAccessor has been renamed to LifetimeService and moved to the new namespace Remotion.Data.DomainObjects.DomainImplementation</a></div><div class="listEntry"><a href="#COMMONS-2190"><b>
+                  [COMMONS-2190] Data:
+                </b>Changes to IClientTransactionExtension.ObjectLoading and IClientTransactionListener.ObjectLoading</a></div><div class="listEntry"><a href="#COMMONS-1971"><b>
+                  [COMMONS-1971] Data:
+                </b>Data.DomainObjects now depends Microsoft.Practices.ServiceLocator</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2174"><b>
+                  [COMMONS-2174] Data:
+                </b>CompositeDataManagementCommand.ExpandToRelatedObjects should call ExpandToRelatedObjects on its nested commands</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2170"><b>
+                  [COMMONS-2170] DmsTray:
+                </b>Possibility to define which application opens a file (via configuration)</a></div><div class="listEntry"><a href="#COMMONS-2104"><b>
+                  [COMMONS-2104] Data:
+                </b>Unload events</a></div><div class="listEntry"><a href="#COMMONS-2090"><b>
+                  [COMMONS-2090] Core:
+                </b>Maybe type</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1792"><b>
+                  [COMMONS-1792] Data:
+                </b>ClientTransaction.HasRelationChanged: change state of collection-valued relations of a domainobject should be cached</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2210"></a><h4>[COMMONS-2210] BocDateTimeValue does not render css-class "dateTimeValue" when displayed with only a date-component.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2209"></a><h4>[COMMONS-2209] LoggingClientTransactionListener will reload unloaded collection on RelationRead event</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Fixed by changing relatedObjects parameter from ReadOnlyCollection&lt;DomainObject&gt; to ReadOnlyDomainObjectCollectionAdapter. The latter provides an IsDataAvailable flag.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2206"></a><h4>[COMMONS-2206]  BocAutoCompleteReferenceValue: ClientID is not added to the root element (Quirksmode and Standardmode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2197"></a><h4>[COMMONS-2197] BocAutoCompleteReferenceValue: MenuItems are not disabled when no value is selected</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2189"></a><h4>[COMMONS-2189] DropDownMenuSeparator is not displayed in DropDownMenuOptions</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2175"></a><h4>[COMMONS-2175] DomainObjectCollection.Clear should raise all Removing/Removed events before/after the collection cleared when it is bound to an end-point</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>EndPointDelegatingCollectionData should not call NotifyAndPerform on each remove command separately.</p>
+
+<p>After this bugfix, it is now possible to reliably cancel Clear operations in the respective RelationChanging and Removing events.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2169"></a><h4>[COMMONS-2169] EnumValueFilterProvider.GetFilterFromType: The attribute evaluation is not working when PropertyInformation.PropertyType is a Nullable type</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>=&gt; solved in Acta Nova branch (using the underlying type when Nullable)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2150"></a><h4>[COMMONS-2150] BocReferenceValue: ClientID is not added to the root div element in Quirksmode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>=&gt; solved in ActaNova branch (tested only in Quirksmode)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2087"></a><h4>[COMMONS-2087] BocAutoCompleteReferenceValue: Popup does not open to the top anymore if there is not enough space below the control</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2086"></a><h4>[COMMONS-2086] BocAutoCompleteReferenceValue : when value is null, OnSelectionChanged is fired every postback also if the value hasn't changed </h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>posted value is not "==null==" when value is null, except when the selection is changed by the user</p>
+
+<p>=&gt; solved in Acta Nova branch</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2051"></a><h4>[COMMONS-2051] BocList Rendering: With the new rendering strategy the markup structure has changed so that styles cannot be applied appropiate</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Now no styles based on the cssclass cannot be applied to the first div:</p>
+
+<p>Earlier versions:</p>
+
+<p>&lt;div id="&lt;BocListClientID&gt;" class="&lt;CssClassBase&gt;"&gt;<br/>
+  &lt;table ...</p>
+
+<p>Now:</p>
+
+<p>&lt;div id="&lt;BocListClientID&gt;"&gt;<br/>
+  &lt;div class="&lt;CssClassBase&gt;"&gt;<br/>
+    &lt;table ...</p>
+
+<p>=&gt; solved in Acta Nova branch (BocList now overrides Render instead of RenderContents and the Renderer also adds the clientid to the additional attributes)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2033"></a><h4>[COMMONS-2033] BocAutoCompleteReferenceValue throws exception when DataSource.BusinessObject or DataSource.BusinessObjectClass is null</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This was not a problem in earlier versions such as 1.11.20</p>
+
+<p>=&gt; solved in Acta Nova Branch:</p>
+
+<p>BocAutoCompleteReferenceValuePreRendererBase.RegisterBindScript: changed initialization code at Row 76 to:</p>
+
+<p>      string businessObjectClass = string.Empty;<br/>
+      string businessObjectProperty = string.Empty;<br/>
+      string businessObjectId = string.Empty;</p>
+
+<p>      if (Control.DataSource != null)</p>
+      {
+        if (Control.DataSource.BusinessObjectClass != null)
+          businessObjectClass = Control.DataSource.BusinessObjectClass.Identifier;
+        else if (Control.DataSource.BusinessObject != null)
+          businessObjectClass = Control.DataSource.BusinessObject.BusinessObjectClass.Identifier;
+
+        if (Control.Property != null)
+          businessObjectProperty = Control.Property.Identifier;
+
+        IBusinessObjectWithIdentity businessObject = Control.DataSource.BusinessObject as IBusinessObjectWithIdentity;
+        if (businessObject != null)
+          businessObjectId = businessObject.UniqueIdentifier;
+      }
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2032"></a><h4>[COMMONS-2032] BocAutoCompleteReferenceValue: Property "Args" is not passed to the client (BocAutoCompleteReferenceValuePreRendererBase.RegisterBindScript does not use it)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>=&gt; solved in Acta Nova branch</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2219"></a><h4>[COMMONS-2219] DomainObjectCollection.Commit method now takes an IEnumerable&lt;DomainObject&gt; instead of a DomainObjectCollection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This was done because the original DomainObjectCollection should not access the collection representing the relation end point (possibly causing RelationRead events, etc.) during its Commit method.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2218"></a><h4>[COMMONS-2218] IClientTransactionListener.RelationRead and IClientTransactionExtension.RelationRead notification methods for collection-valued relations have changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Those methods now take a ReadOnlyDomainObjectCollectionAdapter&lt;DomainObject&gt; instead of a ReadOnlyCollection&lt;DomainObject&gt;. The adapter provides more information about the collection, most notably the IsDataAvailable property. Implementors should check this property before accessing the collection contents if they want to avoid reloading collections of unloaded end points.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2207"></a><h4>[COMMONS-2207] RepositoryAccessor has been renamed to LifetimeService and moved to the new namespace Remotion.Data.DomainObjects.DomainImplementation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>All advanced services for domain writers are moved to the new DomainImplementation namespace. The new name seems to be a better fit, given that there is no concept of "Repository" in re-store.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2190"></a><h4>[COMMONS-2190] Changes to IClientTransactionExtension.ObjectLoading and IClientTransactionListener.ObjectLoading</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the ObjectLoading method took a single ObjectID indicating what object was about to be loaded. This is inconsistent with the ObjectsLoaded method, which takes an array of DomainObjects. When several objects were loaded, ObjectsLoaded would be called only one, but ObjectLoading would be called multiple times.</p>
+
+<p>ObjectLoading has now been replaced with ObjectsLoading which works similar to ObjectsLoaded.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1971"></a><h4>[COMMONS-1971] Data.DomainObjects now depends Microsoft.Practices.ServiceLocator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In order to use Data.DomainObjects, the Microsoft ServiceLocator must be set up, i.e. ServiceLocator.Current must return a valid instance.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2174"></a><h4>[COMMONS-2174] CompositeDataManagementCommand.ExpandToRelatedObjects should call ExpandToRelatedObjects on its nested commands</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2170"></a><h4>[COMMONS-2170] Possibility to define which application opens a file (via configuration)</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2104"></a><h4>[COMMONS-2104] Unload events</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The following events will be raised when one or more objects' data is unloaded via DomainObjectUnloader.UnloadData or UnloadCollectionEndPointAndData (in this order):</p>
+
+<ul class="alternate" type="square">
+	<li>IClientTransactionListener.ObjectsUnloading/IClientTransactionExtension.ObjectsUnloading</li>
+	<li>DomainObject.OnUnloading (once for each object whose data is unloaded; at this point of time, the current transaction is guaranteed to be the transaction from which the object is unloaded)</li>
+	<li>Data and end points are unregistered</li>
+	<li>DomainObject.OnUnloaded (once for each object whose data is unloaded; at this point of time, the current transaction is guaranteed to be the transaction from which the object is unloaded)</li>
+	<li>IClientTransactionListener.ObjectsUnloaded/IClientTransactionExtension.ObjectsUnloaded</li>
+</ul>
+
+
+<p>ClientTransactionListener.ObjectsUnloading, IClientTransactionExtension.ObjectsUnloading, and DomainObject.OnUnloading can throw an exception in order to cancel the operation.</p>
+
+<p>Calls to DomainObjectUnloader.UnloadCollectionEndPoint will not raise any notifications at this point of time.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2090"></a><h4>[COMMONS-2090] Maybe type</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The Maybe type stores a value that may be null and provides functionality to process and act on this value without having to manually perform null checks:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> Maybe&lt;<span class="code-object">int</span>&gt; Square(Maybe&lt;<span class="code-object">int</span>&gt; value)
+{
+  <span class="code-keyword">return</span> value.Select (i =&gt; i * i);
+}</pre>
+</div></div>
+
+<p>Use this for chained expressions, where each of the pieces could be null:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> x = Maybe.ForValue (Control.DataSource).Select (ds =&gt; ds.BusinessObjectClass).Select (c =&gt; c.Identifier).ValueOrDefault("");</pre>
+</div></div>
+
+<p>Use the Where method to perform checks on the value stored by a Maybe instance, use the Do and Otherwise methods to perform actions based on whether or not the Maybe instance has a value.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1792"></a><h4>[COMMONS-1792] ClientTransaction.HasRelationChanged: change state of collection-valued relations of a domainobject should be cached</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Note that there may be code that directly accesses IEndPoint.HasChanged or CollectionEndPoint.HasChanged. That code should also profit from HasChanged caching; therefore we should probably implement caching at the end point level, not at the ClientTransaction level.</p>
+
+<p>A simple implementation would be to store a changed flag in the end point and have EndPointDelegatingCollectionData invalidate the flag on every change.</p></span></div></div></body></html>

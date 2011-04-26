@@ -1,0 +1,102 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.72</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2815"><b>
+                  [RM-2815] DMS:
+                </b>DmsTray: If the user uses a username for the login when the DmsTray is recovering, the lock fails and the file is discarded. Instead, keeping the file in limbo would be the better option.</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3093"><b>
+                  [RM-3093] Data.Linq for re-store:
+                </b>re-store's in-memory group by is now removed</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3082"><b>
+                  [RM-3082] Data.Linq:
+                </b>SQL Backend: Support interface methods for MethodCallTransformer registrations</a></div><div class="listEntry"><a href="#RM-3035"><b>
+                  [RM-3035] Data.Linq:
+                </b>SQL Backend: Handle diverse Equals methods</a></div><div class="listEntry"><a href="#RM-3015"><b>
+                  [RM-3015] Data.Linq:
+                </b>SQL Backend: Support comparisons with compound values</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-2815"></a><h4>[RM-2815] DmsTray: If the user uses a username for the login when the DmsTray is recovering, the lock fails and the file is discarded. Instead, keeping the file in limbo would be the better option.</h4><div class="component"><span class="label">Component/s: </span><span class="value">DMS</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>A possible solution would be to discard the new SessionInfo-object in the LoginActionHandler if the ApplicationName or UserName do not match. Files without a refreshed SessionInfo would remain in limbo. Those files should still offer the option for deleting a file and for executing a login. Whether an automatic login should be attempted during the next restart remains TBD.</p></span></div></div><div class="detailEntry  "><a name="RM-3093"></a><h4>[RM-3093] re-store's in-memory group by is now removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>re-store does not support in-memory group by any longer.</p>
+
+<p>For example, the following query used to silently perform in-memory GroupBy:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">(from c in Cooks
+select c).GroupBy (c =&gt; c.Kitchen)</pre>
+</div></div>
+
+<p>From now on, the in-memory part must be explicitly asked for by the user:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">(from c in Cooks
+select c).AsEnumerable().GroupBy (c =&gt; c.Kitchen)</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-3082"></a><h4>[RM-3082] SQL Backend: Support interface methods for MethodCallTransformer registrations</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support handlers for MethodCallExpressions that call implementations of interface methods, for example IEquatable&lt;T&gt;.Equals.</p></span></div></div><div class="detailEntry  "><a name="RM-3035"></a><h4>[RM-3035] SQL Backend: Handle diverse Equals methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for:</p>
+<ul class="alternate" type="square">
+	<li>Object.Equals (Object, Object),</li>
+	<li>Object.Equals (Object),</li>
+	<li>IEquatable&lt;T&gt;.Equals (T).</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3015"></a><h4>[RM-3015] SQL Backend: Support comparisons with compound values</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following form: <tt>from c in Cooks where new { c.FirstName, c.LastName } == new { FirstName = "John", LastName = "Doe" } select c</tt>.</p>
+
+<p>This is also useful for groupings where the grouping key is a compound key.</p></span></div></div></body></html>

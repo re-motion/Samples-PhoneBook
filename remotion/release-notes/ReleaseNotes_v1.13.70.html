@@ -1,0 +1,86 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.70</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3068"><b>
+                  [RM-3068] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: DropDown cannot be closed</a></div><div class="listEntry"><a href="#RM-1665"><b>
+                  [RM-1665] SecurityManager:
+                </b>When is changed the selected value in a control after postback controls are jumping 1px down</a></div><div class="listEntry"><a href="#RM-332"><b>
+                  [RM-332] ObjectBinding:
+                </b>BusinessObjectPropertyPath.Parse inserts the value of the propertyPathIdentifier as the parameter-name instead of the string "propertyPathIdentifier"</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3033"><b>
+                  [RM-3033] Data:
+                </b>Support for PeristentMixins added at different points in the inheritance hierarchy</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3068"></a><h4>[RM-3068] BocAutoCompleteReferenceValue: DropDown cannot be closed</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-1665"></a><h4>[RM-1665] When is changed the selected value in a control after postback controls are jumping 1px down</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-332"></a><h4>[RM-332] BusinessObjectPropertyPath.Parse inserts the value of the propertyPathIdentifier as the parameter-name instead of the string "propertyPathIdentifier"</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3033"></a><h4>[RM-3033] Support for PeristentMixins added at different points in the inheritance hierarchy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Applying a mixin to two differnt classes in the inheritance hierarchy results in an invalid mapping because the properties introduced by the mixin are added to each target class. To resolve this, the mapping has to be aware that these properties are equivalent and can be merged into a single column in the database schema.</p></span></div></div></body></html>

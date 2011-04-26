@@ -1,0 +1,141 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.81</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3447"><b>
+                  [RM-3447] Data.Linq for re-store:
+                </b>Add LinqCastMethodAttribute</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3447"></a><h4>[RM-3447] Add LinqCastMethodAttribute</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When a class uses a mixin, it can be good for the readability of code using the members added by the mixin to provide a property that returns a cast instance of the mixin's target object:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">[Uses (typeof (DocumentMixin))]
+<span class="code-keyword">public</span> class MyClass : DomainObject
+{
+  ...
+ 
+  [StorageClassNone]
+  <span class="code-keyword">public</span> IDocument DocumentMembers
+    get { <span class="code-keyword">return</span> (IDocument) <span class="code-keyword">this</span>; }
+  }
+
+  ...
+}
+
+<span class="code-comment">// usage:
+</span><span class="code-keyword">var</span> instance = MyClass.NewObject();
+instance.DocumentMembers.Author = <span class="code-quote">"John Doe"</span>;
+<span class="code-comment">// instead of: ((IDocument) instance).Author = <span class="code-quote">"John Doe"</span>;</span></pre>
+</div></div>
+
+<p>This approach also improves the discoverability of the members added by the mixin a lot.</p>
+
+<p>To have such members recognized by re-store's LINQ provider, the LinqCastMethodAttribute can be used. When that attribute is applied to a method or a property getter, the LINQ provider will correctly deduce that every member accessed on the property or method's result is actually accessed via the mixin.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">[Uses (typeof (DocumentMixin))]
+<span class="code-keyword">public</span> class MyClass : DomainObject
+{
+  ...
+ 
+  [StorageClassNone]
+  <span class="code-keyword">public</span> IDocument DocumentMembers
+    [LinqCastMethod]
+    get { <span class="code-keyword">return</span> (IDocument) <span class="code-keyword">this</span>; }
+  }
+
+  ...
+}
+
+<span class="code-comment">// usage:
+</span><span class="code-keyword">var</span> query = from x in QueryFactory.CreateLinqQuery&lt;MyClass&gt;()
+            where x.DocumentMembers.Author == <span class="code-quote">"John Doe"</span>
+            select x;
+<span class="code-comment">// instead of: where ((IDocument) x).Author == <span class="code-quote">"John Doe"</span></span></pre>
+</div></div>
+
+<p>When a mixin extends a class, the class can of course not add a property with that cast, but the mixin can add an extension method for the same purpose:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">static</span> class MyClassExtensions
+{
+  [LinqCastMethod]
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> IDocument GetDocumentMembers (<span class="code-keyword">this</span> MyClass that)
+  {
+    <span class="code-keyword">return</span> (IDocument) that;
+  }
+
+  ...
+}
+
+<span class="code-comment">// usage:
+</span><span class="code-keyword">var</span> query = from x in QueryFactory.CreateLinqQuery&lt;MyClass&gt;()
+            where x.GetDocumentMembers().Author == <span class="code-quote">"John Doe"</span>
+            select x;
+<span class="code-comment">// instead of: where ((IDocument) x).Author == <span class="code-quote">"John Doe"</span></span></pre>
+</div></div></span></div></div></body></html>

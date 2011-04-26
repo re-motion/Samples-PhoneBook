@@ -1,0 +1,152 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.33</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1837"><b>
+                  [COMMONS-1837] ObjectBinding.Web:
+                </b>IE6: JavaScript error when the script is processing a value "auto" instead of a number.</a></div><div class="listEntry"><a href="#COMMONS-1835"><b>
+                  [COMMONS-1835] ObjectBinding.Web:
+                </b>IE6: Tabs on tabbedMultiViewTabStrip have full width and don't constrain to context</a></div><div class="listEntry"><a href="#COMMONS-1832"><b>
+                  [COMMONS-1832] ObjectBinding.Web:
+                </b>IE6 NovaBlue: DropDownMenuButton is aligned to the left margin</a></div><div class="listEntry"><a href="#COMMONS-1740"><b>
+                  [COMMONS-1740] ObjectBinding.Web:
+                </b>IE6: tabbedMultiViewTabStrip&amp;tabbedMultiViewBottomControls is overfloating the Wrapper</a></div><div class="listEntry"><a href="#COMMONS-1600"><b>
+                  [COMMONS-1600] Core:
+                </b>Setting FrameworkVersion.Value programmatically does not always work</a></div><div class="listEntry"><a href="#COMMONS-1431"><b>
+                  [COMMONS-1431] ObjectBinding.Web:
+                </b>DateTimeValue, ReferenceValue and AutoCompleteReferenceValue style issues in IE6 standard mode</a></div><div class="listEntry"><a href="#COMMONS-1336"><b>
+                  [COMMONS-1336] Web:
+                </b>SingleView/TabbedMultiView QuirksMode: after re-loading the entire page, the view does not have its full width</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1841"><b>
+                  [COMMONS-1841] Data:
+                </b>Remotion.Data.DomainObjects.InvalidEnumDefinitionException is removed</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1845"><b>
+                  [COMMONS-1845] Core:
+                </b>Update license headers for re-motion to specify LGPL v2.1 and higher instead of LGPL v3.0</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-1797"><b>
+                    [COMMONS-1797] Core Data ObjectBinding SecurityManager:
+                  </b>Extensible enums</a></span></div><div class="children"><a href="#COMMONS-1802"><b>
+            [COMMONS-1802] Core:
+          </b>Extensible enum integration with the globalization infrastructure</a></div><div class="children"><a href="#COMMONS-1799"><b>
+            [COMMONS-1799] Data:
+          </b>Extensible enum integration with re-store</a></div><div class="children"><a href="#COMMONS-1798"><b>
+            [COMMONS-1798] Core:
+          </b>Extensible enum core functionality</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1837"></a><h4>[COMMONS-1837] IE6: JavaScript error when the script is processing a value "auto" instead of a number.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This problem is happening when a element is having width set to "auto" and the script is trying to process this value as a integer.<br/>
+In IE6, JS is returning NaN error.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1835"></a><h4>[COMMONS-1835] IE6: Tabs on tabbedMultiViewTabStrip have full width and don't constrain to context</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1832"></a><h4>[COMMONS-1832] IE6 NovaBlue: DropDownMenuButton is aligned to the left margin</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1740"></a><h4>[COMMONS-1740] IE6: tabbedMultiViewTabStrip&amp;tabbedMultiViewBottomControls is overfloating the Wrapper</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1600"></a><h4>[COMMONS-1600] Setting FrameworkVersion.Value programmatically does not always work</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The suggested way of setting the framework version to be used by VersionDependentBridge before using the ObjectFactory is the following:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Remotion.Implementation.FrameworkVersion.Value = typeof(ObjectFactory).Assembly.GetName().Version;
+ObjectFactory.Create&lt;Program&gt;(ParamList.Empty);</pre>
+</div></div>
+
+<p>However, this throws an exception because ParamList's static initializer is run before the FrameworkVersion.Value property is set.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1431"></a><h4>[COMMONS-1431] DateTimeValue, ReferenceValue and AutoCompleteReferenceValue style issues in IE6 standard mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>IE6 does not understand size definition by position:absolute and left&amp;right =&gt; CSS hack to explicitly set fixed width in IE6 (grow from left to right)<br/>
+TestPage disabled bound control: drop-down menu is too narrow</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1336"></a><h4>[COMMONS-1336] SingleView/TabbedMultiView QuirksMode: after re-loading the entire page, the view does not have its full width</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>After a page reload (f5), the view area is not set to its full width. As a consequence, a postback resizes the page and repositions the controls visibly</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1841"></a><h4>[COMMONS-1841] Remotion.Data.DomainObjects.InvalidEnumDefinitionException is removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This exception is never thrown by re-store, so it is removed.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1845"></a><h4>[COMMONS-1845] Update license headers for re-motion to specify LGPL v2.1 and higher instead of LGPL v3.0</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-1797"></a><h4>[COMMONS-1797] Extensible enums</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core Data ObjectBinding SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">1.13.34</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1802"></a><h4>[COMMONS-1802] Extensible enum integration with the globalization infrastructure</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1799"></a><h4>[COMMONS-1799] Extensible enum integration with re-store</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Extensible enums are stored as ID strings without type identifier. IDs can optionally include declaration spaces.</li>
+	<li>Properties with an extensible enum type are nullable by default and can be made non-nullable via an ExtensibleEnumAttribute.</li>
+	<li>The schema generator will automatically generate varchar columns with an auto-calculated column length that fits the longest ID of the respective enum type.</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1798"></a><h4>[COMMONS-1798] Extensible enum core functionality</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Extensible enum types are defined by deriving from an abstract <tt>ExtensibleEnum&lt;T&gt;</tt> base class. Values of the enum are identified by a string that is passed to that base class and created by extension methods that target <tt>ExtensibleEnumDefinition&lt;T&gt;</tt>, where T is the type deriving from extensible enums. The enum class holds an instance of <tt>ExtensibleEnumDefinition&lt;T&gt;</tt> that allows easy discovery of the extension methods via Intellisense.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> class Color : ExtensibleEnum&lt;Color&gt;
+{
+  <span class="code-keyword">public</span> Color (string identifier) : base (identifier)
+  {
+  }
+}
+
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> class ColorValues
+{
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> Color Red (<span class="code-keyword">this</span> ExtensibleEnumDefinition&lt;Color&gt; definition)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Color (<span class="code-quote">"Red"</span>);
+  }
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> Color Green (<span class="code-keyword">this</span> ExtensibleEnumDefinition&lt;Color&gt; definition)
+  {
+    <span class="code-keyword">return</span> <span class="code-keyword">new</span> Color (<span class="code-quote">"Green"</span>);
+  }
+}</pre>
+</div></div>
+
+<p>The <tt>ExtensibleEnumDefinition&lt;T&gt;</tt> class also provides services for retrieving extensible enum values by ID and for discovering the set of values belonging to a type.</p>
+
+<p>New modules can extend the enum by adding new extension methods. The values are found via re-motion's standard type discovery mechanisms.</p>
+
+<p>Extensible enums can optionally provide methods that are implemented or overridden by subclasses of the enum type, allowing for behavior to be attached to enum values.</p></span></div></div></body></html>

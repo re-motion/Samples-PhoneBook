@@ -1,0 +1,128 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.3</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1128"><b>
+                  [COMMONS-1128] Data Data.Linq:
+                </b>FieldAccessResolveException: "The member '...' does not identify a relation" is thrown when a query uses a property defined in a class that does not have a table associated with it (concrete table inheritance)</a></div><div class="listEntry"><a href="#COMMONS-1119"><b>
+                  [COMMONS-1119] Data:
+                </b>RootQueryManager.ExecuteCollection throws an exception when an object in the result set is deleted</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1121"><b>
+                  [COMMONS-1121] Data.Linq:
+                </b>Rename Fetch to FetchMany to match FetchOne</a></div><div class="listEntry"><a href="#COMMONS-1106"><b>
+                  [COMMONS-1106] Data.Linq:
+                </b>SelectClause should throw on null projections</a></div><div class="listEntry"><a href="#COMMONS-1105"><b>
+                  [COMMONS-1105] Data.Linq:
+                </b>The statements generated for MemberFromClauses and implicit joins should use views instead of tables</a></div><div class="listEntry"></div><div class="listEntry"></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1115"><b>
+                  [COMMONS-1115] Data.Linq:
+                </b>Support eager fetching over relation properties with a cardinality of one</a></div><div class="listEntry"><a href="#COMMONS-1039"><b>
+                  [COMMONS-1039] Data:
+                </b>Eager fetching</a></div><div class="children"><a href="#COMMONS-1102"><b>
+            [COMMONS-1102] Data.Linq:
+          </b>Clean up remaining issues and add missing tests</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1128"></a><h4>[COMMONS-1128] FieldAccessResolveException: "The member '...' does not identify a relation" is thrown when a query uses a property defined in a class that does not have a table associated with it (concrete table inheritance)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When you create a property path that goes from one DomainObject class to another, the re-linq to re-store bridge has to create a join between the tables associated with the DomainObject classes. In concrete-table inheritance scenarios, it can happen that the class involved in the path does not have a table associated with it because only its subclasses are mapped to tables. In such cases, re-store will throw an exception.</p>
+
+<p>For example, the following test queries will cause this exception to happen:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> query = from c in QueryFactory.CreateLinqQuery&lt;TableInheritance.TestDomain.ClassWithUnidirectionalRelation&gt; ()
+            where c.DomainBase.CreatedAt == <span class="code-keyword">new</span> DateTime (2006, 01, 03)
+            select c;</pre>
+</div></div>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> query = from c in QueryFactory.CreateLinqQuery&lt;TableInheritance.TestDomain.Client&gt; ()
+            from domainBase in c.AssignedObjects
+            where domainBase.CreatedAt == <span class="code-keyword">new</span> DateTime (2006, 01, 03)
+            select domainBase;</pre>
+</div></div>
+
+<p>To resolve this, re-store should use views instead of tables for the joins.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1119"></a><h4>[COMMONS-1119] RootQueryManager.ExecuteCollection throws an exception when an object in the result set is deleted</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Wrong includeDeletedFlag in RootQueryManager.MergeQueryResultWithExistingObjects.<br/>
+Add test showing that deleted objects can be returned.<br/>
+Also add test for discarded objects.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1121"></a><h4>[COMMONS-1121] Rename Fetch to FetchMany to match FetchOne</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1106"></a><h4>[COMMONS-1106] SelectClause should throw on null projections</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1105"></a><h4>[COMMONS-1105] The statements generated for MemberFromClauses and implicit joins should use views instead of tables</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1115"></a><h4>[COMMONS-1115] Support eager fetching over relation properties with a cardinality of one</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In Remotion.Data.DomainObjects.Queries:</p>
+<ul class="alternate" type="square">
+	<li>EagerFetcher (PerformEagerFetches, adapt check, handle single fetch properties accordingly (no registering should be required))</li>
+	<li>EagerFetchQueryCollection (Add, adapt check)</li>
+</ul>
+
+
+<p>In Remotion.Data.Linq:</p>
+<ul class="alternate" type="square">
+	<li>ExtensionMethods.ExtensionMethods.Fetch (adapt signature)</li>
+	<li>EagerFetching.FluentFetchRequest (ThenFetch, adapt signature)</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1039"></a><h4>[COMMONS-1039] Eager fetching</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1102"></a><h4>[COMMONS-1102] Clean up remaining issues and add missing tests</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

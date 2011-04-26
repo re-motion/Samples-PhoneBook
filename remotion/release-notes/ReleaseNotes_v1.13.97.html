@@ -1,0 +1,89 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.97</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3791"><b>
+                  [RM-3791] Data.Linq:
+                </b>Changed namespace and assembly of re-linq from Remotion.Data.Linq to Remotion.Linq</a></div><div class="listEntry"><a href="#RM-3790"><b>
+                  [RM-3790] ObjectBinding:
+                </b>Changed UndefinedEnumValueAttribute.Value from property to method</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3757"><b>
+                  [RM-3757] Mixins:
+                </b>Provide paramless overloads of ObjectFactory.Create</a></div><div class="listEntry"><a href="#RM-3754"><b>
+                  [RM-3754] Mixins:
+                </b>Add Type extension method GetUnderlyingMixedType()</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3791"></a><h4>[RM-3791] Changed namespace and assembly of re-linq from Remotion.Data.Linq to Remotion.Linq</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Relocated re-linq assemblies frol folder .\Data to .\Relinq</p>
+
+<p>Changed the following namespaces and assembly names:</p>
+<ul>
+	<li>Remotion.Data.Linq -&gt; Remotion.Linq</li>
+	<li>Remotion.Data.Linq.SqlBackend -&gt; Remotion.Linq.SqlBackend</li>
+	<li>Remotion.Data.Linq.LinqToSqlAdapter -&gt; Remotion.Linq.LinqToSqlAdapter</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3790"></a><h4>[RM-3790] Changed UndefinedEnumValueAttribute.Value from property to method</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>CustomAttributeData does not support public properties of type Enum.<br/>
+<a href="http://connect.microsoft.com/VisualStudio/feedback/details/296032/customattributedata-throws-when-attribute-has-a-public-enum-property">http://connect.microsoft.com/VisualStudio/feedback/details/296032/customattributedata-throws-when-attribute-has-a-public-enum-property</a> </p></span></div></div><div class="detailEntry  "><a name="RM-3757"></a><h4>[RM-3757] Provide paramless overloads of ObjectFactory.Create</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When you create an instance via ObjectFactory.Create&lt;T&gt;() resp Create(Type), it is necessary to pass ParamList.Empty. Add parameterless overloads for ObjectFactory.Create&lt;T&gt;() and Create (Type) for convenience.</p></span></div></div><div class="detailEntry  "><a name="RM-3754"></a><h4>[RM-3754] Add Type extension method GetUnderlyingMixedType()</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This simply calls MixinTypeUtility.GetUnderlyingTargetType, but it has better discoverability.</p></span></div></div></body></html>

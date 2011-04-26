@@ -1,0 +1,111 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.13</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1233"><b>
+                  [COMMONS-1233] Data.Linq:
+                </b>ResultModifications get lost when they are followed by additional method calls</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1203"><b>
+                  [COMMONS-1203] Data.Linq:
+                </b>Change all expression tree visitors to ignore unknown nodes instead of throwing exceptions</a></div><div class="listEntry"><a href="#COMMONS-1178"><b>
+                  [COMMONS-1178] Data.Linq:
+                </b>Remove IClause.PreviousClause, JoinClause.FromClause, Ordering.OrderByClause, ResultModification.SelectClause; manage everything via collections only</a></div><div class="listEntry"><a href="#COMMONS-1176"><b>
+                  [COMMONS-1176] Data.Linq:
+                </b>Remove QueryModel.GetExpressionTree, the QueryModel should be decoupled from LINQ Expressions</a></div><div class="listEntry"><a href="#COMMONS-1084"><b>
+                  [COMMONS-1084] Data.Linq:
+                </b>Consider reimplementing "previous clause" system so that the QueryModel sets previous clauses when a clause is added</a></div><div class="listEntry"><a href="#COMMONS-587"><b>
+                  [COMMONS-587] Data.Linq:
+                </b>Find a way to cache tables per FromClauseBase so that the cache doesn't grow infinitely</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1254"><b>
+                  [COMMONS-1254] Data.Linq:
+                </b>Refactor IExpressionNode.CreateClaus and CreateSelectClause: Replace by an Apply(QueryModel) mechanism</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1092"><b>
+                  [COMMONS-1092] Data.Linq:
+                </b>Refactor IQueryVisitor</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1233"></a><h4>[COMMONS-1233] ResultModifications get lost when they are followed by additional method calls</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">(from s in ... select s).Take (1).Where (s != <span class="code-keyword">null</span>)</pre>
+</div></div>
+
+<p>This is because QueryParser.CreateClauseChain removes select clauses that are followed by other clauses without keeping their ResultModifications.</p>
+
+<p>The solution would be to put all result modifications of the removed clauses into the ClauseGenerationContext and add their clones in ResultModificationExpressionNodeBase.GetSelectClauseForResultModification to the new select clause. The same must be done in QueryParser.GetOrCreateSelectClause.</p>
+
+<p>Alternatively, change ResultModificationExpressionNodeBase.CreateClause to not create any Select clauses or ResultModifications, but instead add the nodes to the context. Then, after everything is done, the nodes could provide a CreateResultModification method to create all result modifications.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1203"></a><h4>[COMMONS-1203] Change all expression tree visitors to ignore unknown nodes instead of throwing exceptions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This will make it much easier to deal with user-defined expression types.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1178"></a><h4>[COMMONS-1178] Remove IClause.PreviousClause, JoinClause.FromClause, Ordering.OrderByClause, ResultModification.SelectClause; manage everything via collections only</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This will make manipulation of the clause chain easier because clauses and QueryModel don't need to be kept in sync.</p>
+
+<ul class="alternate" type="square">
+	<li>Remove PreviousClause properties and constructor arguments</li>
+	<li>Add public setters for MainFromClause and SelectOrGroupClause</li>
+	<li>Make BodyClauses a mutable list.</li>
+	<li>Clean up properties on QueryModel</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1176"></a><h4>[COMMONS-1176] Remove QueryModel.GetExpressionTree, the QueryModel should be decoupled from LINQ Expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>GetExpressionTree is only used in error messages, and it causes lots of problems because it would have to be invalidated and recalculated every time the query model changes.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1084"></a><h4>[COMMONS-1084] Consider reimplementing "previous clause" system so that the QueryModel sets previous clauses when a clause is added</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This removes the "readonly" aspect of previous clauses, but it seems much more natural than having to always specify a previous clause when generating a new object.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-587"></a><h4>[COMMONS-587] Find a way to cache tables per FromClauseBase so that the cache doesn't grow infinitely</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1254"></a><h4>[COMMONS-1254] Refactor IExpressionNode.CreateClaus and CreateSelectClause: Replace by an Apply(QueryModel) mechanism</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>After <a href="https://jira.rubicon.eu/browse/COMMONS-1178" title="Remove IClause.PreviousClause, JoinClause.FromClause, Ordering.OrderByClause, ResultModification.SelectClause; manage everything via collections only"><del>COMMONS-1178</del></a>, the CreateClause and CreateSelectClause, which were used to produce clause chains, don't fit very well. It would be better to unify the Apply concept already used for ResultModificationExpressionNodeBase to all nodes.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1092"></a><h4>[COMMONS-1092] Refactor IQueryVisitor</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Add VisitResultModification method</li>
+	<li>Rename IQueryVisitor to IQueryModelVisitor</li>
+	<li>Add a default implementation of IQueryModelVisitor (QueryModelVisitorBase) which automatically visits the ResultModifications/Orderings/JoinClauses collections</li>
+</ul>
+</span></div></div></body></html>

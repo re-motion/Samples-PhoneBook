@@ -1,0 +1,141 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.89</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3634"><b>
+                  [RM-3634] Data.Linq:
+                </b>Query parsing ignoring main static source</a></div><div class="listEntry"><a href="#RM-921"><b>
+                  [RM-921] Data:
+                </b>Mitigate RM-731 by throwing an exception when Add is performed on a collection that is part of an inconsistent bidirectional relation</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3653"><b>
+                  [RM-3653] Data:
+                </b>Collection-valued relation properties are no longer always loaded when they are accessed for the first time</a></div><div class="listEntry"><a href="#RM-3636"><b>
+                  [RM-3636] Core:
+                </b>PEVerifier's API has changed</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3658"><b>
+                  [RM-3658] Data:
+                </b>PropertyValue.Value no longer throws when setting foreign key properties</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3634"></a><h4>[RM-3634] Query parsing ignoring main static source</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Queries like this:<br/>
+var query = from i in new[] { 1, 5, 10 }<br/>
+	join e2 in tran.Query&lt;linq.entity&gt;() on i equals e2.ID<br/>
+	select e2;<br/>
+<br/>
+are parsed as <br/>
+var query = from e2 in tran.Query&lt;linq.entity&gt;()<br/>
+	select e2;<br/>
+<br/>
+with join done after execution.<br/>
+Main part of the query should be static source new[]{1,5,10} and not "IQueryable&lt;linq.entity&gt;"<br/>
+<br/>
+Queries like this:<br/>
+var query = from e2 in tran.Query&lt;linq.entity&gt;()<br/>
+	join i in new[] { 1, 5, 10 } on e2.ID equals i<br/>
+	select e2;</p>
+
+<p>are parsed correctly.</p></span></div></div><div class="detailEntry  "><a name="RM-921"></a><h4>[RM-921] Mitigate RM-731 by throwing an exception when Add is performed on a collection that is part of an inconsistent bidirectional relation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, the following code fails silently (printing True/False):</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SetDatabaseModifyable ();
+
+<span class="code-comment">// setup <span class="code-keyword">new</span> IndustrialSector object in database
+</span>IndustrialSector industrialSector = CreateNewIndustrialSector ();
+ClientTransactionMock.Commit ();
+
+<span class="code-comment">// in parallel transaction, add a Company to the IndustrialSector
+</span>ObjectID newCompanyID = AddNewCompanyInDatabase (industrialSector);
+<span class="code-comment">// load Company into <span class="code-keyword">this</span> transaction; in the database, the Company has a foreign key to the IndustrialSector
+</span>Company newCompany = Company.GetObject (newCompanyID); <span class="code-comment">// TODO re-motion 2.1: This should <span class="code-keyword">throw</span> an exception.
+</span>
+industrialSector.Companies.Add (newCompany);
+Console.WriteLine (<span class="code-quote">"{0}.IndustrialSector = {1} (the company has a reference to the industrial sector: {2})"</span>,
+    newCompany, newCompany.IndustrialSector, newCompany.IndustrialSector == industrialSector);
+Console.WriteLine (<span class="code-quote">"{0}.Companies.Count = {1} (the industrial sector has a reference to the company: {2})"</span>,
+    industrialSector, industrialSector.Companies.Count, industrialSector.Companies.ContainsObject (industrialSector));</pre>
+</div></div>
+
+<p>When <a href="https://jira.rubicon.eu/browse/RM-731" title="Loading DomainObjects with foreign keys inconsistent in the current transaction leads to inconsistent behavior">RM-731</a> is fixed, this state will not be possible any longer. However, until then, we should throw an exception in Add.</p></span></div></div><div class="detailEntry  "><a name="RM-3653"></a><h4>[RM-3653] Collection-valued relation properties are no longer always loaded when they are accessed for the first time</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Consider the following code:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> orderItem = OrderItem.GetObject (...);
+<span class="code-keyword">var</span> order = orderItem.Orders;
+<span class="code-keyword">var</span> allItems = order.OrderItems;</pre>
+</div></div>
+
+<p>Previously, the third line caused the OrderItems collection's contents to be loaded. This is no longer the case; allItems will now be a collection whose IsDataAvailable property is false. Its contents will be loaded when they are first needed (eg., because an item is added or because the collection is enumerated).</p>
+
+<p>This behavior is the same as if the collection had been loaded before but had been unloaded later.</p>
+
+<p>This change was caused by the fact that loading a DomainObject being part of a collection-valued relation (the OrderItem in the example) now causes the DomainObjectCollection to be created (in unloaded state). As soon as the foreign key exists in the ClientTransaction, the collection exists as well (in unloaded state).</p>
+
+<p>Most applications will not notice this change.<br/>
+To ensure that a collection-valued relation is loaded, use the EnsureDataAvailable method on the DomainObjectCollection.<br/>
+Do not expect related objects to be loaded just because they are read from properties, future changes will make relations even lazier with regards to loading.</p></span></div></div><div class="detailEntry  "><a name="RM-3636"></a><h4>[RM-3636] PEVerifier's API has changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>PEVerifier is no longer a static class. The different possibilities of finding PEVerify.exe (including the respective string constants) have been extracted to separate classes implementing the IPEVerifyPathSource interface.</p>
+
+<p>To use PEVerifier the same way as before, create an instance using PEVerifier.CreateDefault(), then call one of its VerifyPEFile methods.<br/>
+To specify one or several custom paths, create an instance using PEVerifier's constructor, and pass in a FixedPEVerifyPathSource, CompoundPEVerifyPathSource, or any other implementation of IPEVerifyPathSource.</p></span></div></div><div class="detailEntry  "><a name="RM-3658"></a><h4>[RM-3658] PropertyValue.Value no longer throws when setting foreign key properties</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, PropertyValue.Value would not allow foreign key properties to be set directly, as this has to happen via the respective relation end-point.<br/>
+Now, this restriction has been lifted, as PropertyValue is a low-level infrastructure API anyway.</p>
+
+<p>Note, however, that setting PropertyValue.Value does not perform any bidirectional relation changes, nor does it raise RelationChange events. (It does raise PropertyChange events, though.)</p></span></div></div></body></html>

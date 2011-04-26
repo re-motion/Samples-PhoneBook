@@ -1,0 +1,79 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.91</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3681"><b>
+                  [RM-3681] Data:
+                </b>ClientTransaction.Load... methods have been obsoleted</a></div><div class="listEntry"><a href="#RM-3675"><b>
+                  [RM-3675] Data:
+                </b>ClientTransaction.GetObject (and accessing relation of invalid objects) now throw an ObjectInvalidException for invalid objects</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2990"><b>
+                  [RM-2990] Data.Linq for re-store:
+                </b>Use full column lists instead of stars for entities in re-store LINQ queries</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3681"></a><h4>[RM-3681] ClientTransaction.Load... methods have been obsoleted</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The ClientTransaction.Load methods have been obsoleted. These methods were never meant to be called by the user. To intercept objects being loaded, provide a custom IObjectLoader to the ClientTransaction when it is created.</p></span></div></div><div class="detailEntry  "><a name="RM-3675"></a><h4>[RM-3675] ClientTransaction.GetObject (and accessing relation of invalid objects) now throw an ObjectInvalidException for invalid objects</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, an ObjectNotFoundException would be thrown for reasons of compatibility with previous versions.<br/>
+However, this exception is misleading; ObjectInvalidException is really more suited to this error.</p></span></div></div><div class="detailEntry  "><a name="RM-2990"></a><h4>[RM-2990] Use full column lists instead of stars for entities in re-store LINQ queries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This is required for several features already supported for re-linq, most notably for grouping by entities (group by order.Customer) and for complex nested expressions (select new { O1 = orderItem1.Order, O2 = orderItem2.Order }).</p></span></div></div></body></html>

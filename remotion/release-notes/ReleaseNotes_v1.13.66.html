@@ -1,0 +1,172 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.66</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2997"><b>
+                  [RM-2997] Data:
+                </b>SubClientTransaction: Exception occurs when a new domainobject is being changed in a subtx through MarkAsChanged() and then committed</a></div><div class="listEntry"><a href="#RM-2954"><b>
+                  [RM-2954] ObjectBinding.Web:
+                </b>BocList: FormatException occured when all rows are selected and tab is changed</a></div><div class="listEntry"><a href="#RM-2845"><b>
+                  [RM-2845] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: The drop-down list will not open after an async postback (Mozilla, Webkit)</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2996"><b>
+                  [RM-2996] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Changed properties that control the timing of the drop-down-list.</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2994"><b>
+                  [RM-2994] Core:
+                </b>add ReflectionBasedMemberResolver to SecurityClient</a></div><div class="listEntry"><a href="#RM-2975"><b>
+                  [RM-2975] Data.Linq:
+                </b>TupleExpressionBuilder</a></div><div class="listEntry"><a href="#RM-2948"><b>
+                  [RM-2948] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Provide different timings for opening the dropdown for the first time and refreshing the list from the server when the dropdown is already open</a></div><div class="listEntry"><a href="#RM-2899"><b>
+                  [RM-2899] Security:
+                </b>Add IMemberInformation as commom base type for IPropertyInformation and IMethodInformation</a></div><div class="listEntry"><a href="#RM-2897"><b>
+                  [RM-2897] Security:
+                </b>Add IMemberResolver interface and ReflectionBasedMemberResolver</a></div><div class="listEntry"><a href="#RM-2895"><b>
+                  [RM-2895] Core:
+                </b>Add MethodInfoAdatper based on IMethodInformation</a></div><div class="listEntry"><a href="#RM-969"><b>
+                  [RM-969] SecurityManager:
+                </b>BocList User.SubstitutedBy: editModeColumn.SaveIcon should not be SaveButton.gif, instead TakeOverItem.gif should be used</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2965"><b>
+                  [RM-2965] SecurityManager:
+                </b>Remove unnecessary bidirectional relations in re-strict</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-2997"></a><h4>[RM-2997] SubClientTransaction: Exception occurs when a new domainobject is being changed in a subtx through MarkAsChanged() and then committed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>see unittest in actanovabranch</p></span></div></div><div class="detailEntry  "><a name="RM-2954"></a><h4>[RM-2954] BocList: FormatException occured when all rows are selected and tab is changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Steps to reproduce:<br/>
+1. Go to Wxe-Enabled Test for a Tabbed Form<br/>
+2. change to Jobs tab<br/>
+3. select all rows from BocList<br/>
+4. click on "Person Details" tab.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Server Error in '/actanova/Web' Application.
+--------------------------------------------------------------------------------
+
+Input string was not in a correct format. 
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code. 
+
+Exception Details: System.FormatException: Input string was not in a correct format.
+
+Source Error: 
+
+
+Line 500:                  || isTitleRowSelectorControl))
+Line 501:            continue;
+Line 502:          int rowIndex = int.Parse (postCollection[i]);
+Line 503:          _selectorControlCheckedState.Add (rowIndex);
+Line 504:        }
+ 
+
+Source File: C:\Development\remotion\trunk\Remotion\ObjectBinding\Web\UI\Controls\BocList.cs    Line: 502 
+
+Stack Trace: 
+
+
+[FormatException: Input string was not in a correct format.]
+   System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer&amp; number, NumberFormatInfo info, Boolean parseDecimal) +10161267
+   System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info) +207
+   Remotion.ObjectBinding.Web.UI.Controls.BocList.LoadPostData(String postDataKey, NameValueCollection postCollection) in C:\Development\remotion\trunk\Remotion\ObjectBinding\Web\UI\Controls\BocList.cs:502
+   Remotion.ObjectBinding.Web.UI.Controls.BocList.System.Web.UI.IPostBackDataHandler.LoadPostData(String postDataKey, NameValueCollection postCollection) in C:\Development\remotion\trunk\Remotion\ObjectBinding\Web\UI\Controls\BocList.cs:463
+   System.Web.UI.Page.ProcessPostData(NameValueCollection postData, Boolean fBeforeLoad) +945
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +2071
+
+[WxeUnhandledException: An unhandled exception ocured while executing WxeFunction 'ActaNova.Web.UI.SearchResultDomainObjectFunction':
+Input string was not in a correct format.]
+   Remotion.Web.ExecutionEngine.WxeFunction.Execute(WxeContext context) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeFunction.cs:245
+   ActaNova.Web.Classes.BaseFunction.Execute(WxeContext context) in C:\Development\products\actanova\trunk\Web\Classes\BaseFunction.cs:290
+   Remotion.Web.ExecutionEngine.WxeHandler.ExecuteFunction(WxeFunction function, WxeContext context, Boolean isNew) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:387
+   Remotion.Web.ExecutionEngine.WxeHandler.ExecuteFunctionState(HttpContext context, WxeFunctionState functionState, Boolean isNewFunction) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:374
+   Remotion.Web.ExecutionEngine.WxeHandler.ProcessFunctionState(HttpContext context, WxeFunctionState functionState, Boolean isNewFunction) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:350
+   Remotion.Web.ExecutionEngine.WxeHandler.ProcessRequest(HttpContext context) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:143
+   System.Web.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute() +599
+   System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously) +171
+</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-2845"></a><h4>[RM-2845] BocAutoCompleteReferenceValue: The drop-down list will not open after an async postback (Mozilla, Webkit)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2996"></a><h4>[RM-2996] BocAutoCompleteReferenceValue: Changed properties that control the timing of the drop-down-list.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>CompletionInterval -&gt; DropDownDisplayDelay and DropDownRefreshDelay<br/>
+SuggestionInterval -&gt; SelectionUpdateDelay</p></span></div></div><div class="detailEntry  "><a name="RM-2994"></a><h4>[RM-2994] add ReflectionBasedMemberResolver to SecurityClient</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2975"></a><h4>[RM-2975] TupleExpressionBuilder</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>TupleExpressionBuilder can be used to build tuples incorporating a sequence of expressions. For example, given three expressions, ex1, ex2, and ex3, it will build nested <tt>NewExpressions</tt> that are equivalent to the following: <tt>new KeyValuePair&lt;T1, KeyValuePair&lt;T2, T3&gt;&gt; (ex1, new KeyValuePair&lt;ex2, ex3&gt;)</tt>.</p>
+
+<p>Given an expression whose type matches that of a tuple built by TupleExpressionBuilder, the builder can also return an enumeration of accessor expressions that can be used to access the tuple elements in the same order as they were put into the nested tuple expression. In above example, this would yield <tt>tupleEx.Key</tt>, <tt>tupleEx.Value.Key</tt>, and <tt>tupleEx.Value.Value</tt>.</p>
+
+<p>This class can be handy whenever a set of expressions needs to be put into a single expression (eg., a select projection), especially if each sub-expression needs to be explicitly accessed at a later point of time (eg., to retrieve the items from a statement surrounding a sub-statement yielding the tuple in its select projection).</p></span></div></div><div class="detailEntry  "><a name="RM-2948"></a><h4>[RM-2948] BocAutoCompleteReferenceValue: Provide different timings for opening the dropdown for the first time and refreshing the list from the server when the dropdown is already open</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul>
+	<li>DropDownDisplayDelay<br/>
+The delay until the drop-down opens when the user first changes the text in the input element.</li>
+	<li>DropDownRefreshDelay<br/>
+The delay until the drop-down refreshes its data while the user is refining his input.</li>
+	<li>SelectionUpdateDelay<br/>
+The delay until the user's input is used to update the selected value.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-2899"></a><h4>[RM-2899] Add IMemberInformation as commom base type for IPropertyInformation and IMethodInformation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2897"></a><h4>[RM-2897] Add IMemberResolver interface and ReflectionBasedMemberResolver</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Contains the reflection-part responsible for resolving the member from the reflection information presently located in the PermissionReflector.</p></span></div></div><div class="detailEntry  "><a name="RM-2895"></a><h4>[RM-2895] Add MethodInfoAdatper based on IMethodInformation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Implementation is a simple wrapper for MethodInfo.</p></span></div></div><div class="detailEntry  "><a name="RM-969"></a><h4>[RM-969] BocList User.SubstitutedBy: editModeColumn.SaveIcon should not be SaveButton.gif, instead TakeOverItem.gif should be used</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2965"></a><h4>[RM-2965] Remove unnecessary bidirectional relations in re-strict</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Change the following relations to unidirectional relations:<br/>
+Group-&gt;GroupType<br/>
+ACE-&gt;Position<br/>
+ACE-&gt;GroupType<br/>
+ACE-&gt;User<br/>
+ACE-&gt;Group<br/>
+ACE-&gt;AbstractRole</p></span></div></div></body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.53</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2536"><b>
+                  [COMMONS-2536] DmsTray:
+                </b>DmsTray: MessageBoxes should always open in front of other windows.</a></div><div class="listEntry"><a href="#COMMONS-2527"><b>
+                  [COMMONS-2527] ObjectBinding.Web:
+                </b>All controls should have and include a default CSS file</a></div><div class="listEntry"><a href="#COMMONS-2505"><b>
+                  [COMMONS-2505] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue -&gt; RegisterBindScript: BusinessObjectClass is null when control is used in a row of a boclist in listeditmode</a></div><div class="listEntry"><a href="#COMMONS-2451"><b>
+                  [COMMONS-2451] SecurityManager:
+                </b>ACE Editor: Layout of the BocReferenceValues is not correct</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2537"><b>
+                  [COMMONS-2537] DmsTray:
+                </b>Refactor instantiation of UIThreadInvoker and subsequent passing into different instances</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><span class="notVisible"><a href="#COMMONS-2313"><b>
+                    [COMMONS-2313] Data.Linq:
+                  </b>New Sql Backend</a></span></div><div class="children"><a href="#COMMONS-2365"><b>
+            [COMMONS-2365] Data.Linq:
+          </b>Support for subqueries</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2552"><b>
+                  [COMMONS-2552] ObjectBinding.Web:
+                </b>BocList.GetIndexedRows should not unnecessarily sort rows when HasSortingKeys is false</a></div><div class="listEntry"><a href="#COMMONS-2551"><b>
+                  [COMMONS-2551] ObjectBinding.Web:
+                </b>BocList.GetSortedRows should not resort unnecessarily every time it's called</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2536"></a><h4>[COMMONS-2536] DmsTray: MessageBoxes should always open in front of other windows.</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2527"></a><h4>[COMMONS-2527] All controls should have and include a default CSS file</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>CSS file it is not automatically included by the following controls: <br/>
+BocMultilineTextValue, BocTextValue, BocCheckBox, BocBooleanValue...</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2505"></a><h4>[COMMONS-2505] BocAutoCompleteReferenceValue -&gt; RegisterBindScript: BusinessObjectClass is null when control is used in a row of a boclist in listeditmode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This happens because the ReferenceDataSource, which is used as datasource for each row, doesn't provide a businessobjectclass, only the businessobject and the evaluation of businessobjectclass before version 1.11.20 had a fallback to the businessobjectclass of the businessobject (also see revision in actanova branch)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2451"></a><h4>[COMMONS-2451] ACE Editor: Layout of the BocReferenceValues is not correct</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2537"></a><h4>[COMMONS-2537] Refactor instantiation of UIThreadInvoker and subsequent passing into different instances</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Possibly unify with UIHelper.</p></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-2313"></a><h4>[COMMONS-2313] New Sql Backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">re-linq vNext</span></div><br></br><div class="description"><span><p>The new SQL backend should both be a good example of how to approach SQL generation using the new re-linq front-end (QueryModel, usw.) and provide a sound, extensible architecture backing re-store's LINQ provider.</p>
+
+<p>It will sport SQL generation in three phases:</p>
+<ul class="alternate" type="square">
+	<li>The first phase will take a query model and translate it into a SqlStatement model. SqlStatement is modeled to express the syntactical possibilities and constraints of actual SQL statements.</li>
+	<li>The second phase will allow an O/R mapper to resolve all elements of the SqlStatement into SQL-specific items such as tables or columns with names and aliases.</li>
+	<li>The third phase will then take the resolved SqlStatement and produce actual SQL text (and parameters).</li>
+</ul>
+
+
+<p>LINQ providers will be able to hook into each of the three steps for customization, optimization, and advanced query transformations.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2365"></a><h4>[COMMONS-2365] Support for subqueries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the form: <tt>select (from oi in o.OrderItems select oi).Count()</tt>.<br/>
+This expression generates a SQL subquery.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2552"></a><h4>[COMMONS-2552] BocList.GetIndexedRows should not unnecessarily sort rows when HasSortingKeys is false</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2551"></a><h4>[COMMONS-2551] BocList.GetSortedRows should not resort unnecessarily every time it's called</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>One possible solution would be to use EnsureGotIndexedRowsSorted instead of GetIndexedRows</p></span></div></div></body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.75</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3277"><b>
+                  [RM-3277] Data ObjectBinding:
+                </b>ClassDefinition.ResolveProperty throws an InvalidOperationException when used with an interface property whose implementation is private (explicit) on a base class of the type being checked</a></div><div class="listEntry"><a href="#RM-3197"><b>
+                  [RM-3197] Data.Linq:
+                </b>Predicate LambdaExpressions are not correctly resolved if the lambda's parameter is used in a VB string comparison</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3294"><b>
+                  [RM-3294] Data.Linq:
+                </b>SQL Backend: ResultOperatorHandlerRegistry.GetItem now returns null if no result operator handler can be found</a></div><div class="listEntry"><a href="#RM-3276"><b>
+                  [RM-3276] Data:
+                </b>IPropertyInformation.GetGetMethod and GetSetMethod now take a boolean nonPublic parameter</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3080"><b>
+                  [RM-3080] Data.Linq:
+                </b>SQL Backend: Support member access on conditional and null coercion expressions</a></div><div class="listEntry"><a href="#RM-2886"><b>
+                  [RM-2886] Data.Linq:
+                </b>SQL Backend: Support for SQL-compatible usages of GroupBy</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3277"></a><h4>[RM-3277] ClassDefinition.ResolveProperty throws an InvalidOperationException when used with an interface property whose implementation is private (explicit) on a base class of the type being checked</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This also affects the IBusinessObject.GetProperty() implementation of the re-store/re-bind adapter.</p>
+
+<p>System.InvalidOperationException : Sequence contains no matching element<br/>
+   at System.Linq.Enumerable.Single<span class="error">&#91;TSource&#93;</span>(IEnumerable`1 source, Func`2 predicate)<br/>
+   at Remotion.Data.DomainObjects.Mapping.ReflectionBasedPropertyResolver.FindPropertyImplementationOnType(PropertyInfo interfaceProperty, Type implementationType) in c:\Development\Remotion\trunk\Remotion\Data\DomainObjects\Mapping\ReflectionBasedPropertyResolver.cs:line 81<br/>
+   at Remotion.Data.DomainObjects.Mapping.ReflectionBasedPropertyResolver.ResolveDefinition<span class="error">&#91;T&#93;</span>(PropertyInfo property, ReflectionBasedClassDefinition classDefinition, Func`2 definitionGetter) in c:\Development\Remotion\trunk\Remotion\Data\DomainObjects\Mapping\ReflectionBasedPropertyResolver.cs:line 44<br/>
+   at Remotion.Data.DomainObjects.Mapping.ReflectionBasedClassDefinition.&lt;ResolveProperty&gt;b__b(PropertyInfo key) in c:\Development\Remotion\trunk\Remotion\Data\DomainObjects\Mapping\ReflectionBasedClassDefinition.cs:line 189<br/>
+   at Remotion.Collections.InterlockedCache`2.GetOrCreateValue(TKey key, Func`2 valueFactory) in c:\Development\Remotion\trunk\Remotion\Core\Core\Collections\InterlockedCache.cs:line 53<br/>
+   at Remotion.Data.DomainObjects.Mapping.ReflectionBasedClassDefinition.ResolveProperty(PropertyInfo property) in c:\Development\Remotion\trunk\Remotion\Data\DomainObjects\Mapping\ReflectionBasedClassDefinition.cs:line 187<br/>
+   at Remotion.Data.DomainObjects.ObjectBinding.BindableDomainObjectMixin.IsDefaultValue(PropertyBase property, Object nativeValue) in c:\Development\Remotion\trunk\Remotion\Data\DomainObjects\ObjectBinding\BindableDomainObjectMixin.cs:line 68<br/>
+   at Remotion.ObjectBinding.BindableObject.BindableObjectMixinBase`1.GetProperty(IBusinessObjectProperty property) in c:\Development\Remotion\trunk\Remotion\ObjectBinding\Core\BindableObject\BindableObjectMixinBase.cs:line 57<br/>
+   at Remotion.Data.DomainObjects.ObjectBinding.BindableDomainObject.Remotion.ObjectBinding.IBusinessObject.GetProperty(IBusinessObjectProperty property) in c:\Development\Remotion\trunk\Remotion\Data\DomainObjects\ObjectBinding\BindableDomainObject.cs:line 93</p>
+</span></div></div><div class="detailEntry  "><a name="RM-3197"></a><h4>[RM-3197] Predicate LambdaExpressions are not correctly resolved if the lambda's parameter is used in a VB string comparison</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ReplacingExpressionTreeVisitor does not deal with extension expressions correctly; this will cause ParameterExpressions to remain in the resolved predicates.</p></span></div></div><div class="detailEntry  "><a name="RM-3294"></a><h4>[RM-3294] SQL Backend: ResultOperatorHandlerRegistry.GetItem now returns null if no result operator handler can be found</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This is for symmetry with the MethodCallTransformerRegistries. Callers must now check the result for null before using it.</p></span></div></div><div class="detailEntry  "><a name="RM-3276"></a><h4>[RM-3276] IPropertyInformation.GetGetMethod and GetSetMethod now take a boolean nonPublic parameter</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The nonPublic parameter has the same semantics as with the original PropertyInfo.GetGetMethod/GetSetMethod methods. Pass true to include non-public accessors, false to only include public accessors. </p>
+
+<p>PropertyInfoAdapter used to default to false, BindableObjectPropertyInfoAdapter previously defaulted to true.</p></span></div></div><div class="detailEntry  "><a name="RM-3080"></a><h4>[RM-3080] SQL Backend: Support member access on conditional and null coercion expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support queries of the following forms:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Cooks.Select (c =&gt; (c.IsStarredCook ? c.LetterOfRecommendation : c.Name).Length)
+Cooks.Select (c =&gt; (c.FirstName ?? c.Name).Length)</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-2886"></a><h4>[RM-2886] SQL Backend: Support for SQL-compatible usages of GroupBy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following form: <tt>from c in Cooks group c by c.Name into families where families.Count() &gt; 1 select families.Key</tt>.</p>
+
+<p>Queries that select grouping collections are not supported.</p></span></div></div></body></html>

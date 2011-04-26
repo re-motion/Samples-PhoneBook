@@ -1,0 +1,138 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.73</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3141"><b>
+                  [RM-3141] Security:
+                </b>PermissionProvider Cahce did not work, causing  ever increasing runtime of security checks</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3169"><b>
+                  [RM-3169] Core:
+                </b>Custom IoC containers used with re-motion must now be configured with the default re-motion service configuration</a></div><div class="listEntry"><a href="#RM-3165"><b>
+                  [RM-3165] Data:
+                </b>ClassDefinition.GetRelationEndPointDefinitions now returns an IEnumerable&lt;IRelationEndPoint&gt; instead of a ReadOnlyCollection</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3109"><b>
+                  [RM-3109] Data.Linq:
+                </b>Support node type registration based on method names in addition to registration based on MethodInfos</a></div><div class="listEntry"><a href="#RM-3106"><b>
+                  [RM-3106] Core:
+                </b>Default DI container for re-motion</a></div><div class="listEntry"><a href="#RM-3101"><b>
+                  [RM-3101] Data.Linq:
+                </b>SQL Backend: Support for registering method call transformers by name</a></div><div class="listEntry"><a href="#RM-2862"><b>
+                  [RM-2862] Data:
+                </b>Security-Support for mixed properties</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3161"><b>
+                  [RM-3161] Data:
+                </b>Improve performance of ClassDefinition.GetOppositeClassDefinition (propertyName)</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3141"></a><h4>[RM-3141] PermissionProvider Cahce did not work, causing  ever increasing runtime of security checks</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3169"></a><h4>[RM-3169] Custom IoC containers used with re-motion must now be configured with the default re-motion service configuration</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>re-motion now uses the installed service locator for a lot of services that have default implementations within the re-motion libraries. When an application installs a custom service locator, that locator must be configured to be able to resolve those services - either to the default implementations or to custom ones.</p>
+
+<p>The DefaultServiceConfigurationDiscoveryService class can be used to retrieve the default configuration information in a simple way:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">protected</span> void Application_Start(object sender, EventArgs e)
+  {
+    <span class="code-keyword">var</span> container = <span class="code-keyword">new</span> WindsorContainer(); <span class="code-comment">// or other container of choice
+</span>
+    <span class="code-comment">// Note that <span class="code-keyword">this</span> still uses the DefaultServiceLocator to retrieve an ITypeDiscoveryServiceFactoryImplementation
+</span>    <span class="code-comment">// Pass a custom type discovery service, assembly, or list of types to customize
+</span>    <span class="code-keyword">var</span> typeDiscoveryService = ContextAwareTypeDiscoveryUtility.GetTypeDiscoveryService();
+    <span class="code-keyword">var</span> configuration = DefaultServiceConfigurationDiscoveryService.GetDefaultConfiguration (typeDiscoveryService);
+
+    foreach (<span class="code-keyword">var</span> entry in configuration)
+    {
+      <span class="code-keyword">var</span> lifeStyle = entry.Lifetime == LifetimeKind.Singleton ? LifestyleType.Singleton : LifestyleType.Transient;
+      container.Register (Component.For (entry.ServiceType).ImplementedBy (entry.ImplementationType).LifeStyle.Is (lifeStyle));
+    }
+
+    ServiceLocator.SetLocatorProvider (() =&gt; <span class="code-keyword">new</span> WindsorServiceLocator (container));
+  }</pre>
+</div></div>
+
+<p>Applications that do not install a custom service locator are not affected by this change.</p>
+</span></div></div><div class="detailEntry  "><a name="RM-3165"></a><h4>[RM-3165] ClassDefinition.GetRelationEndPointDefinitions now returns an IEnumerable&lt;IRelationEndPoint&gt; instead of a ReadOnlyCollection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason for this is because it allows a performance optimization previously not possible. Use LINQ methods for obtaining the count of items or similar. Manually convert to an array or list to access items by index.</p></span></div></div><div class="detailEntry  "><a name="RM-3109"></a><h4>[RM-3109] Support node type registration based on method names in addition to registration based on MethodInfos</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, we only support query operators registered via MethodInfos. With this feature, there will be an additional configuration option for registering node type parsers based on method names.</p></span></div></div><div class="detailEntry  "><a name="RM-3106"></a><h4>[RM-3106] Default DI container for re-motion</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>To enable scenarios where the user does not set a custom container via the Common Service Locator API (eg, projects not using an IoC container, design mode), we'll provide a simple default container with the following rules:</p>
+
+<ul class="alternate" type="square">
+	<li>Can create instances of concrete types.</li>
+	<li>Can create instances of implementations of interfaces and abstract classes if that interface or abstract class has a ConcreteImplementationAttribute applied to it.
+	<ul class="alternate" type="square">
+		<li>For the time being, the attribute can be applied only once per interface or abstract base class.</li>
+	</ul>
+	</li>
+	<li>Types being created must have a single constructor. The constructor can have parameters, in which case each parameter will be resolved on its own.
+	<ul class="alternate" type="square">
+		<li>Dependency cycles will lead to a StackOverflowException.</li>
+		<li>At a later point of time, we might add cycle detection.</li>
+	</ul>
+	</li>
+</ul>
+
+
+<p>The new DefaultServiceLocator will be the default locator provided by SafeServiceLocator.<br/>
+The VersionDependentImplementationBridge will be refactored to use the SafeServiceLocator.</p></span></div></div><div class="detailEntry  "><a name="RM-3101"></a><h4>[RM-3101] SQL Backend: Support for registering method call transformers by name</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, method call transformers can only be registered by MethodInfo, making it hard to register transformers for "concepts", eg. equality (Equals methods should always be transformed to = comparisons, for example). With this feature, a second level of registration is opened: if no MethodInfo matches, a name registry is searched.</p></span></div></div><div class="detailEntry  "><a name="RM-2862"></a><h4>[RM-2862] Security-Support for mixed properties</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3161"></a><h4>[RM-3161] Improve performance of ClassDefinition.GetOppositeClassDefinition (propertyName)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ClassDefinition.GetOppositeClassDefinition (string propertyName) works in a very inefficient way. It is implemented by iterating over all relation definitions, searching for one holding an end-point with the given name. Then, it iterates over the base classes.</p>
+
+<p>This can be changed into an O(1) algorithm by using GetRelationEndPointDefinition to look up the end point, then going from there.</p></span></div></div></body></html>

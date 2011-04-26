@@ -1,0 +1,148 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.21</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1544"><b>
+                  [COMMONS-1544] Web:
+                </b>ClassicBlue in IE8: Borders for the DropDownMenus are not correct</a></div><div class="listEntry"><a href="#COMMONS-1537"><b>
+                  [COMMONS-1537] Data:
+                </b>BREAK: DomainObjects that were marked as changed should cause an Update to the database even when no properties were changed</a></div><div class="children"><a href="#COMMONS-1555"><b>
+            [COMMONS-1555] Data:
+          </b>Refactor CommandBuilder and subclasses - move AppendColumn to UpdateCommandBuilder and InsertCommandBuilder</a></div><div class="listEntry"><a href="#COMMONS-1536"><b>
+                  [COMMONS-1536] Web:
+                </b>StyleUtility.Resize presently causes a memory-leak by holding references to the control tree</a></div><div class="listEntry"><a href="#COMMONS-1534"><b>
+                  [COMMONS-1534] Web:
+                </b>Scrollposition In SingleView-TabbedMultiView is lost</a></div><div class="listEntry"><a href="#COMMONS-1528"><b>
+                  [COMMONS-1528] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: JS error when leaving a page with open drop-down list</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1538"><b>
+                  [COMMONS-1538] Mixins:
+                </b>BREAK: For generic, auto-closed mixins, require more explicit specification what to do with the type arguments</a></div><div class="children"><a href="#COMMONS-1541"><b>
+            [COMMONS-1541] Mixins:
+          </b>Integration tests for generic binding attributes</a></div><div class="children"><a href="#COMMONS-1540"><b>
+            [COMMONS-1540] Mixins:
+          </b>Change MixinTypeInstantiator to use the new BindGenericParameterAttributes</a></div><div class="children"><a href="#COMMONS-1539"><b>
+            [COMMONS-1539] Mixins:
+          </b>Define and document generic binding attributes</a></div><div class="listEntry"><a href="#COMMONS-609"><b>
+                  [COMMONS-609] Mixins:
+                </b>Improve error message when an unconfigured mixin instance is passed to OF.CreateWithMixinInstances</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1525"><b>
+                  [COMMONS-1525] Mixins:
+                </b>Improve unit test performance of MixerTest</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1544"></a><h4>[COMMONS-1544] ClassicBlue in IE8: Borders for the DropDownMenus are not correct</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>See <span class="nobr"><a href="http://localhost/dev/Remotion/trunk/Remotion/ObjectBinding/Web.Test/IndividualControlTest.wxe?UserControl=BocListUserControl.ascx&amp;WxeReturnToSelf=True&amp;TabbedMenuSelection=IndividualControlTests%2cBocList#">http://localhost/dev/Remotion/trunk/Remotion/ObjectBinding/Web.Test/IndividualControlTest.wxe?UserControl=BocListUserControl.ascx&amp;WxeReturnToSelf=True&amp;TabbedMenuSelection=IndividualControlTests%2cBocList#<sup><img class="rendericon" src="https://jira.rubicon.eu/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p></span></div></div><div class="detailEntry  "><a name="COMMONS-1537"></a><h4>[COMMONS-1537] BREAK: DomainObjects that were marked as changed should cause an Update to the database even when no properties were changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>UpdateCommandBuilder.Create<br/>
+(if check)</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1555"></a><h4>[COMMONS-1555] Refactor CommandBuilder and subclasses - move AppendColumn to UpdateCommandBuilder and InsertCommandBuilder</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The method throws in all other implementations.</p>
+
+<p>Also move AddObjectIDAndClassIDParameters and AddClassIDParameter to UpdateCommandBuilder.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1536"></a><h4>[COMMONS-1536] StyleUtility.Resize presently causes a memory-leak by holding references to the control tree</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The resize-event-handlers should be registered in a hashtable. Only jquery-selectors should be used, not elements. Obsolete eventhandlers (handlers for elements that cannot be found) should be garbage collected during the next resize event.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1534"></a><h4>[COMMONS-1534] Scrollposition In SingleView-TabbedMultiView is lost</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The Views are using a time-triggered resize event to create the vertical positioning. Presently, this event happens after the scroll position has been restored.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1528"></a><h4>[COMMONS-1528] BocAutoCompleteReferenceValue: JS error when leaving a page with open drop-down list</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Cannot Reproduce</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When the drop-down list is open and the user clicks a link that leads to another page, a javascript error occurs.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1538"></a><h4>[COMMONS-1538] BREAK: For generic, auto-closed mixins, require more explicit specification what to do with the type arguments</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, a mixin such as the following is instantiated using heuristics:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">class GenericMixin&lt;T1, T2&gt; : Mixin&lt;T1, T2&gt;
+where T1 : X
+where T2 : Y</pre>
+</div></div>
+
+<p>The algorithm to find an instantiation for a type parameter T is as follows:</p>
+<ul class="alternate" type="square">
+	<li>From the constraints of T, form a candidate. If the constraints cannot be unified into a single candidate (e.g. if there is more than one interface, or there are a class and an interface that are not assignment-compatible), an exception is thrown.</li>
+	<li>If the parameter is not bound to the TBase parameter of Mixin&lt;TThis, TBase&gt;, check whether the candidate is assignment-compatible with the target type of the mixin. If yes, the target type becomes the candidate.</li>
+	<li>If the candidate is ValueType (because there was only a "struct" constraint), use typeof (int).</li>
+	<li>If no candidate was found, use typeof (object).</li>
+	<li>Otherwise, use the candidate.</li>
+</ul>
+
+
+<p>This is very implicit, and, above all, it changes from:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">class GenericMixin&lt;T&gt; : Mixin&lt;T&gt;</pre>
+</div></div>
+
+<p>to</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">class GenericMixin&lt;T&gt; : Mixin&lt;T, T&gt;</pre>
+</div></div>
+
+<p>(In the first case, T becomes the target type; in the second, it becomes typeof (object).)</p>
+
+<p>Therefore, use a more explicit approach via custom attributes:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">class GenericMixin&lt;[BindToTargetType] T1,
+                   [BindToConstraints] T2&gt; : Mixin&lt;T1, T2&gt;</pre>
+</div></div>
+
+<ul class="alternate" type="square">
+	<li>BindToTargetType binds to the target type (throwing an exception if there are non-matching constraints).</li>
+	<li>BindToConstraints infers the type to bind to from the constraints (without regarding whether it's used as TThis or TBase).</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1541"></a><h4>[COMMONS-1541] Integration tests for generic binding attributes</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1540"></a><h4>[COMMONS-1540] Change MixinTypeInstantiator to use the new BindGenericParameterAttributes</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1539"></a><h4>[COMMONS-1539] Define and document generic binding attributes</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-609"></a><h4>[COMMONS-609] Improve error message when an unconfigured mixin instance is passed to OF.CreateWithMixinInstances</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1525"></a><h4>[COMMONS-1525] Improve unit test performance of MixerTest</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently takes 13 seconds, which can be solved by switching from integration to unit tests.</p></span></div></div></body></html>

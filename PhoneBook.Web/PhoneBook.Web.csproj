@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8488323B-3AD9-4CAF-B3D0-B815D690B628}</ProjectGuid>
+    <!-- TODO: -->
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PhoneBook.Web</RootNamespace>
+    <AssemblyName>PhoneBook.Web</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Remotion, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Interfaces, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.DomainObjects, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Data.DomainObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.ObjectBinding, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Interfaces, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Data.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.ObjectBinding.Interfaces, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.ObjectBinding.Web, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Web, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Html\style.css" />
+    <Content Include="Images\arrow.gif" />
+    <Content Include="Images\re-motion.jpg" />
+    <Content Include="Images\re-motion_big.jpg" />
+    <Content Include="Images\re-motion-logo-single.png" />
+    <Content Include="Images\rubicon.jpg" />
+    <Content Include="UrlMapping.xml" />
+    <Content Include="UI\NavigationTabs.ascx" />
+    <Content Include="UI\EditLocationControl.ascx" />
+    <Content Include="UI\EditLocationForm.aspx" />
+    <Content Include="UI\SearchResultLocationControl.ascx" />
+    <Content Include="UI\SearchResultLocationForm.aspx" />
+    <Content Include="UI\EditPersonControl.ascx" />
+    <Content Include="UI\EditPersonForm.aspx" />
+    <Content Include="UI\SearchResultPersonControl.ascx" />
+    <Content Include="UI\SearchResultPersonForm.aspx" />
+    <Content Include="UI\EditPhoneNumberControl.ascx" />
+    <Content Include="UI\EditPhoneNumberForm.aspx" />
+    <Content Include="UI\SearchResultPhoneNumberControl.ascx" />
+    <Content Include="UI\SearchResultPhoneNumberForm.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\BaseControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\BaseFunction.cs" />
+    <Compile Include="Classes\EditFormPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Classes\WebUiService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Globalization\Global.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Global.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NavigationTabs.ascx.cs">
+      <DependentUpon>NavigationTabs.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\NavigationTabs.ascx.designer.cs">
+      <DependentUpon>NavigationTabs.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditLocationControl.ascx.cs">
+      <DependentUpon>EditLocationControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EditLocationControl.ascx.designer.cs">
+      <DependentUpon>EditLocationControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditPersonControl.ascx.cs">
+      <DependentUpon>EditPersonControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EditPersonControl.ascx.designer.cs">
+      <DependentUpon>EditPersonControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditPhoneNumberControl.ascx.cs">
+      <DependentUpon>EditPhoneNumberControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EditPhoneNumberControl.ascx.designer.cs">
+      <DependentUpon>EditPhoneNumberControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditLocationForm.aspx.cs">
+      <DependentUpon>EditLocationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EditLocationForm.aspx.designer.cs">
+      <DependentUpon>EditLocationForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditPersonForm.aspx.cs">
+      <DependentUpon>EditPersonForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EditPersonForm.aspx.designer.cs">
+      <DependentUpon>EditPersonForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EditPhoneNumberForm.aspx.cs">
+      <DependentUpon>EditPhoneNumberForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EditPhoneNumberForm.aspx.designer.cs">
+      <DependentUpon>EditPhoneNumberForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchResultLocationControl.ascx.cs">
+      <DependentUpon>SearchResultLocationControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchResultLocationControl.ascx.designer.cs">
+      <DependentUpon>SearchResultLocationControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchResultPersonControl.ascx.cs">
+      <DependentUpon>SearchResultPersonControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchResultPersonControl.ascx.designer.cs">
+      <DependentUpon>SearchResultPersonControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchResultPhoneNumberControl.ascx.cs">
+      <DependentUpon>SearchResultPhoneNumberControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchResultPhoneNumberControl.ascx.designer.cs">
+      <DependentUpon>SearchResultPhoneNumberControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchResultLocationForm.aspx.cs">
+      <DependentUpon>SearchResultLocationForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchResultLocationForm.aspx.designer.cs">
+      <DependentUpon>SearchResultLocationForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchResultPersonForm.aspx.cs">
+      <DependentUpon>SearchResultPersonForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchResultPersonForm.aspx.designer.cs">
+      <DependentUpon>SearchResultPersonForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchResultPhoneNumberForm.aspx.cs">
+      <DependentUpon>SearchResultPhoneNumberForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchResultPhoneNumberForm.aspx.designer.cs">
+      <DependentUpon>SearchResultPhoneNumberForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WxeFunctions.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.config" />
+    <None Include="WxeHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneBook.Domain\PhoneBook.Domain.csproj">
+      <Project>{E715FCED-AD7C-4EB7-9E30-EDF67D904A48}</Project>
+      <Name>PhoneBook.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Globalization\Global.de.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Globalization\Global.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Global.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+      cd ..
+      \PhoneBook\Remotion\net-3.5\bin\Debug\wxegen UI\*.aspx.cs WxeFunctions.cs /prjfile:PhoneBook.Web.csproj /functionbase:PhoneBook.Web.Classes.BaseFunction
+    </PreBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22809</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+</Project>

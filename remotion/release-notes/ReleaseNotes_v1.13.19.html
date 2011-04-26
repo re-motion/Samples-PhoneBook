@@ -1,0 +1,137 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.19</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1491"><b>
+                  [COMMONS-1491] Web:
+                </b>TabbedMultiView uses invalid ClientID for the TabStrip</a></div><div class="listEntry"><a href="#COMMONS-1489"><b>
+                  [COMMONS-1489] Web:
+                </b>TabbedMultiView/SingleView are not compatible with UpdatePanels wrapping the entire control</a></div><div class="listEntry"><a href="#COMMONS-1488"><b>
+                  [COMMONS-1488] Web:
+                </b>Fixed issue with WxePage-Refresh accumulating during asynchronous postbacks.</a></div><div class="listEntry"><a href="#COMMONS-1475"><b>
+                  [COMMONS-1475] :
+                </b>TabbedMultiView: top right border span is not aligned to right</a></div><div class="listEntry"><a href="#COMMONS-1457"><b>
+                  [COMMONS-1457] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: when textbox is empty, no entry should be selected in list</a></div><div class="listEntry"><a href="#COMMONS-1455"><b>
+                  [COMMONS-1455] ObjectBinding:
+                </b>BocDateTimeValue: create different CSS classes for different date/time formats</a></div><div class="listEntry"><a href="#COMMONS-1451"><b>
+                  [COMMONS-1451] Web:
+                </b>WebTreeView Context menu should not open when cursor is over node expander</a></div><div class="listEntry"><a href="#COMMONS-1450"><b>
+                  [COMMONS-1450] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: Icon and text vertical alignment</a></div><div class="listEntry"><a href="#COMMONS-1449"><b>
+                  [COMMONS-1449] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: when stepping through the drop-down list, auto-fill does not work</a></div><div class="listEntry"><a href="#COMMONS-1448"><b>
+                  [COMMONS-1448] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: Tab should select *and* leave control</a></div><div class="listEntry"><a href="#COMMONS-1447"><b>
+                  [COMMONS-1447] Web:
+                </b>TabbedMultiView issues in Opera</a></div><div class="listEntry"><a href="#COMMONS-1440"><b>
+                  [COMMONS-1440] ObjectBinding:
+                </b>PropertyInfoAdapter CanBeSetFromOutside and SetValue act differently when confronted with an implcit interface implementation that adds a setter</a></div><div class="listEntry"><a href="#COMMONS-1427"><b>
+                  [COMMONS-1427] ObjectBinding:
+                </b>Opera: client-side dirty tracking does not work</a></div><div class="listEntry"><a href="#COMMONS-1426"><b>
+                  [COMMONS-1426] ObjectBinding:
+                </b>BocCheckboxValue: read-only checkboxes do no look like editable ones in Opera</a></div><div class="listEntry"><a href="#COMMONS-1422"><b>
+                  [COMMONS-1422] ObjectBinding:
+                </b>MultilineTextValue standard mode style issues</a></div><div class="listEntry"><a href="#COMMONS-1418"><b>
+                  [COMMONS-1418] ObjectBinding Web:
+                </b>DateTimeValue style issues (standard mode)</a></div><div class="listEntry"><a href="#COMMONS-1417"><b>
+                  [COMMONS-1417] ObjectBinding Web:
+                </b>WebTreeView standard mode: context menu does not open at cursor position</a></div><div class="listEntry"><a href="#COMMONS-1401"><b>
+                  [COMMONS-1401] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: layout broken in IE 6 standard mode</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1482"><b>
+                  [COMMONS-1482] Mixins:
+                </b>Get rid of GeneratedClassInstanceInitializer by moving the initialization logic to the generated class</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1481"><b>
+                  [COMMONS-1481] Mixins:
+                </b>Refactor BindableDomainObjectMixin to use the meta-attributes to find introduced properties</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1491"></a><h4>[COMMONS-1491] TabbedMultiView uses invalid ClientID for the TabStrip</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1489"></a><h4>[COMMONS-1489] TabbedMultiView/SingleView are not compatible with UpdatePanels wrapping the entire control</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>since the views need a fixed height parent, but the wrapping update panel cannot be assigned a height by CSS, the view control has to set its parent's width by JS if the view's parent is an UpdatePanel</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1488"></a><h4>[COMMONS-1488] Fixed issue with WxePage-Refresh accumulating during asynchronous postbacks.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1475"></a><h4>[COMMONS-1475] TabbedMultiView: top right border span is not aligned to right</h4><div class="component"><span class="label">Component/s: </span><span class="value"></span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1457"></a><h4>[COMMONS-1457] BocAutoCompleteReferenceValue: when textbox is empty, no entry should be selected in list</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1455"></a><h4>[COMMONS-1455] BocDateTimeValue: create different CSS classes for different date/time formats</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1451"></a><h4>[COMMONS-1451] WebTreeView Context menu should not open when cursor is over node expander</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>put click handler on child element of node that includes icon and text</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1450"></a><h4>[COMMONS-1450] BocAutoCompleteReferenceValue: Icon and text vertical alignment</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Icon is 1px too far north in non-embedded mode<br/>
+Text should be aligned with label like BocTextValue</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1449"></a><h4>[COMMONS-1449] BocAutoCompleteReferenceValue: when stepping through the drop-down list, auto-fill does not work</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>when the drow-down list is showing and the user steps through the entries with the cursor keys, the selected value should be put into the textbox</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1448"></a><h4>[COMMONS-1448] BocAutoCompleteReferenceValue: Tab should select *and* leave control</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Tab should act like Enter and tab to next control</p>
+
+<p>current issues:</p>
+<ul class="alternate" type="square">
+	<li>tab does not work in required controls when no value is selected</li>
+	<li>when typing and invalid value, enter and esc reset the value to the last valid one - tab does not, but should</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1447"></a><h4>[COMMONS-1447] TabbedMultiView issues in Opera</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In Opera, the TabsPane border and the borders of the tabs are not aligned</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1440"></a><h4>[COMMONS-1440] PropertyInfoAdapter CanBeSetFromOutside and SetValue act differently when confronted with an implcit interface implementation that adds a setter</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>CanBeSetFromOutside evaluates true for properties only settable from the implementation.<br/>
+SetValue fails because it uses the interface's metadata instead of the implementation.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1427"></a><h4>[COMMONS-1427] Opera: client-side dirty tracking does not work</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When leaving a page where values have been edited, but not yet posted, a dislog box should appear. Does not work in Opera.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1426"></a><h4>[COMMONS-1426] BocCheckboxValue: read-only checkboxes do no look like editable ones in Opera</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Images are used in read-only mode. Opera displays form controls differently than the IE8 with its default theme.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1422"></a><h4>[COMMONS-1422] MultilineTextValue standard mode style issues</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>IE8: TextArea not high enough =&gt; vertical scrollbar<br/>
+Firefox: TextArea too high</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1418"></a><h4>[COMMONS-1418] DateTimeValue style issues (standard mode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>DatePicker: hovering over disabled button should show default cursor<br/>
+IE6: hovering over disabled button changes its shade of gray</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1417"></a><h4>[COMMONS-1417] WebTreeView standard mode: context menu does not open at cursor position</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1401"></a><h4>[COMMONS-1401] BocAutoCompleteReferenceValue: layout broken in IE 6 standard mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>"position:absolute" with "left" and "right" set does not affect width in IE6 ("right" is ignored when "left" is set)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1482"></a><h4>[COMMONS-1482] Get rid of GeneratedClassInstanceInitializer by moving the initialization logic to the generated class</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Add IInitializableMixinTarget.Initialize (bool deserializing). Call that member from the generated class constructor as well as from everywhere GeneratedClassInitializer is currently being used.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1481"></a><h4>[COMMONS-1481] Refactor BindableDomainObjectMixin to use the meta-attributes to find introduced properties</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

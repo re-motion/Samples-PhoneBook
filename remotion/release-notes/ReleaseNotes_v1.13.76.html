@@ -1,0 +1,143 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.76</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3326"><b>
+                  [RM-3326] Data:
+                </b>An exception is thrown when a scalar query returns a null value, or a non-nullable value cast to a nullable type</a></div><div class="listEntry"><a href="#RM-3291"><b>
+                  [RM-3291] Core:
+                </b>IMemberInformation.GetOriginalDeclaringType is not thread-safe</a></div><div class="listEntry"><a href="#RM-3271"><b>
+                  [RM-3271] ObjectBinding:
+                </b>Exception occurs when using own implementation of IPropertyInformation in BindableDomainObject-Classes </a></div><div class="listEntry"><a href="#RM-3259"><b>
+                  [RM-3259] Data.Linq for re-store:
+                </b>DomainObjectQueryExecutor.ExecuteSingle executes queries as scalar queries even when they return non-trivial results</a></div><div class="listEntry"><a href="#RM-3207"><b>
+                  [RM-3207] Data.Linq:
+                </b>When a NewExpression contains a subquery whose original type is IEnumerable&lt;T&gt;, an ArgumentException (wrapped into a TargetInvocationException) is thrown</a></div><div class="listEntry"><a href="#RM-3198"><b>
+                  [RM-3198] Data.Linq:
+                </b>SQL Backend: InvalidOperationException is thrown when a comparison or join condition involves a nullable and a non-nullable expression</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3323"><b>
+                  [RM-3323] Data.Linq:
+                </b>The method call expression node parsers now cause the generated QueryModel to have a result type defined by the MethodCallExpressions</a></div><div class="listEntry"><a href="#RM-3322"><b>
+                  [RM-3322] ObjectBinding:
+                </b>BindableObjectMixinBase.IsDefaultValue has been moved to PropertyBase and IDefaultValueStrategy.</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3074"><b>
+                  [RM-3074] Data.Linq:
+                </b>SQL Backend: Support methods translated to LIKE with non-constant values</a></div><div class="listEntry"><a href="#RM-3065"><b>
+                  [RM-3065] Data.Linq:
+                </b>SQL Backend: Support for GroupBy where the keyExpression is a constant or a subquery</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3326"></a><h4>[RM-3326] An exception is thrown when a scalar query returns a null value, or a non-nullable value cast to a nullable type</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The exception stems from DomainObjectQueryExecutor.ExecuteScalar, which uses Convert.ChangeType, which can't deal with these situations.</p></span></div></div><div class="detailEntry  "><a name="RM-3291"></a><h4>[RM-3291] IMemberInformation.GetOriginalDeclaringType is not thread-safe</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use a DoubleCheckedLockingContainer for caching.</p></span></div></div><div class="detailEntry  "><a name="RM-3271"></a><h4>[RM-3271] Exception occurs when using own implementation of IPropertyInformation in BindableDomainObject-Classes </h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>because BindableDomainObjectMixin assumes that every property.PropertyInfo is of Type "BindableObjectPropertyInfoAdapter" -&gt; see solution in actanovabranch</p></span></div></div><div class="detailEntry  "><a name="RM-3259"></a><h4>[RM-3259] DomainObjectQueryExecutor.ExecuteSingle executes queries as scalar queries even when they return non-trivial results</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3207"></a><h4>[RM-3207] When a NewExpression contains a subquery whose original type is IEnumerable&lt;T&gt;, an ArgumentException (wrapped into a TargetInvocationException) is thrown</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Example:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from p in DB.Products
+group p by p.CategoryID
+into g
+select <span class="code-keyword">new</span>
+{
+  CategoryID = g.Key,
+  CheapestProducts =
+    from p2 in g
+    where p2.UnitPrice == g.Min (p3 =&gt; p3.UnitPrice)
+    select p2
+};</pre>
+</div></div>
+
+<p>The problem is that the expression holding the sub-query gets an expression type of IQueryable&lt;Product&gt;, where IEnumerable&lt;Product&gt; was assumed.</p>
+
+<p>There are several possibilities to solving this bug; the simplest one would probably be to allow SubQueryExpression to take a specific type in its ctor (which must be assignable from the queryModel's data type).</p></span></div></div><div class="detailEntry  "><a name="RM-3198"></a><h4>[RM-3198] SQL Backend: InvalidOperationException is thrown when a comparison or join condition involves a nullable and a non-nullable expression</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>System.InvalidOperationException : The binary operator Equal is not defined for the types 'System.Int32' and 'System.Nullable`1<span class="error">&#91;System.Int32&#93;</span>'.</p>
+
+<p>In SqlContextExpressionVisitor.VisitBinaryExpression and SelGeneratingExpressionVisitor.VisitJoinConditionExpression.</p></span></div></div><div class="detailEntry  "><a name="RM-3323"></a><h4>[RM-3323] The method call expression node parsers now cause the generated QueryModel to have a result type defined by the MethodCallExpressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the type of a QueryModel (GetResultType(), GetOutputDataInfo(), used primarily for the type of SubQueryExpressions) was always calculated from its SelectClause and its result operators. This, however, could cause problems when a sub-query was expected to have a certain type in the expression tree.</p>
+
+<p>Therefore, QueryModel now has a ResultTypeOverride property that can optionally be set to override the calculated type in GetResultType() and GetOutputDataInfo(). The expression node parsers have been changed to automatically set that override. This may cause QueryModels and SubQueryExpressions to have different types than before.</p>
+
+<p>For users of the re-linq front-end, this is only relevant in three cases:</p>
+<ul class="alternate" type="square">
+	<li>If they previously depended on QueryModel.GetResultType() or GetOutputDataInfo(), or the type of SubQueryExpressions, they should be aware that this type might now be different (eg., IEnumerable&lt;T&gt; or SpecificQueryable&lt;T&gt; instead of IQueryable&lt;T&gt;).</li>
+	<li>If they change QueryModels that result from the node parsers, they should make sure that they reset the ResultTypeOverride to null if they change the SelectClause or any result operator in such a way that the ResultTypeOverride doesn't match any longer. Otherwise, if the ResultTypeOverride doesn't fit to the calculated type, an exception will be thrown the first time the query model's type is accessed.</li>
+	<li>If they manually create QueryModels, they can (but do not have to) use the ResultTypeOverride to adjust the result type of the QueryModel.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3322"></a><h4>[RM-3322] BindableObjectMixinBase.IsDefaultValue has been moved to PropertyBase and IDefaultValueStrategy.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Now a DefaultValue strategy is used for the PropertyBase.IsDefaultValue method in the GetProperty method of BindableObjectMixin and BindableDomainObjectMixin,<br/>
+BindableObjectDefaultValueStrategy.IsDefault returns "false" and BindableDomainObjectDefaultValueStrategy.IsDefaultValue checks if the property has been touched or if it is still the default value. (this is exactly the same behaviour as it was before the refactoring)</p></span></div></div><div class="detailEntry  "><a name="RM-3074"></a><h4>[RM-3074] SQL Backend: Support methods translated to LIKE with non-constant values</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This affects the transformers for string.StartsWith, string.EndsWith, and string.Contains. These currently do not allow non-constant parameters.</p>
+
+<p>With this feature, they will support non-constant values (eg., properties mapped to columns), and emit SQL of something like the following: </p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">... LIKE REPLACE (REPLACE (REPLACE (REPLACE (REPLACE([column], '\', '\\'), '%', '\%'), '_', '\_'), '[', '\['), ']', '\]') ESCAPE '\'</pre>
+</div></div>
+
+<p>The host of REPLACE statements is - unfortunately - required because the column might contain a reserved character.</p></span></div></div><div class="detailEntry  "><a name="RM-3065"></a><h4>[RM-3065] SQL Backend: Support for GroupBy where the keyExpression is a constant or a subquery</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>SQL does not allow grouping on constants. Apparently, there is at least one popular control library out there that issues GROUP BY statements that group on constants, so we should really support such statements:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Cooks.GroupBy (c =&gt; 0).Select (c =&gt; c.Key)</pre>
+</div></div>
+
+<p>This can be solved by transforming the constant into a substatement selecting just that constant and allowing GroupBy on substatements, which is a sensible feature anyway:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Cooks.GroupBy (c =&gt; c.Assistants.Count()).Select (c =&gt; <span class="code-keyword">new</span> { AssistantCount = c.Key, CookCount = c.Count() })</pre>
+</div></div>
+
+<p>SQL doesn't allow substatements to occur in GroupBy clauses, they need to be moved to the FROM clause.</p></span></div></div></body></html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.92</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3686"><b>
+                  [RM-3686] Web:
+                </b>Remotion.Web.Utilities.UrlUtility.FormatUrl(string format, params object[] args) does not url encode params args</a></div><div class="listEntry"></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3706"><b>
+                  [RM-3706] Data.Linq for re-store:
+                </b>The signature of the customizable overload of QueryFactory.CreateLinqQuery has changed</a></div><div class="listEntry"><a href="#RM-3705"><b>
+                  [RM-3705] Data.Linq:
+                </b>re-linq now reserves certain ExpressionType values</a></div><div class="listEntry"><a href="#RM-3704"><b>
+                  [RM-3704] Data.Linq:
+                </b>The default constructor of QueryParser has been replaced by a factory method</a></div><div class="listEntry"><a href="#RM-3703"><b>
+                  [RM-3703] Data.Linq:
+                </b>The constructors of QueryProviderBase, DefaultQueryProvider, and QueryableBase have changed</a></div><div class="listEntry"><a href="#RM-3696"><b>
+                  [RM-3696] Data.Linq:
+                </b>QueryProviderBase.ExpressionTreeParser property has been replaced by QueryProviderBase.QueryParser</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3702"><b>
+                  [RM-3702] Data.Linq:
+                </b>The expression classes defined by the re-linq front-end now have unique NodeType values</a></div><div class="listEntry"><a href="#RM-3700"><b>
+                  [RM-3700] Data.Linq:
+                </b>The query parser used by QueryProviderBase can now be replaced or decorated</a></div><div class="listEntry"><a href="#RM-3699"><b>
+                  [RM-3699] Data.Linq:
+                </b>Provide a way to extend the customize the expression processing pipeline in the re-linq front-end</a></div><div class="listEntry"><a href="#RM-3698"><b>
+                  [RM-3698] Data.Linq:
+                </b>Add a possibility to replace multiple expressions at once in an expression tree</a></div><div class="listEntry"><a href="#RM-3655"><b>
+                  [RM-3655] Data.Linq:
+                </b>Provide an automatic transformation for InvocationExpressions applied to LambdaExpressions</a></div><div class="listEntry"><a href="#RM-3572"><b>
+                  [RM-3572] Data.Linq:
+                </b>Provide a way to register custom expression transformers in the re-linq frontend</a></div><div class="listEntry"><a href="#RM-3571"><b>
+                  [RM-3571] Data.Linq:
+                </b>Provide an automatic transformation for VB's Information.IsNothing handler</a></div><div class="listEntry"><a href="#RM-3268"><b>
+                  [RM-3268] Data.Linq:
+                </b>SQL Backend: Support for Nullable&lt;T&gt;.HasValue and Nullable&lt;T&gt;.Value</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3686"></a><h4>[RM-3686] Remotion.Web.Utilities.UrlUtility.FormatUrl(string format, params object[] args) does not url encode params args</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>current implementation:</p>
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>public static string FormatUrl (string format, params object[] args)
+{
+  if (args == null)
+    return format;
+
+  string[] encodedArgs = new string[args.Length];
+  Encoding encoding = GetResponseEncoding();
+  for (int i = 0; i &lt; args.Length; ++i)
+    encodedArgs[i] = HttpUtility.UrlEncode (args.ToString(), encoding);
+      
+  return string.Format (format, encodedArgs);
+}
+</pre>
+</div></div>
+
+<p>expected:</p>
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>public static string FormatUrl (string format, params object[] args)
+{
+  if (args == null)
+    return format;
+
+  string[] encodedArgs = new string[args.Length];
+  Encoding encoding = GetResponseEncoding();
+  for (int i = 0; i &lt; args.Length; ++i)
+    encodedArgs[i] = HttpUtility.UrlEncode (args[i].ToString(), encoding);
+      
+  return string.Format (format, encodedArgs);
+}
+</pre>
+</div></div>
+
+<p>fixed source code line:<br/>
+encodedArgs<span class="error">&#91;i&#93;</span> = HttpUtility.UrlEncode (args<span class="error">&#91;i&#93;</span>.ToString(), encoding);</p></span></div></div><div class="detailEntry  "><a name="RM-3706"></a><h4>[RM-3706] The signature of the customizable overload of QueryFactory.CreateLinqQuery has changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The customizable overload of QueryFactory.CreateLinqQuery now takes an instance of IQueryParser instead of MethodCallExpressionNodeTypeRegistry. This has been caused by refactorings made in the course of the addition of new features, and it is easily remedied.</p>
+
+<p>To create a default query parser:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> queryParser = QueryParser.CreateDefault();</pre>
+</div></div>
+
+<p>To create a customized query parser:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-comment">// include <span class="code-keyword">default</span> nodes
+</span><span class="code-keyword">var</span> nodeTypeRegistry = MethodCallExpressionNodeTypeRegistry.CreateDefault();
+  [customize node parsers here]
+
+<span class="code-comment">// include <span class="code-keyword">default</span> transformations
+</span><span class="code-keyword">var</span> transformerRegistry = ExpressionTransformerRegistry.CreateDefault();
+  [customize transformers here]
+
+<span class="code-comment">// use <span class="code-keyword">default</span> pipeline
+</span><span class="code-keyword">var</span> processingSteps = ExpressionTreeParser.CreateDefaultProcessingSteps (transformerRegistry);
+  [customize pipeline steps here]
+
+<span class="code-comment">// create an ordinary QueryParser that uses the objects defined so far
+</span><span class="code-keyword">var</span> expressionTreeParser = <span class="code-keyword">new</span> ExpressionTreeParser (nodeTypeRegistry, processingSteps);
+<span class="code-keyword">var</span> queryParser = <span class="code-keyword">new</span> QueryParser (expressionTreeParser);</pre>
+</div></div>
+
+<p>(Note that QueryParser does not change state between different queries, so it can be stored and reused with "singleton" semantics. It is of course possible to use a dependency injection container rather than manually composing the parser.)</p></span></div></div><div class="detailEntry  "><a name="RM-3705"></a><h4>[RM-3705] re-linq now reserves certain ExpressionType values</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>re-linq now reserves ExpressionType values from 100000 to 150000 for its own expressions. When a custom LINQ provider derives its own Expression instances, it can use 150001 and above.</p>
+
+<p>Subclasses of ExtensionExpression can decide whether to use the default value of 150000 or a custom one by choosing the appropriate constructor.</p>
+
+<p>This change was needed in order to enable re-linq users to apply light-weight transformations using IExpressionTransformer&lt;T&gt; to re-linq-specific expressions.</p></span></div></div><div class="detailEntry  "><a name="RM-3704"></a><h4>[RM-3704] The default constructor of QueryParser has been replaced by a factory method</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This has been done for consistency with other re-linq parser classes. To create a default QueryParser, use QueryParser.CreateDefault().</p></span></div></div><div class="detailEntry  "><a name="RM-3703"></a><h4>[RM-3703] The constructors of QueryProviderBase, DefaultQueryProvider, and QueryableBase have changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>QueryProviderBase, DefaultQueryProvider, and QueryableBase&lt;T&gt; now require an instance of IQueryParser to be passed into their constructors. This has been caused by refactorings made in the course of the addition of new features, and it is easily remedied.</p>
+
+<p>To create a default query parser:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> queryParser = QueryParser.CreateDefault();</pre>
+</div></div>
+
+<p>To create a customized query parser:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-comment">// include <span class="code-keyword">default</span> nodes
+</span><span class="code-keyword">var</span> nodeTypeRegistry = MethodCallExpressionNodeTypeRegistry.CreateDefault();
+  [customize node parsers here]
+
+<span class="code-comment">// include <span class="code-keyword">default</span> transformations
+</span><span class="code-keyword">var</span> transformerRegistry = ExpressionTransformerRegistry.CreateDefault();
+  [customize transformers here]
+
+<span class="code-comment">// use <span class="code-keyword">default</span> pipeline
+</span><span class="code-keyword">var</span> processingSteps = ExpressionTreeParser.CreateDefaultProcessingSteps (transformerRegistry);
+  [customize pipeline steps here]
+
+<span class="code-comment">// create an ordinary QueryParser that uses the objects defined so far
+</span><span class="code-keyword">var</span> expressionTreeParser = <span class="code-keyword">new</span> ExpressionTreeParser (nodeTypeRegistry, processingSteps);
+<span class="code-keyword">var</span> queryParser = <span class="code-keyword">new</span> QueryParser (expressionTreeParser);</pre>
+</div></div>
+
+<p>(Note that QueryParser does not change state between different queries, so it can be stored and reused with "singleton" semantics. It is of course possible to use a dependency injection container rather than manually composing the parser.)</p></span></div></div><div class="detailEntry  "><a name="RM-3696"></a><h4>[RM-3696] QueryProviderBase.ExpressionTreeParser property has been replaced by QueryProviderBase.QueryParser</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason for this change is that QueryProviderBase does not control what IQueryParser is used to parse the queries. Therefore, it has no access to the ExpressionTreeParser (which might event not be used at all).</p>
+
+<p>To access the MethodCallExpressionNodeTypeRegistry previously available via the ExpressionTreeParser, you have the following options:</p>
+<ul class="alternate" type="square">
+	<li>If you create the QueryParser in your code, keep track of it and use its NodeTypeRegistry property (or the registry you passed in when creating the QueryParser).</li>
+	<li>If you use the constructor of QueryableBase that automatically creates the QueryParser, you can cast the value of the QueryProviderBase.QueryParser property to the QueryParser class and use that class's NodeTypeRegistry property.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3702"></a><h4>[RM-3702] The expression classes defined by the re-linq front-end now have unique NodeType values</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, expressions such as SubQueryExpression, QuerySourceReferenceExpression, and ExtensionExpression all used non-unique default values for their NodeType property.</p>
+
+<p>This has now changed. re-linq now reserves ExpressionType values from 100000 to 150000 for its own expressions. Custom LINQ providers can use 150001 and above.</p>
+
+<p>Subclasses of ExtensionExpression can decide whether to use the default value of 150000 or a custom one by choosing the appropriate constructor.</p>
+
+<p>This change was needed in order to enable re-linq users to apply light-weight transformations using IExpressionTransformer&lt;T&gt; to re-linq-specific expressions.</p></span></div></div><div class="detailEntry  "><a name="RM-3700"></a><h4>[RM-3700] The query parser used by QueryProviderBase can now be replaced or decorated</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Due to several refactorings in the re-linq front-end, the QueryParser normally used by the query provider can now be replaced by a custom implementation of the IQueryParser interface. This enables full control over the parsing process.</p>
+
+<p>Replace the query parser to implement post-processing of the QueryModel before it gets passed to the IQueryExecutor, to cache parsed queries, or in similar situations.</p>
+
+<p>To preprocess the parsed expression tree, light-weight transformations based on IExpressionTransformer&lt;T&gt; and ExpressionTransformerRegistry and custom tree processing steps (IExpressionTreeProcessingStep) are usually better-suited as they allow more fine-grained customization.</p></span></div></div><div class="detailEntry  "><a name="RM-3699"></a><h4>[RM-3699] Provide a way to extend the customize the expression processing pipeline in the re-linq front-end</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>A new mechanism has been added that allows re-linq-based providers to customize the expression processing pipeline in the re-linq front-end. This feature can be used to implement complex expression transformations (eg., expression visitor runs), to remove the partial evaluation feature included in the expression pipeline by default, or to add an additional partial evaluation step after the transformation step has run.</p>
+
+<p>Note that for simple expression transformations, the predefined expression transformation support should be used as it is more efficient than an additional expression tree run.</p>
+
+<p>The following classes and interfaces are involved:</p>
+<ul class="alternate" type="square">
+	<li>Interface IExpressionTreeProcessingStep: Implement this interface to define a custom processing step. When creating a QueryParser, include this step in the pipeline. The Process method will then be called for the root node of the expression tree when a query is parsed.</li>
+	<li>Class PartialEvaluationStep: This is a predefined step that evaluates parts of an expression tree in-memory. An instance of this step is automatically included in the pipeline created by ExpressionTreeParser.CreateDefaultProcessingSteps.</li>
+	<li>Class ExpressionTransformationStep: This is a predefined step that executes a sequence of expression transformations when a query is parsed. An instance of this step is automatically included in the pipeline created by ExpressionTreeParser.CreateDefaultProcessingSteps.</li>
+</ul>
+
+
+<p>To customize the processing steps executed by a LINQ provider, use a QueryParser that includes the steps to be processed. You can use the ExpressionTreeParser.CreateDefaultProcessingSteps method to get the steps included by default.</p>
+
+<p>The following example creates a highly customizable instance of a class MyQueryable&lt;T&gt;, which has a custom processing step registered after all default steps have executed. It is of course possible to use a dependency injection container rather than manually composing the queryProvider.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">static</span> MyQueryable&lt;T&gt; CreateQuery&lt;T&gt;()
+{
+  <span class="code-comment">// include <span class="code-keyword">default</span> nodes
+</span>  <span class="code-keyword">var</span> nodeTypeRegistry = MethodCallExpressionNodeTypeRegistry.CreateDefault();
+
+  <span class="code-comment">// include <span class="code-keyword">default</span> transformations, and add <span class="code-keyword">new</span> ones
+</span>  <span class="code-keyword">var</span> transformerRegistry = ExpressionTransformerRegistry.CreateDefault();
+
+  <span class="code-comment">// extend <span class="code-keyword">default</span> pipeline with a custom step
+</span>  <span class="code-keyword">var</span> defaultProcessingSteps = ExpressionTreeParser.CreateDefaultProcessingSteps (transformerRegistry);
+  <span class="code-keyword">var</span> processingSteps = <span class="code-keyword">new</span> List&lt;IExpressionTreeProcessingStep&gt; (defaultProcessingSteps) { <span class="code-keyword">new</span> CustomStep () }.ToArray(); 
+
+  <span class="code-comment">// create an ordinary QueryParser that uses the objects defined so far
+</span>  <span class="code-keyword">var</span> expressionTreeParser = <span class="code-keyword">new</span> ExpressionTreeParser (nodeTypeRegistry, processingSteps);
+  <span class="code-keyword">var</span> queryParser = <span class="code-keyword">new</span> QueryParser (expressionTreeParser);
+
+  <span class="code-comment">// the query executor represents the LINQ provider's back-end
+</span>  <span class="code-keyword">var</span> queryExecutor = <span class="code-keyword">new</span> MyQueryExecutor();
+
+  <span class="code-comment">// the query provider plumbs queryParser and queryExecutor together
+</span>  <span class="code-keyword">var</span> queryProvider = <span class="code-keyword">new</span> DefaultQueryProvider (queryParser, queryExecutor);
+
+  <span class="code-comment">// the queryable is the entry point in the query - and its execution
+</span>  <span class="code-keyword">return</span> <span class="code-keyword">new</span> MyQueryable&lt;T&gt; (queryProvider);
+}</pre>
+</div></div>
+
+<p>(Note that QueryParser and DefaultQueryProvider do not change state between different queries, so they can be stored and reused with "singleton" semantics.)</p></span></div></div><div class="detailEntry  "><a name="RM-3698"></a><h4>[RM-3698] Add a possibility to replace multiple expressions at once in an expression tree</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Similar to the ReplacingExpressionTreeVisitor, the MultiReplacingExpressionTreeVisitor replaces expression nodes, but it adds the possibility of replacing more than one expression at once.</p>
+
+<p>Expressions are also replaced within subqueries; the sub-QueryModel is changed by the replacement operations, it is not copied. The replacement node is not recursively searched for occurrences of Expression nodes to be replaced.</p></span></div></div><div class="detailEntry  "><a name="RM-3655"></a><h4>[RM-3655] Provide an automatic transformation for InvocationExpressions applied to LambdaExpressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for query combinations involving the invocation of LambdaExpressions similar to the following:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Cooks.Where (c =&gt; ((Func&lt;Cook, bool&gt;) (c1 =&gt; c1.Name != <span class="code-keyword">null</span>)) (c))</pre>
+</div></div>
+
+<p>In this case, a LambdaExpression is constructed and immediately invoked in the Where condition. This can be detected and inlined in order to produce an expression equivalent to the Where condition in the following query:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Cooks.Where (c =&gt; c.Name != <span class="code-keyword">null</span>)</pre>
+</div></div>
+
+<p>(In this example, the C# compiler adds a trivial Convert expression that converts the constructed lambda to its own type. The transformation should be able to handle this.)</p>
+
+<p>This is useful for specification libraries that need to combine predicates that are given in the form of LambdaExpressions, as in the following example:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Expression&lt;Func&lt;Order, bool&gt;&gt; predicate1 = o =&gt; o.OrderNumber &gt; 100;
+Expression&lt;Func&lt;Order, bool&gt;&gt; predicate2 = o =&gt; o.OrderDate &gt; <span class="code-keyword">new</span> DateTime (2010, 01, 01);
+<span class="code-keyword">var</span> combinedPredicate = 
+    Expression.Lambda&lt;Func&lt;Order, bool&gt;&gt; (
+        Expression.AndAlso (
+            predicate1.Body,
+            Expression.Invoke (predicate2, predicate1.Parameters.Cast&lt;Expression&gt;()),
+        ),
+        predicate1.Parameters);
+<span class="code-keyword">var</span> query = Orders.Where (combinedPredicate);</pre>
+</div></div>
+
+<p>The simplification described above is added via a transformation implemented in the InvocationOfLambdaExpressionTransformer class. The transformation, which is enabled by default, replaces expressions invoking a LambdaExpression with a simplified, inlined version of the LambdaExpression's body. (It cannot inline invocations of delegate constants.)</p>
+
+<p>For LINQ providers customizing the expression tree preprocessing steps applied by the re-linq front-end, add an instance of the InvocationOfLambdaExpressionTransformer class to the ExpressionTransformationStep.</p></span></div></div><div class="detailEntry  "><a name="RM-3572"></a><h4>[RM-3572] Provide a way to register custom expression transformers in the re-linq frontend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>A new mechanism has been added that allows re-linq-based providers to add custom, light-weight expression transformers to the front-end's query parsing pipeline. This feature can be used to implement simple expression transformers without having to bear the cost of an additional expression visitor run.</p>
+
+<p>The following classes and interfaces are involved:</p>
+<ul class="alternate" type="square">
+	<li>Interface IExpressionTransformationProvider: Low-level interface for classes providing transformations to be applied by the pipeline. Usually, the ExpressionTransformerRegistry class (see below) is used rather than custom implementations.</li>
+	<li>Class ExpressionTransformerRegistry: A default implementation of IExpressionTransformationProvider which keeps track of transformers implementing the IExpressionTransformer&lt;T&gt; interface. Use the CreateDefault factory method to create an instance of this class that already holds the default transformations defined by re-linq.</li>
+	<li>Interface IExpressionTransformer&lt;T&gt;: Implement this interface to define a custom transformation. The SupportedExpressionTypes property should return the expression node types handled by this transformer, or null if the transformer can handle all node types. T is the static (base) type of the expressions handled by the transformer. The Transform method implements the actual transformation.</li>
+	<li>Class ExpressionTransformationStep: Applies the transformations given by an implementation of IExpressionTransformationProvider to an expression tree. The transformations occur in post-order (transforming child expressions before parent expressions). When a transformation changes an expression, its child expressions and itself will have the matching transformations applied again (and may be transformed again). An instance of this step is included in the default pipeline created by ExpressionTreeParser.CreateDefaultProcessingSteps. The transformations by default run after partial evaluation of the expression tree.</li>
+</ul>
+
+
+<p>To include a custom transformation in a LINQ provider, use a QueryParser that includes the transformation.</p>
+
+<p>The following example creates a highly customizable instance of a class MyQueryable&lt;T&gt;, which has two custom transformers registered. It is of course possible to use a dependency injection container rather than manually composing the queryProvider.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">static</span> MyQueryable&lt;T&gt; CreateQuery&lt;T&gt;()
+{
+  <span class="code-comment">// include <span class="code-keyword">default</span> nodes
+</span>  <span class="code-keyword">var</span> nodeTypeRegistry = MethodCallExpressionNodeTypeRegistry.CreateDefault();
+
+  <span class="code-comment">// include <span class="code-keyword">default</span> transformations, and add <span class="code-keyword">new</span> ones
+</span>  <span class="code-keyword">var</span> transformerRegistry = ExpressionTransformerRegistry.CreateDefault();
+  transformerRegistry.Register (<span class="code-keyword">new</span> CustomTransformer1());
+  transformerRegistry.Register (<span class="code-keyword">new</span> CustomTransformer2());
+
+  <span class="code-comment">// use <span class="code-keyword">default</span> pipeline
+</span>  <span class="code-keyword">var</span> processingSteps = ExpressionTreeParser.CreateDefaultProcessingSteps (transformerRegistry);
+
+  <span class="code-comment">// create an ordinary QueryParser that uses the objects defined so far
+</span>  <span class="code-keyword">var</span> expressionTreeParser = <span class="code-keyword">new</span> ExpressionTreeParser (nodeTypeRegistry, processingSteps);
+  <span class="code-keyword">var</span> queryParser = <span class="code-keyword">new</span> QueryParser (expressionTreeParser);
+
+  <span class="code-comment">// the query executor represents the LINQ provider's back-end
+</span>  <span class="code-keyword">var</span> queryExecutor = <span class="code-keyword">new</span> MyQueryExecutor();
+
+  <span class="code-comment">// the query provider plumbs queryParser and queryExecutor together
+</span>  <span class="code-keyword">var</span> queryProvider = <span class="code-keyword">new</span> DefaultQueryProvider (queryParser, queryExecutor);
+
+  <span class="code-comment">// the queryable is the entry point in the query - and its execution
+</span>  <span class="code-keyword">return</span> <span class="code-keyword">new</span> MyQueryable&lt;T&gt; (queryProvider);
+}</pre>
+</div></div>
+
+<p>(Note that QueryParser and DefaultQueryProvider do not change state between different queries, so they can be stored and reused with "singleton" semantics.)</p></span></div></div><div class="detailEntry  "><a name="RM-3571"></a><h4>[RM-3571] Provide an automatic transformation for VB's Information.IsNothing handler</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for Visual Basic .NET queries containing expressions that use the IsNothing(...) method (rather than the Is Nothing operator) is added via a transformation implemented in the VBInformationIsNothingExpressionTransformer class. The transformation, which is enabled by default, replaces expressions calling the IsNothing method to BinaryExpressions comparing with a null constant.</p>
+
+<p>That way, expressions similar to the following will now produce "normalized" expression trees:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Where IsNothing(emp.ReportsTo)</pre>
+</div></div>
+
+<p>The expression tree created by the transformation is equivalent to that produced by:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Where emp.ReportsTo Is Nothing</pre>
+</div></div>
+
+<p>For LINQ providers customizing the expression tree preprocessing steps applied by the re-linq front-end, add an instance of the VBInformationIsNothingExpressionTransformer class to the ExpressionTransformationStep.</p></span></div></div><div class="detailEntry  "><a name="RM-3268"></a><h4>[RM-3268] SQL Backend: Support for Nullable&lt;T&gt;.HasValue and Nullable&lt;T&gt;.Value</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following form:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from c in Cooks
+where c.OptionalProperty.HasValue
+select c.OptionalProperty.Value</pre>
+</div></div></span></div></div></body></html>

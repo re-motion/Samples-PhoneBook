@@ -1,0 +1,143 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.61</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2816"><b>
+                  [COMMONS-2816] DmsTray:
+                </b>DmsTray: The username is not displayed during the recovery of a file</a></div><div class="listEntry"><a href="#COMMONS-2793"><b>
+                  [COMMONS-2793] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Height of search result div is not resized</a></div><div class="listEntry"><a href="#COMMONS-2784"><b>
+                  [COMMONS-2784] Security:
+                </b>SecurityManagerHttpApplication.SecurityManagerHttpApplication_PostAcquireRequestState with SecurityFreeSection</a></div><div class="listEntry"><a href="#COMMONS-2598"><b>
+                  [COMMONS-2598] ObjectBinding.Web:
+                </b>JavaScript error when AutoComplete adds search results to dom tree during an async postback</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2733"><b>
+                  [COMMONS-2733] Data:
+                </b>Add clientTransaction parameter to IClientTransactionListener methods</a></div><div class="listEntry"><a href="#COMMONS-171"><b>
+                  [COMMONS-171] SecurityManager:
+                </b>SecurityManager.SecurityProvider.GetAccess mit SecurityFreeSection</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2713"><b>
+                  [COMMONS-2713] DmsTray:
+                </b>DmsTray: Extend application mapping resolving with a third pass that uses prefer=false</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2756"><b>
+                  [COMMONS-2756] Mixins:
+                </b>ClassContext.Equals should check cached hash code before checking members for equality</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2816"></a><h4>[COMMONS-2816] DmsTray: The username is not displayed during the recovery of a file</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2793"></a><h4>[COMMONS-2793] BocAutoCompleteReferenceValue: Height of search result div is not resized</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>1. click on the dropdown icon to see the "full" search result<br/>
+2. type some letters in the textbox to get a single result<br/>
+3. the result is displayed but not resized in height</p>
+
+<p>Potentially only Legacy version affected.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2784"></a><h4>[COMMONS-2784] SecurityManagerHttpApplication.SecurityManagerHttpApplication_PostAcquireRequestState with SecurityFreeSection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> 
+ private void SecurityManagerHttpApplication_PostAcquireRequestState (object sender, EventArgs e)
+    {
+      if (HasSessionState)
+      {
+        var principal = LoadPrincipalFromSession();
+        if (principal.IsNull &amp;&amp; Context.User.Identity.IsAuthenticated)
+        {
+          using (ClientTransaction.CreateRootTransaction().EnterNonDiscardingScope())
+          {
+            SecurityManagerUser user;
+            using (new SecurityFreeSection())
+            {
+              user = SecurityManagerUser.FindByUserName (Context.User.Identity.Name);
+            }
+            if (user != null)
+              SetCurrentPrincipal (new SecurityManagerPrincipal (user.Tenant, user, null));
+            else
+              SetCurrentPrincipal (SecurityManagerPrincipal.Null);
+
+          }
+        }
+        else
+        {
+          principal.Refresh();
+          SetCurrentPrincipal (principal);
+        }
+      }
+    }
+</pre>
+</div></div> </span></div></div><div class="detailEntry  "><a name="COMMONS-2598"></a><h4>[COMMONS-2598] JavaScript error when AutoComplete adds search results to dom tree during an async postback</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>An unspecified JavaScript error occurred when AutoCompleteControl manipulates DOM tree while an async postback is in progress.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2733"></a><h4>[COMMONS-2733] Add clientTransaction parameter to IClientTransactionListener methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In order to make it easier to access the modified transaction from a listener, and in order to improve symmetry with IClientTransactionExtension.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-171"></a><h4>[COMMONS-171] SecurityManager.SecurityProvider.GetAccess mit SecurityFreeSection</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> AccessType[] GetAccess (ClientTransaction transaction, SecurityContext context, <span class="code-object">System</span>.Security.Principal.IPrincipal user)
+    {
+      using (<span class="code-keyword">new</span> SecurityFreeSection ())
+      {
+        <span class="code-keyword">return</span> ...;
+      }
+    }</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2713"></a><h4>[COMMONS-2713] DmsTray: Extend application mapping resolving with a third pass that uses prefer=false</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>New order of application resolving</p>
+
+<ol>
+	<li>Check all preferred mappings, use the first matching application</li>
+	<li>Check all mappings against the system's default program, if a match is found, use this application</li>
+	<li>Check all not-preferred mappings, use the first matching application</li>
+	<li>No match found, use the simple watcher to open the file read-only</li>
+</ol>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2756"></a><h4>[COMMONS-2756] ClassContext.Equals should check cached hash code before checking members for equality</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

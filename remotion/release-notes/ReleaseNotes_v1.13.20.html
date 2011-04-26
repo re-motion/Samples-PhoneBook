@@ -1,0 +1,197 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.20</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1532"><b>
+                  [COMMONS-1532] Web:
+                </b>View resize does not work in Firefox</a></div><div class="listEntry"><a href="#COMMONS-1530"><b>
+                  [COMMONS-1530] Web:
+                </b>IE6 standard mode: View content not visible</a></div><div class="listEntry"><a href="#COMMONS-1524"><b>
+                  [COMMONS-1524] Data.Linq:
+                </b>DataContainerFactoryTest.SetupOrderTicket relies on the order of PropertyDefinitions in the ClassDefinition, which is undefined due to Reflection constraints</a></div><div class="listEntry"><a href="#COMMONS-1523"><b>
+                  [COMMONS-1523] Data:
+                </b>Bi-directional relation property incorrectly updated to database</a></div><div class="listEntry"><a href="#COMMONS-1462"><b>
+                  [COMMONS-1462] ObjectBinding:
+                </b>BocCheckbox IE QuirksMode: read-only and editable checkboxes are not horizontally aligned</a></div><div class="listEntry"><a href="#COMMONS-1461"><b>
+                  [COMMONS-1461] ObjectBinding:
+                </b>BocList IE QuirksMode: ListMenu font too large</a></div><div class="listEntry"><a href="#COMMONS-1460"><b>
+                  [COMMONS-1460] ObjectBinding:
+                </b>BocList IE QuirksMode: icons of disabled controls are greyed out</a></div><div class="listEntry"><a href="#COMMONS-1421"><b>
+                  [COMMONS-1421] ObjectBinding:
+                </b>BocList style issues (standard mode)</a></div><div class="listEntry"><a href="#COMMONS-1400"><b>
+                  [COMMONS-1400] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: layout broken in IE (6/7/8) quirks mode</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1521"><b>
+                  [COMMONS-1521] Mixins:
+                </b>Change attribute representation of ConcreteMixinTypeIdentifier to be stable between different builds</a></div><div class="listEntry"><a href="#COMMONS-1520"><b>
+                  [COMMONS-1520] Web:
+                </b>StyleUtility: prevent duplicate event handler registrations</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1513"><b>
+                  [COMMONS-1513] Mixins:
+                </b>Adapt SerializationHelper and MixinSerializationHelper to remove the dependency on TargetClassDefinition</a></div><div class="listEntry"><a href="#COMMONS-1512"><b>
+                  [COMMONS-1512] Mixins:
+                </b>Remove ConcreteMixedTypeAttribute.GetTargetClassDefinition() and ConcreteMixinTypeAttribute.GetMixinDefinition() methods</a></div><div class="listEntry"><a href="#COMMONS-1511"><b>
+                  [COMMONS-1511] Mixins:
+                </b>Change AttributeBasedMetadataImporter to retrieve ClassContexts and ConcreteMixinTypeIdentifiers instead of TargetClassDefinitions and MixinDefinitions</a></div><div class="listEntry"><a href="#COMMONS-1510"><b>
+                  [COMMONS-1510] Mixins:
+                </b>Change CodeGenerationCache to use the ClassContext instead of the TargetClassDefinition as a cache key, adapt ConcreteTypeBuilder and TypeFactoryImplementation</a></div><div class="listEntry"><a href="#COMMONS-1506"><b>
+                  [COMMONS-1506] Mixins:
+                </b>Change caching of generated mixin types to work without a dependency on MixinDefinition</a></div><div class="children"><a href="#COMMONS-1509"><b>
+            [COMMONS-1509] Mixins:
+          </b>Make ConcreteMixinTypeIdentifier serializable and importable</a></div><div class="children"><a href="#COMMONS-1508"><b>
+            [COMMONS-1508] Mixins:
+          </b>Adapt CodeGenerationCache.GetConcreteMixinType methods to take ConcreteMixinTypeIdentifier rather than MixinDefinition, update usages</a></div><div class="children"><a href="#COMMONS-1507"><b>
+            [COMMONS-1507] Mixins:
+          </b>Add ConcreteMixinTypeIdentifier, use as the cache key for generated types, integrate with all usages</a></div><div class="listEntry"><a href="#COMMONS-1505"><b>
+                  [COMMONS-1505] Mixins:
+                </b>Remove ConcreteMixinType.MixinDefinition</a></div><div class="listEntry"><a href="#COMMONS-1504"><b>
+                  [COMMONS-1504] Mixins:
+                </b>Refactor MixedResourceManagerResolver to use ClassContext instead of TargetClassDefinition in order to get rid of the dependency</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1522"><b>
+                  [COMMONS-1522] Mixins:
+                </b>Refactor MixinArrayInitializer to be fed the concrete mixin types rather than NeedsDerivedType etc.</a></div><div class="listEntry"><a href="#COMMONS-1478"><b>
+                  [COMMONS-1478] Mixins:
+                </b>Remove duplicate validation in MixerRunner.Mixer_ClassContextBeingProcessed</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1532"></a><h4>[COMMONS-1532] View resize does not work in Firefox</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1530"></a><h4>[COMMONS-1530] IE6 standard mode: View content not visible</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The view content div is collapsed to zero width in IE6 standard mode</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1524"></a><h4>[COMMONS-1524] DataContainerFactoryTest.SetupOrderTicket relies on the order of PropertyDefinitions in the ClassDefinition, which is undefined due to Reflection constraints</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1523"></a><h4>[COMMONS-1523] Bi-directional relation property incorrectly updated to database</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p><b>Problem</b><br/>
+Given:</p>
+<ul>
+	<li>a parent and child object having a 1:N relation (1 parent - many children).</li>
+	<li>parent1 is related to child1 and child2</li>
+</ul>
+
+
+<p>error producing sequence:</p>
+<ul>
+	<li>in a SubTransaction of a RootClientTransaction</li>
+	<li>child2 is disconnected from parent1 and deleted</li>
+	<li>new parent2 object is created</li>
+	<li>child1 is disconnected from parent1 and connected to parent2</li>
+	<li>parent1 is deleted</li>
+	<li>both transactions are committed</li>
+</ul>
+
+
+<p>produces error</p>
+<ul>
+	<li>child1 is saved to database with child1.Parent == null ( should be child1.Parent == parent2)</li>
+</ul>
+
+
+<p><b>Demonstration</b><br/>
+In Acta Nova branch of remotion the unit test  MultiLevelTransactionTest.ChangeParent() demonstrates the error.</p>
+
+<p><b>Severity</b><br/>
+This error curently produces an unfixable erroneous behaviour in Acta Nova workflow - customer waits for fix</p>
+
+<p><b>Possible cause</b><br/>
+When commiting the SubClientTransaction to its parent transaction the delete of parent1 causes an overwrite of child1.parent with a null value, which previously has been correctly set to parent2. Somehow parent1 still thinks it is connected to child1.<br/>
+The erroneous behaviour occurs somewhere in RelationEndPoint processing.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1462"></a><h4>[COMMONS-1462] BocCheckbox IE QuirksMode: read-only and editable checkboxes are not horizontally aligned</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1461"></a><h4>[COMMONS-1461] BocList IE QuirksMode: ListMenu font too large</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1460"></a><h4>[COMMONS-1460] BocList IE QuirksMode: icons of disabled controls are greyed out</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>side effects from other style sheets<br/>
+multi-class CSS selectors don't work in IE quirks mode</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1421"></a><h4>[COMMONS-1421] BocList style issues (standard mode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Comand highlight for reference values is offset to top<br/>
+DateTimePicker has command highlight<br/>
+Text in some colors is blue instead of black: Voller Name, Partner, Name, LastNAme, Deceased, Birthday, Day of Death<br/>
+Opera: Save and Cancel LinkButtons are not left-aligned, Cancel highlight is cut off left<br/>
+IE6: Icons are grayed out in disabled controls - IE6 does not understand multi-class CSS selectors (use class1_class2 in addition to class1.class2 ?)<br/>
+Chrome: row selection highlight too light</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1400"></a><h4>[COMMONS-1400] BocAutoCompleteReferenceValue: layout broken in IE (6/7/8) quirks mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1521"></a><h4>[COMMONS-1521] Change attribute representation of ConcreteMixinTypeIdentifier to be stable between different builds</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, we store metadata tokens. These, however, are not stable with regard to rebuilds. This will cause types emitted by the TypeMixer to not work any more when the referenced assemblies are rebuilt.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1520"></a><h4>[COMMONS-1520] StyleUtility: prevent duplicate event handler registrations</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Idea: register only one event handler that calls OnResize(selector) for each registered selector; when adding a selector, check to make sure it is not already in the list before adding</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1513"></a><h4>[COMMONS-1513] Adapt SerializationHelper and MixinSerializationHelper to remove the dependency on TargetClassDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Add IMixinTarget.ClassContext property.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1512"></a><h4>[COMMONS-1512] Remove ConcreteMixedTypeAttribute.GetTargetClassDefinition() and ConcreteMixinTypeAttribute.GetMixinDefinition() methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Also remove FromClassContext method.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1511"></a><h4>[COMMONS-1511] Change AttributeBasedMetadataImporter to retrieve ClassContexts and ConcreteMixinTypeIdentifiers instead of TargetClassDefinitions and MixinDefinitions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1510"></a><h4>[COMMONS-1510] Change CodeGenerationCache to use the ClassContext instead of the TargetClassDefinition as a cache key, adapt ConcreteTypeBuilder and TypeFactoryImplementation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1506"></a><h4>[COMMONS-1506] Change caching of generated mixin types to work without a dependency on MixinDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1509"></a><h4>[COMMONS-1509] Make ConcreteMixinTypeIdentifier serializable and importable</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Serialization should be unproblematic.</li>
+	<li>Importability is by adjusting the ConcreteMixinTypeAttribute to store the mixin type and the metadata tokens of the overridden and wrapped members. This can be used to add a GetConcreteMixinTypeIdentifier method.</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1508"></a><h4>[COMMONS-1508] Adapt CodeGenerationCache.GetConcreteMixinType methods to take ConcreteMixinTypeIdentifier rather than MixinDefinition, update usages</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1507"></a><h4>[COMMONS-1507] Add ConcreteMixinTypeIdentifier, use as the cache key for generated types, integrate with all usages</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Contains:</p>
+<ul class="alternate" type="square">
+	<li>Target class members that overridde the mixin's members (MemberInfos of the target class, the mixin has code to call those on its This property),</li>
+	<li>Protected members for which public wrappers must be added (MemberInfos of the mixin class, the target class has code to call those).</li>
+</ul>
+
+
+<ul class="alternate" type="square">
+	<li>Return this as the cache key generated by MixinDefinition.GetConcreteMixinTypeCacheKey.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1505"></a><h4>[COMMONS-1505] Remove ConcreteMixinType.MixinDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1504"></a><h4>[COMMONS-1504] Refactor MixedResourceManagerResolver to use ClassContext instead of TargetClassDefinition in order to get rid of the dependency</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1522"></a><h4>[COMMONS-1522] Refactor MixinArrayInitializer to be fed the concrete mixin types rather than NeedsDerivedType etc.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1478"></a><h4>[COMMONS-1478] Remove duplicate validation in MixerRunner.Mixer_ClassContextBeingProcessed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

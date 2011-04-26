@@ -1,0 +1,201 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.52</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2526"><b>
+                  [COMMONS-2526] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue with embedded options menu bubbles click and keyboard events to option menu.</a></div><div class="listEntry"><a href="#COMMONS-2523"><b>
+                  [COMMONS-2523] DmsTray:
+                </b>DragAndDrop and Clipboard did not support multiple files due</a></div><div class="listEntry"><a href="#COMMONS-2512"><b>
+                  [COMMONS-2512] DmsTray:
+                </b>Tempfolders from extracting the zip-archive remain on the server</a></div><div class="listEntry"><a href="#COMMONS-2502"><b>
+                  [COMMONS-2502] DmsTray:
+                </b>LocalFileApplicationMappingProvider should resolve application mapping file relative to app.config file</a></div><div class="listEntry"><a href="#COMMONS-2480"><b>
+                  [COMMONS-2480] Mixins:
+                </b>Concrete types for mixed System types were not created anymore by TypeMixer</a></div><div class="listEntry"><a href="#COMMONS-2479"><b>
+                  [COMMONS-2479] ObjectBinding.Web:
+                </b>Validation of BocReferenceValue does not work</a></div><div class="listEntry"><a href="#COMMONS-2476"><b>
+                  [COMMONS-2476] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: using the cursor-keys to navigate in the DropDown should not highlight the text in the textbox.</a></div><div class="listEntry"><a href="#COMMONS-2475"><b>
+                  [COMMONS-2475] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: JS-Error when DropDown is open and Focus changes to different window</a></div><div class="listEntry"><a href="#COMMONS-2419"><b>
+                  [COMMONS-2419] DmsTray:
+                </b>DmsTray: Extension-Mapping must be case-insensitive</a></div><div class="listEntry"><a href="#COMMONS-2416"><b>
+                  [COMMONS-2416] DmsTray:
+                </b>DmsTray: Empty files (0 bytes) cannot be uploaded</a></div><div class="listEntry"><a href="#COMMONS-2415"><b>
+                  [COMMONS-2415] DmsTray:
+                </b>DmsTray: Files with Umlauts cannot be opened</a></div><div class="listEntry"><a href="#COMMONS-2357"><b>
+                  [COMMONS-2357] DmsTray:
+                </b>DmsTray Drag'n'Drop deletes most of the files in the source folder if the operation is canceled</a></div><div class="listEntry"><a href="#COMMONS-2355"><b>
+                  [COMMONS-2355] DmsTray:
+                </b>Scrollbar should be displayed in Drag'n'Drop window if more items are shown than fit on the screen</a></div><div class="listEntry"><a href="#COMMONS-2195"><b>
+                  [COMMONS-2195] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Leaving the Input Element with by hitting Tab does not validate input.</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2530"><b>
+                  [COMMONS-2530] Data:
+                </b>RdbmsProvider implementation: SelectCommandBuilder has been replaced with SingleIDLookupCommandBuilder and MultiIDLookupCommandBuilder</a></div><div class="listEntry"><a href="#COMMONS-2506"><b>
+                  [COMMONS-2506] Data:
+                </b>ClassDefinition.GetPropertyDefinitions(), GetRelationDefinitions(), and GetRelationEndPointDefinitions() fail when the class definition is not read-only</a></div><div class="listEntry"><a href="#COMMONS-2498"><b>
+                  [COMMONS-2498] ObjectBinding.Web:
+                </b>Resources for BocReferenceValue and BocAutoCompleteReferenceValue: New ResourceIdentifier</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2496"><b>
+                  [COMMONS-2496] Core:
+                </b>Allow AppDomainRunnerBase to work when more than one instance of a tool is run simultanously</a></div><div class="listEntry"><a href="#COMMONS-2379"><b>
+                  [COMMONS-2379] Data ObjectBinding:
+                </b>Allow BindableDomainObjects to be used in other scenarios where DomainObjects are created other than via NewObject or GetObject</a></div><div class="listEntry"><a href="#COMMONS-2290"><b>
+                  [COMMONS-2290] DmsTray:
+                </b>FolderBrowserDialog/OpenFileDialog: Show in front</a></div><div class="listEntry"><a href="#COMMONS-1984"><b>
+                  [COMMONS-1984] Mixins:
+                </b>Multiple instances of TypeMixer should be able to run simultanously </a></div><div class="listEntry"><a href="#COMMONS-1793"><b>
+                  [COMMONS-1793] Data:
+                </b>Allow ClientTransaction.GetObjects() to work with more than 2000 ObjectIDs</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1791"><b>
+                  [COMMONS-1791] Data:
+                </b>ClassDefinition: GetPropertyDefinitions and GetRelationDefinitions should cache data</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2526"></a><h4>[COMMONS-2526] BocAutoCompleteReferenceValue with embedded options menu bubbles click and keyboard events to option menu.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2523"></a><h4>[COMMONS-2523] DragAndDrop and Clipboard did not support multiple files due</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2512"></a><h4>[COMMONS-2512] Tempfolders from extracting the zip-archive remain on the server</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2502"></a><h4>[COMMONS-2502] LocalFileApplicationMappingProvider should resolve application mapping file relative to app.config file</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2480"></a><h4>[COMMONS-2480] Concrete types for mixed System types were not created anymore by TypeMixer</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>TypeMixer does not create contrete types eg. for  Mixins extends System.Web.UI.Page.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2479"></a><h4>[COMMONS-2479] Validation of BocReferenceValue does not work</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Required field validation of BocReferenceValue does not work.</p>
+
+<p>****<br/>
+No Validation on EditRoleForm:</p>
+
+<p>Validation is not triggered when new role is created.</p>
+
+<p>Steps to reproduce:<br/>
+1. create new group<br/>
+2. on edit group click new role<br/>
+3. on edit role form click take over<br/>
+4. form is not validated and empty role is taken over</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2476"></a><h4>[COMMONS-2476] BocAutoCompleteReferenceValue: using the cursor-keys to navigate in the DropDown should not highlight the text in the textbox.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Present behavior:<br/>
+moving up and down in the drop down shows the new element in the textbox and highlights it.</p>
+
+<p>Expected behavior:<br/>
+moving up and down in the drop down shows the new element in the textbox and only places the cursor after the last character.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2475"></a><h4>[COMMONS-2475] BocAutoCompleteReferenceValue: JS-Error when DropDown is open and Focus changes to different window</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Reproduce:<br/>
+Start typing in the textbox (e.g. "ASP.").<br/>
+Drop Down opens.<br/>
+Use the mouse to hover over the drop down and move it up and down. -&gt; selection moves with mouse.<br/>
+Click into other window.<br/>
+JS-Error pops up.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2419"></a><h4>[COMMONS-2419] DmsTray: Extension-Mapping must be case-insensitive</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Extensions in config must be written in lower-case.<br/>
+Extension to match must be converted to lower-case.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2416"></a><h4>[COMMONS-2416] DmsTray: Empty files (0 bytes) cannot be uploaded</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2415"></a><h4>[COMMONS-2415] DmsTray: Files with Umlauts cannot be opened</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2357"></a><h4>[COMMONS-2357] DmsTray Drag'n'Drop deletes most of the files in the source folder if the operation is canceled</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2355"></a><h4>[COMMONS-2355] Scrollbar should be displayed in Drag'n'Drop window if more items are shown than fit on the screen</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2195"></a><h4>[COMMONS-2195] BocAutoCompleteReferenceValue: Leaving the Input Element with by hitting Tab does not validate input.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Invalid value remains in Input, should be reset to previous value.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2530"></a><h4>[COMMONS-2530] RdbmsProvider implementation: SelectCommandBuilder has been replaced with SingleIDLookupCommandBuilder and MultiIDLookupCommandBuilder</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The factory methods have been removed. For a single ID lookup, use SingleIDLookupCommandBuilder. To look up multiple IDs, use MultiIDLookupCommandBuilder. To look up related IDs, use DataContainerLoaderHelper.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2506"></a><h4>[COMMONS-2506] ClassDefinition.GetPropertyDefinitions(), GetRelationDefinitions(), and GetRelationEndPointDefinitions() fail when the class definition is not read-only</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Since those methods now cache their data, they cannot be called until the class definition is in its final state.</p>
+
+<p>ClassDefinitionCollection.Validate() sets all class definitions to read-only. Because the default mapping configuration is automatically validated, this breaking change only affects users manually creating class definitions and mapping configurations.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2498"></a><h4>[COMMONS-2498] Resources for BocReferenceValue and BocAutoCompleteReferenceValue: New ResourceIdentifier</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ResourceIdentifier for validation message and options menu title have changed:</p>
+
+<p>Old:</p>
+<ul>
+	<li>Remotion.ObjectBinding.Web.UI.Controls.BocReferenceValueBase.*</li>
+	<li>Remotion.ObjectBinding.Web.UI.Controls.BocAutoCompleteReferenceValueBase.*</li>
+</ul>
+
+
+<p>New:</p>
+<ul>
+	<li>Remotion.ObjectBinding.Web.UI.Controls.BocReferenceValueImplementation.BocReferenceValueBase.*</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2496"></a><h4>[COMMONS-2496] Allow AppDomainRunnerBase to work when more than one instance of a tool is run simultanously</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use dynamic resolution via LoadFile instead of copying assemblies around. That way, no side effects can cause problems with multiple instances.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2379"></a><h4>[COMMONS-2379] Allow BindableDomainObjects to be used in other scenarios where DomainObjects are created other than via NewObject or GetObject</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, the IBusinessObject implementation of BindableDomainObjects cannot be used for objects that are instantiated by the transporter, cloner, or that are deserialized.</p>
+
+<p>This should be changed.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2290"></a><h4>[COMMONS-2290] FolderBrowserDialog/OpenFileDialog: Show in front</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1984"></a><h4>[COMMONS-1984] Multiple instances of TypeMixer should be able to run simultanously </h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>TypeMixer creates an AppDomain which uses a fixed DynamicBase folder.<br/>
+When multiple instances are running they run into conflicts there, so e.g. a unique temporary subfolder could be used.</p>
+
+<p>=&gt; solved in Acta Nova Branch</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1793"></a><h4>[COMMONS-1793] Allow ClientTransaction.GetObjects() to work with more than 2000 ObjectIDs</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Integration test for ClientTransaction.GetObjects (more than 2000 IDs)</li>
+	<li>Integration test for TableInheritance.TestDomain.Folder.FileSystemItems with more than 2000 elements</li>
+	<li>Rewrite WhereClauseBuilder.SetInExpression to use an XML type parameter containing all IDs. With ADO.NET, it should be possible to set the XML parameter as a string; if not, a SqlXml value should work.</li>
+</ul>
+
+
+<p>Reference statement:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT s.Id,s.SomeString 
+	FROM SomeString s
+	WHERE s.Id in (
+	select T.c.value('.','uniqueidentifier') as Id 
+	from @p1.nodes('/L/I') T(c)</pre>
+</div></div>
+
+<p>For XML such as:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">&lt;L&gt;
+&lt;I&gt;GUID1&lt;/I&gt;
+&lt;I&gt;GUID2&lt;/I&gt;
+&lt;/L&gt;</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1791"></a><h4>[COMMONS-1791] ClassDefinition: GetPropertyDefinitions and GetRelationDefinitions should cache data</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

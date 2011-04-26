@@ -1,0 +1,170 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.60</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2795"><b>
+                  [COMMONS-2795] Security:
+                </b>Security MetadataExtractor MSBuild Task links against both MSBuild 2.0 and 3.5. It should only link against 3.5</a></div><div class="listEntry"><a href="#COMMONS-2791"><b>
+                  [COMMONS-2791] ObjectBinding.Web:
+                </b>BocAutoCompleteValue: JavaScript error occured when enter is pressed in textbox</a></div><div class="listEntry"><a href="#COMMONS-2789"><b>
+                  [COMMONS-2789] Data:
+                </b>Eager fetching doesn't trigger FilterQueryResult notifications</a></div><div class="listEntry"><a href="#COMMONS-2762"><b>
+                  [COMMONS-2762] ObjectBinding.Web:
+                </b>BocEnumValue, BocTextValue, BocMultiLineTextValue in standardmode: relative widths (percentage) do not work appropiate</a></div><div class="listEntry"><a href="#COMMONS-2761"><b>
+                  [COMMONS-2761] ObjectBinding.Web:
+                </b>BocControls in standardmode: remove defaultwidths in Renderer</a></div><div class="listEntry"><a href="#COMMONS-2751"><b>
+                  [COMMONS-2751] ObjectBinding.Web:
+                </b>BocEnumValue in standard mode: control is cropped on the right side</a></div><div class="listEntry"><a href="#COMMONS-2746"><b>
+                  [COMMONS-2746] ObjectBinding:
+                </b>BusinessObjectPropertyPath returns DisplayName for referenced BusinessObject even if the user does not have access to the object</a></div><div class="listEntry"><a href="#COMMONS-2736"><b>
+                  [COMMONS-2736] ObjectBinding.Web:
+                </b>Linux - SingleView is displaying horizontal scroll bar.</a></div><div class="listEntry"><a href="#COMMONS-2449"><b>
+                  [COMMONS-2449] ObjectBinding.Web:
+                </b>BocReferenceValue, BocAutoCompleteReferenceValue: Space for icon is aways reserved.</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2799"><b>
+                  [COMMONS-2799] ObjectBinding:
+                </b>BusinessObjectStringFormatterService.GetPropertyString now uses DisplayNameSafe instead of DisplayName as the string-representation of a ReferenceProperty's value</a></div><div class="listEntry"><a href="#COMMONS-2798"><b>
+                  [COMMONS-2798] ObjectBinding.Web:
+                </b>Dropped RenderEditModeValueExtension template method from BocReferenceValueRenderer and BocAutoCompleteReferenceRenderer</a></div><div class="listEntry"><a href="#COMMONS-2786"><b>
+                  [COMMONS-2786] Data:
+                </b>Discarded DomainObjects are now called "invalid"</a></div><div class="listEntry"><a href="#COMMONS-2785"><b>
+                  [COMMONS-2785] Core ObjectBinding:
+                </b>Moved IPropertyInfo and IPropertyInfoAdapter from Remotion.ObjectBinding to Remotion.Core</a></div><div class="listEntry"><a href="#COMMONS-2747"><b>
+                  [COMMONS-2747] ObjectBinding:
+                </b>BusinessObject.GetPropertyString now uses DisplayNameSafe instead of DisplayName as the string-representation of a ReferenceProperty's value</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2725"><b>
+                  [COMMONS-2725] SecurityManager:
+                </b>All direct calls to ResourceUrlResolver.GetResourceUrl should be refactored to indirection through IResourceUrlFactory</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2797"><b>
+                  [COMMONS-2797] ObjectBinding.Web:
+                </b>BocReferenceValueRenderer and BocAutoCompleteReferenceRenderer expose the RenderContents method as a template-method</a></div><div class="listEntry"><a href="#COMMONS-2731"><b>
+                  [COMMONS-2731] DmsTray:
+                </b>DragDropHandling with Outlook 2010</a></div><div class="listEntry"><a href="#COMMONS-2730"><b>
+                  [COMMONS-2730] DmsTray:
+                </b>DragDropHandling with Outlook 2007</a></div><div class="listEntry"><a href="#COMMONS-2728"><b>
+                  [COMMONS-2728] DmsTray:
+                </b>ClipboardHandling with Outlook 2010</a></div><div class="listEntry"><a href="#COMMONS-2727"><b>
+                  [COMMONS-2727] DmsTray:
+                </b>ClipboardHandling with Outlook 2007</a></div><div class="listEntry"><a href="#COMMONS-2726"><b>
+                  [COMMONS-2726] DmsTray:
+                </b>ClipboardHandling with Outlook 2003</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2795"></a><h4>[COMMONS-2795] Security MetadataExtractor MSBuild Task links against both MSBuild 2.0 and 3.5. It should only link against 3.5</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>It uses Microsoft.MSBuild.Utilities.Task, which appears to be only available for MSBuild.Framework 2.0 and MSBuild.Framework 4.0, but not for MSBuild.Framework v3.4</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2791"></a><h4>[COMMONS-2791] BocAutoCompleteValue: JavaScript error occured when enter is pressed in textbox</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>steps to reproduce:</p>
+
+<p>1. type 3 letters in text box and wait for a result<br/>
+2. press enter key<br/>
+3. javascript error is thrown<br/>
+4. results from autocomplete is left visible</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2789"></a><h4>[COMMONS-2789] Eager fetching doesn't trigger FilterQueryResult notifications</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, FilterQueryResult is only invoked for the top-level query, not for the eager fetch queries also executed. This should be changed.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2762"></a><h4>[COMMONS-2762] BocEnumValue, BocTextValue, BocMultiLineTextValue in standardmode: relative widths (percentage) do not work appropiate</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2761"></a><h4>[COMMONS-2761] BocControls in standardmode: remove defaultwidths in Renderer</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>known occurences: BocBooleanValueRendererBase, BocEnumValueRenderer, BocTextValueRendererBase</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2751"></a><h4>[COMMONS-2751] BocEnumValue in standard mode: control is cropped on the right side</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>the reason seems to be the 150pt applied to the select tag</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2746"></a><h4>[COMMONS-2746] BusinessObjectPropertyPath returns DisplayName for referenced BusinessObject even if the user does not have access to the object</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>PropertyPath: "Partner"<br/>
+GetStringValue returns Partner.DisplayName<br/>
+If the DisplayName's getter does not enforce security, the value will always be returned even if the user does not have read-access to the DisplayName property.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2736"></a><h4>[COMMONS-2736] Linux - SingleView is displaying horizontal scroll bar.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2449"></a><h4>[COMMONS-2449] BocReferenceValue, BocAutoCompleteReferenceValue: Space for icon is aways reserved.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Invislve icons are not displayed. The space should collapse if no icon is displayed.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2799"></a><h4>[COMMONS-2799] BusinessObjectStringFormatterService.GetPropertyString now uses DisplayNameSafe instead of DisplayName as the string-representation of a ReferenceProperty's value</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2798"></a><h4>[COMMONS-2798] Dropped RenderEditModeValueExtension template method from BocReferenceValueRenderer and BocAutoCompleteReferenceRenderer</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This feature has become obsolete. If hooks are needed for adding custom elements inside the control's DOM, they have to be defined based on the new feature's needs.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2786"></a><h4>[COMMONS-2786] Discarded DomainObjects are now called "invalid"</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason for this change is that new objects created in subtransactions now have discarded/invalid state in all ancestor transactions until the subtransaction is committed. Since discarded/invalid objects can now become un-discarded/valid, "discarded" is no longer the right term.</p>
+
+<p>All APIs have been adjusted:</p>
+<ul class="alternate" type="square">
+	<li>StateType.Invalid (was: Discarded)</li>
+	<li>DomainObject.IsInvalid (was: IsDiscarded)</li>
+	<li>DomainObjectTransactionContext.IsInvalid (was: IsDiscarded)</li>
+	<li>ObjectInvalidException (was: ObjectDiscardedException)</li>
+	<li>DataManager.InvalidObjectCount, InvalidObjectIDs, GetInvalidObjectReference (was: DiscardedObjectCount, DiscardedObjectIDs, GetDiscardedObject)</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2785"></a><h4>[COMMONS-2785] Moved IPropertyInfo and IPropertyInfoAdapter from Remotion.ObjectBinding to Remotion.Core</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2747"></a><h4>[COMMONS-2747] BusinessObject.GetPropertyString now uses DisplayNameSafe instead of DisplayName as the string-representation of a ReferenceProperty's value</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2725"></a><h4>[COMMONS-2725] All direct calls to ResourceUrlResolver.GetResourceUrl should be refactored to indirection through IResourceUrlFactory</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2797"></a><h4>[COMMONS-2797] BocReferenceValueRenderer and BocAutoCompleteReferenceRenderer expose the RenderContents method as a template-method</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2731"></a><h4>[COMMONS-2731] DragDropHandling with Outlook 2010</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Attachment(s) dropped from Outlook must be handled (uploaded) by DmsTray<br/>
+Email(s) dropped from Outlook must be handled (uploaded) by DmsTray</p>
+
+<p>Test this in VM with Outlook 2010</p>
+
+<p>Check if uploaded files can be downloaded (via DmsTray).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2730"></a><h4>[COMMONS-2730] DragDropHandling with Outlook 2007</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Attachment(s) dropped from Outlook must be handled (uploaded) by DmsTray<br/>
+Email(s) dropped from Outlook must be handled (uploaded) by DmsTray</p>
+
+<p>Test this in VM with Outlook 2007</p>
+
+<p>Check if uploaded files can be downloaded (via DmsTray).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2728"></a><h4>[COMMONS-2728] ClipboardHandling with Outlook 2010</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Attachment(s) in clipboard must be handled (uploaded) by DmsTray<br/>
+Email(s) in clipboard must be handled (uploaded) by DmsTray</p>
+
+<p>Test this in VM with Outlook 2010</p>
+
+<p>Check if uploaded files can be downloaded (via DmsTray).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2727"></a><h4>[COMMONS-2727] ClipboardHandling with Outlook 2007</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Attachment(s) in clipboard must be handled (uploaded) by DmsTray<br/>
+Email(s) in clipboard must be handled (uploaded) by DmsTray</p>
+
+<p>Test this in VM with Outlook 2007</p>
+
+<p>Check if uploaded files can be downloaded (via DmsTray).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2726"></a><h4>[COMMONS-2726] ClipboardHandling with Outlook 2003</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Attachment(s) in clipboard must be handled (uploaded) by DmsTray<br/>
+Email(s) in clipboard must be handled (uploaded) by DmsTray</p>
+
+<p>Test this in VM with Outlook 2003</p>
+
+<p>Check if uploaded files can be downloaded (via DmsTray).</p></span></div></div></body></html>

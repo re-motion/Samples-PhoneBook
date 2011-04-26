@@ -1,0 +1,82 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.88</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3617"><b>
+                  [RM-3617] ObjectBinding.Web:
+                </b>BocTreeView/WebTreeView: TreeNode-Factories are not used when loading nodes from ViewState</a></div><div class="listEntry"><a href="#RM-3463"><b>
+                  [RM-3463] Data:
+                </b>Typo in RelationChangingEventArgs.RelationEndPointDefinition</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3549"><b>
+                  [RM-3549] Data.Linq:
+                </b>Support SelectMany overload without result selector</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3617"></a><h4>[RM-3617] BocTreeView/WebTreeView: TreeNode-Factories are not used when loading nodes from ViewState</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The TreeNode factories implemented in <a href="https://jira.rubicon.eu/browse/RM-3098" title="BocTreeView/WebTreeView: Make TreeViews extensible with HasExpansionLink() and TreeNode-Factories">RM-3098</a> are not used when re-creating TreeNodes from ViewState.</p>
+
+<p>This leads to wrong TreeNode Types.</p></span></div></div><div class="detailEntry  "><a name="RM-3463"></a><h4>[RM-3463] Typo in RelationChangingEventArgs.RelationEndPointDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The "i" is missing in RelationChangingEventArgs.RelationEndPointDefin(i)tion </p></span></div></div><div class="detailEntry  "><a name="RM-3549"></a><h4>[RM-3549] Support SelectMany overload without result selector</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

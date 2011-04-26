@@ -1,0 +1,151 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.35</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1907"><b>
+                  [COMMONS-1907] Web:
+                </b>DropDownMenu is not fully visible in some cases</a></div><div class="listEntry"><a href="#COMMONS-1887"><b>
+                  [COMMONS-1887] Data:
+                </b>When related object collections are set in a cascading way and Rollback is called, end point associations are not correctly restored</a></div><div class="listEntry"><a href="#COMMONS-1874"><b>
+                  [COMMONS-1874] DmsTray:
+                </b>AssociatedProgramFinder fails with an Unspecified-error on an unknown extension when executing on W2k3</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1884"><b>
+                  [COMMONS-1884] Data:
+                </b>DomainObjectCollection will not raise any events when it is constructed or cloned with a given content</a></div><div class="listEntry"><a href="#COMMONS-1881"><b>
+                  [COMMONS-1881] Data:
+                </b>Setting a collection-valued relation property to a new value will not invoke Adding/Added/Removing/Removed events on the involved collections</a></div><div class="listEntry"><a href="#COMMONS-1878"><b>
+                  [COMMONS-1878] Data:
+                </b>Custom DomainObjectCollections used as relation properties must expose constructor taking IDomainCollectionData</a></div><div class="listEntry"><a href="#COMMONS-1772"><b>
+                  [COMMONS-1772] Data:
+                </b> Slight change in the way DomainObjectCollection events are raised for standalone collections in the case of a Clear operation</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-1744"><b>
+                    [COMMONS-1744] Data:
+                  </b>BREAK: DomainObjectCollection interface changes</a></span></div><div class="children"><a href="#COMMONS-1886"><b>
+            [COMMONS-1886] Data:
+          </b>DomainObjectCollection constructor taking IEnumerable now also takes requiredItemType</a></div><div class="children"><a href="#COMMONS-1885"><b>
+            [COMMONS-1885] Data:
+          </b>DomainObjectCollection.Create methods are removed</a></div><div class="children"><a href="#COMMONS-1750"><b>
+            [COMMONS-1750] Data:
+          </b>Ctor taking a DataContainerCollection is removed</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1907"></a><h4>[COMMONS-1907] DropDownMenu is not fully visible in some cases</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>e.g. when placed at the bottom of a page and with many items (see screenshot)<br/>
+This issue only occurs in IE 8 with "enough" permissions (trusted sites).</p>
+
+<p>=&gt; Workaround in Acta Nova implemented: calculating top self so that always visible</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1887"></a><h4>[COMMONS-1887] When related object collections are set in a cascading way and Rollback is called, end point associations are not correctly restored</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">using (ClientTransactionMock.CreateSubTransaction ().EnterDiscardingScope ())
+      {
+        <span class="code-keyword">var</span> customer1 = Customer.GetObject (DomainObjectIDs.Customer1); <span class="code-comment">// Order1, OrderWithoutOrderItems
+</span>        <span class="code-keyword">var</span> customer3 = Customer.GetObject (DomainObjectIDs.Customer3); <span class="code-comment">// Order2
+</span>        <span class="code-keyword">var</span> newCollection = <span class="code-keyword">new</span> OrderCollection { Order.GetObject (DomainObjectIDs.Order4) };
+
+        <span class="code-keyword">var</span> oldOrdersOfCustomer1 = customer1.Orders;
+        <span class="code-keyword">var</span> oldOrdersOfCustomer3 = customer3.Orders;
+
+        customer1.Orders = newCollection;
+        customer3.Orders = oldOrdersOfCustomer1;
+        Assert.That (oldOrdersOfCustomer3.AssociatedEndPoint, Is.Null);
+
+        ClientTransaction.Current.Rollback ();
+
+        Assert.That (customer1.Orders, Is.SameAs (oldOrdersOfCustomer1));
+        Assert.That (customer3.Orders, Is.SameAs (oldOrdersOfCustomer3));
+
+        Assert.That (customer1.Orders.AssociatedEndPoint.GetDomainObject (), Is.SameAs (customer1));
+        Assert.That (customer3.Orders.AssociatedEndPoint.GetDomainObject (), Is.SameAs (customer3));
+        Assert.That (newCollection.AssociatedEndPoint, Is.Null);
+      }</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1874"></a><h4>[COMMONS-1874] AssociatedProgramFinder fails with an Unspecified-error on an unknown extension when executing on W2k3</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ms-help://MS.VSCC.v90/MS.MSDNQTR.v90.en/fxref_system.runtime.interopservices/html/de3615cf-5406-cdde-ad6e-d2900c2c2995.htm</p>
+
+<p>Return always null on error and log message</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1884"></a><h4>[COMMONS-1884] DomainObjectCollection will not raise any events when it is constructed or cloned with a given content</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the DomainObjectCollection constructors and the Clone method would call Add and AddRange when constructing a new DomainObjectCollection from a given content (including cloning a collection to be read-only). This would invoke Adding/Added events for every item being added.</p>
+
+<p>This behavior is illogical (the items are not "added" when the collection is initialized from them), usually not wanted (especially when the collection is associated with an end point), and it is inconsistent with .NET framework collection such as ObservableCollection&lt;T&gt;.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1881"></a><h4>[COMMONS-1881] Setting a collection-valued relation property to a new value will not invoke Adding/Added/Removing/Removed events on the involved collections</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the following piece of code triggered Adding/Added/Removing/Removed events:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">customer.Orders = otherOrders;</pre>
+</div></div>
+
+<p>This has now been changed, as the collections are not actually modified.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1878"></a><h4>[COMMONS-1878] Custom DomainObjectCollections used as relation properties must expose constructor taking IDomainCollectionData</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The new constructor is used to create the collection from the CollectionEndPoint representing the relation property.</p>
+
+<p>Example:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> class MyOrderList : ObjectList&lt;Order&gt;
+{
+  <span class="code-keyword">public</span> MyOrderList ()
+  {
+    <span class="code-comment">// called by user code when creating the list as a stand-alone collection
+</span>  }
+
+  <span class="code-keyword">public</span> MyOrderList (IDomainObjectCollectionData data)
+    : base (data)
+  {
+    <span class="code-comment">// called by re-store framework when creating the list as a related object collection 
+</span>  }
+}</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1772"></a><h4>[COMMONS-1772]  Slight change in the way DomainObjectCollection events are raised for standalone collections in the case of a Clear operation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously: For each item, a separate Removing/Removed pair was issued: Removing (item1), Removed (item1), Removing (item2), Removed (item2), etc.<br/>
+Now: All Removing events are raised, then the collection is cleared, then all Removed events are raised in reverse order: Removing (item1), Removing (item2), ..., Removed (item2), Removed (item1).</p></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-1744"></a><h4>[COMMONS-1744] BREAK: DomainObjectCollection interface changes</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">1.13.36</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1886"></a><h4>[COMMONS-1886] DomainObjectCollection constructor taking IEnumerable now also takes requiredItemType</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1885"></a><h4>[COMMONS-1885] DomainObjectCollection.Create methods are removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Directly call the constructors or use DomainObjectCollectionFactory.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1750"></a><h4>[COMMONS-1750] Ctor taking a DataContainerCollection is removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Replace with a LINQ query passed to the ctor taking IEnumerable&lt;T&gt; instead.</p></span></div></div></body></html>

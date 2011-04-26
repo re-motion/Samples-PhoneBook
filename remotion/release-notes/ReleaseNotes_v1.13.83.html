@@ -1,0 +1,135 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.83</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3515"><b>
+                  [RM-3515] Data.Linq:
+                </b>ContainsResultOperator throws an exception when a query uses Contains to check for an item of a derived type</a></div><div class="listEntry"><a href="#RM-3356"><b>
+                  [RM-3356] ObjectBinding.Web:
+                </b>BocList: (at least) custom columns that are added to FixedColumns AFTER OnInit are not considered for rendering</a></div><div class="listEntry"><a href="#RM-3308"><b>
+                  [RM-3308] Data.Linq:
+                </b>SQL Backend: The SQL generated for some string manipulation functions doesn't deal with spaces correctly</a></div><div class="listEntry"><a href="#RM-3301"><b>
+                  [RM-3301] ObjectBinding.Web:
+                </b>ArgumentOutOfRangeException on the "List as Grid" UI test (ObjectBinding.Web.Test)</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3497"><b>
+                  [RM-3497] Data:
+                </b>Dropped constructor overload from RelationDefinitionCollection that accepts an existing RelationDefinititionCollection</a></div><div class="listEntry"><a href="#RM-3492"><b>
+                  [RM-3492] Data:
+                </b>Dropped constructor overload from ClassDefinitionCollection that accepts an existing ClassDefinititionCollection</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><span class="notVisible"><a href="#RM-3361"><b>
+                    [RM-3361] Data:
+                  </b>Relations to Interfaces</a></span></div><div class="children"><a href="#RM-3369"><b>
+            [RM-3369] Data:
+          </b>Centralized Mapping-Validation</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3459"><b>
+                  [RM-3459] Core:
+                </b>Reduce calls to ServiceLocator.GetInstance for frequently used code</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3515"></a><h4>[RM-3515] ContainsResultOperator throws an exception when a query uses Contains to check for an item of a derived type</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>For example, the following query used to produce an exception:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> chef = <span class="code-keyword">new</span> Chef { ID = 23, FirstName = <span class="code-quote">"Hugo"</span>, Name = <span class="code-quote">"Heinrich"</span> };
+CheckQuery (
+  from s in Cooks where s.Assistants.Contains (chef) select s);</pre>
+</div></div>
+
+<p>This has been changed - the result operator now checks that the item expression is assignable to the item type of the sequence, not equal to it.</p></span></div></div><div class="detailEntry  "><a name="RM-3356"></a><h4>[RM-3356] BocList: (at least) custom columns that are added to FixedColumns AFTER OnInit are not considered for rendering</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Because EnsureColumnsGot is called during RegisterHtmlHeadContents which caches the list of columns at this and is not refreshed later on.</p>
+
+<p>solved in actanovabranch (solution by MK) =&gt; not committed yet -&gt; solution is to change BocList.cs line 409 to:</p>
+
+<p>var renderer = factory.CreateRenderer (httpContext, this, ServiceLocator, new IBocColumnRenderer<span class="error">&#91;0&#93;</span>);</p></span></div></div><div class="detailEntry  "><a name="RM-3308"></a><h4>[RM-3308] SQL Backend: The SQL generated for some string manipulation functions doesn't deal with spaces correctly</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>For example, for an expression such as <tt>c.ContactName.IndexOf (" ")</tt>, re-linq will generate the following SQL:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">CASE WHEN (LEN(@1) = 0) THEN 0 ELSE (CHARINDEX(@2, [t0].[ContactName]) - 1) END
+(@1 = <span class="code-quote">" "</span>)
+(@2 = <span class="code-quote">" "</span>)</pre>
+</div></div>
+
+<p>(The CASE is required because CHARINDEX will return -1 for empty strings, whereas .NET will return 0.)<br/>
+The problem is that LEN will not work correctly with trailing spaces - it ignores them.</p>
+
+<p>The fix is to append a single character to the string and subtract 1 from the result. Instead of LEN(@1), use LEN(@1 + '#') - 1.</p></span></div></div><div class="detailEntry  "><a name="RM-3301"></a><h4>[RM-3301] ArgumentOutOfRangeException on the "List as Grid" UI test (ObjectBinding.Web.Test)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>exception occurs in Remotion.ObjectBinding.Web.UI.Controls.BocListImplementation.EditableRowSupport.EditableRow line 192</p></span></div></div><div class="detailEntry  "><a name="RM-3497"></a><h4>[RM-3497] Dropped constructor overload from RelationDefinitionCollection that accepts an existing RelationDefinititionCollection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3492"></a><h4>[RM-3492] Dropped constructor overload from ClassDefinitionCollection that accepts an existing ClassDefinititionCollection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="RM-3361"></a><h4>[RM-3361] Relations to Interfaces</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">re-store Relations to Interfaces</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="RM-3369"></a><h4>[RM-3369] Centralized Mapping-Validation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Using the separate validation logic, it is possible to validate the entire mapping after the class-hierarchy has been analyzed. </p>
+<ul>
+	<li>Validation errors are aggregated and a compound validation exception is raised containing all validation errors. This allows developers to discover and resolve all validation errors in a single round-trip, instead of discovering and fixing only a single error during each round-trip.</li>
+	<li>The validation logic is split into two distinct parts. The first validation phase is responsible for validating the in-memory model of the mapping, e.g. the semantic correctness of the declared relations. The second validation phase is responsible for validating the persistence model of the mapping, e.g. if the table-names or column-names are unique.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3459"></a><h4>[RM-3459] Reduce calls to ServiceLocator.GetInstance for frequently used code</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>For example by using a static field to resolve only once.</p>
+
+<p>The reason for this is because autofac's Resolve has a significant effect on performance when called very often.<br/>
+(In a bulk import scenario, ServiceLocator.GetInstance was called 115,000 times, which amounted to 3% overall time of the bulk import. With a static fields, those costs were reduced to 1,700 calls taking practically 0%.)</p>
+
+<p>In AN branch done for:</p>
+<ul class="alternate" type="square">
+	<li>MixinTypeUtility</li>
+	<li>Mixin</li>
+	<li>ObjectFactory</li>
+	<li>TypeFactory</li>
+	<li>ParamList</li>
+</ul>
+</span></div></div></body></html>

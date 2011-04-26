@@ -1,0 +1,301 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.68</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3020"><b>
+                  [RM-3020] Data.Linq:
+                </b>SQL Backend: Generated SQL sometimes contains expression aliases inside of aggregations</a></div><div class="listEntry"><a href="#RM-3003"><b>
+                  [RM-3003] Data.Linq:
+                </b>re-linq frontend does not parse some overloads of Enumerable.Min and Max</a></div><div class="listEntry"><a href="#RM-2985"><b>
+                  [RM-2985] Data.Linq:
+                </b>SQL Backend: Types do not match when a boolean is passed to a NewExpression</a></div><div class="listEntry"><a href="#RM-2916"><b>
+                  [RM-2916] Data.Linq:
+                </b>SQL Backend: SqlException is thrown when a subquery selecting an entity is used in a Select projection</a></div><div class="listEntry"><a href="#RM-2877"><b>
+                  [RM-2877] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue (Chrome): Selecting a value with Enter casues two postbacks if the control has auto-postbacks enabled</a></div><div class="listEntry"><a href="#RM-2764"><b>
+                  [RM-2764] ObjectBinding.Web:
+                </b>BocList: ArgumentOutOfRangeException is thrown when GetSelectedBusinesObjects is called</a></div><div class="listEntry"><a href="#RM-1563"><b>
+                  [RM-1563] ObjectBinding.Web Web:
+                </b>Reformat CSS-Files for whitespace and braces</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3010"><b>
+                  [RM-3010] Core:
+                </b>extend IMemberResolver to accept MethodInfo / PropertyInfo in GetMethodInformation / GetPropertyInformation</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2903"><b>
+                  [RM-2903] Data.Linq:
+                </b>SQL Backend: Support for All after GroupBy</a></div><div class="listEntry"><a href="#RM-2898"><b>
+                  [RM-2898] Security:
+                </b>Change IPermissionProvider and PermissionReflector to use IMethodInformation and IPropertyInformation instead of methodName and propertyName</a></div><div class="listEntry"><a href="#RM-2897"><b>
+                  [RM-2897] Security:
+                </b>Add IMemberResolver interface and ReflectionBasedMemberResolver</a></div><div class="listEntry"><a href="#RM-2892"><b>
+                  [RM-2892] Security:
+                </b>Add overloads to SecurityClient members that use Type+IMethodInfo/IPropertyInfo instead of Type+member-name</a></div><div class="listEntry"><a href="#RM-2865"><b>
+                  [RM-2865] Security:
+                </b>Add overloads to SecurityClient members that use Type+MethodInfo/PropertyInfo instead of Type+member-name</a></div><div class="listEntry"><a href="#RM-2301"><b>
+                  [RM-2301] Data.Linq:
+                </b>Support for VB.NET string comparisons</a></div><div class="listEntry"><a href="#RM-1314"><b>
+                  [RM-1314] Data.Linq:
+                </b>Add support for GroupBy with ResultSelector</a></div><div class="listEntry"><a href="#RM-507"><b>
+                  [RM-507] Data.Linq:
+                </b>SQL Backend: Support queries with complex select projections, returning columns, entities, or new objects</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3020"></a><h4>[RM-3020] SQL Backend: Generated SQL sometimes contains expression aliases inside of aggregations</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">CheckQuery (
+          from c in Cooks group c.Weight by c.Name into cooksByName where cooksByName.Min () &gt; 18 select cooksByName.Key, 
+          <span class="code-quote">"SELECT [q0].[key] AS [key] FROM ("</span> +
+            <span class="code-quote">"SELECT [t1].[Name] AS [key], MIN([t1].[Weight]) as [a0] FROM [CookTable] AS [t1] "</span>+
+            <span class="code-quote">"GROUP BY [t1].[Name]) AS [q0] "</span>+
+            <span class="code-quote">"WHERE ([q0].[a0] &gt; @1)"</span>,
+            <span class="code-keyword">new</span> CommandParameter (<span class="code-quote">"@1"</span>, 18));</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-3003"></a><h4>[RM-3003] re-linq frontend does not parse some overloads of Enumerable.Min and Max</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Enumerable.Min, Max, Sum, and Average all have some specific overloads for IEnumerable&lt;double&gt;, IEnumerable&lt;int&gt;, and other sequences of primitive types. The SumExpressionNode and AverageExpressionNode parsers explicitly register those overloads for parsing, but the MinExpressionNode and AverageExpressionNode parsers do not. Therefore, calls to those Min and Max overloads might appear as MethodCallExpressions in the QueryModel rather than as result operators.</p></span></div></div><div class="detailEntry  "><a name="RM-2985"></a><h4>[RM-2985] SQL Backend: Types do not match when a boolean is passed to a NewExpression</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason for this bug is that booleans are automatically converted to integers (because SQL does not support boolean expressions), but the constructor used by the NewExpression still requires a boolean.</p></span></div></div><div class="detailEntry  "><a name="RM-2916"></a><h4>[RM-2916] SQL Backend: SqlException is thrown when a subquery selecting an entity is used in a Select projection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>var query = from e in QueryFactory.CreateLinqQuery&lt;Order&gt; ()<br/>
+            select e.OrderItems.OrderBy(oi =&gt; oi.ID).FirstOrDefault ();</p>
+
+<p>Exception:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT (SELECT TOP (@1) [t1].* FROM [OrderItemView] AS [t1] WHERE ([t0].[ID] = [t1].[OrderID]) ORDER BY [t1].[ID] ASC) AS [value] FROM [OrderView] AS [t0] WHERE ((SELECT TOP (@2) [t2].[ID] FROM [OrderItemView] AS [t2] WHERE ([t0].[ID] = [t2].[OrderID])) IS NOT NULL)
+@1 = 1
+@2 = 1
+Test 'Remotion.Data.UnitTests.DomainObjects.Core.Linq.IntegrationTests.SubQueryIntegrationTest.FirstOrDefault_WithEntity_InSelectAndWhere' failed:
+	Remotion.Data.DomainObjects.Persistence.Rdbms.RdbmsProviderException : Error <span class="code-keyword">while</span> executing SQL command.
+  ----&gt; <span class="code-object">System</span>.Data.SqlClient.SqlException : Only one expression can be specified in the select list when the subquery is not introduced with EXISTS.
+	Persistence\Rdbms\RdbmsProvider.cs(313,0): at Remotion.Data.DomainObjects.Persistence.Rdbms.RdbmsProvider.ExecuteReader(IDbCommand command, CommandBehavior behavior)
+	Persistence\Rdbms\DataContainerLoader.cs(120,0): at Remotion.Data.DomainObjects.Persistence.Rdbms.DataContainerLoader.LoadDataContainersFromCommandBuilder(ICommandBuilder commandBuilder, <span class="code-object">Boolean</span> allowNulls)
+	Persistence\Rdbms\RdbmsProvider.cs(251,0): at Remotion.Data.DomainObjects.Persistence.Rdbms.RdbmsProvider.LoadDataContainers(ICommandBuilder commandBuilder, <span class="code-object">Boolean</span> allowNulls)
+	Persistence\Rdbms\RdbmsProvider.cs(197,0): at Remotion.Data.DomainObjects.Persistence.Rdbms.RdbmsProvider.ExecuteCollectionQuery(IQuery query)
+	Infrastructure\RootClientTransaction.cs(170,0): at Remotion.Data.DomainObjects.Infrastructure.RootClientTransaction.LoadDataContainersForQuery(IQuery query)
+	ClientTransaction.cs(1547,0): at Remotion.Data.DomainObjects.ClientTransaction.Remotion.Data.DomainObjects.Infrastructure.IDataSource.LoadDataContainersForQuery(IQuery query)
+	Infrastructure\ObjectLoader.cs(142,0): at Remotion.Data.DomainObjects.Infrastructure.ObjectLoader.LoadCollectionQueryResult[T](IQuery query)
+	Queries\QueryManager.cs(131,0): at Remotion.Data.DomainObjects.Queries.QueryManager.GetCollection[T](IQuery query)
+	Queries\QueryManager.cs(100,0): at Remotion.Data.DomainObjects.Queries.QueryManager.GetCollection(IQuery query)
+	Linq\DomainObjectQueryExecutor.cs(171,0): at Remotion.Data.DomainObjects.Linq.DomainObjectQueryExecutor.ExecuteCollection[T](QueryModel queryModel)
+	Clauses\StreamedData\StreamedSequenceInfo.cs(105,0): at Remotion.Data.Linq.Clauses.StreamedData.StreamedSequenceInfo.ExecuteCollectionQueryModel[T](QueryModel queryModel, IQueryExecutor executor)
+	Clauses\StreamedData\StreamedSequenceInfo.cs(95,0): at Remotion.Data.Linq.Clauses.StreamedData.StreamedSequenceInfo.ExecuteQueryModel(QueryModel queryModel, IQueryExecutor executor)
+	QueryModel.cs(287,0): at Remotion.Data.Linq.QueryModel.Execute(IQueryExecutor executor)
+	QueryProviderBase.cs(120,0): at Remotion.Data.Linq.QueryProviderBase.Execute[TResult](Expression expression)
+	QueryableBase.cs(128,0): at Remotion.Data.Linq.QueryableBase`1.GetEnumerator()
+	at <span class="code-object">System</span>.Linq.Buffer`1..ctor(IEnumerable`1 source)
+	at <span class="code-object">System</span>.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+	DomainObjects\Core\Linq\IntegrationTests\IntegrationTestBase.cs(35,0): at Remotion.Data.UnitTests.DomainObjects.Core.Linq.IntegrationTests.IntegrationTestBase.CheckQueryResult[T](IEnumerable`1 query, ObjectID[] expectedObjectIDs)
+	DomainObjects\Core\Linq\IntegrationTests\SubQueryIntegrationTest.cs(152,0): at Remotion.Data.UnitTests.DomainObjects.Core.Linq.IntegrationTests.SubQueryIntegrationTest.FirstOrDefault_WithEntity_InSelectAndWhere()
+	--SqlException
+	at <span class="code-object">System</span>.Data.SqlClient.SqlConnection.OnError(SqlException exception, <span class="code-object">Boolean</span> breakConnection)
+	at <span class="code-object">System</span>.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, <span class="code-object">Boolean</span> breakConnection)
+	at <span class="code-object">System</span>.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+	at <span class="code-object">System</span>.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+	at <span class="code-object">System</span>.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+	at <span class="code-object">System</span>.Data.SqlClient.SqlDataReader.get_MetaData()
+	at <span class="code-object">System</span>.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, <span class="code-object">String</span> resetOptionsString)
+	at <span class="code-object">System</span>.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, <span class="code-object">Boolean</span> returnStream, <span class="code-object">Boolean</span> async)
+	at <span class="code-object">System</span>.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, <span class="code-object">Boolean</span> returnStream, <span class="code-object">String</span> method, DbAsyncResult result)
+	at <span class="code-object">System</span>.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, <span class="code-object">Boolean</span> returnStream, <span class="code-object">String</span> method)
+	at <span class="code-object">System</span>.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, <span class="code-object">String</span> method)
+	at <span class="code-object">System</span>.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+	at <span class="code-object">System</span>.Data.Common.DbCommand.<span class="code-object">System</span>.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+	Tracing\TracingDbCommand.cs(150,0): at Remotion.Data.DomainObjects.Tracing.TracingDbCommand.&lt;&gt;c__DisplayClass3.&lt;ExecuteReader&gt;b__2()
+	Tracing\TracingDbCommand.cs(185,0): at Remotion.Data.DomainObjects.Tracing.TracingDbCommand.ExecuteWithProfiler[T](Func`1 operation)
+	Tracing\TracingDbCommand.cs(150,0): at Remotion.Data.DomainObjects.Tracing.TracingDbCommand.ExecuteReader(CommandBehavior behavior)
+	Persistence\Rdbms\RdbmsProvider.cs(309,0): at Remotion.Data.DomainObjects.Persistence.Rdbms.RdbmsProvider.ExecuteReader(IDbCommand command, CommandBehavior behavior)</pre>
+</div></div>
+
+<p>To remedy, the subquery should be moved to the FROM part of the surrounding query. Since it only selects a single entity, this will not change the number of result rows.</p></span></div></div><div class="detailEntry  "><a name="RM-2877"></a><h4>[RM-2877] BocAutoCompleteReferenceValue (Chrome): Selecting a value with Enter casues two postbacks if the control has auto-postbacks enabled</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2764"></a><h4>[RM-2764] BocList: ArgumentOutOfRangeException is thrown when GetSelectedBusinesObjects is called</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Prerequisites:<br/>
+ BocList contains one row</p>
+
+<p>Steps to reproduce:</p>
+<ul>
+	<li>row is selected</li>
+	<li>a wxe function is executed from a ListItemCommand which deletes the object</li>
+	<li>when the function returns call of GetSelectedBusinesObjects throws an exception</li>
+</ul>
+
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>[ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index]
+   System.ThrowHelper.ThrowArgumentOutOfRangeException() +78
+   System.Collections.Generic.List`1.get_Item(Int32 index) +53
+   Remotion.Data.DomainObjects.DataManagement.CollectionDataManagement.DomainObjectCollectionData.GetObject(Int32 index) in C:\Development\remotion\trunk\Remotion\Data\DomainObjects\DataManagement\CollectionDataManagement\DomainObjectCollectionData.cs:94
+   Remotion.Data.DomainObjects.DataManagement.CollectionDataManagement.DomainObjectCollectionDataDecoratorBase.GetObject(Int32 index) in C:\Development\remotion\trunk\Remotion\Data\DomainObjects\DataManagement\CollectionDataManagement\DomainObjectCollectionDataDecoratorBase.cs:71
+   Remotion.Data.DomainObjects.DataManagement.CollectionDataManagement.DomainObjectCollectionDataDecoratorBase.GetObject(Int32 index) in C:\Development\remotion\trunk\Remotion\Data\DomainObjects\DataManagement\CollectionDataManagement\DomainObjectCollectionDataDecoratorBase.cs:71
+   Remotion.Data.DomainObjects.DomainObjectCollection.get_Item(Int32 index) in C:\Development\remotion\trunk\Remotion\Data\DomainObjects\DomainObjectCollection.cs:389
+   Remotion.Data.DomainObjects.DomainObjectCollection.System.Collections.IList.get_Item(Int32 index) in C:\Development\remotion\trunk\Remotion\Data\DomainObjects\DomainObjectCollection.IList.cs:49
+   Remotion.ObjectBinding.Web.UI.Controls.BocList.GetSelectedBusinessObjects() in C:\Development\remotion\trunk\Remotion\ObjectBinding\Web\UI\Controls\BocList.cs:2865
+   Rubicon.ObjectBinding.Forms.Web.Controls.FormCommand.get_BusinessObject() in C:\Development\libraries\remotion.apptools\trunk\ObjectBinding.Forms\Forms\Web\Controls\FormCommand.cs:268
+   Rubicon.Workflow.Web.Classes.WorkflowFormCommand.EnsureActivity() in C:\Development\libraries\remotion.apptools\trunk\Workflow\Web\Classes\WorkflowFormCommand.cs:64
+   Rubicon.Workflow.Web.Classes.WorkflowFormCommand.get_Activity() in C:\Development\libraries\remotion.apptools\trunk\Workflow\Web\Classes\WorkflowFormCommand.cs:228
+   Rubicon.Workflow.Web.Classes.WorkflowFormCommand.IsEnabled(String&amp; message) in C:\Development\libraries\remotion.apptools\trunk\Workflow\Web\Classes\WorkflowFormCommand.cs:306
+   Rubicon.ObjectBinding.Forms.Web.Controls.FormCommand.IsEnabled() in C:\Development\libraries\remotion.apptools\trunk\ObjectBinding.Forms\Forms\Web\Controls\FormCommand.cs:353
+   Rubicon.ObjectBinding.Forms.Web.Controls.FormCommandMenuItem.PreRender() in C:\Development\libraries\remotion.apptools\trunk\ObjectBinding.Forms\Forms\Web\Controls\FormCommandMenuItem.cs:84
+   Remotion.Web.UI.Controls.WebMenuItem.OwnerControl_PreRender(Object sender, EventArgs e) in C:\Development\remotion\trunk\Remotion\Web\Core\UI\Controls\WebMenuItem.cs:108
+   System.EventHandler.Invoke(Object sender, EventArgs e) +0
+   System.Web.UI.Control.OnPreRender(EventArgs e) +11028046
+   Remotion.ObjectBinding.Web.UI.Controls.BusinessObjectBoundEditableWebControl.OnPreRender(EventArgs e) in C:\Development\remotion\trunk\Remotion\ObjectBinding\Web\UI\Controls\BusinessObjectBoundEditableWebControl.cs:280
+   Remotion.ObjectBinding.Web.UI.Controls.BocList.OnPreRender(EventArgs e) in C:\Development\remotion\trunk\Remotion\ObjectBinding\Web\UI\Controls\BocList.cs:1035
+   ActaNova.Web.Controls.BaseBocList.OnPreRender(EventArgs e) in C:\Development\products\actanova\trunk\Web\Controls\BaseBocList.cs:2059
+   ActaNova.Web.Controls.DocumentBocList.OnPreRender(EventArgs e) in C:\Development\products\actanova\trunk\Web\Controls\DocumentBocList.cs:79
+   ActaNova.Web.Controls.MixedTypes.BaseCallProxy.Rubicon.Workflow.Web.Classes.FormBoundControlEnsureReadOnlyMixin+IBaseMethods.OnPreRender(EventArgs e) +623
+   Rubicon.Workflow.Web.Classes.FormBoundControlEnsureReadOnlyMixin.OnPreRender(EventArgs e) in C:\Development\libraries\remotion.apptools\trunk\Workflow\Web\Classes\FormBoundControlEnsureReadOnlyMixin.cs:104
+   ActaNova.Web.Controls.MixedTypes.BaseCallProxy.ActaNova.Web.Controls.DocumentBocList.OnPreRender(EventArgs e) +94
+   System.Web.UI.Control.PreRenderRecursiveInternal() +108
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Control.PreRenderRecursiveInternal() +224
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +3394
+
+[WxeUnhandledException: An unhandled exception ocured while executing WxeFunction 'ActaNova.Web.UI.EditObjectFunction':
+Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index]
+   Remotion.Web.ExecutionEngine.WxeFunction.Execute(WxeContext context) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeFunction.cs:245
+   ActaNova.Web.Classes.BaseFunction.Execute(WxeContext context) in C:\Development\products\actanova\trunk\Web\Classes\BaseFunction.cs:288
+   Remotion.Web.ExecutionEngine.WxeHandler.ExecuteFunction(WxeFunction function, WxeContext context, Boolean isNew) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:387
+   Remotion.Web.ExecutionEngine.WxeHandler.ExecuteFunctionState(HttpContext context, WxeFunctionState functionState, Boolean isNewFunction) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:374
+   Remotion.Web.ExecutionEngine.WxeHandler.ProcessFunctionState(HttpContext context, WxeFunctionState functionState, Boolean isNewFunction) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:350
+   Remotion.Web.ExecutionEngine.WxeHandler.ProcessRequest(HttpContext context) in C:\Development\remotion\trunk\Remotion\Web\Core\ExecutionEngine\WxeHandler.cs:143
+   System.Web.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute() +599
+   System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously) +171
+</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-1563"></a><h4>[RM-1563] Reformat CSS-Files for whitespace and braces</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3010"></a><h4>[RM-3010] extend IMemberResolver to accept MethodInfo / PropertyInfo in GetMethodInformation / GetPropertyInformation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2903"></a><h4>[RM-2903] SQL Backend: Support for All after GroupBy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following form:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">(from c in Cooks
+ group c.ID by c.Kitchen).All (group =&gt; group.Key != <span class="code-keyword">null</span>)</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-2898"></a><h4>[RM-2898] Change IPermissionProvider and PermissionReflector to use IMethodInformation and IPropertyInformation instead of methodName and propertyName</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2897"></a><h4>[RM-2897] Add IMemberResolver interface and ReflectionBasedMemberResolver</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Contains the reflection-part responsible for resolving the member from the reflection information presently located in the PermissionReflector.</p></span></div></div><div class="detailEntry  "><a name="RM-2892"></a><h4>[RM-2892] Add overloads to SecurityClient members that use Type+IMethodInfo/IPropertyInfo instead of Type+member-name</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2865"></a><h4>[RM-2865] Add overloads to SecurityClient members that use Type+MethodInfo/PropertyInfo instead of Type+member-name</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-2301"></a><h4>[RM-2301] Support for VB.NET string comparisons</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p><span class="error">&#91;This feature was already released with 1.13.65, but with an invalid description.&#93;</span></p>
+
+<p>VB.NET has a very specific way of dealing with some operators, most notably string comparisons. The method call chain produced for an expression of</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">From c In Contacts _
+Where c.FirstName = <span class="code-quote">"Hugo"</span> _
+Select c</pre>
+</div></div>
+
+<p>is</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Contacts
+   .Where (c =&gt; (Operators.CompareString (c.FirstName, <span class="code-quote">"Hugo"</span>, False) == 0))
+   .Select (c =&gt; c)</pre>
+</div></div>
+
+<p>Therefore, the WhereClause produced by re-linq contains a Predicate with a MethodCallExpression invoking VisualBasic's CompareString method, whose result is then compared to 0.</p>
+
+<p>A similar behavior occurs with many operators on other data types as well, such as Add or GreaterThan, but for thise, VB.NET does not produce MethodCallExpressions. Instead, annotated BinaryExpressions (with a MethodInfo indicating the operation) are created, so LINQ providers won't even notice the difference.</p>
+
+<p>However, the VB operators do have very specific semantics; for example, VB compares Nothing and "" to equal (C# does not). Some LINQ providers might want to honor these semantics, others might not want to do so. LINQ-to-SQL does honor the semantics in part - if one side of a string comparison is a constant Nothing, it compares to string.Empty instead in the database.</p>
+
+<p>To enable LINQ providers to deal with VB.NET specifics, this feature introduces a new VBStringComparisonExpression - deriving from ExtensionExpression - and an IVBSpecificExpressionVisitor interface. It uses the extension expression approach, which allows VB expressions to be visited by classes implementing IVBExpressionVisitor. The VB expressions are reduced to ordinary BinaryExpressions for = and &lt;&gt; and to MethodCallExpressions to String.CompareTo for &lt;, &lt;=, &gt;, and &gt;=. Most LINQ providers without VB support will never need to deal with those expressions (ExpressionTreeVisitor will automatically visit the child expression held by the VBStringComparisonExpression, ThrowingExpressionTreeVisitor will automatically reduce by default). LINQ providers with VB support can choose.</p>
+
+<p>The VB transformation is always included, so LINQ providers already handling MethodCallExpressions to VB's CompareString should change their implementation and implement IVBSpecificExpressionVisitor instead.</p></span></div></div><div class="detailEntry  "><a name="RM-1314"></a><h4>[RM-1314] Add support for GroupBy with ResultSelector</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-507"></a><h4>[RM-507] SQL Backend: Support queries with complex select projections, returning columns, entities, or new objects</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Simple support for constructs such as:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from x in ...
+select x
+
+from x in ...
+select x.Name
+
+from x in ...
+select <span class="code-keyword">new</span> MyEntity (x.ID, x.FirstName, x.LastName)
+
+from x in ...
+select <span class="code-keyword">new</span> { Name = x.Name, Age = 12 }
+
+from x in ...
+select <span class="code-keyword">new</span> { x.Name, x.Age }</pre>
+</div></div>
+
+<p>The projection can be executed in memory by the LINQ provider after the query has been executed against the database by:</p>
+<ul class="alternate" type="square">
+	<li>implementing the IDatabaseResultRow interface,</li>
+	<li>compiling the LambdaExpression returned by the SqlCommandData.GetInMemoryProjection&lt;T&gt;() method, and</li>
+	<li>executing the compiled delegate against a sequence of IDatabaseResultRow instances that represent the result set of the query.</li>
+</ul>
+</span></div></div></body></html>

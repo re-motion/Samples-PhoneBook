@@ -1,0 +1,189 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.80</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3458"><b>
+                  [RM-3458] Data.Linq for re-store:
+                </b>Projects using re-store need additional reference</a></div><div class="listEntry"><a href="#RM-3454"><b>
+                  [RM-3454] Data.Linq for re-store:
+                </b>LinqPropertyRedirectionAttribute changes: Now applied to property accessors, mixin properties identified via interface</a></div><div class="listEntry"><a href="#RM-3446"><b>
+                  [RM-3446] Data:
+                </b>Database specifics were moved from RdbmsProvider to ISqlDialect</a></div><div class="listEntry"><a href="#RM-3445"><b>
+                  [RM-3445] Data:
+                </b>RdbmsProvider now generates ORDER BY expressions from SortExpressionDefinitions</a></div><div class="listEntry"><a href="#RM-3444"><b>
+                  [RM-3444] Data:
+                </b>SortExpression syntax has changed</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3443"><b>
+                  [RM-3443] Data:
+                </b>Change SortExpressions to be independent of persistence layer</a></div><div class="listEntry"><a href="#RM-3399"><b>
+                  [RM-3399] Data.Linq:
+                </b>SQL Backend: Allow method call transformers to be specified via custom attributes</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-2004"><b>
+                  [RM-2004] Data:
+                </b>For the load-related ClientTransaction events, adapt the DataContainerCollections as ReadOnlyCollection&lt;DomainObject&gt; instead of creating a new list</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3458"></a><h4>[RM-3458] Projects using re-store need additional reference</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Due to re-store now leveraging extensibility features of re-linq, the C# compiler may yield an error when compiling projects using re-store, saying that an additional refeence to either Remotion.Data.Linq.dll or Remotion.Data.Linq.SqlBackend.dll is needed. This seems to be a mistake on the C# compiler's side because the error is given when that extensibility mechanism is not even actively used. </p>
+
+<p>Nevertheless, users must add that reference - note that the reference has always existed implicitly anyway, the only change it that it must now be made explicit.</p></span></div></div><div class="detailEntry  "><a name="RM-3454"></a><h4>[RM-3454] LinqPropertyRedirectionAttribute changes: Now applied to property accessors, mixin properties identified via interface</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>With the LinqPropertyRedirectionAttribute, two changes have been made:</p>
+<ul class="alternate" type="square">
+	<li>The attribute is now applied to property accessors, not the properties themselves:
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> virtual <span class="code-object">int</span> RedirectedProperty
+  [LinqPropertyRedirection (typeof (...), <span class="code-quote">"..."</span>)]
+  get;
+  set;
+}</pre>
+</div></div></li>
+	<li>When a property is redirected to a mixin property, the mixin's interface must now be given as the declaring type:
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> virtual <span class="code-object">int</span> RedirectedProperty
+  [LinqPropertyRedirection (typeof (IMyMixin), <span class="code-quote">"MixinProperty"</span>)]
+  get;
+  set;
+}</pre>
+</div></div></li>
+</ul>
+
+
+<p>The attribute can now also be used on methods (usually "Get..." methods).</p></span></div></div><div class="detailEntry  "><a name="RM-3446"></a><h4>[RM-3446] Database specifics were moved from RdbmsProvider to ISqlDialect</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Prefer adapting the dialect passed to the provider rather than overriding RdbmsProvider methods.</p></span></div></div><div class="detailEntry  "><a name="RM-3445"></a><h4>[RM-3445] RdbmsProvider now generates ORDER BY expressions from SortExpressionDefinitions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>If a specific derived provider needs to access this functionality, RdbmsProvider.GetSortExpressionSqlGeneator() can now be used.</p></span></div></div><div class="detailEntry  "><a name="RM-3444"></a><h4>[RM-3444] SortExpression syntax has changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The syntax of SortExpression no longer allows arbitrary, but database-dependent SQL constructs. It has been unified to a similar, but simplified format.</p>
+
+<p>See <a href="https://jira.rubicon.eu/browse/RM-3445" title="RdbmsProvider now generates ORDER BY expressions from SortExpressionDefinitions"><del>RM-3445</del></a> for the new syntax.</p></span></div></div><div class="detailEntry  "><a name="RM-3443"></a><h4>[RM-3443] Change SortExpressions to be independent of persistence layer</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the SortExpression specified via the DBBidirectionalRelationAttribute was only available for SQL-based persistence mappings, and its syntax was dependent on the underlying database.</p>
+
+<p>This has changed. The SortExpression is now available on all BidirectionalRelationAttribute variants, and it uses a standard syntax. The syntax is similar to SQL's ORDER BY syntax: it consists of a comma-separated list of property names, each optionally followed by a direction specification ("asc" or "desc"; the default is "asc"). The property name is usually the ordinary .NET property name. To resolve ambiguities or to sort by properties declared by subclasses of the related class, the unique re-store property identifier can be used instead.</p>
+
+<h3><a name="Examples%3A"></a>Examples:</h3>
+<ul class="alternate" type="square">
+	<li>On an OrderItems property: <tt>Position</tt></li>
+	<li>On an OrderItems property: <tt>Product asc, Quantity desc</tt></li>
+	<li>On a Persons property, where some Persons are Customers which have a CustomerType property: <tt>TestDomain.Customer.CustomerType</tt></li>
+</ul>
+
+
+<p>In the last example, the unique re-store property identifier was used because the CustomerType property is only available on a subclass (Customer) of the related class (Person).</p></span></div></div><div class="detailEntry  "><a name="RM-3399"></a><h4>[RM-3399] SQL Backend: Allow method call transformers to be specified via custom attributes</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Allow classes such as the following to be written:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> class MyEntity
+{
+  ...
+
+  [MethodCallTransformer (typeof (MyMethodCallTransformer))]
+  <span class="code-keyword">public</span> <span class="code-object">int</span> GetFoo()
+  {
+    <span class="code-keyword">return</span> ...;
+  }
+}</pre>
+</div></div>
+
+<p>This will cause the Linq transformer to detect GetFoo() as a method to be handled by the MyMethodCallTransformer.</p>
+
+<p>The MethodCallTransformerAttribute can also be applied to the getter methods of property declarations:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> class MyEntity
+{
+  ...
+
+  <span class="code-keyword">public</span> <span class="code-object">int</span> Foo
+  {
+    [MethodCallTransformer (typeof (MyMethodCallTransformer))]
+    get { <span class="code-keyword">return</span> ...; }
+  }
+}</pre>
+</div></div>
+
+<p>The handler indicated by the custom attribute is invoked while translating the LINQ query to SQL the same way as a handler registered in the MethodCallTransformerRegistry would be. While MethodCallTransformerRegistry is usually employed by the LINQ provider itself to register handlers for predefined methods and properties, the attribute-based mechanism complements that by allowing the person writing a class used in a LINQ query (usually an entity class) to specify how the class' methods and properties should be handled.</p>
+
+<p>The MethodCallTransformerAttribute is evaluated only if not MethodInfo-based transformer registration is found, but it can be used to override name-based transformer registrations.</p>
+
+<p>Besides the predefined MethodCallTransformerAttribute, re-linq users can also write their own custom attributes implementing IMethodCallTransformerAttribute in order to implement custom transformations.</p></span></div></div><div class="detailEntry  "><a name="RM-2004"></a><h4>[RM-2004] For the load-related ClientTransaction events, adapt the DataContainerCollections as ReadOnlyCollection&lt;DomainObject&gt; instead of creating a new list</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, when one or more data containers are loaded, a list of DomainObjects is created for the list of DataContainer instances that have been loaded. This is an O&#40;n) operation, with n being the number of data containers loaded from the database.</p>
+
+<p>This could be reduced to an O(1) operation by using an adapter that converts between the DataContainerCollection and the ReadOnlyCollection&lt;DomainObject&gt;.</p>
+
+<p>Here's a generalized approach:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">class ConvertingListAdapter&lt;TSource, TWrapped&gt; : IList&lt;TWrapped&gt;
+{
+  <span class="code-keyword">private</span> IList&lt;TSource&gt; _wrappedList;
+  <span class="code-keyword">private</span> Func&lt;TWrapped, TSource&gt; _wrappedToSourceConverter;
+  <span class="code-keyword">private</span> Func&lt;TSource, TWrapped&gt; _sourceToWrappedConverter;
+
+  ...
+
+  <span class="code-keyword">public</span> TWrapped <span class="code-keyword">this</span>[<span class="code-object">int</span> index]
+  {
+    get { <span class="code-keyword">return</span> _sourceToWrappedConverter (_wrappedList[index]); }
+    set { <span class="code-keyword">return</span> _wrappedList[index] = _wrappedToSourceConverter (value); }
+  }
+}</pre>
+</div></div>
+
+<p>This could be used to instantiate a ReadOnlyCollection&lt;DomainObject&gt; based on an IList&lt;DataContainer&gt;:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> adapter = <span class="code-keyword">new</span> ConvertingListAdapter&lt;DataContainer, DomainObject&gt; (dataContainers, dc =&gt; dc.DomainObject, obj =&gt; clientTransaction.GetDataContainer (obj));
+<span class="code-keyword">var</span> readOnlyDomainObjects = <span class="code-keyword">new</span> ReadOnlyCollection&lt;DomainObject&gt; (adapter);</pre>
+</div></div>
+
+<p>Note that DataContainerCollection does currently not implement IList&lt;DataContainer&gt;; but that should be a minor change.</p></span></div></div></body></html>

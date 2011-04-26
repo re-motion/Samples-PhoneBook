@@ -1,0 +1,204 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.57</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2683"><b>
+                  [COMMONS-2683] DmsTray:
+                </b>DmsTrays: Trying to open an XML files without an xml processing instruction result in a null-reference exception</a></div><div class="listEntry"><a href="#COMMONS-2679"><b>
+                  [COMMONS-2679] DmsTray:
+                </b>DmsTray would open the file using the wrong filename, resulting in a file-not-found exception in the program</a></div><div class="listEntry"><a href="#COMMONS-2678"><b>
+                  [COMMONS-2678] ObjectBinding.Web:
+                </b>In IE7 if you click on bocList cause table body to disappear.</a></div><div class="listEntry"><a href="#COMMONS-2673"><b>
+                  [COMMONS-2673] ObjectBinding.Web:
+                </b>BocList.js: BocList_InitializeList does not bind event handlers properly if a row is selected with single checkbox or single radiobutton</a></div><div class="listEntry"><a href="#COMMONS-2658"><b>
+                  [COMMONS-2658] Web.ExecutionEngine:
+                </b>WxeGen VB.NET: Constructor generation does not generate the WxeTransactionMode parameter for the base-call</a></div><div class="listEntry"><a href="#COMMONS-2573"><b>
+                  [COMMONS-2573] DmsTray:
+                </b>DmsTray: Downloading file with Umlauts fails. (IE only)</a></div><div class="listEntry"><a href="#COMMONS-2570"><b>
+                  [COMMONS-2570] DmsTray:
+                </b>Canceling a Zip-Operation results in an exception</a></div><div class="listEntry"><a href="#COMMONS-2569"><b>
+                  [COMMONS-2569] DmsTray:
+                </b>Opening an Zero-Byte-File does not work</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2687"><b>
+                  [COMMONS-2687] Data:
+                </b>DataContainerMap.GetByState has been removed</a></div><div class="listEntry"><a href="#COMMONS-2686"><b>
+                  [COMMONS-2686] Web.ExecutionEngine:
+                </b>WxePage now replaces the Form during the PreInit-event raised by the page isntead of during the DeterminePostBackMode phase</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2657"><b>
+                  [COMMONS-2657] Data:
+                </b>Make RdbmsProvider.CreateDbCommand() public</a></div><div class="listEntry"><a href="#COMMONS-1788"><b>
+                  [COMMONS-1788] ObjectBinding:
+                </b>Functionality like BusinessObjectPropertyPath.GetValueWithoutLast should be publicly available</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2662"><b>
+                  [COMMONS-2662] Data.Linq:
+                </b>Support Any result operator</a></div><div class="listEntry"><a href="#COMMONS-2575"><b>
+                  [COMMONS-2575] ObjectBinding.Web Web:
+                </b>Provide a browser-specifc css class for the body element to allow broweser-switching in stylesheets</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2659"><b>
+                  [COMMONS-2659] ObjectBinding:
+                </b>Refactor BusinessObjectPropertyPath to only evaluate property path once </a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2683"></a><h4>[COMMONS-2683] DmsTrays: Trying to open an XML files without an xml processing instruction result in a null-reference exception</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2679"></a><h4>[COMMONS-2679] DmsTray would open the file using the wrong filename, resulting in a file-not-found exception in the program</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2678"></a><h4>[COMMONS-2678] In IE7 if you click on bocList cause table body to disappear.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2673"></a><h4>[COMMONS-2673] BocList.js: BocList_InitializeList does not bind event handlers properly if a row is selected with single checkbox or single radiobutton</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Possible solution in BocList.js:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>function BocList_InitializeList(bocList, selectorControlPrefix, count, selection, hasClickSensitiveRows, listMenu)
+{
+  var selectedRows = new BocList_SelectedRows (selection);
+  if (   selectedRows.Selection != _bocList_rowSelectionUndefined
+      &amp;&amp; selectedRows.Selection != _bocList_rowSelectionDisabled)
+  {
+    for (var i = 0; i &lt; count; i++)
+    {
+      var selectorControlID = selectorControlPrefix + i;
+      var selectorControl = document.getElementById (selectorControlID);
+      if (selectorControl == null)
+        continue;
+      var row = selectorControl.parentNode.parentNode;
+
+      if (hasClickSensitiveRows)
+        BocList_BindRowClickEventHandler(bocList, row, selectorControl, listMenu);
+
+      if (selectorControl.checked)      
+      {
+        var rowBlock = new BocList_RowBlock (row, selectorControl);
+        selectedRows.Rows[selectorControl.id] = rowBlock;
+        selectedRows.Length++;
+      }
+    }
+  }
+  _bocList_selectedRows[bocList.id] = selectedRows;
+}
+</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2658"></a><h4>[COMMONS-2658] WxeGen VB.NET: Constructor generation does not generate the WxeTransactionMode parameter for the base-call</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web.ExecutionEngine</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The detection of the base-type does not work properly. In C#, the short name is used, in VB.NET, the full name is required.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2573"></a><h4>[COMMONS-2573] DmsTray: Downloading file with Umlauts fails. (IE only)</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Encoding of Document-ID in DMS url does not properly encode/decode non-ascii characters</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2570"></a><h4>[COMMONS-2570] Canceling a Zip-Operation results in an exception</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2569"></a><h4>[COMMONS-2569] Opening an Zero-Byte-File does not work</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2687"></a><h4>[COMMONS-2687] DataContainerMap.GetByState has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use DataManager.GetLoadedData() or LINQ instead. (Note that GetLoadedData will get the DomainObjectReference and DomainObject.State in addition to the DataContainer.)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2686"></a><h4>[COMMONS-2686] WxePage now replaces the Form during the PreInit-event raised by the page isntead of during the DeterminePostBackMode phase</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web.ExecutionEngine</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previous order:</p>
+<ol>
+	<li>Page.FrameworkInitialize</li>
+	<li>Page.DeterminePostBackMode, including replacement of WxeForm</li>
+	<li>Page.PreInit</li>
+</ol>
+
+
+<p>New order:</p>
+<ol>
+	<li>Page.FrameworkInitialize</li>
+	<li>Page.DeterminePostBackMode</li>
+	<li>Page.PreInit, including replacement of WxeForm</li>
+</ol>
+
+
+<p>The new order allows the dynamic setting of the page's MasterPageFile during the PreInit-phase:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">override void PreInit()
+{
+  MasterPageFile = <span class="code-quote">"..."</span>
+  base.PreInit() <span class="code-comment">// replaces the WxeForm
+</span>}</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2657"></a><h4>[COMMONS-2657] Make RdbmsProvider.CreateDbCommand() public</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In order to efficiently use RdbmsProvider to access the database instead of directly establishing SqlConnections, the member CreateDbCommand() of RdbmsProvider should be public.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1788"></a><h4>[COMMONS-1788] Functionality like BusinessObjectPropertyPath.GetValueWithoutLast should be publicly available</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In certain use-cases, it is necessary to get the last businessobject in a propertypath.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2662"></a><h4>[COMMONS-2662] Support Any result operator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following forms: <tt>Cooks.Any()</tt>, <tt>Cooks.Any (c =&gt; c.IsStarredCook)</tt>.</p>
+
+<p>The SQL generated for these queries contains an EXISTS clause.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2575"></a><h4>[COMMONS-2575] Provide a browser-specifc css class for the body element to allow broweser-switching in stylesheets</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Available CSS selectors:</p>
+<ul>
+	<li>body.msie6</li>
+	<li>body.msie7</li>
+	<li>body.msie</li>
+	<li>body.mozilla</li>
+	<li>body.webkit</li>
+	<li>body.opera</li>
+</ul>
+
+
+<p>Usage:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">/*apply only to MS Internet Explorer 7 */
+body.msie7 div.myCssClass
+{
+  background-color: Red;
+}
+
+/*apply to MS Internet Explorer 8 and above */
+body.msie div.myCssClass
+{
+  background-color: Blue;
+}
+
+/*apply to Firefox */
+body.mozilla div.myCssClass
+{
+  background-color: Green;
+}
+
+/*apply to Chrome and Safari */
+body.webkit div.myCssClass
+{
+  background-color: Yellow;
+}</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2659"></a><h4>[COMMONS-2659] Refactor BusinessObjectPropertyPath to only evaluate property path once </h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Presently, each property is evaluated twice, once for the security check, the second time to access the value. This should be unified.</p></span></div></div></body></html>

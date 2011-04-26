@@ -1,0 +1,223 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.48</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2262"><b>
+                  [COMMONS-2262] Mixins:
+                </b>Mixin.Get fails when called from the constructor of a mixed object</a></div><div class="listEntry"><a href="#COMMONS-2228"><b>
+                  [COMMONS-2228] ObjectBinding.Web:
+                </b>BocList: RowMenu should be disabled (not react to clicks) while list is in edit-mode (QuirksMode and StandardMode)</a></div><div class="listEntry"><a href="#COMMONS-2196"><b>
+                  [COMMONS-2196] Web:
+                </b>WebButton: RegisterElementForBorderSpans is called in OnPreRender also if button is not visible</a></div><div class="listEntry"><a href="#COMMONS-2139"><b>
+                  [COMMONS-2139] SecurityManager:
+                </b>SecurityManagerSearchWebService.Search: completionSetCount is not respected</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2349"><b>
+                  [COMMONS-2349] Data:
+                </b>IClientTransactionExtension and IClientTransactionListener.FilterQueryResult notifications are now executed in sub-transactions as well as root transactions</a></div><div class="listEntry"><a href="#COMMONS-2347"><b>
+                  [COMMONS-2347] ObjectBinding.Web:
+                </b>Dropped IBocListTableBlockFactory, IBocListNavigationBlockFactory, IBocListMenuBlockFactory, and IBocRowFactory</a></div><div class="listEntry"><a href="#COMMONS-2341"><b>
+                  [COMMONS-2341] ObjectBinding.Web:
+                </b>Moved implementation of IBocBooleanValueRendererFactory and IBocCheckboxRendererFactory into separate types</a></div><div class="listEntry"><a href="#COMMONS-2340"><b>
+                  [COMMONS-2340] ObjectBinding.Web:
+                </b>Moved implementation of IBocTextValueRendererFactory and IBocMultilineTextValueRendererFactory into separate types</a></div><div class="listEntry"><a href="#COMMONS-2337"><b>
+                  [COMMONS-2337] Data:
+                </b>RequiredItemType of read-only DomainObjectCollections now returns null</a></div><div class="listEntry"><a href="#COMMONS-2336"><b>
+                  [COMMONS-2336] Data:
+                </b>DomainObjectCollection.AsReadOnly and SetIsReadOnly have been removed</a></div><div class="listEntry"><a href="#COMMONS-2335"><b>
+                  [COMMONS-2335] ObjectBinding.Web Web:
+                </b>Signature of IRenderer factories was changed to remove HtmlTextWriter</a></div><div class="listEntry"><a href="#COMMONS-2334"><b>
+                  [COMMONS-2334] ObjectBinding.Web Web:
+                </b>Signature of IRenderer.Render() changed to accept an HtmlTextWriter</a></div><div class="listEntry"><a href="#COMMONS-2294"><b>
+                  [COMMONS-2294] Web:
+                </b>IScriptUtility now uses separate methods for registration of javascript includes and actual scripts.</a></div><div class="listEntry"><a href="#COMMONS-2288"><b>
+                  [COMMONS-2288] Data:
+                </b>Queries performed in sub-transactions now immediately load the result objects into the sub-transaction</a></div><div class="listEntry"><a href="#COMMONS-2253"><b>
+                  [COMMONS-2253] Data:
+                </b>DomainObjectCollection.AssociatedEndPoint has been replaced by AssociatedEndPointID and IsAssociatedWith</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2348"><b>
+                  [COMMONS-2348] Data.Linq:
+                </b>Change constructor parameter of FetchRequestBase from QueryProviderBase to IQueryProviderBase</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2345"><b>
+                  [COMMONS-2345] Data.Linq:
+                </b>Public ExpressionTreeVisitor.VisitList and VisitAndConvert methods</a></div><div class="listEntry"><a href="#COMMONS-2240"><b>
+                  [COMMONS-2240] Data:
+                </b>ClientTransactionand DomainObjectTransactionContext.Execute methods</a></div><div class="listEntry"><a href="#COMMONS-500"><b>
+                  [COMMONS-500] Web:
+                </b>DropDownMenu invisible wenn es keine Einträge hat</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-2313"><b>
+                    [COMMONS-2313] Data.Linq:
+                  </b>New Sql Backend</a></span></div><div class="children"><a href="#COMMONS-2314"><b>
+            [COMMONS-2314] Data.Linq:
+          </b>Support for simple select and one from clause</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2325"><b>
+                  [COMMONS-2325] Data:
+                </b>Several small performance improvements</a></div><div class="children"><a href="#COMMONS-2329"><b>
+            [COMMONS-2329] Data:
+          </b>Move PropertyAccessorData into mapping data structures for better caching</a></div><div class="children"><a href="#COMMONS-2328"><b>
+            [COMMONS-2328] Data:
+          </b>Copy on write for PropertyValue.OriginalValue</a></div><div class="children"><a href="#COMMONS-2327"><b>
+            [COMMONS-2327] Data:
+          </b>Read-only collections do not need event raiser</a></div><div class="children"><a href="#COMMONS-2326"><b>
+            [COMMONS-2326] Data:
+          </b>Cache results of ObjectID.GetHashCode() and RelationEndPointID.GetHashCode()</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2262"></a><h4>[COMMONS-2262] Mixin.Get fails when called from the constructor of a mixed object</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason for this bug is that the IMixinTarget.Mixins implementation on mixed objects does not initialize the _extensions field.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2228"></a><h4>[COMMONS-2228] BocList: RowMenu should be disabled (not react to clicks) while list is in edit-mode (QuirksMode and StandardMode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2196"></a><h4>[COMMONS-2196] WebButton: RegisterElementForBorderSpans is called in OnPreRender also if button is not visible</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This leads to a javascript error because jquery cannot find the element</p>
+
+<p>=&gt; solved in Acta Nova branch</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2139"></a><h4>[COMMONS-2139] SecurityManagerSearchWebService.Search: completionSetCount is not respected</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Code:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">if</span> (completionSetCount.HasValue)
+  result.Take (completionSetCount.Value);</pre>
+</div></div>
+
+<p>should most probably be:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">if</span> (completionSetCount.HasValue)
+  result = result.Take (completionSetCount.Value);</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2349"></a><h4>[COMMONS-2349] IClientTransactionExtension and IClientTransactionListener.FilterQueryResult notifications are now executed in sub-transactions as well as root transactions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, only root transactions would raise the FilterQueryResult notification. Since all transactions in a hierarchy share the same extensions, this didn't really matter a lot - filtering was performed in the root transaction anyway.</p>
+
+<p>It was highly asymmetric when compared with all other notifications, though. This is the reason why it was changed. Extensions should therefore decide for themselves how to react on FilterQueryResult notifications in subtransactions by checking the clientTransaction parameter. SecurityClientTransactionExtension, for example, ignores FilterQueryResult in the sub-transaction; it performs all filtering in the root transaction.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2347"></a><h4>[COMMONS-2347] Dropped IBocListTableBlockFactory, IBocListNavigationBlockFactory, IBocListMenuBlockFactory, and IBocRowFactory</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Instead of using separate factories for assembling the BocListRenderer and it's dependencies, the individual renderers are now passes as constructor parameters.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2341"></a><h4>[COMMONS-2341] Moved implementation of IBocBooleanValueRendererFactory and IBocCheckboxRendererFactory into separate types</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>BocBooleanValueRendererFactory now only implements IBocBooleanValueRendererFactory.<br/>
+IBocCheckboxRendererFactory is now implemented by BocCheckboxRendererFactory.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2340"></a><h4>[COMMONS-2340] Moved implementation of IBocTextValueRendererFactory and IBocMultilineTextValueRendererFactory into separate types</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>BocTextValueRendererFactory now only implements IBocTextValueRendererFactory.<br/>
+IBocMultilineTextValueRendererFactory is now implemented by BocMultilineTextValueRendererFactory.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2337"></a><h4>[COMMONS-2337] RequiredItemType of read-only DomainObjectCollections now returns null</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Since read-only collections cannot have any new items added to them, they also have no "required item type".</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2336"></a><h4>[COMMONS-2336] DomainObjectCollection.AsReadOnly and SetIsReadOnly have been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>SetIsReadOnly has been removed because it's not desirable (and potentially dangerous) to be able to make read-only collections writable again. Create read-only collections via Clone or DomainObjectCollectionFactory.CreateReadOnlyCollection.</p>
+
+<p>AsReadOnly has been replaced by AsReadOnlyCollection, which returns a ReadOnlyCollection&lt;T&gt; as an adapter of the original collection. For an adapter with a bigger feature set, use ReadOnlyDomainObjectCollectionAdapter&lt;T&gt;.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2335"></a><h4>[COMMONS-2335] Signature of IRenderer factories was changed to remove HtmlTextWriter</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Factories for creating IRenderer objects no longer accept the HtmlTextWriter in their signature. The HtmlTextWriter is directly passed into the Render-methods of the created instance upon usage.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2334"></a><h4>[COMMONS-2334] Signature of IRenderer.Render() changed to accept an HtmlTextWriter</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The renderer-implementations no longer hold a reference to the HtmlTextWriter. Instead, the HtmlTextWriter is passed via the render-method.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2294"></a><h4>[COMMONS-2294] IScriptUtility now uses separate methods for registration of javascript includes and actual scripts.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Calls to IScriptUtility.RegisterElementForBorderSpans and IScriptUtility.RegisterResizeOnElement require a call to IScriptUtility.RegisterJavaScriptInclude.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2288"></a><h4>[COMMONS-2288] Queries performed in sub-transactions now immediately load the result objects into the sub-transaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, queries performed in sub-transactions would only load the result objects into the root transaction; the sub-transaction would enlist but not load the objects.</p>
+
+<p>This is changed in order to achieve better symmetry between root transactions and sub-transactions.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2253"></a><h4>[COMMONS-2253] DomainObjectCollection.AssociatedEndPoint has been replaced by AssociatedEndPointID and IsAssociatedWith</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use <tt>DataManager.RelationEndPointMap.GetRelationEndPointWithLazyLoad (id)</tt> to obtain the actual end point.</p>
+
+<p>The reason for this change is that relation end points should only be accessible by clients deriving from ClientTransaction; ordinary domain users should not have access to the internal management data structures.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2348"></a><h4>[COMMONS-2348] Change constructor parameter of FetchRequestBase from QueryProviderBase to IQueryProviderBase</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2345"></a><h4>[COMMONS-2345] Public ExpressionTreeVisitor.VisitList and VisitAndConvert methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">static</span> ReadOnlyCollection&lt;T&gt; VisitList&lt;T&gt;(ReadOnlyCollection&lt;T&gt; list, Func&lt;T, T&gt; elementVisitor);
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> T VisitAndConvert&lt;T&gt; (T expression, string caller) where T : Expression;
+<span class="code-keyword">public</span> <span class="code-keyword">static</span> ReadOnlyCollection&lt;T&gt; VisitAndConvert&lt;T&gt;(ReadOnlyCollection&lt;T&gt; list, string caller) where T : Expression;</pre>
+</div></div>
+
+<p>VisitList applies the elementVisitor function to each member of the list, returning the same list if each visitor call returned the original item. Otherwise, it returns a new list with the new items replacing the corresponding original ones.</p>
+
+<p>VisitAndConvert for a single expression calls VisitExpression on the expression, then tries to cast it back to the type T. If the cast doesn't succeed (because the visitor's result is of a new type or null), an exception is thrown.</p>
+
+<p>VisitAndConvert for lists combines VisitList with the single-expression VisitAndConvert method.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2240"></a><h4>[COMMONS-2240] ClientTransactionand DomainObjectTransactionContext.Execute methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Often, it's necessary to execute a statement or calculate an expression in the context of a certain ClientTransaction. To do so, one has to spawn a new scope:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Order order;
+using (transaction.EnterNonDiscardingScope())
+{
+  order = Order.NewObject();
+}</pre>
+</div></div>
+
+<p>Using the ClientTransactionExtensions.Execute method, this becomes a one-liner:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> order = transaction.Execute (() =&gt; Order.NewObject());</pre>
+</div></div>
+
+<p>Similarly, DomainObjectTransactionContext.Execute can be used to execute a piece of code in the context of the transaction associated with a DomainObject:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-comment">// set the OrderTicket in the binding transaction of order, <span class="code-keyword">if</span> any
+</span><span class="code-comment">// otherwise, use the current transaction
+</span>order.DefaultTransactionContext.Execute ((obj, tx) =&gt; order.OrderTicket = OrderTicket.NewObject());
+
+<span class="code-comment">// commit the binding transaction of order <span class="code-keyword">if</span> any
+</span><span class="code-comment">// otherwise, commit the current transaction
+</span>order.DefaultTransactionContext.Execute ((obj, tx) =&gt; tx.Commit());</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-500"></a><h4>[COMMONS-500] DropDownMenu invisible wenn es keine Einträge hat</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Aktueller Workaround in DropDownMenu.js:</p>
+
+<p>function DropDownMenu_MenuInfo (id, itemInfos)<br/>
+{<br/>
+  this.ID = id;<br/>
+  this.ItemInfos = itemInfos;</p>
+
+<p>  if (itemInfos.length == 0)</p>
+  {
+    var dropDownMenuHead = document.getElementById (id + '_HeadDiv');
+    if (dropDownMenuHead != null)
+      dropDownMenuHead.style.display = 'none';
+  }
+<p>}</p></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-2313"></a><h4>[COMMONS-2313] New Sql Backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">re-linq vNext</span></div><br></br><div class="description"><span><p>The new SQL backend should both be a good example of how to approach SQL generation using the new re-linq front-end (QueryModel, usw.) and provide a sound, extensible architecture backing re-store's LINQ provider.</p>
+
+<p>It will sport SQL generation in three phases:</p>
+<ul class="alternate" type="square">
+	<li>The first phase will take a query model and translate it into a SqlStatement model. SqlStatement is modeled to express the syntactical possibilities and constraints of actual SQL statements.</li>
+	<li>The second phase will allow an O/R mapper to resolve all elements of the SqlStatement into SQL-specific items such as tables or columns with names and aliases.</li>
+	<li>The third phase will then take the resolved SqlStatement and produce actual SQL text (and parameters).</li>
+</ul>
+
+
+<p>LINQ providers will be able to hook into each of the three steps for customization, optimization, and advanced query transformations.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2314"></a><h4>[COMMONS-2314] Support for simple select and one from clause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Provide SQL generation support for statements of the form:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from s in Students
+select s</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2325"></a><h4>[COMMONS-2325] Several small performance improvements</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-2329"></a><h4>[COMMONS-2329] Move PropertyAccessorData into mapping data structures for better caching</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-2328"></a><h4>[COMMONS-2328] Copy on write for PropertyValue.OriginalValue</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-2327"></a><h4>[COMMONS-2327] Read-only collections do not need event raiser</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-2326"></a><h4>[COMMONS-2326] Cache results of ObjectID.GetHashCode() and RelationEndPointID.GetHashCode()</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

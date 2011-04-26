@@ -1,0 +1,197 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.49</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2385"><b>
+                  [COMMONS-2385] Core:
+                </b>FilteringAssemblyLoader uses invalid logger name</a></div><div class="listEntry"><a href="#COMMONS-2373"><b>
+                  [COMMONS-2373] Core:
+                </b>TypeUtility.GetAbbreviatedTypeName returns wrong result if typename-abbreviation is not possible.</a></div><div class="listEntry"><a href="#COMMONS-2371"><b>
+                  [COMMONS-2371] Data.Linq:
+                </b>re-linq unit tests not culture-agnostic</a></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2251"><b>
+                  [COMMONS-2251] Data:
+                </b>NullReferenceException thrown when service locator is not initialized</a></div><div class="listEntry"><a href="#COMMONS-1783"><b>
+                  [COMMONS-1783] Web:
+                </b>IconInfo: Regarding HTML-Validity, width and height HTML-attributes should only use the suffix '%', all other values are interpreted as pixels</a></div><div class="listEntry"><a href="#COMMONS-1596"><b>
+                  [COMMONS-1596] Core:
+                </b>TypeUtility.GetAbbreviatedTypeName: wrong result when using with a type whose namespace starts with the assembly name but has further parts</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2388"><b>
+                  [COMMONS-2388] Data:
+                </b>Added TransactionInitializing and TransactionDiscarding methods to IClientTransactionListener</a></div><div class="listEntry"><a href="#COMMONS-2387"><b>
+                  [COMMONS-2387] Data:
+                </b>Added dependency to INullObject to IClientTransactionListener interface</a></div><div class="listEntry"><a href="#COMMONS-2384"><b>
+                  [COMMONS-2384] Data:
+                </b>Constrcution of StorageProvider now requires an object of type IPersistenceListener as second parameter.</a></div><div class="listEntry"><a href="#COMMONS-2383"><b>
+                  [COMMONS-2383] Data:
+                </b>PersistenceManager constructor now requires an object of type IPersistenceListener</a></div><div class="listEntry"><a href="#COMMONS-2382"><b>
+                  [COMMONS-2382] Data:
+                </b>StorageProviderManager constructor now requires an object of type IPersistenceListener</a></div><div class="listEntry"><a href="#COMMONS-2375"><b>
+                  [COMMONS-2375] ObjectBinding:
+                </b>Static BindableObjectProvider.GetBindableObjectClass was replaced by an instance method</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2392"><b>
+                  [COMMONS-2392] Data:
+                </b>Provide unique identifier for ClientTransaction</a></div><div class="listEntry"><a href="#COMMONS-2386"><b>
+                  [COMMONS-2386] Data:
+                </b>Provide NullObject-Implementation of IClientTransactionListener</a></div><div class="listEntry"><a href="#COMMONS-2380"><b>
+                  [COMMONS-2380] Core:
+                </b>Safe-Implementation for ServiceLocator.Current</a></div><div class="listEntry"><a href="#COMMONS-1972"><b>
+                  [COMMONS-1972] Core:
+                </b>Null-implementation of IServiceLocator</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-2313"><b>
+                    [COMMONS-2313] Data.Linq:
+                  </b>New Sql Backend</a></span></div><div class="children"><a href="#COMMONS-2353"><b>
+            [COMMONS-2353] Data.Linq:
+          </b>Support for implicit joins as chained member expressions</a></div><div class="children"><a href="#COMMONS-2352"><b>
+            [COMMONS-2352] Data.Linq:
+          </b>Support for member expressions selecting entities</a></div><div class="children"><a href="#COMMONS-2351"><b>
+            [COMMONS-2351] Data.Linq:
+          </b>Support for constant values as parameters in expressions</a></div><div class="children"><a href="#COMMONS-2350"><b>
+            [COMMONS-2350] Data.Linq:
+          </b>Support for simple member expressions</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1790"><b>
+                  [COMMONS-1790] Data:
+                </b>ValueConverter: CheckObjectIDColumn should call dataReader.IsDBNull first because it is cheaper than classDefinition.GetMandatoryRelationEndPointDefinitio</a></div><div class="listEntry"><a href="#COMMONS-1789"><b>
+                  [COMMONS-1789] Core:
+                </b>ReflectionUtility: CanAscribe and GetAscribedGenericArguments should cache data</a></div><div class="listEntry"><a href="#COMMONS-1785"><b>
+                  [COMMONS-1785] ObjectBinding:
+                </b>BindableObjectMixinBase: ObjectBinding metadata should be evaluated on demand</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2385"></a><h4>[COMMONS-2385] FilteringAssemblyLoader uses invalid logger name</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The logger name of FilteringAssemblyLoader should be Remotion.Reflection.TypeDiscovery.AssemblyLoading.FilteringAssemblyLoader, but it is Remotion.Reflection.TypeDiscovery.AssemblyFinding.AssemblyFinder. That should be changed.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2373"></a><h4>[COMMONS-2373] TypeUtility.GetAbbreviatedTypeName returns wrong result if typename-abbreviation is not possible.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Period between namespace and typename is missing.<br/>
+e.g.: "System.CollectionsHashtable, mscorlib" instead of "System.Collections.Hashtable, mscorlib"</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2371"></a><h4>[COMMONS-2371] re-linq unit tests not culture-agnostic</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>WhereTest.Test_02 threw an exception when executed with a different culture. Fixed by adding a SetupFixture setting InvariantCulture.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2251"></a><h4>[COMMONS-2251] NullReferenceException thrown when service locator is not initialized</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, re-store throws a NullReferenceException when the service locator is not configured.</p>
+
+<p>In the past, re-store has been gradually improved to give a sensible first-time user experience (helpful error messages, e.g. when a DBTable attribute is missing or when the application has no app.config file). This should also apply to this issue.</p>
+
+<p>Either throw an exception with a helpful message, or (better) use a Null-Tracer if no IoC container is configured.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>Unhandled Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Microsoft.Practices.ServiceLocation.ServiceLocator.get_Current()
+   at Remotion.Data.DomainObjects.Tracing.PersistenceTracer..ctor(Guid clientTransactionID) in C:\Development\Remotion\trunk\Remotion\Data\DomainObjec
+ts\Tracing\PersistenceTracer.cs:line 37
+   at Remotion.Data.DomainObjects.Persistence.StorageProviderManager..ctor(Guid clientTransactionID) in C:\Development\Remotion\trunk\Remotion\Data\Do
+mainObjects\Persistence\StorageProviderManager.cs:line 48
+   at Remotion.Data.DomainObjects.Persistence.PersistenceManager..ctor(Guid clientTransactionID) in C:\Development\Remotion\trunk\Remotion\Data\Domain
+Objects\Persistence\PersistenceManager.cs:line 48
+   at Remotion.Data.DomainObjects.Infrastructure.RootClientTransaction.LoadDataContainer(ObjectID id) in C:\Development\Remotion\trunk\Remotion\Data\D
+omainObjects\Infrastructure\RootClientTransaction.cs:line 125
+   at Remotion.Data.DomainObjects.ClientTransaction.LoadObject(ObjectID id) in C:\Development\Remotion\trunk\Remotion\Data\DomainObjects\ClientTransac
+tion.cs:line 1069
+   at Remotion.Data.DomainObjects.ClientTransaction.EnsureDataAvailable(ObjectID objectID) in C:\Development\Remotion\trunk\Remotion\Data\DomainObject
+s\ClientTransaction.cs:line 623
+   at Remotion.Data.DomainObjects.ClientTransaction.GetObject(ObjectID id, Boolean includeDeleted) in C:\Development\Remotion\trunk\Remotion\Data\Doma
+inObjects\ClientTransaction.cs:line 832
+   at Remotion.Data.DomainObjects.DomainImplementation.LifetimeService.GetObject(ClientTransaction clientTransaction, ObjectID objectID, Boolean inclu
+deDeleted) in C:\Development\Remotion\trunk\Remotion\Data\DomainObjects\DomainImplementation\LifetimeService.cs:line 90
+   at Remotion.Data.DomainObjects.DomainObject.GetObject[T](ObjectID id, Boolean includeDeleted) in C:\Development\Remotion\trunk\Remotion\Data\Domain
+Objects\DomainObject.cs:line 144
+   at Remotion.Data.DomainObjects.DomainObject.GetObject[T](ObjectID id) in C:\Development\Remotion\trunk\Remotion\Data\DomainObjects\DomainObject.cs:
+line 123
+   at ConsoleApplication11.Domain.Order.GetObject(ObjectID objectID) in C:\Users\fabian.schmied\Desktop\Temp\ConsoleApplication11\ConsoleApplication11
+\Domain\Order.cs:line 16
+   at ConsoleApplication11.Program.Main(String[] args) in C:\Users\fabian.schmied\Desktop\Temp\ConsoleApplication11\ConsoleApplication11\Program.cs:li
+ne 16
+</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1783"></a><h4>[COMMONS-1783] IconInfo: Regarding HTML-Validity, width and height HTML-attributes should only use the suffix '%', all other values are interpreted as pixels</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Input by Radu Bighu</p>
+
+<p>solved in Acta Nova branch in revision 13035</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1596"></a><h4>[COMMONS-1596] TypeUtility.GetAbbreviatedTypeName: wrong result when using with a type whose namespace starts with the assembly name but has further parts</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>e.g. System::.TimersTimer instead of System::Timers.Timer</p>
+
+<p>Solved in ActaNova branch rev. 13589</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2388"></a><h4>[COMMONS-2388] Added TransactionInitializing and TransactionDiscarding methods to IClientTransactionListener</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2387"></a><h4>[COMMONS-2387] Added dependency to INullObject to IClientTransactionListener interface</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2384"></a><h4>[COMMONS-2384] Constrcution of StorageProvider now requires an object of type IPersistenceListener as second parameter.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The constructor signature change must be propagated through the constructor call-chain for the reflection-based instantiation of the StorageProvider to continue to work.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2383"></a><h4>[COMMONS-2383] PersistenceManager constructor now requires an object of type IPersistenceListener</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Pass PersistenceListener.Null if you cannot provide a specific PersistenceListener.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2382"></a><h4>[COMMONS-2382] StorageProviderManager constructor now requires an object of type IPersistenceListener</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Pass PersistenceListener.Null if you cannot provide a specific PersistenceListener.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2375"></a><h4>[COMMONS-2375] Static BindableObjectProvider.GetBindableObjectClass was replaced by an instance method</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>First, get the provider via BindableObjectProvider.GetProviderForBindableObjectType, then, call its GetBindableObjectClass instance method.</p>
+
+<p>The instance method was introduced in order to support a more fine-grained API, with the ability to store and pass around a provider and get a BusinessObjectClass from it. Unit tests or other clients that used to make heavy use of the static method can still redefine it for their convenience.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2392"></a><h4>[COMMONS-2392] Provide unique identifier for ClientTransaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Add public property ID to ClientTransaction.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2386"></a><h4>[COMMONS-2386] Provide NullObject-Implementation of IClientTransactionListener</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2380"></a><h4>[COMMONS-2380] Safe-Implementation for ServiceLocator.Current</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ServiceLocator.Current is not safe to call if no service locator was configured. New re-motion type SafeServiceLocator provides a workaround for this.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1972"></a><h4>[COMMONS-1972] Null-implementation of IServiceLocator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-2313"></a><h4>[COMMONS-2313] New Sql Backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">re-linq vNext</span></div><br></br><div class="description"><span><p>The new SQL backend should both be a good example of how to approach SQL generation using the new re-linq front-end (QueryModel, usw.) and provide a sound, extensible architecture backing re-store's LINQ provider.</p>
+
+<p>It will sport SQL generation in three phases:</p>
+<ul class="alternate" type="square">
+	<li>The first phase will take a query model and translate it into a SqlStatement model. SqlStatement is modeled to express the syntactical possibilities and constraints of actual SQL statements.</li>
+	<li>The second phase will allow an O/R mapper to resolve all elements of the SqlStatement into SQL-specific items such as tables or columns with names and aliases.</li>
+	<li>The third phase will then take the resolved SqlStatement and produce actual SQL text (and parameters).</li>
+</ul>
+
+
+<p>LINQ providers will be able to hook into each of the three steps for customization, optimization, and advanced query transformations.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2353"></a><h4>[COMMONS-2353] Support for implicit joins as chained member expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the form: <tt>select o.Customer.FirstName</tt> or <tt>select orderItem.Order.Customer.Address</tt>.</p>
+
+<p>This expression leads to automatic generation of inner joins between the tables involved.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2352"></a><h4>[COMMONS-2352] Support for member expressions selecting entities</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the form <tt>select o.Customer</tt>.</p>
+
+<p>The SQL generated for this expression selects all the columns defining a Customer.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2351"></a><h4>[COMMONS-2351] Support for constant values as parameters in expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support expressions of the form: <tt>select "hugo"</tt>.</p>
+
+<p>Most constant expressions are automatically wrapped into SQL parameters rather than being hard-coded in the SQL statement. The constant values "true" and "false" are translated to parameters of values "1" and "0". Constant expressions of types not supported by SQL lead to an exception. Constant expressions with value null are inlined in the SQL as NULL values.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2350"></a><h4>[COMMONS-2350] Support for simple member expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the following form: <tt>select s.FirstName</tt>.</p>
+
+<p>The SQL generated for this expression selects the column corresponding to FirstName in the table corresponding to s.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1790"></a><h4>[COMMONS-1790] ValueConverter: CheckObjectIDColumn should call dataReader.IsDBNull first because it is cheaper than classDefinition.GetMandatoryRelationEndPointDefinitio</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1789"></a><h4>[COMMONS-1789] ReflectionUtility: CanAscribe and GetAscribedGenericArguments should cache data</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1785"></a><h4>[COMMONS-1785] BindableObjectMixinBase: ObjectBinding metadata should be evaluated on demand</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The BindableObjectClass should not be initialized before the property is used for the first time.</p>
+
+<p>The mixin configuration that was active when the instance was created should still be used for building the BindableObjectClass - otherwise, mixins might be added or removed depending on where the initialitation takes place.</p>
+
+<p>Introduced by ActaNova in order to improve unit test startup time. In the branch (rev. 14376), it was solved by checking whether a custom scope existed, which has a few flaws (the mixin configuration can be changed without a custom scope being set, lazy initialization might still be desirable even with a custom scope, etc.).</p>
+
+<p>I'd stuggest simply storing the (immutable) mixin configuration and using it (EnterScope) when the BindableObjectClass is lazily initialized.</p></span></div></div></body></html>

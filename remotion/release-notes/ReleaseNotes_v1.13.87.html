@@ -1,0 +1,195 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.87</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3441"><b>
+                  [RM-3441] Data:
+                </b>RelationReflectorBase.GetOppositePropertyInfo() should return null if a StorageClassNoneAttribute is found</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3610"><b>
+                  [RM-3610] Data:
+                </b>dbschema.exe no longer generates ClassID checks for union and table views</a></div><div class="listEntry"><a href="#RM-3592"><b>
+                  [RM-3592] Data:
+                </b>Web.config and App.config configuration entries for defining storage providers have changed</a></div><div class="listEntry"><a href="#RM-3581"><b>
+                  [RM-3581] Data:
+                </b>The schemaBuilder parameter of dbschema.exe should no longer be used</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3565"><b>
+                  [RM-3565] Data:
+                </b>Integrate the schema generator into re-store's main assembly</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3351"><b>
+                  [RM-3351] Data:
+                </b>Inefficient generated database VIEWS</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3441"></a><h4>[RM-3441] RelationReflectorBase.GetOppositePropertyInfo() should return null if a StorageClassNoneAttribute is found</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>RelationReflectorBase.cs:</p>
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>private PropertyInfo GetOppositePropertyInfo (Type type)
+{
+  var oppositePropertyInfo = type.GetProperty (BidirectionalRelationAttribute.OppositeProperty, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+  if (oppositePropertyInfo != null &amp;&amp; AttributeUtility.IsDefined&lt;StorageClassNoneAttribute&gt;(oppositePropertyInfo, true))
+    return null;
+
+  return oppositePropertyInfo;
+}
+</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-3610"></a><h4>[RM-3610] dbschema.exe no longer generates ClassID checks for union and table views</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, dbschema.exe would always insert ClassID checks into the views it generated, no matter whether the view directly matched a table, was for a class below a table, or for a class above all tables.</p>
+
+<p>This has been changed for performance reasons. ClassID checks are now only generated for views for classes below the tables (Single Table Inheritance scenarios). For all other scenarios, the views now return all records in the respective tables.</p>
+
+<p>This change does not affect the semantics of the views as long as no invalid records were inserted into the tables. It can only be noticed with manually inserted records with invalid ClassIDs.</p>
+
+<p>Most users should therefore not notice the change (apart from improved performance).</p></span></div></div><div class="detailEntry  "><a name="RM-3592"></a><h4>[RM-3592] Web.config and App.config configuration entries for defining storage providers have changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The configuration elements used by applications in their web.config or app.config files in order to define storage providers have changed.</p>
+
+<p>Here is an example showing the new entries:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-xml"><span class="code-tag">&lt;remotion.data.domainObjects xmlns=<span class="code-quote">"http://www.re-motion.org/Data/DomainObjects/Configuration/2.1"</span>&gt;</span>
+  <span class="code-tag">&lt;storage defaultProviderDefinition=<span class="code-quote">"MyProvider"</span>&gt;</span>
+    <span class="code-tag">&lt;providerDefinitions&gt;</span>
+      <span class="code-tag">&lt;add type=<span class="code-quote">"Remotion.Data.DomainObjects::Persistence.Rdbms.RdbmsProviderDefinition"</span> name=<span class="code-quote">"MyProvider"</span> factoryType=<span class="code-quote">"Remotion.Data.DomainObjects::Persistence.Rdbms.SqlServer.Sql2005.SqlStorageObjectFactory"</span> connectionString=<span class="code-quote">"MyConnString"</span>/&gt;</span>
+    <span class="code-tag">&lt;/providerDefinitions&gt;</span>
+  <span class="code-tag">&lt;/storage&gt;</span>
+  <span class="code-tag">&lt;query&gt;</span>
+    <span class="code-tag">&lt;queryFiles&gt;</span>
+      <span class="code-tag">&lt;add filename=<span class="code-quote">"Queries1.xml"</span>/&gt;</span>
+      <span class="code-tag">&lt;add filename=<span class="code-quote">"Queries2.xml"</span>/&gt;</span>
+    <span class="code-tag">&lt;/queryFiles&gt;</span>
+  <span class="code-tag">&lt;/query&gt;</span>
+<span class="code-tag">&lt;/remotion.data.domainObjects&gt;</span></pre>
+</div></div>
+
+<p>These items have changed:</p>
+<ul class="alternate" type="square">
+	<li>The version number used in the xmlns namespace specification has changed from 2.0 to 2.1.</li>
+	<li>The &lt;add&gt; element within the &lt;providerDefinitions&gt; element now has a factoryType attribute instead of the old storageProviderType attribute. Specify "Remotion.Data.DomainObjects::Persistence.Rdbms.SqlServer.Sql2005.SqlStorageObjectFactory" as its value in order to define a SQL Server storage provider.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3581"></a><h4>[RM-3581] The schemaBuilder parameter of dbschema.exe should no longer be used</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The schemaBuilder parameter of dbschema.exe is now obsolete and should no longer be used because the schema file builder is now retrieved from the storage provider definition.</p></span></div></div><div class="detailEntry  "><a name="RM-3565"></a><h4>[RM-3565] Integrate the schema generator into re-store's main assembly</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the schema generator was a separate assembly. This now changes - re-store itself will contain all relevant classes in order to generate schemas based on the persistence model.</p></span></div></div><div class="detailEntry  "><a name="RM-3351"></a><h4>[RM-3351] Inefficient generated database VIEWS</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The views generated by dbschmema.exe always contain restrictions on the ClassID column, even in views that resemble a UNION of multiple tables, and thereby encompass all classes from all contained tables.</p>
+
+<p><b>Example with ClassID restrictions</b>:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-sql">CREATE VIEW [dbo].[FileHandlingObjectViewSimple] ([ID], [ClassID], [Timestamp], [PrivacyLevel] --, ... 
+  )
+  WITH SCHEMABINDING AS
+  <span class="code-keyword">SELECT</span> [ID], [ClassID], [Timestamp] --, ...
+    <span class="code-keyword">FROM</span> [dbo].[Incoming]
+    <span class="code-keyword">WHERE</span> [ClassID] IN ('Incoming', 'TemporaryContext', 'File')
+  UNION ALL
+  <span class="code-keyword">SELECT</span> [ID], [ClassID], [Timestamp], [PrivacyLevel] --, ...
+    <span class="code-keyword">FROM</span> [dbo].[TemporaryContext]
+    <span class="code-keyword">WHERE</span> [ClassID] IN ('Incoming', 'TemporaryContext', 'File')
+  UNION ALL
+  <span class="code-keyword">SELECT</span> [ID], [ClassID], [Timestamp], [PrivacyLevel] --, ...
+    <span class="code-keyword">FROM</span> [dbo].[File]
+    <span class="code-keyword">WHERE</span> [ClassID] IN ('Incoming', 'TemporaryContext', 'File')</pre>
+</div></div> 
+
+<p>These restrictions on ClassID cause major performance degradation on such views that contain many tables, up to complete inability to execute at all.</p>
+
+<p>this can be avoided by omitting the ClassID restrictions in views that contain UNIONs or that resemble the whole content of a single table.</p>
+
+<p><b>Example with ClassID restrictions</b>:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-sql">CREATE VIEW [dbo].[FileHandlingObjectViewSimple] ([ID], [ClassID], [Timestamp], [PrivacyLevel] --, ... 
+  )
+  WITH SCHEMABINDING AS
+  <span class="code-keyword">SELECT</span> [ID], [ClassID], [Timestamp] --, ...
+    <span class="code-keyword">FROM</span> [dbo].[Incoming]
+  UNION ALL
+  <span class="code-keyword">SELECT</span> [ID], [ClassID], [Timestamp], [PrivacyLevel] --, ...
+    <span class="code-keyword">FROM</span> [dbo].[TemporaryContext]
+  UNION ALL
+  <span class="code-keyword">SELECT</span> [ID], [ClassID], [Timestamp], [PrivacyLevel] --, ...
+    <span class="code-keyword">FROM</span> [dbo].[File]</pre>
+</div></div> 
+
+<p><b>Timing examples</b></p>
+
+<p>The following table gives timing information about the followin statement:</p>
+<ul>
+	<li>SELECT * FROM dbo.SecuredBaseObjectViewSimple WHERE ID = 'some guid'</li>
+</ul>
+
+
+<table class='confluenceTable'><tbody>
+<tr>
+<th class='confluenceTh'> System </th>
+<th class='confluenceTh'> Time with restrictions </th>
+<th class='confluenceTh'> Time without restrictions </th>
+</tr>
+<tr>
+<td class='confluenceTd'> Acta Nova </td>
+<td class='confluenceTd'> 6 seconds </td>
+<td class='confluenceTd'> 0 seconds </td>
+</tr>
+<tr>
+<td class='confluenceTd'> AN Project </td>
+<td class='confluenceTd'> too complex to execute </td>
+<td class='confluenceTd'> 0 seconds </td>
+</tr>
+</tbody></table>
+
+<p><br clear="all" /></p>
+
+<p><b>Suggestion</b></p>
+
+<p>Modify ViewBuilder such that ClassID restrictions are omitted when not necessary.</p></span></div></div></body></html>

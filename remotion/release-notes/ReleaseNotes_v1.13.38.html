@@ -1,0 +1,88 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.38</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1966"><b>
+                  [COMMONS-1966] Core:
+                </b>StopWatchScope should be a class-type or provide a public default constructor</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2000"><b>
+                  [COMMONS-2000] Data:
+                </b>DomainObjectCollection.AsList&lt;T&gt;() extension method adapts the IList&lt;T&gt; interface for DomainObjectCollections</a></div><div class="listEntry"><a href="#COMMONS-1994"><b>
+                  [COMMONS-1994] Data:
+                </b>RelationEndPoint.SetValueFrom and DataContainer.SetPropertyValuesFrom replace internal TakeOverCommittedData methods</a></div><div class="listEntry"><a href="#COMMONS-1903"><b>
+                  [COMMONS-1903] Data.Linq:
+                </b>Support for Any and All result operators</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1614"><b>
+                  [COMMONS-1614] Data:
+                </b>ClientTransaction should not create readonly clones only to be used as arguments in events</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1966"></a><h4>[COMMONS-1966] StopWatchScope should be a class-type or provide a public default constructor</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Using the StopWatchScope without considering that it is a struct-type can lead to NullReferenceException because the automatically provided default constructor leaves the internal StopWatch-instance uninitialized.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2000"></a><h4>[COMMONS-2000] DomainObjectCollection.AsList&lt;T&gt;() extension method adapts the IList&lt;T&gt; interface for DomainObjectCollections</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1994"></a><h4>[COMMONS-1994] RelationEndPoint.SetValueFrom and DataContainer.SetPropertyValuesFrom replace internal TakeOverCommittedData methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>DataContainer.SetValuesFrom does less than TakeOverCommittedData used to do; so if you have been invoking TakeOverCommittedData via reflection until now, think carefully what you need, and call DataContainer.SetTimestamp, SetDomainObject, MarkAsChanged, Commit, etc. accordingly.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1903"></a><h4>[COMMONS-1903] Support for Any and All result operators</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1614"></a><h4>[COMMONS-1614] ClientTransaction should not create readonly clones only to be used as arguments in events</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Instead a readonly version of the original collection should be passed as event arguments</p>
+
+<p>=&gt; Solved in ActaNova branch with revision 14455</p></span></div></div></body></html>

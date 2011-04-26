@@ -1,0 +1,264 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.45</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2040"><b>
+                  [COMMONS-2040] ObjectBinding.Web:
+                </b>BocList/DropDownMenu: client-side js exception in DropDownMenu_BindOpenEvent because argument node is null</a></div><div class="listEntry"><a href="#COMMONS-2028"><b>
+                  [COMMONS-2028] ObjectBinding.Web:
+                </b>BocList.OnRowClick does not work (Quirksmode)</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2248"><b>
+                  [COMMONS-2248] Data:
+                </b>ClientTransaction.GetObjects can now return deleted objects</a></div><div class="listEntry"><a href="#COMMONS-2247"><b>
+                  [COMMONS-2247] Data:
+                </b>ClientTransaction.GetObjectForDataContainer was removed</a></div><div class="listEntry"><a href="#COMMONS-2237"><b>
+                  [COMMONS-2237] ObjectBinding.Web:
+                </b>BocList: Both empty row menu and row menu without any visible menu items are not rendered</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2171"><b>
+                  [COMMONS-2171] DmsTray:
+                </b>Move StreamCopier from Shared-Project to DesktopConnector-Project / use FileUtility.CopyStream (Remotion) serverside</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2184"><b>
+                  [COMMONS-2184] Data.Linq Data.Linq for re-store:
+                </b>Backend: Change IDatabaseInfo so that the O/R mapper can return more information about tables</a></div><div class="listEntry"><a href="#COMMONS-2183"><b>
+                  [COMMONS-2183] Data.Linq:
+                </b>Backend: Enable applications to extend SelectBuilder, WhereBuilder, etc. with custom SQL generation</a></div><div class="listEntry"><a href="#COMMONS-1985"><b>
+                  [COMMONS-1985] Data:
+                </b>Public infrastructure way to create new data containers and register them with the ClientTransaction</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-2212"><b>
+                    [COMMONS-2212] DmsTray:
+                  </b>Extend Configuration and filter to support user defined executable path</a></span></div><div class="children"><a href="#COMMONS-2249"><b>
+            [COMMONS-2249] DmsTray:
+          </b>ApplicatioNameFilter</a></div><div class="children"><a href="#COMMONS-2230"><b>
+            [COMMONS-2230] DmsTray:
+          </b>PreferFilter: New Filter for getting entry with executable path</a></div><div class="children"><a href="#COMMONS-2229"><b>
+            [COMMONS-2229] DmsTray:
+          </b>Adapt/Refactor ApplicationFilter &amp; XmlProcessingInstructionFilter</a></div><div class="children"><a href="#COMMONS-2216"><b>
+            [COMMONS-2216] DmsTray:
+          </b>Implement logic for getting executable path</a></div><div class="children"><a href="#COMMONS-2215"><b>
+            [COMMONS-2215] DmsTray:
+          </b>Remove ApplicationMerger / Create List of ApplicationCriteriaElements for filters</a></div><div class="children"><a href="#COMMONS-2214"><b>
+            [COMMONS-2214] DmsTray:
+          </b>Adapt ApplicationWatcherArgumentInformation</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2040"></a><h4>[COMMONS-2040] BocList/DropDownMenu: client-side js exception in DropDownMenu_BindOpenEvent because argument node is null</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This happens either when a boclist datarow is rendered with enabled rowmenus but without any menuitems or when a previously rendered datarow (with menuitems) is being removed</p>
+
+<p>=&gt; solved in Acta Nova branch (fix tested only in QuirksMode, but I'm rather sure this also happens in StandardMode)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2028"></a><h4>[COMMONS-2028] BocList.OnRowClick does not work (Quirksmode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Clicking the row no longer selects it.<br/>
+ListMenu is not notified of selection changes.<br/>
+BocList_OnRowClick is not used.</p>
+
+<p>Standardmode uses jquery to connect the script.</p>
+
+<p>Old code:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">private</span> void RenderDataRow (
+      HtmlTextWriter writer, 
+      IBusinessObject businessObject,
+      <span class="code-object">int</span> rowIndex,
+      <span class="code-object">int</span> absoluteRowIndex,
+      <span class="code-object">int</span> originalRowIndex,
+      bool isOddRow)
+  {
+    bool isReadOnly = IsReadOnly;
+    BocColumnDefinition[] renderColumns = EnsureColumnsGot();
+
+    string objectID = <span class="code-keyword">null</span>;
+    IBusinessObjectWithIdentity businessObjectWithIdentity = businessObject as IBusinessObjectWithIdentity;
+    <span class="code-keyword">if</span> (businessObjectWithIdentity != <span class="code-keyword">null</span>)
+      objectID = businessObjectWithIdentity.UniqueIdentifier;
+
+    string selectorControlID = ClientID + c_dataRowSelectorControlIDSuffix + rowIndex.ToString();
+    bool isChecked = (_selectorControlCheckedState[originalRowIndex] != <span class="code-keyword">null</span>);
+
+    string cssClassTableRow;
+    <span class="code-keyword">if</span> (isChecked &amp;&amp; AreDataRowsClickSensitive())
+      cssClassTableRow = CssClassDataRowSelected;
+    <span class="code-keyword">else</span>
+      cssClassTableRow = CssClassDataRow;
+    
+    string cssClassTableCell;
+    <span class="code-keyword">if</span> (isOddRow)
+      cssClassTableCell = CssClassDataCellOdd;
+    <span class="code-keyword">else</span>
+      cssClassTableCell = CssClassDataCellEven;
+
+    <span class="code-keyword">if</span> (IsSelectionEnabled &amp;&amp; ! IsRowEditModeActive)
+    {
+      <span class="code-keyword">if</span> (AreDataRowsClickSensitive())
+      {
+        string script = <span class="code-quote">"BocList_OnRowClick ("</span>
+            + <span class="code-quote">"document.getElementById ('"</span> + ClientID + <span class="code-quote">"'), "</span>
+            + <span class="code-quote">"<span class="code-keyword">this</span>, "</span>
+            + <span class="code-quote">"document.getElementById ('"</span> + selectorControlID + <span class="code-quote">"'));"</span>;
+        writer.AddAttribute (HtmlTextWriterAttribute.Onclick, script);
+        <span class="code-comment">//  Disallow selecting text in the row.
+</span>        <span class="code-comment">//  writer.AddAttribute (<span class="code-quote">"onSelectStart"</span>, <span class="code-quote">"<span class="code-keyword">return</span> <span class="code-keyword">false</span>"</span>);
+</span>      }
+    }
+
+    writer.AddAttribute (HtmlTextWriterAttribute.<span class="code-object">Class</span>, cssClassTableRow);
+    writer.RenderBeginTag (HtmlTextWriterTag.Tr);
+
+    <span class="code-keyword">if</span> (IsIndexEnabled)
+    {
+      string cssClass = cssClassTableCell + <span class="code-quote">" "</span> + CssClassDataCellIndex;
+      writer.AddAttribute (HtmlTextWriterAttribute.<span class="code-object">Class</span>, cssClass);
+      writer.RenderBeginTag (HtmlTextWriterTag.Td);
+      <span class="code-keyword">if</span> (_index == RowIndex.InitialOrder)
+        RenderRowIndex (writer, originalRowIndex, selectorControlID);
+      <span class="code-keyword">else</span> <span class="code-keyword">if</span> (_index == RowIndex.SortedOrder)
+        RenderRowIndex (writer, absoluteRowIndex, selectorControlID);
+      writer.RenderEndTag();
+    }
+
+    <span class="code-keyword">if</span> (IsSelectionEnabled)
+    {
+      writer.AddAttribute (HtmlTextWriterAttribute.<span class="code-object">Class</span>, cssClassTableCell);
+      writer.RenderBeginTag (HtmlTextWriterTag.Td);
+      RenderSelectorControl (writer, selectorControlID, originalRowIndex.ToString(), isChecked, <span class="code-keyword">false</span>);
+      writer.RenderEndTag();
+    }
+
+    BocListDataRowRenderEventArgs dataRowRenderEventArgs = 
+        <span class="code-keyword">new</span> BocListDataRowRenderEventArgs (originalRowIndex, businessObject);
+    OnDataRowRendering (dataRowRenderEventArgs);
+
+    bool firstValueColumnRendered = <span class="code-keyword">false</span>;
+    <span class="code-keyword">for</span> (<span class="code-object">int</span> idxColumns = 0; idxColumns &lt; renderColumns.Length; idxColumns++)
+    {
+      bool showIcon = <span class="code-keyword">false</span>;
+      BocColumnDefinition column = renderColumns[idxColumns];
+      <span class="code-keyword">if</span> ( (!firstValueColumnRendered) &amp;&amp; column is BocValueColumnDefinition)
+      {
+        firstValueColumnRendered = <span class="code-keyword">true</span>;
+        showIcon = EnableIcon;
+      }
+      RenderDataCell (
+          writer, 
+          idxColumns, 
+          column, 
+          rowIndex,
+          absoluteRowIndex,
+          originalRowIndex, 
+          businessObject, 
+          showIcon, 
+          cssClassTableCell, 
+          dataRowRenderEventArgs);
+    }
+    
+    writer.RenderEndTag();
+  }</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2248"></a><h4>[COMMONS-2248] ClientTransaction.GetObjects can now return deleted objects</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, ClientTransaction.GetObjects would throw an ObjectDeletedException when one of the objects it returned had already been deleted. This has been changed to provide for more flexible use.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2247"></a><h4>[COMMONS-2247] ClientTransaction.GetObjectForDataContainer was removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The GetObjectForDataContainer API had some strange semantics. Use GetObject or GetObjectReference instead.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2237"></a><h4>[COMMONS-2237] BocList: Both empty row menu and row menu without any visible menu items are not rendered</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previous behavior:</p>
+<ul>
+	<li>No menu items: Menu was not rendered</li>
+	<li>No visible menu items: Menu was rendered but did not open</li>
+</ul>
+
+
+<p>New behavior:</p>
+<ul>
+	<li>No menu items: Menu is not rendered</li>
+	<li>No visible menu items: Menu is not rendered</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2171"></a><h4>[COMMONS-2171] Move StreamCopier from Shared-Project to DesktopConnector-Project / use FileUtility.CopyStream (Remotion) serverside</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2184"></a><h4>[COMMONS-2184] Backend: Change IDatabaseInfo so that the O/R mapper can return more information about tables</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, Table instances are created by DatabaseInfoUtility. This does not allow a custom implementation of IDatabaseInfo to return derived versions of Table that include more information. re-store, for example, could return a MappedTable instance that holds information about the ClassDefinition representing the table.</p>
+
+<p>That information would be useful if the O/R mapper or an application extended the SQL generation backend.</p>
+
+<p>This feature therefore restructures IDatabaseInfo so that generation of Tables, Columns, etc. is performed by IDatabaseInfo instead of DatabaseInfoUtility. In addition, re-store's re-linq implementation is changed to return MappedTable instances.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2183"></a><h4>[COMMONS-2183] Backend: Enable applications to extend SelectBuilder, WhereBuilder, etc. with custom SQL generation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, applications extending SqlGeneratorBase can return their own implementations of IWhereBuilder, ISelectBuilder, and so on. However, the factory methods creating those implementations only receive a very limited set of context information.</p>
+
+<p>In addition, the existing implementations of WhereBuilder, SelectBuilder, etc. only have a single method (BuildWherePart, BuildSelectPart, etc.) that can't really be reused in a fine-grained manner.</p>
+
+<p>As a third problem for custom SQL generation, subqueries will always result in an "InlineSqlServerGenerator" being created, so a customized SQL generator will never be used for subqueries.</p>
+
+<p>This feature changes the signatures of IWhereBuilder, ISelectBuilder, and so on to receive more context (SqlGenerationData), it makes the implementations of WhereBuilder, SelectBuilder, etc. more suitable for fine-grained reuse, and it adds a new API (CreateNewSqlGenerator) that is used to get a new SQL generator for inline SQL.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1985"></a><h4>[COMMONS-1985] Public infrastructure way to create new data containers and register them with the ClientTransaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use the following public APIs:</p>
+
+<ul class="alternate" type="square">
+	<li>DataContainer.CreateNew or CreateForExisting</li>
+	<li>DataContainer.SetDomainObject</li>
+	<li>DataContainer.RegisterWithClientTransaction</li>
+</ul>
+</span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-2212"></a><h4>[COMMONS-2212] Extend Configuration and filter to support user defined executable path</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">1.13.46</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>remove overrides from configuration</li>
+	<li>configuration for application element should look like this:</li>
+</ul>
+
+
+<p>&lt;application name ="notepad.exe" directoryHint="C:\..." prefer="true" applicationWatcher="process"/&gt;</p>
+
+<p>--------------------------------------------------------<br/>
+prefer &amp; directoryHint are optional<br/>
+directory hint cannot be set if prefer != true<br/>
+prefer: default = false<br/>
+if prefer = true<br/>
+look if directory hint is defined, if yes take entry<br/>
+if no directoy hint is defined look for executable in following locations:</p>
+<ul class="alternate" type="square">
+	<li>systempath</li>
+	<li>Computer\HKEY_CURRENT_USER\Software\Microsoft</li>
+	<li>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AppPaths<br/>
+--------------------------------------------------------<br/>
+change xmlProcessingInstruction to xmlProcessingInstructionCondition</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-2215"></a><h4>[COMMONS-2215] Remove ApplicationMerger / Create List of ApplicationCriteriaElements for filters</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ApplicationMerger must extract prefer &amp; directoryHint</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2214"></a><h4>[COMMONS-2214] Adapt ApplicationWatcherArgumentInformation</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>must store prefer &amp; directoryHint</p></span></div></div></body></html>

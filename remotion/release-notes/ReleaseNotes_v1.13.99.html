@@ -1,0 +1,96 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.99</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3830"><b>
+                  [RM-3830] SecurityManager:
+                </b>ACL Editor: ACE labels in Internet Explorer have blurry text</a></div><div class="listEntry"><a href="#RM-3826"><b>
+                  [RM-3826] ObjectBinding.Web:
+                </b>BocList without specified height and width does not render in IE9</a></div><div class="listEntry"><a href="#RM-3823"><b>
+                  [RM-3823] Build &amp; Tooling:
+                </b>Add how to build information to spin-off projects</a></div><div class="listEntry"><a href="#RM-3820"><b>
+                  [RM-3820] Build &amp; Tooling:
+                </b>re-mix spin-off build</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3830"></a><h4>[RM-3830] ACL Editor: ACE labels in Internet Explorer have blurry text</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3826"></a><h4>[RM-3826] BocList without specified height and width does not render in IE9</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3823"></a><h4>[RM-3823] Add how to build information to spin-off projects</h4><div class="component"><span class="label">Component/s: </span><span class="value">Build &amp; Tooling</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The "Ten Minutes Build" principle states that a developer shall be able to build a solution within ten minutes. A senior developer will understand why there is no key in the solution and that he has to generate one to build the solution, a junior developer probably will fail.</p>
+
+<p>For the re-motion project, there is this kind of information. This information should be also provided with the spin-off projects in codeplex. In the attachment, there is the shortened version for the re-mix project of the original re-motion how to build.txt. Also the Generate-Snk.cmd should be added.</p></span></div></div><div class="detailEntry  "><a name="RM-3820"></a><h4>[RM-3820] re-mix spin-off build</h4><div class="component"><span class="label">Component/s: </span><span class="value">Build &amp; Tooling</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The following issues have been detected in the re-mix build</p>
+
+<p>1. FuncGen is missing<br/>
+2. Generate.snk is missing or remove signing<br/>
+3. AssemblyInfoShared.cs missing<br/>
+4. In prereq Castle, log4net, Microsoft.Practices.ServiceLocation Assemblies are missing<br/>
+5. Dependency to Development.Core (Core.UnitTests + Core.Mixin.Samples)</p>
+
+
+
+</span></div></div></body></html>

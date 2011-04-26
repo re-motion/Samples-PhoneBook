@@ -1,0 +1,198 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.29</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1663"><b>
+                  [COMMONS-1663] SecurityManager:
+                </b>DropDownMenu without a label misses the left border in StandardMode/ClassicBlue theme (IE8)</a></div><div class="listEntry"><a href="#COMMONS-1655"><b>
+                  [COMMONS-1655] DmsTray:
+                </b>Multi-Upload PNG-Files vom FileSystem</a></div><div class="listEntry"><a href="#COMMONS-1645"><b>
+                  [COMMONS-1645] DmsTray:
+                </b>Add from Clipboard</a></div><div class="listEntry"><a href="#COMMONS-1623"><b>
+                  [COMMONS-1623] Mixins:
+                </b>InvalidCastException is thrown when the base of a target class overrides a mixin with a protected member</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1519"><b>
+                  [COMMONS-1519] Mixins:
+                </b>Finish refactoring of MixinTypeGenerator until dependency to MixinDefinition has been removed</a></div><div class="children"><a href="#COMMONS-1629"><b>
+            [COMMONS-1629] Mixins:
+          </b>Completely remove MixinDefinition from MixinTypeGenerator, change CodeGenerationCache accordingly, cleanup</a></div><div class="children"><a href="#COMMONS-1627"><b>
+            [COMMONS-1627] Mixins:
+          </b>Remove superfluous stuff from ConcreteMixinTypeIdentifier, add overridden members and overriders</a></div><div class="children"><a href="#COMMONS-1626"><b>
+            [COMMONS-1626] Mixins:
+          </b>Remove MixinTypeGenerator's usages of MixinConfiguration, use ConcreteMixinTypeIdentifier instead</a></div><div class="children"><a href="#COMMONS-1625"><b>
+            [COMMONS-1625] Mixins:
+          </b>MixinTypeGenerator should get overridden methods as a ctor parameter instead of from MixinDefinition</a></div><div class="children"><a href="#COMMONS-1624"><b>
+            [COMMONS-1624] Mixins:
+          </b>Remove dependency of MixinTypeGenerator to ITypeGenerator of target</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1701"><b>
+                  [COMMONS-1701] Mixins:
+                </b>BREAK: Attributes are no longer replicated on generated mixin types</a></div><div class="listEntry"></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1663"></a><h4>[COMMONS-1663] DropDownMenu without a label misses the left border in StandardMode/ClassicBlue theme (IE8)</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1655"></a><h4>[COMMONS-1655] Multi-Upload PNG-Files vom FileSystem</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Wird ein Mulit-Upload (2 PNG-Files) im Drop-Target vorgenommen, so erscheint die bekannte Messagebox am GUI und folgende Information im Log-File</p>
+
+<p>(!)Fehlermeldung laut Log-File<img class="emoticon" src="https://jira.rubicon.eu/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"/><br/>
+2009-09-28 16:01:20,143 <span class="error">&#91;18&#93;</span> DEBUG Remotion.Dms.DesktopConnector.FileHandling.FileOperationExecutor <span class="error">&#91;(null)&#93;</span> - 'C:\Users\Administrator\AppData\Local\Remotion\Dms\d2b629de-65fb-4992-bac4-cd394462d884.zip': Uploading new file to <span class="nobr"><a href="http://localhost/Dms/res/Remotion.Dms.Web/UI/">http://localhost/Dms/res/Remotion.Dms.Web/UI/<sup><img class="rendericon" src="https://jira.rubicon.eu/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span>.<br/>
+2009-09-28 16:01:20,164 <span class="error">&#91;d2b629de-65fb-4992-bac4-cd394462d884.zip QueueManagerThread&#93;</span> DEBUG Remotion.Dms.DesktopConnector.FileHandling.FileOperationExecutor <span class="error">&#91;(null)&#93;</span> - 'd2b629de-65fb-4992-bac4-cd394462d884.zip': Removing file.<br/>
+2009-09-28 16:01:24,322 <span class="error">&#91;4&#93;</span> DEBUG Remotion.Dms.DesktopConnector.FileHandling.FileOperationExecutor <span class="error">&#91;(null)&#93;</span> - 'C:\Users\Administrator\AppData\Local\Remotion\Dms\backup (1).reg': Downloading file as readonly<br/>
+2009-09-28 16:01:42,513 <span class="error">&#91;backup (1).reg QueueManagerThread&#93;</span> ERROR Remotion.Dms.DesktopConnector.FileHandling.QueueManager <span class="error">&#91;(null)&#93;</span> - An exception occurred while processing the queue.<br/>
+System.IO.IOException: The process cannot access the file 'C:\Users\Administrator\AppData\Local\Remotion\Dms\c3de7e25-bcdd-4f39-9839-3669e3131be2.zip' because it is being used by another process.<br/>
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)<br/>
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)<br/>
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)<br/>
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)<br/>
+   at ICSharpCode.SharpZipLib.Zip.ZipFile..ctor(String name)<br/>
+   at ICSharpCode.SharpZipLib.Zip.FastZip.ExtractZip(String zipFileName, String targetDirectory, Overwrite overwrite, ConfirmOverwriteDelegate confirmDelegate, String fileFilter, String directoryFilter, Boolean restoreDateTime)<br/>
+   at Remotion.Dms.Shared.Utilities.ZipFileExtractor.Extract(String archiveFile, String destinationPath) in C:\Development\Remotion\trunk\Dms\Shared\Utilities\ZipFileExtractor.cs:line 38<br/>
+   at Remotion.Dms.DesktopConnector.FileHandling.FileOperationExecutor.ExtractArchiveFile(DownloadedManagedFileBase file) in C:\Development\Remotion\trunk\Dms\DesktopConnector\FileHandling\FileOperationExecutor.cs:line 402<br/>
+   at Remotion.Dms.DesktopConnector.FileHandling.DownloadedFileStates.ReadOnlyBeingDownloadedState.OnDownloadFinished(TransferFinishedEventArgs args) in C:\Development\Remotion\trunk\Dms\DesktopConnector\FileHandling\DownloadedFileStates\ReadOnlyBeingDownloadedState.cs:line 60<br/>
+   at Remotion.Dms.DesktopConnector.FileHandling.FileTransfer.FileDownloadAgentBase`1.&lt;OnTransferFinished&gt;b__0(IManagedFileState state) in C:\Development\Remotion\trunk\Dms\DesktopConnector\FileHandling\FileTransfer\FileDownloadAgentBase.cs:line 79<br/>
+   at Remotion.Dms.DesktopConnector.FileHandling.QueueManager.ProcessQueue() in C:\Development\Remotion\trunk\Dms\DesktopConnector\FileHandling\QueueManager.cs:line 109<br/>
+2009-09-28 16:01:42,514 <span class="error">&#91;backup (1).reg QueueManagerThread&#93;</span> DEBUG Remotion.Dms.DesktopConnector.FileHandling.DownloadedFileStates.IManagedFileState <span class="error">&#91;(null)&#93;</span> - &lt;log4net.Error&gt;Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. &lt;format&gt;File: '{3}' - State transition in {0}.{1} to {2}.&lt;/format&gt;&lt;args&gt;{Remotion.Dms.DesktopConnector.FileHandling.DownloadedFileStates.ReadOnlyBeingDownloadedState, OnError, Remotion.Dms.DesktopConnector.FileHandling.DownloadedFileStates.ErrorState}&lt;/args&gt;&lt;/log4net.Error&gt;<br/>
+2009-09-28 16:01:53,296 <span class="error">&#91;20&#93;</span> DEBUG Remotion.Dms.DesktopConnector.FileHandling.FileOperationExecutor <span class="error">&#91;(null)&#93;</span> - 'C:\Users\Administrator\AppData\Local\Remotion\Dms\af51662d-70d3-4465-b691-cd4ded1855b9.zip': Uploading new file to <span class="nobr"><a href="http://localhost/Dms/res/Remotion.Dms.Web/UI/">http://localhost/Dms/res/Remotion.Dms.Web/UI/<sup><img class="rendericon" src="https://jira.rubicon.eu/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span>.<br/>
+2009-09-28 16:01:53,314 <span class="error">&#91;af51662d-70d3-4465-b691-cd4ded1855b9.zip QueueManagerThread&#93;</span> DEBUG Remotion.Dms.DesktopConnector.FileHandling.FileOperationExecutor <span class="error">&#91;(null)&#93;</span> - 'af51662d-70d3-4465-b691-cd4ded1855b9.zip': Removing file.<br/>
+2009-09-28 16:02:08,336 <span class="error">&#91;4&#93;</span> DEBUG Remotion.Dms.DesktopConnector.FileHandling.FileOperationExecutor <span class="error">&#91;(null)&#93;</span> - 'C:\Users\Administrator\AppData\Local\Remotion\Dms\backup (1).reg': Downloading file as readonly</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1645"></a><h4>[COMMONS-1645] Add from Clipboard</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Wird ein Bildschirminhalt in die Zwischenablage transferiert (Pring-Screen), so tritt bei Betätigung der Aktion "Add Clipboard" die im vorangegangenen Issue erfasste Fehlermeldung auf.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1623"></a><h4>[COMMONS-1623] InvalidCastException is thrown when the base of a target class overrides a mixin with a protected member</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>System.InvalidCastException : Unable to cast object of type 'Remotion.UnitTests.Mixins.CodeGeneration.IntegrationTests.MixinTypeCodeGeneration.AdvancedCachingTest/DTC_Mixed_2afd71729eba4b59b8b599bb516f10cd' to type 'Remotion.UnitTests.Mixins.CodeGeneration.IntegrationTests.MixinTypeCodeGeneration.AdvancedCachingTest/TC_Mixed_d7cfd89798b5421b9584a25c9b728411'.
+	at Remotion.UnitTests.Mixins.CodeGeneration.IntegrationTests.MixinTypeCodeGeneration.AdvancedCachingTest/Mix_Mixed_46e841051a07480db6ec3af7f4b37583.M1()
+	Mixins\CodeGeneration\IntegrationTests\MixinTypeCodeGeneration\AdvancedCachingTest.cs(189,0): at Remotion.UnitTests.Mixins.CodeGeneration.IntegrationTests.MixinTypeCodeGeneration.AdvancedCachingTest.InvalidCast()
+</pre>
+</div></div> 
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">[Test]
+    <span class="code-keyword">public</span> void InvalidCast ()
+    {
+      <span class="code-keyword">var</span> tc = ObjectFactory.Create&lt;TC&gt; (ParamList.Empty);
+      Console.WriteLine (Mixin.Get&lt;Mix&gt; (tc).M1());
+
+      <span class="code-keyword">var</span> dtc = ObjectFactory.Create&lt;DTC&gt; (ParamList.Empty);
+      Console.WriteLine (Mixin.Get&lt;Mix&gt; (dtc).M1 ());
+    }
+
+    [Uses (typeof (Mix))]
+    <span class="code-keyword">public</span> class TC
+    {
+      [OverrideMixin]
+      <span class="code-keyword">protected</span> string M1 ()
+      {
+        <span class="code-keyword">return</span> <span class="code-quote">"TC.M1()"</span>;
+      }
+    }
+
+    <span class="code-keyword">public</span> class DTC : TC
+    {
+    }
+
+    <span class="code-keyword">public</span> class Mix : Mixin&lt;object&gt;
+    {
+      <span class="code-keyword">public</span> virtual string M1 ()
+      {
+        <span class="code-keyword">return</span> <span class="code-quote">"Mix.M1()"</span>;
+      }
+    }</pre>
+</div></div>
+
+<p>The reason for this is that the subclass generated for Mix is shared between TC and DTC, but it contains the following code:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> override string M1()
+{
+  <span class="code-keyword">var</span> @<span class="code-keyword">this</span> = (AdvancedCachingTest/TC_Mixed_...) <span class="code-keyword">this</span>.This;
+  <span class="code-keyword">return</span> @<span class="code-keyword">this</span>.__wrap__M1();
+}</pre>
+</div></div>
+
+<p>Since the generated class for DTC is not compatible with that for TC, the cast does not succeed.</p>
+
+<p>Solutions:</p>
+<ul class="alternate" type="square">
+	<li>Do not share the generated types, or</li>
+	<li>do not cast to the generated subclass of the mixin target.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1519"></a><h4>[COMMONS-1519] Finish refactoring of MixinTypeGenerator until dependency to MixinDefinition has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1629"></a><h4>[COMMONS-1629] Completely remove MixinDefinition from MixinTypeGenerator, change CodeGenerationCache accordingly, cleanup</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Includes changing MixinSerializationHelper to work without class context, use ConcreteMixinTypeIdentifier only</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1627"></a><h4>[COMMONS-1627] Remove superfluous stuff from ConcreteMixinTypeIdentifier, add overridden members and overriders</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1626"></a><h4>[COMMONS-1626] Remove MixinTypeGenerator's usages of MixinConfiguration, use ConcreteMixinTypeIdentifier instead</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Add ConcreteMixinTypeIdentifier as a constructor argument</li>
+	<li>No attribute replication</li>
+	<li>Default naming scheme (maybe add new task to adapt naming providers)</li>
+	<li>Debugger display attribute</li>
+	<li>Overridden methods come from identifier</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1625"></a><h4>[COMMONS-1625] MixinTypeGenerator should get overridden methods as a ctor parameter instead of from MixinDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1624"></a><h4>[COMMONS-1624] Remove dependency of MixinTypeGenerator to ITypeGenerator of target</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>A custom interface nested within the mixin should be created that represents the mixin's overriders.</li>
+	<li>For each overridden method (including accessors), that interface gets an "implementer" method with the same signature.</li>
+	<li>Give the interface a default name so that it can be imported when loading a concrete mixin type.</li>
+	<li>The interface is stored in the ConcreteMixinType structure. Note that every target class implicitly implements that interface because the names and signatures of overriders must be the same as those of the overridden members.</li>
+	<li>In TypeGenerator, add the interfaces of all ConcreteMixinTypes to the emitter.</li>
+	<li>Remove ITypeGenerator dependency from MixinTypeGenerator by calling methods of the interface rather than those of the target type.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1701"></a><h4>[COMMONS-1701] BREAK: Attributes are no longer replicated on generated mixin types</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Note: This does not affect generated mixed types, only generated <b>mixin</b> types.</p>
+
+<p>Previously, when the mixin engine had to subclass a mixin (e.g. when a target class overrides a mixin's member), the generated subclass replicated non-inheritable attributes so that reflection on the mixin instance would return those attributes. This now changes, no attributes are replicated.</p></span></div></div></body></html>

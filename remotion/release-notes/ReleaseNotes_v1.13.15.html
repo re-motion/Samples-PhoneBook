@@ -1,0 +1,172 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.15</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1269"><b>
+                  [COMMONS-1269] Data.Linq:
+                </b>Subquery expressions should be generated when a subquery in a main from clause contains a modifier</a></div><div class="listEntry"><a href="#COMMONS-1268"><b>
+                  [COMMONS-1268] Data.Linq:
+                </b>Subqueries that access a non-constant MemberExpression as their main from source cannot be parsed</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1293"><b>
+                  [COMMONS-1293] Data.Linq:
+                </b>Check class/namespace structure</a></div><div class="listEntry"><a href="#COMMONS-1255"><b>
+                  [COMMONS-1255] Data.Linq:
+                </b>Redesign result modifications: Rename, split into groups, etc.</a></div><div class="children"><a href="#COMMONS-1298"><b>
+            [COMMONS-1298] Data.Linq:
+          </b>Move ResultOperators from SelectClause to QueryModel</a></div><div class="children"><a href="#COMMONS-1297"><b>
+            [COMMONS-1297] Data.Linq:
+          </b>Rename ResultModificationBase and ResultModificationExpressionNode to ResultOperatorBase and ResultOperatorExpressionNode</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1323"><b>
+                  [COMMONS-1323] Data.Linq:
+                </b>Refactor GroupClause to be a result operator</a></div><div class="children"><a href="#COMMONS-1328"><b>
+            [COMMONS-1328] Data.Linq:
+          </b>Update all group-by tests to use ResultOperators instead of SelectOrGroupClause</a></div><div class="children"><a href="#COMMONS-1327"><b>
+            [COMMONS-1327] Data.Linq:
+          </b>Remove ISelectGroupClause, change QueryModel.SelectOrGroupClause to be of type SelectClause</a></div><div class="children"><a href="#COMMONS-1326"><b>
+            [COMMONS-1326] Data.Linq:
+          </b>Create GroupOperator result operator class and modify GroupByExpressionNode to apply the GroupOperator</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1269"></a><h4>[COMMONS-1269] Subquery expressions should be generated when a subquery in a main from clause contains a modifier</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>E.g.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from s in (from s1 in Students from s2 in Students select s1).Distinct()
+from x in Xs
+select <span class="code-keyword">new</span> {s, x}</pre>
+</div></div>
+
+<p>In this case, the nested from part must be represented as a subquery, otherwise the semantics are changed.</p>
+
+<p>In MethodCallExpressionNodeBase, add a template-method Apply implementation that looks like this:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> QueryModel Apply (QueryModel queryModel, ClauseGenerationContext clauseGenerationContext)
+{
+  <span class="code-keyword">if</span> (queryModel.SelectOrGroupClause.ResultModifications.Count &gt; 0)
+    queryModel = WrapCompletedQueryModel (queryModel);
+  DoApply (queryModel, clauseGenerationContext);
+  <span class="code-keyword">return</span> queryModel;
+}</pre>
+</div></div>
+
+<p>WrapCompletedQueryModel is virtual and creates a new QueryModel with the old queryModel in a subquery in the main from clause. It is overridden in ResultModificationExpressionNodeBase.<br/>
+DoApply is abstract and contains what is currently in the nodes' apply methods.</p>
+
+<p>After the query model has been wrapped, the last expression node (Source) must be mapped to the main from clause generated that holds the SubQueryExpression. After that, every Resolve of that last node must return a QuerySourceReferenceExpression pointing to that main from clause.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1268"></a><h4>[COMMONS-1268] Subqueries that access a non-constant MemberExpression as their main from source cannot be parsed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Example:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from x in Xs
+from y in (from z in x.Friends select z)
+select y</pre>
+</div></div>
+
+<p>Refactor ConstantExpressionNode:</p>
+<ul class="alternate" type="square">
+	<li>Rename to MainSourceExpressionNode</li>
+	<li>Change Value/Type to Expression member</li>
+</ul>
+
+
+<p>Refactor ExpressionTreeParser:</p>
+<ul class="alternate" type="square">
+	<li>Accept non-constant expressions</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1293"></a><h4>[COMMONS-1293] Check class/namespace structure</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Move DataObjectModel, SqlGeneration, IDatabaseInfo to separate "Backend" folder.</li>
+	<li>Move ExtensionMethods.ContainsFulltext to Backend folder.</li>
+	<li>Move Parsing/Details, Parsing/FieldResolving, Parsing/ParseMode to Backend folder.</li>
+	<li>Remove UniqueIdentifierGeneratorBase class.</li>
+	<li>Move FormattingExpressionTreeVisitor to Clauses/ExpressionTreeVisitors, remove StringBuilding folder.</li>
+	<li>Add new class DetailParserUtility, move ParserUtility.CheckNumberOfArguments, ParserUtility.CheckParameterType to DetailParserUtility</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1255"></a><h4>[COMMONS-1255] Redesign result modifications: Rename, split into groups, etc.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1298"></a><h4>[COMMONS-1298] Move ResultOperators from SelectClause to QueryModel</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1297"></a><h4>[COMMONS-1297] Rename ResultModificationBase and ResultModificationExpressionNode to ResultOperatorBase and ResultOperatorExpressionNode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Including all "modification" variables, etc.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1323"></a><h4>[COMMONS-1323] Refactor GroupClause to be a result operator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In many ways, GroupClause is more similar to a result operator than it is to a SelectClause:</p>
+<ul class="alternate" type="square">
+	<li>It does not work item per item, but operates on the whole result set. (This is the characteristic on a result operator.)</li>
+	<li>It needs a way to be executed in memory if it is not supported by the target query system. (Like the result operators.)</li>
+</ul>
+
+
+<p>Therefore, GroupClause should be changed to be a result operator. Then, every QueryModel would always have a a SelectClause that might be changed<br/>
+by a GroupOperator:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from x in Xs
+group x.Y by x.Z</pre>
+</div></div>
+
+<p>=&gt;</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from x in Xs select x =&gt; GroupBy (x.Y, x.Z)</pre>
+</div></div>
+
+<p>This result operator, however, changes the element type of the returned enumerable.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1328"></a><h4>[COMMONS-1328] Update all group-by tests to use ResultOperators instead of SelectOrGroupClause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1327"></a><h4>[COMMONS-1327] Remove ISelectGroupClause, change QueryModel.SelectOrGroupClause to be of type SelectClause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1326"></a><h4>[COMMONS-1326] Create GroupOperator result operator class and modify GroupByExpressionNode to apply the GroupOperator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

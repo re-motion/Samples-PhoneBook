@@ -1,0 +1,117 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.41</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2088"><b>
+                  [COMMONS-2088] Data:
+                </b>ClientTransaction.LoadDataContainerForExistingObject has been removed</a></div><div class="listEntry"><a href="#COMMONS-2083"><b>
+                  [COMMONS-2083] Data:
+                </b>DomainObjectCheckUtility.GetNonNullClientTransaction has been removed</a></div><div class="listEntry"><a href="#COMMONS-2081"><b>
+                  [COMMONS-2081] Data:
+                </b>Changes to ClassDefinition and ReflectionBasedClassDefinition</a></div><div class="listEntry"><a href="#COMMONS-2078"><b>
+                  [COMMONS-2078] Data:
+                </b>ClientTransaction.EnlistSameDomainObjects has been removed</a></div><div class="listEntry"><a href="#COMMONS-2077"><b>
+                  [COMMONS-2077] Data:
+                </b>ClientTransactionScope.AutoEnlistDomainObjects has been removed</a></div><div class="listEntry"><a href="#COMMONS-2076"><b>
+                  [COMMONS-2076] Data:
+                </b>DomainObject.CanBeUsedInTransaction and DomainObjectTransactionContext.CanBeUsedInTransaction have been removed</a></div><div class="listEntry"><a href="#COMMONS-2053"><b>
+                  [COMMONS-2053] Data:
+                </b>DomainObject.State now returns NotLoadedYet instead of causing the DataContainer of a DomainObject to be loaded in the current transaction</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2082"><b>
+                  [COMMONS-2082] Data:
+                </b>DomainObject.DefaultTransactionContext</a></div><div class="listEntry"><a href="#COMMONS-2057"><b>
+                  [COMMONS-2057] Data:
+                </b>Public ClientTransaction.GetEnlistedObjects() method</a></div><div class="listEntry"><a href="#COMMONS-2055"><b>
+                  [COMMONS-2055] Data:
+                </b>ClientTransaction.EnsureDataAvailable, DomainObject.EnsureDataAvailable, and DomainObjectTransactionContext.EnsureDataAvailable</a></div><div class="listEntry"><a href="#COMMONS-2052"><b>
+                  [COMMONS-2052] Data:
+                </b>New DomainObject.State value NotLoadedYet</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2088"></a><h4>[COMMONS-2088] ClientTransaction.LoadDataContainerForExistingObject has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The method wasn't used, and its functionality can be simulated by LoadObject.<br/>
+Use LoadObject or LoadDataContainer instead.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2083"></a><h4>[COMMONS-2083] DomainObjectCheckUtility.GetNonNullClientTransaction has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use DomainObject.DefaultTransactionContext.ClientTransaction instead.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2081"></a><h4>[COMMONS-2081] Changes to ClassDefinition and ReflectionBasedClassDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ClassDefinition.BaseClass and DerivedClasses are now abstract<br/>
+ClassDefinition's constructor does not take an "areResolvedTypesRequired" parameter<br/>
+ReflectionBasedClassDefinition.BaseClass now returns ClassDefinition, use ReflectionBasedBaseClass to avoid the cast</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2078"></a><h4>[COMMONS-2078] ClientTransaction.EnlistSameDomainObjects has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The way the method was implemented could lead to undesired behavior, registering some event handlers twice.</p>
+
+<p>Please implement the desired behavior yourself, using GetEnlistedDomainObjects(), EnlistDomainObject(), and CopyCollectionEventHandlers().</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2077"></a><h4>[COMMONS-2077] ClientTransactionScope.AutoEnlistDomainObjects has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Automatic enlistment is no longer supported. Use manual enlistment instead.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2076"></a><h4>[COMMONS-2076] DomainObject.CanBeUsedInTransaction and DomainObjectTransactionContext.CanBeUsedInTransaction have been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use ClientTransaction.IsEnlisted instead.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2053"></a><h4>[COMMONS-2053] DomainObject.State now returns NotLoadedYet instead of causing the DataContainer of a DomainObject to be loaded in the current transaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>To ensure that an object has a DataContainer, use ClientTransaction.EnsureDataAvailable.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2082"></a><h4>[COMMONS-2082] DomainObject.DefaultTransactionContext</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>DomainObject.DefaultTransactionContext gets the default transaction context, i.e. the transaction context that is used when the DomainObject's properties, State, etc. are accessed without specifying a ClientTransaction.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2057"></a><h4>[COMMONS-2057] Public ClientTransaction.GetEnlistedObjects() method</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This method replaces the protected property ClientTransaction.EnlistedObjects and returns all DomainObject references enlisted in the current transaction.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2055"></a><h4>[COMMONS-2055] ClientTransaction.EnsureDataAvailable, DomainObject.EnsureDataAvailable, and DomainObjectTransactionContext.EnsureDataAvailable</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ClientTransaction.EnsureDataAvailable, DomainObject.EnsureDataAvailable, and DomainObjectTransactionContext.EnsureDataAvailable can be used to ensure that the DataContainers of one or several DomainObjects are available in a ClientTransaction:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">ClientTransaction.Current.EnsureDataAvailable (DomainObjectIDs.Order1);
+ClientTransaction.Current.EnsureDataAvailable (<span class="code-keyword">new</span>[] { DomainObjectIDs.Order1, DomainObjectIDs.Order2 });
+order.EnsureDataAvailable ();
+order.TransactionContext[transaction].EnsureDataAvailable();</pre>
+</div></div>
+
+<p>The latter overload will use a bulk load similar to what <tt>ClientTransaction.GetObjects()</tt> does.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2052"></a><h4>[COMMONS-2052] New DomainObject.State value NotLoadedYet</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>A new StateType value of NotLoadedYet is returned by the DomainObject.State property for objects for which no DataContainer exists in the corresponding transaction.</p>
+
+<p>This applies whenever a DomainObject reference exists without an associated DataContainer, e.g.</p>
+<ul class="alternate" type="square">
+	<li>when a DomainObject from a parent transaction hasn't received a DataContainer in a subtransaction yet, or</li>
+	<li>when the DataContainer of a DomainObject has been unloaded.</li>
+</ul>
+
+
+<p>It will also be used in the future, e.g. for lazily-loaded proxies.</p></span></div></div></body></html>

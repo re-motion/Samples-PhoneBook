@@ -1,0 +1,172 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.64</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2926"><b>
+                  [COMMONS-2926] Data:
+                </b>ClientTransaction.Commit throws an ArgumentException (key already exists) when a subtransaction of a substransaction commits a new object</a></div><div class="listEntry"><a href="#COMMONS-2873"><b>
+                  [COMMONS-2873] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: The selection does not follow the input upon each new character. The selection is only refreshed when the next update from the server happens</a></div><div class="listEntry"><a href="#COMMONS-2836"><b>
+                  [COMMONS-2836] Web:
+                </b>Asynchronous Postback in TabView of TabbedMultiView flickers when a scrollposition is being restored</a></div><div class="listEntry"><a href="#COMMONS-2809"><b>
+                  [COMMONS-2809] Data.Linq:
+                </b>Bug in ContainsMethodCallTransformer</a></div><div class="listEntry"><a href="#COMMONS-2721"><b>
+                  [COMMONS-2721] Data ObjectBinding:
+                </b>BindableDomainObject: calls to any property, that rely on the implementation, fail when originated from a constructor of a domainobject</a></div><div class="listEntry"><a href="#COMMONS-2422"><b>
+                  [COMMONS-2422] Data.Linq:
+                </b>Frontend: TakeExpressionNode and others do not detect subqueries</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2937"><b>
+                  [COMMONS-2937] Data.Linq:
+                </b>re-linq frontend now detects subqueries in expressions earlier than before</a></div><div class="listEntry"><a href="#COMMONS-2930"><b>
+                  [COMMONS-2930] Data:
+                </b>IClientTransactionListener: Signature of RelationReading, RelationRead, RelationChanging, and RelationChanged has been updated to pass the IRelationEndPointDefinition instead of the property-name in string-form.</a></div><div class="listEntry"><a href="#COMMONS-2929"><b>
+                  [COMMONS-2929] Data:
+                </b>IClientTransactionExtension: Signature of RelationReading, RelationRead, RelationChanging, and RelationChanged has been updated to pass the IRelationEndPointDefinition instead of the property-name in string-form.</a></div><div class="listEntry"><a href="#COMMONS-2918"><b>
+                  [COMMONS-2918] Data:
+                </b>DataContainer.RegisterWithClientTransaction has been removed - use DataManager.RegisterDataContainer instead</a></div><div class="listEntry"><a href="#COMMONS-2900"><b>
+                  [COMMONS-2900] Web:
+                </b>Behavior of SmartPage's client-side onload-event has changed: OnLoad will no be called during the synchronous and asynchronous rendering of the page. </a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2796"><b>
+                  [COMMONS-2796] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue should be able to display icons in the drop-down list</a></div><div class="listEntry"><a href="#COMMONS-2735"><b>
+                  [COMMONS-2735] Data:
+                </b>Remove BindableDomainObject ctor taking an IBusinessObject implementation</a></div><div class="listEntry"><a href="#COMMONS-2734"><b>
+                  [COMMONS-2734] Data:
+                </b>Change OnReferenceInitialized to occur before derived constructors/mixins are run and rename to OnReferenceInitializing</a></div><div class="listEntry"><a href="#COMMONS-505"><b>
+                  [COMMONS-505] Data.Linq for re-store:
+                </b>Design and implement better projection support</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2870"><b>
+                  [COMMONS-2870] Data:
+                </b>Refactor IClientTransactionExtension to pass PropertyDefinition/IRelationEndPointDefinition instead of the property-name in string-form</a></div><div class="listEntry"><a href="#COMMONS-2869"><b>
+                  [COMMONS-2869] Data:
+                </b>Refactor IClientTransactionListener to pass PropertyDefinition/IRelationEndPointDefinition instead of the property-name in string-form</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2933"><b>
+                  [COMMONS-2933] Data:
+                </b>Change RelationChangingEventArgs and RelationChangedEventArgs to use IRelationEndPointDefinition instead of the property name in string form</a></div><div class="listEntry"><a href="#COMMONS-2922"><b>
+                  [COMMONS-2922] Web:
+                </b>Add a parameter to indicate an async postback to SmartPage's client-side OnLoad event </a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2879"><b>
+                  [COMMONS-2879] Data.Linq:
+                </b>Optimize SQL generation for distinct queries: Remove all orderbys</a></div><div class="listEntry"><a href="#COMMONS-2787"><b>
+                  [COMMONS-2787] Core:
+                </b>Remove locks from SafeContextSingleton, they are not necessary</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2926"></a><h4>[COMMONS-2926] ClientTransaction.Commit throws an ArgumentException (key already exists) when a subtransaction of a substransaction commits a new object</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The exception stems from SubClientTransactionListener, which calls MarkObjectAsInvalid throughout the hierarchy. When a new object is created in a sub-sub transaction, it is marked invalid in parent and root. When sub-sub commits, a new DataContainer is registered in parent, and the object is again marked invalid in root. Because MarkObjectAsInvalid is not idempotent, an exception occurs.</p>
+
+<p>Solve by making MarkObjectAsInvalid idempotent.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2873"></a><h4>[COMMONS-2873] BocAutoCompleteReferenceValue: The selection does not follow the input upon each new character. The selection is only refreshed when the next update from the server happens</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Repro:</p>
+<ul>
+	<li>Enter at least one character</li>
+	<li>Wait for the result list to pop open</li>
+	<li>Enter another character that would indicate a value other than the selected one</li>
+	<li>Press 'enter' before the new input can be sent to the server</li>
+</ul>
+
+
+<p>This issue also existed in the preview-version.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2836"></a><h4>[COMMONS-2836] Asynchronous Postback in TabView of TabbedMultiView flickers when a scrollposition is being restored</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>because the restoring occurs BEFORE the height of the view is recalculated and set</p>
+
+<p>MK: add possibility to register for SmartPage_OnStartup to execute the eventhandlers before Restore so ViewLayout can register for this event</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2809"></a><h4>[COMMONS-2809] Bug in ContainsMethodCallTransformer</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>System.NullReferenceException if value of ContainsOperator is null.</p>
+
+<p>Solution: Check for null value, return Expression.Constant (false) if value is null.</p>
+
+<p>Use (string) cast instead of calling ToString method.</p>
+
+<p>refactoring: MethodCallTransformerUtility.CheckConstantExpression should return the constant value so that a cast is not necessary anymore.</p>
+
+<p>Same bug exists in StartsWith/EndsWith transformers.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2721"></a><h4>[COMMONS-2721] BindableDomainObject: calls to any property, that rely on the implementation, fail when originated from a constructor of a domainobject</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2422"></a><h4>[COMMONS-2422] Frontend: TakeExpressionNode and others do not detect subqueries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">(from c in Cooks select c).Take ((from k in Kitchen select k).Count())</pre>
+</div></div>
+
+<p>In this query, the item expression is not searched for subqueries.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2937"></a><h4>[COMMONS-2937] re-linq frontend now detects subqueries in expressions earlier than before</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This change only affects LINQ providers that extend re-linq by writing their own IExpressionNode/MethodCallExpressionNodeBase implementations.</p>
+
+<p>Previously, subqueries were detected in ExpressionResolver. Now, they're detected in MethodCallExpressionParser. This means that when an argument expression is passed to an expression node parser, subqueries have already been resolved.</p>
+
+<p>This change was introduced because several expression node parsers (e.g., TakeExpressionNode, ContainsExpressionNode, and many others) did not correctly perform sub-query detection on their arguments. Because it was so easy to forget that, it happens automatically now.</p>
+
+<p>For custom node parsers, this means that no manual subquery detection needs to be performed. However, all transformations (e.g., expression visitors) made upon the parsers' arguments must be able to handle SubQueryExpressions, usually by calling QueryModel.TransformExpressions to propagate the transformations to the QueryModel's inner expressions.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2930"></a><h4>[COMMONS-2930] IClientTransactionListener: Signature of RelationReading, RelationRead, RelationChanging, and RelationChanged has been updated to pass the IRelationEndPointDefinition instead of the property-name in string-form.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>To access the property name, use the IRelationEndPointDefinition's PropertyName property.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2929"></a><h4>[COMMONS-2929] IClientTransactionExtension: Signature of RelationReading, RelationRead, RelationChanging, and RelationChanged has been updated to pass the IRelationEndPointDefinition instead of the property-name in string-form.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>To access the property name, use the IRelationEndPointDefinition's PropertyName property.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2918"></a><h4>[COMMONS-2918] DataContainer.RegisterWithClientTransaction has been removed - use DataManager.RegisterDataContainer instead</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The API really belongs on DataManager.</p>
+
+<p>RegisterDataContainer has also been changed to perform additional checks. For example, the DomainObject of the DataContainer must now be set before the DataContainer can be registered. (Leaving the DomainObject property null was possible before this change, but it was always considered dangerous and could lead to exceptions later in the application.)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2900"></a><h4>[COMMONS-2900] Behavior of SmartPage's client-side onload-event has changed: OnLoad will no be called during the synchronous and asynchronous rendering of the page. </h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2796"></a><h4>[COMMONS-2796] BocAutoCompleteReferenceValue should be able to display icons in the drop-down list</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The BocAutoCompleteReferenceValue should be able to display icons in its drop-down list which are to be supplied from the associated search service.</p>
+
+<p>If any icon is provided within the displayed range of items, then any of those items without icon should get an empty icon attached - in order to have the items aligned properly.</p>
+
+<p>If no item has any icon, then no screen space should be reserved for icon display.</p>
+
+<p>This issue has already been prototyped in actanovabranch.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2735"></a><h4>[COMMONS-2735] Remove BindableDomainObject ctor taking an IBusinessObject implementation</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Classes requiring to provide a custom implementation should simply implement IBusinessObject, not inject it to BindableDomainObject.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2734"></a><h4>[COMMONS-2734] Change OnReferenceInitialized to occur before derived constructors/mixins are run and rename to OnReferenceInitializing</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Code running in OnReferenceInitialized should be executed as part of the DomainObject ctor, not after all the ctors have finished. That way, derived ctors will be able to access members initialized by OnReferenceInitialized.</p>
+
+<p>(It will also be more consistent with CreateObjectReference that way, where the event occurs immediately after a facility has created an object reference - additional initialization code runs afterwards.)</p>
+
+<p>To reflect the "execution while the object is being initialized" semantics, OnReferenceInitialized is renamed to OnReferenceInitializing (mixin OnDomainObjectReferenceInitialized is also renamed).</p>
+
+<p>Mixin initialization hooks will also be changed to run after OnReferenceInitializing.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-505"></a><h4>[COMMONS-505] Design and implement better projection support</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2870"></a><h4>[COMMONS-2870] Refactor IClientTransactionExtension to pass PropertyDefinition/IRelationEndPointDefinition instead of the property-name in string-form</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2869"></a><h4>[COMMONS-2869] Refactor IClientTransactionListener to pass PropertyDefinition/IRelationEndPointDefinition instead of the property-name in string-form</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Check afterwards, if the various implementations should keep unwrapping the property name from the endpoint.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2933"></a><h4>[COMMONS-2933] Change RelationChangingEventArgs and RelationChangedEventArgs to use IRelationEndPointDefinition instead of the property name in string form</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Drop string-property.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2922"></a><h4>[COMMONS-2922] Add a parameter to indicate an async postback to SmartPage's client-side OnLoad event </h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>New signature: <br/>
+void Function (hasSubmitted, isCached, isAsynchronous)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2879"></a><h4>[COMMONS-2879] Optimize SQL generation for distinct queries: Remove all orderbys</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Adapt DistinctResultOperatorHandler: Distinct queries do not require ORDER BY clauses because LINQ's Distinct operator allows to reorder the result.</p>
+
+<p>Also add a SQL generation integration test.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2787"></a><h4>[COMMONS-2787] Remove locks from SafeContextSingleton, they are not necessary</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

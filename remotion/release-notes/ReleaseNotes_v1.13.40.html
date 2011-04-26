@@ -1,0 +1,103 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.40</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2050"><b>
+                  [COMMONS-2050] Data.Linq:
+                </b>ResultOperatorBase.GetInputItemType has been removed</a></div><div class="listEntry"><a href="#COMMONS-2049"><b>
+                  [COMMONS-2049] Data.Linq:
+                </b>Result operators must now implement TransformExpressions</a></div><div class="listEntry"><a href="#COMMONS-2048"><b>
+                  [COMMONS-2048] Data:
+                </b>TransportedDomainObjects.FinishTransports now discards the transaction</a></div><div class="listEntry"><a href="#COMMONS-2046"><b>
+                  [COMMONS-2046] Data:
+                </b>Semantics of DataContainer.Commit/Rollback/Delete and DataContainerMap.Commit/Rollback have changed</a></div><div class="listEntry"><a href="#COMMONS-2045"><b>
+                  [COMMONS-2045] Data:
+                </b>Several methods in DataContainer, RelationEndPointMap, and PropertyValue have been renamed</a></div><div class="listEntry"><a href="#COMMONS-2044"><b>
+                  [COMMONS-2044] Data:
+                </b>DataManager.RegisterNewDataContainer and RegisterExistingDataContainer as well as RelationEndPointMap.RegisterNewDataContainer and RegisterExistingDataContainer have been replaced by single Replace... methods</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1993"><b>
+                  [COMMONS-1993] Data:
+                </b>DataContainer.Commit, Rollback, Delete, Discard are now public</a></div><div class="listEntry"><a href="#COMMONS-1989"><b>
+                  [COMMONS-1989] Data.Linq:
+                </b>Support for Aggregate result operator</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2050"></a><h4>[COMMONS-2050] ResultOperatorBase.GetInputItemType has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The method wasn't used by re-linq and didn't really fit the API. It was just a shortcut for ReflectionUtility.GetItemTypeOfIEnumerable.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2049"></a><h4>[COMMONS-2049] Result operators must now implement TransformExpressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, ResultOperatorBase provided a default implementation of TransformExpressions which didn't do anything. Because of this, it was easy to forget to implement that method when writing a result operator holding an expression.</p>
+
+<p>Therefore, the method was made abstract instead, this will force subclasses to make a conscious decision about whether to implement the method or not.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2048"></a><h4>[COMMONS-2048] TransportedDomainObjects.FinishTransports now discards the transaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In some constellations, TransportedDomainObjects.FinishTransports will cause an inconsistent state in the ClientTransaction holding<br/>
+the transported objects. To avoid strange bugs, TransportedDomainObjects.FinishTransports has been changed to discard the transaction so that it can't be used any longer.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2046"></a><h4>[COMMONS-2046] Semantics of DataContainer.Commit/Rollback/Delete and DataContainerMap.Commit/Rollback have changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>These methods used to discard objects in addition to changing state.<br/>
+They now have very specific semantics:</p>
+<ul class="alternate" type="square">
+	<li>DataContainer.Commit/Rollback/Delete only affect the state of the DataContainer. They do not discard the DataContainer, and they do not call back to the DataManager.</li>
+	<li>DataContainerMap.Commit/Rollback now recursively call Commit/Rollback on the DataContainers. They do not remove or discard DataContainers.</li>
+	<li>DataContainerMap.Remove can be used to remove a DataContainer from the map. DataContainer.Discard can be used to move a DataContainer to discarded state.</li>
+	<li>DataManager.Commit/Rollback orchestrate everything between DataContainers and maps.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2045"></a><h4>[COMMONS-2045] Several methods in DataContainer, RelationEndPointMap, and PropertyValue have been renamed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Rollback, Commit, and Discard are now more aptly named to describe what those methods actually do.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2044"></a><h4>[COMMONS-2044] DataManager.RegisterNewDataContainer and RegisterExistingDataContainer as well as RelationEndPointMap.RegisterNewDataContainer and RegisterExistingDataContainer have been replaced by single Replace... methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The methods DataManager.RegisterDataContainer and RelationEndPointMap.RegisterEndPointsForDataContainer now automatically register the data container correctly based on its state. For new data containers, all end points are automatically registered; for existing data containers, only the foreign-key-based end points are automatically registered (the other ones are lazily loaded on access).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1993"></a><h4>[COMMONS-1993] DataContainer.Commit, Rollback, Delete, Discard are now public</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1989"></a><h4>[COMMONS-1989] Support for Aggregate result operator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>There are two versions of the aggregate operation: one simply aggregates the values into a compond value (<tt>ints.Aggregate ((total, i) =&gt; total + i)</tt>, the other takes a seed and accumulates the values with the seed (<tt>ints.Aggregate ("Result: ", (totalString, i) =&gt; totalString + " " + i)</tt>. The latter variant can also take a result selector that transforms the final result before it is returned.</p>
+
+<p>These two variants are expressed by re-linq by two result operators: AggregateResultOperator and AggregateFromSeedResultOperator. Both hold the aggregating function as a resolved LambdaExpression with exactly one parameter: the value accumulated so far. The input data is represented by a query source reference: <tt>(from i in ints select i).Aggregate (total =&gt; total + <span class="error">&#91;i&#93;</span>)</tt>. The resolved form makes the expression easier to analyze and the result operators consistent with the other clauses and result operators. The unresolved lambda can be retrieved by reverse-resolving the expression using ReverseResolvingExpressionTreeVisitor.</p></span></div></div></body></html>

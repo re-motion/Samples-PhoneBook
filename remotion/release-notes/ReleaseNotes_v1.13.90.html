@@ -1,0 +1,199 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.90</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3668"><b>
+                  [RM-3668] ObjectBinding.Web:
+                </b>The padding of search value with wildcards in auto-complete control is not correct</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3671"><b>
+                  [RM-3671] Data:
+                </b>Loading of objects with foreign keys can cause an item to be added to an already loaded collection in a 1:n relationship</a></div><div class="listEntry"><a href="#RM-3669"><b>
+                  [RM-3669] Data:
+                </b>When a related object collection is loaded from the data source, the current ClientTransaction state is now taken into consideration</a></div><div class="listEntry"><a href="#RM-3667"><b>
+                  [RM-3667] Data:
+                </b>Resolving virtual 1:1 relations can cause LoadConflictExceptions if the loaded object contradicts an existing object</a></div><div class="listEntry"><a href="#RM-3666"><b>
+                  [RM-3666] Data:
+                </b>Loading of objects with foreign keys can cause LoadConflictExceptions if the foreign keys contradict existing foreign keys (or null relation values)</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3520"><b>
+                  [RM-3520] ObjectBinding.Web Web:
+                </b>Provide a LegacyServiceConfigurationService in Remotion.Web and Remotion.ObjectBinding.Web</a></div><div class="listEntry"></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3668"></a><h4>[RM-3668] The padding of search value with wildcards in auto-complete control is not correct</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In an AutoComplete control the entered search value is padded with the remaining text of the first matching option found.<br/>
+If a wildcard "*" is used in the entered value, the padding may be incorrect.</p></span></div></div><div class="detailEntry  "><a name="RM-3671"></a><h4>[RM-3671] Loading of objects with foreign keys can cause an item to be added to an already loaded collection in a 1:n relationship</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In a 1:n bidirectional relationship, when the related object collection is loaded, a query is executed against the underlying data source. The objects in the result set are loaded into the respective ClientTransaction (unless they already exist there), and the collection's contents is then inferred from the items present in the ClientTransaction.</p>
+
+<p>When then, later, an object is loaded that also holds a foreign key to the object owning the collection, a conflict arises.</p>
+
+<p>Consider the following example (Order - OrderItems):</p>
+<ol>
+	<li>Order1.OrderItems is resolved and causes OrderItem1 and OrderItem2 to be loaded into the ClientTransaction, both holding foreign keys back to Order1. Order1.OrderItems is determined to be the collection <span class="error">&#91;OrderItem1, OrderItem2&#93;</span>.</li>
+	<li>Object OrderItem3 is loaded (eg., by ID or via a search query), and it also contains a foreign key back to Order1.</li>
+</ol>
+
+
+<p>This is a conflict because the query in step 1 was supposed to return all OrderItems that hold a foreign key back to Order1, but now an additional item has been found. This is a general problem with lazy loading of objects, and it can occur when the underlying data source changes between step 1 and step 2. It can only be technically prevented by using a database transaction that spans both steps 1 and 2.</p>
+
+<p>Previously, this scenario caused an inconsistency in the internal data structures of re-store: Order1.OrderItems was <span class="error">&#91;OrderItem1, OrderItem2&#93;</span>, but OrderItem3.Order would point back to Order1. This could lead to nasty bugs (including assertion failures in re-store itself), and it could not be remedied by the application developer.</p>
+
+<p>The behavior in this scenario has now been changed: when an object with a foreign key that is part of an 1:n relationship is loaded into the ClientTransaction, the item is automatically added to the respective collection. When that collection has already been "resolved" before, the item will be added at the end of the collection without considering the SortExpression or raising an ItemAdding/ItemAdded event (or calling the OnItemAdding/OnItemAdded methods) or any relation change events.</p>
+
+<p>The reason for not considering the SortExpression is that the collection might have changed in the meantime, and the original sort order might no longer be valid. Considering the SortExpression would not reliably lead to a state equivalent to that in the underlying data source, although it might give the impression that it would. In addition, transparently inserting objects into collections at arbitrary positions would automatically invalidate any stored (selection) indexes and similar.</p>
+
+<p>The reason for not raising the ItemAdding/ItemAdded events is that the semantics of these events (as with the relation change events) is that the collection has been changed, ie., the original state and the current state differ. This is not the case in this scenario; the collection has not changed, the loaded object is part of the original state of the collection. A separate event solely for this situation is currently being considered (<a href="https://jira.rubicon.eu/browse/RM-3671" title="Loading of objects with foreign keys can cause an item to be added to an already loaded collection in a 1:n relationship"><del>RM-3671</del></a>).</p>
+
+<p>Most applications using DomainObjectCollections should not be negatively affected by this change. Just keep in mind that DomainObjectCollections might change when objects that could potentially be collection items are loaded (by query, ID, or a relation property lookup). Specifically, keep this in mind when iterating over a collection via foreach, and avoid performing unconstrained load operations from within such loops. Iteration using an index into the collection (eg, via for loops) should be able to handle the new items gracefully.</p>
+
+<p>Collections bound to BocLists should continue to work alright because new items are always attached to the end of the collection, thus not affecting selection indexes etc.</p>
+
+<p>Subclassed DomainObjectCollections that keep state additional to that managed by re-store might need to take additional considerations. For example, "indexed collections", where the items keep a property storing their position in the owning collection, now have to deal with loaded objects being registered at the end of the collection without the ItemAdded events being called. Collections are often implemented in such a way that they recalculate the items' indexes whenever an item is added or removed and when the item owning the collection is committed. The latter might cause such implementations to trigger ConcurrencyViolationExceptions that were not present before this change because reindexing will cause the additional item's index to be overwritten with a new value.</p>
+
+<p><b>To avoid this additional ConcurrencyViolationException, reindexing on commit should be handled with care.</b> If it cannot be avoided, the algorithm might need to perform additional checks to determine whether a reindexing operation is actually necessary.</p></span></div></div><div class="detailEntry  "><a name="RM-3669"></a><h4>[RM-3669] When a related object collection is loaded from the data source, the current ClientTransaction state is now taken into consideration</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Consider the following scenario (Order - OrderItems):</p>
+<ol>
+	<li>Object OrderItem1 is loaded, holding a foreign key to Order1.</li>
+	<li>Order1.OrderItems is resolved, the data source returns [ OrderItem2, OrderItem3 ]</li>
+</ol>
+
+
+<p>This can happen when the database has changed between steps 1 and 2.</p>
+
+<p>Previously, this would produce an inconsistent state in the ClientTransaction, with:</p>
+<ul class="alternate" type="square">
+	<li>Order1.OrderItems being [ OrderItem2, OrderItem3 ], but</li>
+	<li>OrderItem1.Order being Order1.</li>
+</ul>
+
+
+<p>This could lead to nasty bugs (including assertion failures in re-store itself), and it could not be remedied by the application developer.</p>
+
+<p>This has now changed. Now, when a related object collection is loaded, the current ClientTransaction state is taken into consideration. This means that:</p>
+<ul class="alternate" type="square">
+	<li>when an item in the local ClientTransaction does not hold a foreign key to the object owning the collection, the item is not included in the collection (even if the data source returns that item);</li>
+	<li>when an item in the local ClientTransaction holds a foreign key to the object owning the collection, the item is included (even if the data source does not return that item).</li>
+</ul>
+
+
+<p>While this achieves in-memory consistency, a user of re-store should not assume that a DomainObjectCollection in the local ClientTransaction matches exactly the respective set of DomainObjects in the database at any time, unless a TransactionScope or some similar concept is used to ensure that different read operations on the data source always work on the same database state.</p>
+
+<p>If a calculation is made on the contents of a related object collection and it is important that the content does not change until the calculated value is committed, then:</p>
+<ul class="alternate" type="square">
+	<li>the object owning the collection should be included in the commit set, and</li>
+	<li>the domain model should be programmed in such a way that all changes to the collection always cause that object to be included in the respective commit set as well.</li>
+</ul>
+
+
+<p>This can be achieved by calling the MarkAsChanged() method in the respective places. That way, a ConcurrencyViolationException will be raised on Commit if the collection changes while the value is being calculated.</p></span></div></div><div class="detailEntry  "><a name="RM-3667"></a><h4>[RM-3667] Resolving virtual 1:1 relations can cause LoadConflictExceptions if the loaded object contradicts an existing object</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When a virtual 1:1 relation property (ie, the property in a bidirectional 1:1 relation that does not hold the foreign key) is loaded and that load operation returns an object that already exists in the ClientTransaction, a LoadConflictException will be thrown.</p>
+
+<p>Consider the following example (using Order - OrderTicket, where OrderTicket contains the foreign key):</p>
+<ul class="alternate" type="square">
+	<li>Object OrderTicket1 is loaded, holding a foreign key to Order1.</li>
+	<li>Order2.OrderTicket is resolved by issuing a database query. The query returns OrderTicket1.</li>
+</ul>
+
+
+<p>This is a conflict because in bidirectional 1:1 relations, OrderTicket1 can only relate to one object. It can occur when a relation property is accessed for the first time, or when a relation property is indirectly loaded (eg, because Order2 is assigned a new OrderTicket).</p>
+
+<p>The reason for this conflict is usually that the database has changed between steps 1 and 2. The LoadConflictException is thrown when the related object is to be registered in the ClientTransaction, and it will result in the relation property remaining in "unresolved" state. The load operation triggering the conflict is aborted and no related object is returned.</p>
+
+<p>Previously, this scenario caused an AssertionException in ObjectLoader, with a text similar to: "ObjectEndPoints are created eagerly, so this related object can't have been loaded so far. (Otherwise LoadRelatedDataContainer wouldn't have been called.)". This has now been changed to throw a LoadConflictException.</p></span></div></div><div class="detailEntry  "><a name="RM-3666"></a><h4>[RM-3666] Loading of objects with foreign keys can cause LoadConflictExceptions if the foreign keys contradict existing foreign keys (or null relation values)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When loading a single object that holds the foreign key of a bidirectional 1:1 relationship, the scenarios similar to the following lead to a conflict:</p>
+<ol>
+	<li>Sample scenario: Order - OrderTicket; OrderTicket contains the foreign key</li>
+	<li>Object OrderTicket1 is loaded, holding a foreign key to Order1.</li>
+	<li>Object OrderTicket2 is loaded, also holding a foreign key to Order1.</li>
+</ol>
+
+
+<p>This is a conflict because in a bidirectional 1:1 relation, only one object can relate to Order1. It can occur when an object is manually loaded by ID, when a number of objects is loaded by ID, when a query result is loaded, when a relation is resolved, and in other scenarios.</p>
+
+<p>It will also occur when the virtual side Order1.OrderTicket is resolved (no matter whether it is resolved to an actual object or to null) and then OrderTicket2 is loaded, holding a foreign key to Order1.</p>
+
+<p>The reason for this conflict can be an inconsistent state in the database, but it can also be caused by the database changing between steps 2 and 3.</p>
+
+<p>This scenario used to cause an inconsistency in re-store, and previously triggered an InvalidOperationException (with a message of "Key already exists") in the RelationEndPointMap class. This has now been changed to throw a LoadConflictException.</p></span></div></div><div class="detailEntry  "><a name="RM-3520"></a><h4>[RM-3520] Provide a LegacyServiceConfigurationService in Remotion.Web and Remotion.ObjectBinding.Web</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Each LegacyServiceConfigurationService returns the service configuration entries for its assembly. This allows users of the legacy rendering mode to instantiate their IoC container in a fashion similar to DefaultServiceConfigurationDiscoveryService.<br/>
+Remotion.Web.Legacy:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> class LegacyServiceConfigurationService
+{
+  IEnumerable&lt;ServiceConfigurationEntry&gt; GetConfiguration();
+}</pre>
+</div></div>
+<p>Remotion.ObjectBinding.Web.Legacy:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> class BocLegacyServiceConfigurationService
+{
+  IEnumerable&lt;ServiceConfigurationEntry&gt; GetConfiguration();
+}</pre>
+</div></div>
+<p>To set up a project with the legacy configuration, it is possible to initialize the DefaultServiceProvider using the ServiceConfigurationEntries returned by the LegacyServiceConfiguration and BocLegacyServiceConfiguraton:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">DefaultServiceLocator defaultServiceLocator = <span class="code-keyword">new</span> DefaultServiceLocator();
+
+foreach (<span class="code-keyword">var</span> entry in LegacyServiceConfigurationService.GetConfiguration())
+  defaultServiceLocator.Register (entry);
+
+foreach (<span class="code-keyword">var</span> entry in BocLegacyServiceConfigurationService.GetConfiguration())
+  defaultServiceLocator.Register (entry);
+
+ServiceLocator.SetLocatorProvider (() =&gt; defaultServiceLocator);</pre>
+</div></div></span></div></div></body></html>

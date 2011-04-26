@@ -1,0 +1,193 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.43</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2165"><b>
+                  [COMMONS-2165] ObjectBinding.Web:
+                </b>BocDateTimeValue is not correctly displayed in IE &amp; FF</a></div><div class="children"><a href="#COMMONS-1857"><b>
+            [COMMONS-1857] ObjectBinding.Web:
+          </b>BocDateTimeValue in GridEditMode of the BocList is not correctly displayed in StandardMode (IE7, IE6) (NovaBlue)</a></div><div class="children"><a href="#COMMONS-1855"><b>
+            [COMMONS-1855] ObjectBinding.Web:
+          </b>BocDateTimeValue in GridEditMode of the BocList is not correctly displayed in StandardMode (IE8, FF3) (ClassicBlue)</a></div><div class="children"><a href="#COMMONS-1853"><b>
+            [COMMONS-1853] ObjectBinding.Web:
+          </b>BocDateTimeValue in GridEditMode of the BocList is not correctly displayed in StandardMode (IE7, IE6) (ClassicBlue)</a></div><div class="children"><a href="#COMMONS-1850"><b>
+            [COMMONS-1850] ObjectBinding.Web:
+          </b>DateTimeValue in StandardMode is not correctly displayed in StandardMode (IE8, FF3) (NovaBlue)</a></div><div class="listEntry"><a href="#COMMONS-2146"><b>
+                  [COMMONS-2146] Data.Linq:
+                </b>Linq: Conditions with boolean properties in a where clause do not work anymore</a></div><div class="listEntry"><a href="#COMMONS-2131"><b>
+                  [COMMONS-2131] ObjectBinding.Web:
+                </b>bocAutoCompleteReferenceValue is not rendered properly in IE6</a></div><div class="listEntry"><a href="#COMMONS-2130"><b>
+                  [COMMONS-2130] ObjectBinding.Web:
+                </b>In bocReferenceValue disabled the bocReferenceValueOptionsMenu is not vertically aligned</a></div><div class="listEntry"><a href="#COMMONS-2129"><b>
+                  [COMMONS-2129] ObjectBinding.Web:
+                </b>DropDownMenuSelect disabled is overlapping bottom margin</a></div><div class="listEntry"><a href="#COMMONS-2128"><b>
+                  [COMMONS-2128] ObjectBinding.Web:
+                </b>In bocReferenceValue the bocReferenceValueOptionsMenu is not vertically aligned</a></div><div class="listEntry"></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2173"><b>
+                  [COMMONS-2173] Data:
+                </b>DomainObjectCollection.OnDeleting/OnDeleted are now called in line with all other begin/end events</a></div><div class="listEntry"><a href="#COMMONS-2166"><b>
+                  [COMMONS-2166] Data:
+                </b>Breaking change in the order of RelationChanging/RelationChanged/Deleted events</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2172"><b>
+                  [COMMONS-2172] Data:
+                </b>DomainObjectCollection.Deleting and Deleted events</a></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2156"><b>
+                  [COMMONS-2156] Data.Linq:
+                </b>Release notes for re-linq build</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-730"><b>
+                    [COMMONS-730] Data:
+                  </b>Provide support for unloading unchanged objects from a ClientTransaction</a></span></div><div class="children"><a href="#COMMONS-2102"><b>
+            [COMMONS-2102] Data:
+          </b>Recursive versions of DomainObjectUnloader functions</a></div><div class="children"><a href="#COMMONS-2070"><b>
+            [COMMONS-2070] Data:
+          </b>DomainObjectUnloader.UnloadCollectionEndPointAndData</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2165"></a><h4>[COMMONS-2165] BocDateTimeValue is not correctly displayed in IE &amp; FF</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1857"></a><h4>[COMMONS-1857] BocDateTimeValue in GridEditMode of the BocList is not correctly displayed in StandardMode (IE7, IE6) (NovaBlue)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1855"></a><h4>[COMMONS-1855] BocDateTimeValue in GridEditMode of the BocList is not correctly displayed in StandardMode (IE8, FF3) (ClassicBlue)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1853"></a><h4>[COMMONS-1853] BocDateTimeValue in GridEditMode of the BocList is not correctly displayed in StandardMode (IE7, IE6) (ClassicBlue)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1850"></a><h4>[COMMONS-1850] DateTimeValue in StandardMode is not correctly displayed in StandardMode (IE8, FF3) (NovaBlue)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The screenshot of the ClassicBlue theme shows the correct layout.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2146"></a><h4>[COMMONS-2146] Linq: Conditions with boolean properties in a where clause do not work anymore</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>These are all the variants that lead to SqlExceptions:<br/>
+          where e.BooleanProperty == true<br/>
+          where !e.BooleanProperty<br/>
+          where e.Int32Property == 2147483647 &amp;&amp; !e.BooleanProperty<br/>
+          where e.Int32Property == -2147483647 &amp;&amp; e.BooleanProperty<br/>
+          where e.Int32Property == -2147483647 &amp;&amp; e.BooleanProperty == true<br/>
+          where e.Int32Property == 2147483647 &amp;&amp; e.BooleanProperty == false</p>
+
+<p>=&gt; fixed in Acta Nova branch</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2131"></a><h4>[COMMONS-2131] bocAutoCompleteReferenceValue is not rendered properly in IE6</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2130"></a><h4>[COMMONS-2130] In bocReferenceValue disabled the bocReferenceValueOptionsMenu is not vertically aligned</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>bocReferenceValueOptionsMenu is 2px lower then select box</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2129"></a><h4>[COMMONS-2129] DropDownMenuSelect disabled is overlapping bottom margin</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2128"></a><h4>[COMMONS-2128] In bocReferenceValue the bocReferenceValueOptionsMenu is not vertically aligned</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2173"></a><h4>[COMMONS-2173] DomainObjectCollection.OnDeleting/OnDeleted are now called in line with all other begin/end events</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, ClientTransaction.OnDeleting and ClientTransaction.OnDeleted were called in the "Perform" step of the delete operation, i.e., they occurred immediately around the change and were not in line with all other events. In fact, OnDeleting might occur after some of the changes had already been performed, and OnDeleted might occur before all changes had been performed. Due to this, OnDeleting could not be used to cancel the operation.</p>
+
+<p>Now, those events are called in line with all other begin/end events occurring during a delete operation, directly after the DomainObject.Deleting event, and before the DomainObject.RelationChanging event.</p>
+
+<p>Cancelling the operation from DomainObjectCollection.OnDeleting is now also safe.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2166"></a><h4>[COMMONS-2166] Breaking change in the order of RelationChanging/RelationChanged/Deleted events</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>For symmetry between the operations, and because it seems to be more logical, the order of RelationChanged  and Deleted events and notifications has been changed so that the end events are now raised in exactly the opposite order of the begin events.</p>
+
+<h5><a name="Oldorderofeventsforrelationchangeoperation"></a>Old order of events for relation change operation</h5>
+
+<ol>
+	<li>IClientTransactionListener/Extension.RelationChanging (o1)</li>
+	<li>IClientTransactionListener/Extension.RelationChanging (o2)</li>
+	<li>o1.OnRelationChanging/RelationChanging</li>
+	<li>o2.OnRelationChanging/RelationChanging</li>
+	<li>actual change is performed</li>
+	<li>IClientTransactionListener/Extension.RelationChanged (o1)</li>
+	<li>IClientTransactionListener/Extension.RelationChanged (o2)</li>
+	<li>o1.OnRelationChanging/RelationChanged</li>
+	<li>o2.OnRelationChanging/RelationChanged</li>
+</ol>
+
+
+<h5><a name="Neworderofeventsforrelationchangeoperation"></a>New order of events for relation change operation</h5>
+
+<ol>
+	<li>IClientTransactionListener/Extension.RelationChanging (o1)</li>
+	<li>IClientTransactionListener/Extension.RelationChanging (o2)</li>
+	<li>o1.OnRelationChanging/RelationChanging</li>
+	<li>o2.OnRelationChanging/RelationChanging</li>
+	<li>actual change is performed</li>
+	<li>o2.OnRelationChanging/RelationChanged</li>
+	<li>o1.OnRelationChanging/RelationChanged</li>
+	<li>IClientTransactionListener/Extension.RelationChanged (o2)</li>
+	<li>IClientTransactionListener/Extension.RelationChanged (o1)</li>
+</ol>
+
+
+<h5><a name="OldorderofeventsforDeleteoperation"></a>Old order of events for Delete operation</h5>
+
+<ol>
+	<li>orderItem.OnDeleting</li>
+	<li>order.OrderItems.Removing event</li>
+	<li>Relation changing events for order.OrderItems</li>
+	<li>actual changes are performed</li>
+	<li>order.OrderItems.Removed event</li>
+	<li>Relation changed events for order.OrderItems (in same order as step 3)</li>
+	<li>orderItem.OnDeleted</li>
+</ol>
+
+
+<h5><a name="NeworderofeventsforDeleteoperation"></a>New order of events for Delete operation</h5>
+
+<ol>
+	<li>orderItem.OnDeleting</li>
+	<li>order.OrderItems.Removing event</li>
+	<li>Relation changing events for order.OrderItems</li>
+	<li>actual changes are performed</li>
+	<li>Relation changed events for order.OrderItems (in opposite order of step 3)</li>
+	<li>order.OrderItems.Removed event</li>
+	<li>orderItem.OnDeleted</li>
+</ol>
+
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2172"></a><h4>[COMMONS-2172] DomainObjectCollection.Deleting and Deleted events</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Same semantics as OnDeleting and OnDeleted, but publicly subscribable.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2156"></a><h4>[COMMONS-2156] Release notes for re-linq build</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-730"></a><h4>[COMMONS-730] Provide support for unloading unchanged objects from a ClientTransaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Reopened</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">1.13.44</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-2102"></a><h4>[COMMONS-2102] Recursive versions of DomainObjectUnloader functions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The methods provided by DomainObjectUnloader are also offered in versions that iterate over the transaction hierarchy in order to completely get rid of an object or end point.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2070"></a><h4>[COMMONS-2070] DomainObjectUnloader.UnloadCollectionEndPointAndData</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This can be used to unload a CollectionEndPoint together with its contents' DataContainers in one go.</p></span></div></div></body></html>

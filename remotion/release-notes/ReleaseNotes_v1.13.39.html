@@ -1,0 +1,121 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.39</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2017"><b>
+                  [COMMONS-2017] Data:
+                </b>When a parent transaction's domain object's properties are changed to their original values by a subtransaction's commit, the object's State remains Changed</a></div><div class="listEntry"><a href="#COMMONS-1965"><b>
+                  [COMMONS-1965] DmsTray:
+                </b>DmsTray: Recovered files should be deleted on the client side</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2041"><b>
+                  [COMMONS-2041] Data:
+                </b>ObjectEndPoint is now abstract with two subclasses: RealObjectEndPoint and VirtualObjectEndPoint</a></div><div class="listEntry"><a href="#COMMONS-2027"><b>
+                  [COMMONS-2027] Data:
+                </b>DataContainer.RegisterNewDataContainer and RegisterLoadedDataContainer have been unified into DataContainer.RegisterWithTransaction</a></div><div class="listEntry"><a href="#COMMONS-2026"><b>
+                  [COMMONS-2026] Data:
+                </b>Registering a loaded DataContainer with a ClientTransaction via DataContainer.Register... will no longer set the DataContainer's DomainObject</a></div><div class="listEntry"><a href="#COMMONS-2024"><b>
+                  [COMMONS-2024] Data:
+                </b>ClientTransaction.SetClientTransaction (DataContainer) has been removed</a></div><div class="listEntry"><a href="#COMMONS-2023"><b>
+                  [COMMONS-2023] Data:
+                </b>Some members of RelationEndPoint that delegated to IRelationEndPointDefinition have been removed</a></div><div class="listEntry"><a href="#COMMONS-2016"><b>
+                  [COMMONS-2016] Data:
+                </b>Internal methods DataContainer.AssumeSameState and TakeOverCommittedData have been removed</a></div><div class="listEntry"><a href="#COMMONS-2015"><b>
+                  [COMMONS-2015] Data:
+                </b>DataContainer.CreateAndCopyState and DataContainer.Clone have been unified into a single Clone (ObjectID) method</a></div><div class="listEntry"><a href="#COMMONS-2001"><b>
+                  [COMMONS-2001] Data:
+                </b>IClientTransactionExtension.RelationRead and IClientTransactionListener.RelationRead now receive a read-only wrapper of the related object collection instead of a copy</a></div><div class="listEntry"><a href="#COMMONS-1892"><b>
+                  [COMMONS-1892] Data:
+                </b>RelationChanging events now symmetric when a related collection is replaced</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2017"></a><h4>[COMMONS-2017] When a parent transaction's domain object's properties are changed to their original values by a subtransaction's commit, the object's State remains Changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1965"></a><h4>[COMMONS-1965] DmsTray: Recovered files should be deleted on the client side</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2041"></a><h4>[COMMONS-2041] ObjectEndPoint is now abstract with two subclasses: RealObjectEndPoint and VirtualObjectEndPoint</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2027"></a><h4>[COMMONS-2027] DataContainer.RegisterNewDataContainer and RegisterLoadedDataContainer have been unified into DataContainer.RegisterWithTransaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The kind of registration performed is determined by the DataContainer's state (New or otherwise).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2026"></a><h4>[COMMONS-2026] Registering a loaded DataContainer with a ClientTransaction via DataContainer.Register... will no longer set the DataContainer's DomainObject</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This was done for symmetry; new objects don't get a DomainObject on registration either. <br/>
+Use DataContainer.SetDomainObject to manually set the object reference.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2024"></a><h4>[COMMONS-2024] ClientTransaction.SetClientTransaction (DataContainer) has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>That API was potentially dangerous as it set only half of the necessary state and performed no checks. Use the DataContainer.Register... (ClientTransaction) method instead to register a DataContainer with a ClientTransaction.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2023"></a><h4>[COMMONS-2023] Some members of RelationEndPoint that delegated to IRelationEndPointDefinition have been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Directly call the member on endPoint.Definition instead.</p>
+
+<p>E.g., instead of <tt>endPoint.OppositeEndPointDefinition</tt>, use <tt>endPoint.Definition.GetOppositeEndPointDefinition()</tt>.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2016"></a><h4>[COMMONS-2016] Internal methods DataContainer.AssumeSameState and TakeOverCommittedData have been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use SerPropertyValuesFrom, SetTimestamp, SetDomainObject, etc.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2015"></a><h4>[COMMONS-2015] DataContainer.CreateAndCopyState and DataContainer.Clone have been unified into a single Clone (ObjectID) method</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2001"></a><h4>[COMMONS-2001] IClientTransactionExtension.RelationRead and IClientTransactionListener.RelationRead now receive a read-only wrapper of the related object collection instead of a copy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, a copy of the related object collections was made every time a relation was read. Since this was very bad for performance, a read-only wrapper is now passed to listeners to the relation read event.</p>
+
+<p>As a side-effect, listeners that choose to modify the relation while reacting on the event (which has never been explicitly forbidden, but has always been considered dangerous) will see those modifications reflected in the event parameter. It seems that this side issue is by far less important than the performance issue.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1892"></a><h4>[COMMONS-1892] RelationChanging events now symmetric when a related collection is replaced</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>For a statement of the form "customer.Orders = myCollection", DomainObject.RelationChanging as well as IClientTransactionListener.RelationChanging and IClientTransactionListener.RelationChanged are now triggered symmetrically for both sides of the relation.</p>
+
+<p>for each Order oOld which used to be associated with customer, but no longer is:</p>
+<ul class="alternate" type="square">
+	<li>oOld.RelationChanging ("Namespace.Order.Customer", oldRelatedObject = customer, newRelatedObject = null)</li>
+	<li>customer.RelationChanging ("Namespace.Customer.Orders", oldRelatedObject = oOld, newRelatedObject = null)</li>
+</ul>
+
+
+<p>for each Order oNew which used to be associated to another Customer cOld (may be null), but now is assoicated with customer:</p>
+<ul class="alternate" type="square">
+	<li>oNew.RelationChanging ("Namespace.Order.Customer", oldRelatedObject = cOld, newRelatedObject = customer)</li>
+	<li>customer.RelationChanging ("Namespace.Customer.Orders", oldRelatedObject = null, newRelatedObject = oNew)</li>
+</ul>
+</span></div></div></body></html>

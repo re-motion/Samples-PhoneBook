@@ -1,0 +1,273 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.93</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3723"><b>
+                  [RM-3723] Data.Linq:
+                </b>The NodeTypeRegistry properties on QueryParser and ExpressionTreeParser have been replaced by NodeTypeProvider properties</a></div><div class="listEntry"><a href="#RM-3722"><b>
+                  [RM-3722] Data.Linq:
+                </b>All "Contains" methods on types implementing IEnumerable (apart from String) are now represented by the ContainsResultOperator</a></div><div class="listEntry"><a href="#RM-3721"><b>
+                  [RM-3721] Data.Linq:
+                </b>INodeTypeProvider implementations (MethodInfoBasedNodeTypeRegistry, MethodNameBasedNodeTypeRegistry, etc.) now return null from their GetNodeType methods when no node type was found</a></div><div class="listEntry"><a href="#RM-3720"><b>
+                  [RM-3720] Data.Linq:
+                </b>The code required to create a customized query parser has changed (MethodCallExpressionNodeTypeRegistry, IExpressionTreeProcessingStep, ExpressionTreeParser)</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3719"><b>
+                  [RM-3719] Data.Linq:
+                </b>re-linq now detects "Contains" methods on all types implementing IEnumerable as query operators</a></div><div class="listEntry"><a href="#RM-3711"><b>
+                  [RM-3711] Data.Linq:
+                </b>ExpressionTreeVisitor now automatically converts the arguments of NewExpressions if needed by the associated members</a></div><div class="listEntry"><a href="#RM-3707"><b>
+                  [RM-3707] Build &amp; Tooling Core Data Data.Linq Data.Linq for re-store Development DMS Mixins ObjectBinding ObjectBinding.Web Scripting Security SecurityManager Support Web Web.ExecutionEngine:
+                </b>Keep full API docs in Intellisense files</a></div><div class="listEntry"><a href="#RM-3630"><b>
+                  [RM-3630] Data.Linq:
+                </b>Provide transformations that add member meta-info to common tuple-like constructor calls</a></div><div class="listEntry"><a href="#RM-3472"><b>
+                  [RM-3472] Data.Linq:
+                </b>Update partial evaluator to inline IQueryable ConstantExpressions in re-linq front end</a></div><div class="listEntry"><a href="#RM-3341"><b>
+                  [RM-3341] Data.Linq:
+                </b>Add a filtering mechanism to expression node types registered by names</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3723"></a><h4>[RM-3723] The NodeTypeRegistry properties on QueryParser and ExpressionTreeParser have been replaced by NodeTypeProvider properties</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This change has been made in the course of larger refactorings.</p>
+
+<p>If you use these properties to customize a default QueryParser (created via QueryParser.CreateDefault), you can cast the result of the NodeTypeProvider property to CompoundNodeTypeProvider and manipulate its InnerProviders property (adding new providers/registries or removing existing ones).</p>
+
+<p>It is recommended, however, to create customized QueryParsers as follows:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">private</span> <span class="code-keyword">static</span> IQueryParser CreateQueryParser ()
+{
+  <span class="code-keyword">var</span> customNodeTypeRegistry = <span class="code-keyword">new</span> MethodInfoBasedNodeTypeRegistry();
+  <span class="code-comment">// Register custom node parsers here:
+</span>  <span class="code-comment">// customNodeTypeRegistry.Register (MyExpressionNode.SupportedMethods, typeof (MyExpressionNode));
+</span>  <span class="code-comment">// Alternatively, use the CreateFromTypes factory method.
+</span>  <span class="code-comment">// Use MethodNameBasedNodeTypeRegistry to register parsers by query <span class="code-keyword">operator</span> name instead of MethodInfo.
+</span>
+  <span class="code-keyword">var</span> nodeTypeProvider = ExpressionTreeParser.CreateDefaultNodeTypeProvider ();
+  nodeTypeProvider.InnerProviders.Add (customNodeTypeRegistry);
+
+  <span class="code-keyword">var</span> transformerRegistry = ExpressionTransformerRegistry.CreateDefault ();
+  <span class="code-comment">// Register custom expression transformers here:
+</span>  <span class="code-comment">// transformerRegistry.Register (<span class="code-keyword">new</span> MyExpressionTransformer());
+</span>
+  <span class="code-keyword">var</span> processor = ExpressionTreeParser.CreateDefaultProcessor (transformerRegistry);
+  <span class="code-comment">// Add custom processors here:
+</span>  <span class="code-comment">// processor.InnerProcessors.Add (<span class="code-keyword">new</span> MyExpressionTreeProcessor());
+</span>
+  <span class="code-keyword">var</span> expressionTreeParser = <span class="code-keyword">new</span> ExpressionTreeParser (nodeTypeProvider, processor);
+  <span class="code-keyword">var</span> queryParser = <span class="code-keyword">new</span> QueryParser (expressionTreeParser);
+
+  <span class="code-keyword">return</span> queryParser;
+}</pre>
+</div></div>
+
+<p>That way, the NodeTypeProvider property needn't be used for customization.</p></span></div></div><div class="detailEntry  "><a name="RM-3722"></a><h4>[RM-3722] All "Contains" methods on types implementing IEnumerable (apart from String) are now represented by the ContainsResultOperator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This change has been made in order to support Contains methods on custom collection types by default.</p></span></div></div><div class="detailEntry  "><a name="RM-3721"></a><h4>[RM-3721] INodeTypeProvider implementations (MethodInfoBasedNodeTypeRegistry, MethodNameBasedNodeTypeRegistry, etc.) now return null from their GetNodeType methods when no node type was found</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, those methods throw a KeyNotFoundException.<br/>
+This has been changed in order to provide for more efficient composability.</p></span></div></div><div class="detailEntry  "><a name="RM-3720"></a><h4>[RM-3720] The code required to create a customized query parser has changed (MethodCallExpressionNodeTypeRegistry, IExpressionTreeProcessingStep, ExpressionTreeParser)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The MethodCallExpressionNodeTypeRegistry has been replaced by an interface with three implementations: INodeTypeProvider, MethodInfoBasedNodeTypeRegistry, MethodNameBasedNodeTypeRegistry, and CompoundNodeTypeProvider. The MethodCallExpressionNodeTypeRegistry.CreateDefault method has been replaced by ExpressionTreeParser.CreateDefaultNodeTypeProvider, which now creates a CompoundNodeTypeProvider holding default instances of MethodInfoBasedNodeTypeRegistry and MethodNameBasedNodeTypeRegistry. Change the defaults by adding, inserting, or removing instances to/from the default CompoundNodeTypeProvider (see below).</p>
+
+<p>The IExpressionTreeProcessingStep interface is now called IExpressionTreeProcessor. Instead of an array of IExpressionTreeProcessors, ExpressionTreeParser now accepts a single IExpressionTreeProcessor (which can be a CompoundExpressionTreeProcessor if more than one processor is needed). The ExpressionTreeParser.CreateDefaultProcessor() method creates an instance of CompoundExpressionTreeProcessor with partial evaluation and transformation steps already included. Change the defaults by adding, inserting, or removing instances to/from the default CompoundExpressionTreeProcessor.</p>
+
+<p>Here is the recommended new way of creating a customized query parser:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">private</span> <span class="code-keyword">static</span> IQueryParser CreateQueryParser ()
+{
+  <span class="code-keyword">var</span> customNodeTypeRegistry = <span class="code-keyword">new</span> MethodInfoBasedNodeTypeRegistry();
+  <span class="code-comment">// Register custom node parsers here:
+</span>  <span class="code-comment">// customNodeTypeRegistry.Register (MyExpressionNode.SupportedMethods, typeof (MyExpressionNode));
+</span>  <span class="code-comment">// Alternatively, use the CreateFromTypes factory method.
+</span>  <span class="code-comment">// Use MethodNameBasedNodeTypeRegistry to register parsers by query <span class="code-keyword">operator</span> name instead of MethodInfo.
+</span>
+  <span class="code-keyword">var</span> nodeTypeProvider = ExpressionTreeParser.CreateDefaultNodeTypeProvider ();
+  nodeTypeProvider.InnerProviders.Add (customNodeTypeRegistry);
+
+  <span class="code-keyword">var</span> transformerRegistry = ExpressionTransformerRegistry.CreateDefault ();
+  <span class="code-comment">// Register custom expression transformers here:
+</span>  <span class="code-comment">// transformerRegistry.Register (<span class="code-keyword">new</span> MyExpressionTransformer());
+</span>
+  <span class="code-keyword">var</span> processor = ExpressionTreeParser.CreateDefaultProcessor (transformerRegistry);
+  <span class="code-comment">// Add custom processors here:
+</span>  <span class="code-comment">// processor.InnerProcessors.Add (<span class="code-keyword">new</span> MyExpressionTreeProcessor());
+</span>
+  <span class="code-keyword">var</span> expressionTreeParser = <span class="code-keyword">new</span> ExpressionTreeParser (nodeTypeProvider, processor);
+  <span class="code-keyword">var</span> queryParser = <span class="code-keyword">new</span> QueryParser (expressionTreeParser);
+
+  <span class="code-keyword">return</span> queryParser;
+}</pre>
+</div></div>
+
+<p>These changes were made in order to provide a more consistent and extensible design.</p></span></div></div><div class="detailEntry  "><a name="RM-3719"></a><h4>[RM-3719] re-linq now detects "Contains" methods on all types implementing IEnumerable as query operators</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The ContainsExpressionNode included in the default query parser (and in the default node type provider created by ExpressionTreeParser.CreateDefaultNodeTypeProvider) is now registered by name (and filter) by default.</p>
+
+<p>The filter is defined so that every method called "Contains" on a type implementing IEnumerable (apart from System.String) that has the right number of arguments is now detected to be a query operator with the semantics of Queryable.Contains. In the respective QueryModels, these methods are represented as instances of ContainsResultOperator.</p></span></div></div><div class="detailEntry  "><a name="RM-3711"></a><h4>[RM-3711] ExpressionTreeVisitor now automatically converts the arguments of NewExpressions if needed by the associated members</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Usually, an expression tree visitor can replace nodes that have type T with nodes of a derived type T', because T' can be used wherever T can be used.</p>
+
+<p>This is not true, however, when a NewExpression has members associated with its argument expressions. Because the member's return type must <em>exactly</em> match the type of the argument node, exceptions can occur when replacing an argument expression with an expression of a more specific type.</p>
+
+<p>To remedy this, the ExpressionTreeVisitor class (and its subclasses) now automatically detects when such a situation arises, and inserts the necessary conversions.</p>
+
+<p>For example, consider the following NewExpression:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> item = Expression.New (
+  typeof (KeyValuePair&lt;<span class="code-object">int</span>, MyType&gt;).GetConstructor (...),
+  <span class="code-keyword">new</span>[] { Expression.Constant (0), Expression.Constant (<span class="code-keyword">new</span> MyType()) },
+  <span class="code-keyword">new</span>[] { typeof (KeyValuePair&lt;<span class="code-object">int</span>, MyType&gt;).GetProperty (<span class="code-quote">"Key"</span>), KeyValuePair&lt;<span class="code-object">int</span>, MyType&gt;).GetProperty (<span class="code-quote">"Value"</span>) });</pre>
+</div></div>
+
+<p>If, in this example, a visitor replaces the constant expression of type MyType with a constant expression of type MyDerivedType, an exception would be thrown in ExpressionTreeVisitor.VisitNewExpression in previous versions of re-linq ("Argument type 'MyDerivedType' does not match the corresponding member type 'MyType'."). This is now changed - the VisitNewExpression automatically inserts a conversion from MyDerivedType to MyType:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> item = Expression.New (
+  typeof (KeyValuePair&lt;<span class="code-object">int</span>, MyType&gt;).GetConstructor (...),
+  <span class="code-keyword">new</span>[] { Expression.Constant (0), Expression.Convert (Expression.Constant (<span class="code-keyword">new</span> MyDerivedType()), typeof (MyType)) },
+  <span class="code-keyword">new</span>[] { typeof (KeyValuePair&lt;<span class="code-object">int</span>, MyType&gt;).GetProperty (<span class="code-quote">"Key"</span>), KeyValuePair&lt;<span class="code-object">int</span>, MyType&gt;).GetProperty (<span class="code-quote">"Value"</span>) });</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-3707"></a><h4>[RM-3707] Keep full API docs in Intellisense files</h4><div class="component"><span class="label">Component/s: </span><span class="value">Build &amp; Tooling Core Data Data.Linq Data.Linq for re-store Development DMS Mixins ObjectBinding ObjectBinding.Web Scripting Security SecurityManager Support Web Web.ExecutionEngine</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the re-motion build stripped out the "Remarks" sections from the Intellisense XML files created by the C# compiler. The reason for this was to improve the size of the build - the "Remarks" items weren't used by Visual Studio Intellisense anyway.</p>
+
+<p>Nowadays, tools are able to show these sections, so we're adding them to the XML files again.</p></span></div></div><div class="detailEntry  "><a name="RM-3630"></a><h4>[RM-3630] Provide transformations that add member meta-info to common tuple-like constructor calls</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Consider the following example (from <span class="nobr"><a href="http://groups.google.com/group/nhusers/browse_thread/thread/7289619c4eceaf2b):">http://groups.google.com/group/nhusers/browse_thread/thread/7289619c4eceaf2b):<sup><img class="rendericon" src="https://jira.rubicon.eu/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from u in db.Users 
+  select <span class="code-keyword">new</span> KeyValuePair&lt;string, DateTime&gt;(u.Name, u.RegisteredAt) into nameRegistered
+  order by nameRegistered.Value</pre>
+</div></div>
+
+<p>The provider cannot know that u.Name goes into nameRegistered.Value. To allow for that, add a custom transformation that adds the metadata to the ctor call:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">NewExpression (
+    ctorof (KeyValuePair&lt;TK,TV&gt;(TK,TV)), 
+    <span class="code-keyword">new</span>[] { keyExpr, valueExpr }, 
+    <span class="code-keyword">new</span>[] { memberof (KeyValuePair&lt;TK,TV&gt;.Key), memberof (KeyValuePair&lt;TK,TV&gt;.Value) })</pre>
+</div></div>
+
+<p>Transformations such as the one described above are added a set of classes: KeyValuePairNewExpressionTransformer, and DictionaryEntryTransformer, and TupleNewExpressionTransformer, The transformations, which are enabled by default, add the MemberInfo metadata to NewExpressions for KeyValuePair&lt;TKey, TValue&gt;, DictionaryEntry, and the .NET Tuple types.</p>
+
+<p>To implement such a transformation for custom types, derive from MemberAddingNewExpressionTransformerBase.</p>
+
+<p>For LINQ providers customizing the expression tree preprocessing steps applied by the re-linq front-end, add instances of the transformer classes to the ExpressionTransformationStep.</p></span></div></div><div class="detailEntry  "><a name="RM-3472"></a><h4>[RM-3472] Update partial evaluator to inline IQueryable ConstantExpressions in re-linq front end</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When the evaluator detects a ConstantExpression with an IQueryable value, the ConstantExpression should be replaced by the IQueryable's expression.</p>
+
+<p>Consider the following example:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> x = from p in Persons where p.Surname == <span class="code-quote">"Freud"</span> select p;
+<span class="code-keyword">var</span> y = from p in Persons where x.Contains (p) select p;</pre>
+</div></div>
+
+<p>With this new feature, the second query will appear to the LINQ provider as follows:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> y = from p in Persons where (from p in Persons where p.Surname == <span class="code-quote">"Freud"</span> select p).Contains (p) select p;</pre>
+</div></div>
+
+<p>This has been integrated into the PartialEvaluatingExpressionTreeVisitor because the inlined expression (usually) also needs to be partially evaluated anyway.</p></span></div></div><div class="detailEntry  "><a name="RM-3341"></a><h4>[RM-3341] Add a filtering mechanism to expression node types registered by names</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The MethodCallExpressionNodeTypeRegistry has been replaced by an interface (INodeTypeProvider) with several implementations. One of them, the MethodNameBasedNodeTypeRegistry, provides support for registering expression node parsers by name (rather than MethodInfo). Since the method name is usually  not enough to distinguish query operators, a registration also contains a filter predicate that determines whether a node parser is suitable for parsing a specific query operator method.</p>
+
+<p>Consider the following example:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> class MyContainsExpressionNode : ResultOperatorExpressionNodeBase
+{
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> readonly MethodInfo[] SupportedMethods = <span class="code-keyword">new</span>[]
+      {
+        GetSupportedMethod (() =&gt; Queryable.Contains&lt;object&gt; (<span class="code-keyword">null</span>, <span class="code-keyword">null</span>)),
+        GetSupportedMethod (() =&gt; Enumerable.Contains&lt;object&gt; (<span class="code-keyword">null</span>, <span class="code-keyword">null</span>)),
+      };
+
+  <span class="code-keyword">public</span> <span class="code-keyword">static</span> readonly NameBasedRegistrationInfo[] SupportedMethodNames = <span class="code-keyword">new</span>[]
+      {
+        <span class="code-keyword">new</span> NameBasedRegistrationInfo (
+            <span class="code-quote">"Contains"</span>,
+            mi =&gt; mi.DeclaringType != typeof (string) &amp;&amp; typeof (IEnumerable).IsAssignableFrom (mi.DeclaringType)
+                &amp;&amp; (mi.IsStatic &amp;&amp; mi.GetParameters().Length == 2 || !mi.IsStatic &amp;&amp; mi.GetParameters().Length == 1))
+      };
+
+  <span class="code-comment">// ...
+</span>}</pre>
+</div></div>
+
+<p>This code defines that the given MyContainsExpressionNode is registered for the Contains query operators defined by the Queryable and Enumerable classes, and, in addition, for all methods called "Contains" (with the right argument count) declared by classes implementing IEnumerable. Only "string" is exempt, since string.Contains is usually not desired to be seen as a query operator.</p>
+
+<p>(This code is how the ContainsExpressionNode class is currently defined in re-linq.)</p>
+
+<p>To use such a custom expression node parser, create a MethodNameBasedNodeTypeRegistry when creating the QueryParser in your LINQ provider.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">private</span> <span class="code-keyword">static</span> IQueryParser CreateQueryParser ()
+{
+  <span class="code-keyword">var</span> customNodeTypeRegistry = <span class="code-keyword">new</span> MethodInfoBasedNodeTypeRegistry();
+  <span class="code-comment">// Register custom node parsers here:
+</span>  <span class="code-comment">// customNodeTypeRegistry.Register (MyExpressionNode.SupportedMethods, typeof (MyExpressionNode));
+</span>  <span class="code-comment">// Alternatively, use the CreateFromTypes factory method.
+</span>  <span class="code-comment">// Use MethodNameBasedNodeTypeRegistry to register parsers by query <span class="code-keyword">operator</span> name instead of MethodInfo.
+</span>
+  <span class="code-keyword">var</span> nodeTypeProvider = ExpressionTreeParser.CreateDefaultNodeTypeProvider ();
+  nodeTypeProvider.InnerProviders.Add (customNodeTypeRegistry);
+
+  <span class="code-keyword">var</span> transformerRegistry = ExpressionTransformerRegistry.CreateDefault ();
+  <span class="code-comment">// Register custom expression transformers here:
+</span>  <span class="code-comment">// transformerRegistry.Register (<span class="code-keyword">new</span> MyExpressionTransformer());
+</span>
+  <span class="code-keyword">var</span> processor = ExpressionTreeParser.CreateDefaultProcessor (transformerRegistry);
+  <span class="code-comment">// Add custom processors here:
+</span>  <span class="code-comment">// processor.InnerProcessors.Add (<span class="code-keyword">new</span> MyExpressionTreeProcessor());
+</span>
+  <span class="code-keyword">var</span> expressionTreeParser = <span class="code-keyword">new</span> ExpressionTreeParser (nodeTypeProvider, processor);
+  <span class="code-keyword">var</span> queryParser = <span class="code-keyword">new</span> QueryParser (expressionTreeParser);
+
+  <span class="code-keyword">return</span> queryParser;
+}</pre>
+</div></div></span></div></div></body></html>

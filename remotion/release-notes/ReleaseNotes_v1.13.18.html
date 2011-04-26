@@ -1,0 +1,190 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.18</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1444"><b>
+                  [COMMONS-1444] Web:
+                </b>DropDownMenu as ContextMenu: MenuItem is neither highlighted nor clickable between icon and text</a></div><div class="listEntry"><a href="#COMMONS-1441"><b>
+                  [COMMONS-1441] Data.Linq:
+                </b>The generated Fetch query model is incorrect because it moves the result operators to the outer query model</a></div><div class="listEntry"><a href="#COMMONS-1433"><b>
+                  [COMMONS-1433] ObjectBinding:
+                </b>BocEnumValue: listBoxes too high in Safari and Chrome</a></div><div class="listEntry"><a href="#COMMONS-1430"><b>
+                  [COMMONS-1430] ObjectBinding:
+                </b>EnumValue: Validator broken in Dropdown mode</a></div><div class="listEntry"><a href="#COMMONS-1425"><b>
+                  [COMMONS-1425] Web:
+                </b>TabbedMultiView standard mode: view div lacks padding</a></div><div class="listEntry"><a href="#COMMONS-1424"><b>
+                  [COMMONS-1424] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue style issues (standard mode)</a></div><div class="listEntry"><a href="#COMMONS-1423"><b>
+                  [COMMONS-1423] Web:
+                </b>DropDownMenu standard mode style issues</a></div><div class="listEntry"><a href="#COMMONS-1420"><b>
+                  [COMMONS-1420] ObjectBinding:
+                </b>BocDateTimeValue: time textbox is populated when date is set</a></div><div class="listEntry"><a href="#COMMONS-1419"><b>
+                  [COMMONS-1419] Web:
+                </b>DatePicker standard mode: calendar not showing in Firefox and others</a></div><div class="listEntry"><a href="#COMMONS-1416"><b>
+                  [COMMONS-1416] Web:
+                </b>DropDownMenu does not work in Firefox 3.0</a></div><div class="listEntry"><a href="#COMMONS-1415"><b>
+                  [COMMONS-1415] ObjectBinding:
+                </b>BocEnumValue: line breaks in radio button mode</a></div><div class="listEntry"><a href="#COMMONS-1414"><b>
+                  [COMMONS-1414] ObjectBinding:
+                </b>BocCheckboxValue and BocBooleanValue: vertical label alignment</a></div><div class="listEntry"><a href="#COMMONS-1413"><b>
+                  [COMMONS-1413] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: auto-fill behavior</a></div><div class="listEntry"><a href="#COMMONS-1412"><b>
+                  [COMMONS-1412] ObjectBinding Web:
+                </b>Various browsers: disabled images are not grayed out</a></div><div class="listEntry"><a href="#COMMONS-1410"><b>
+                  [COMMONS-1410] ObjectBinding:
+                </b>BocBooleanValue: client-side dirty tracking does not work in Firefox</a></div><div class="listEntry"><a href="#COMMONS-1399"><b>
+                  [COMMONS-1399] ObjectBinding Web:
+                </b>BorderSpans: JS error in FireFox QuirksMode</a></div><div class="listEntry"><a href="#COMMONS-1398"><b>
+                  [COMMONS-1398] Web:
+                </b>SingleView/TabbedMultiView in IE6 standard mode: Tabs not visible</a></div><div class="listEntry"><a href="#COMMONS-1397"><b>
+                  [COMMONS-1397] Web:
+                </b>DropDownMenu: Button rendering in IE6 Standard mode</a></div><div class="listEntry"><a href="#COMMONS-1386"><b>
+                  [COMMONS-1386] ObjectBinding:
+                </b>BocAutoCompleteReferenceValue: NULL value cannot be set</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1163"><b>
+                  [COMMONS-1163] Data.Linq:
+                </b>Add DataModel classes that are needed when IDatabaseInfo is not available at the parsing stage</a></div><div class="children"><a href="#COMMONS-1165"><b>
+            [COMMONS-1165] Data.Linq:
+          </b>Add a PropertyPath class which is used to express chained expressions of the form o.Customer.OrderItems</a></div><div class="listEntry"><a href="#COMMONS-1158"><b>
+                  [COMMONS-1158] Data.Linq:
+                </b>Integrate DataModel with QueryModel</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1325"><b>
+                  [COMMONS-1325] Data.Linq:
+                </b>Refactor IExecutionStrategy</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1292"><b>
+                  [COMMONS-1292] Mixins:
+                </b>Copy SpecialName Attribute in Mixin Engine</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1444"></a><h4>[COMMONS-1444] DropDownMenu as ContextMenu: MenuItem is neither highlighted nor clickable between icon and text</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1441"></a><h4>[COMMONS-1441] The generated Fetch query model is incorrect because it moves the result operators to the outer query model</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">(from o in ...
+select o).Take (1).FetchMany (o =&gt; o.OrderItems)</pre>
+</div></div>
+
+<p>This should generate the following fetch query model:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from x in (from o in ...
+select o).Take (1)
+select x.OrderItems</pre>
+</div></div>
+
+<p>Currently, it generates:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">(from o in ...
+from x in o.OrderItems
+select x).Take (1)</pre>
+</div></div>
+
+<p>The latter only selects one OrdeItem, the correct query model would select all order items of the first order to be returned.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1433"></a><h4>[COMMONS-1433] BocEnumValue: listBoxes too high in Safari and Chrome</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1430"></a><h4>[COMMONS-1430] EnumValue: Validator broken in Dropdown mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>TestPage: Enum; <br/>
+EnumNotNullable dropdown should be required, but no validator shows on save with no value selected</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1425"></a><h4>[COMMONS-1425] TabbedMultiView standard mode: view div lacks padding</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1424"></a><h4>[COMMONS-1424] BocAutoCompleteReferenceValue style issues (standard mode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Drop-down button alignment: offset to bottom (IE8) and right (FF, Chrome); cut off at top (Opera); offset to upper right (Safari)<br/>
+Command label is aligned to top, should be middle</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1423"></a><h4>[COMMONS-1423] DropDownMenu standard mode style issues</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Container has width: 100% when no width is set (test page: ReferenceValue, disabled bound read-only)<br/>
+Button not grayed out when disabled (background image)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1420"></a><h4>[COMMONS-1420] BocDateTimeValue: time textbox is populated when date is set</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Server fills in time although user left it empty =&gt; should stay empty</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1419"></a><h4>[COMMONS-1419] DatePicker standard mode: calendar not showing in Firefox and others</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Javascript error in pop-up script.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1416"></a><h4>[COMMONS-1416] DropDownMenu does not work in Firefox 3.0</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Javascript error when clicking the drop-down button</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1415"></a><h4>[COMMONS-1415] BocEnumValue: line breaks in radio button mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In standard mode IE8 and non-IE browsers, line breeaks can happen between the radio button and its label. Furthermore, the label is offset to bottom when on the same line.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1414"></a><h4>[COMMONS-1414] BocCheckboxValue and BocBooleanValue: vertical label alignment</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Boolean: labels are aligned to top, should be middle<br/>
+Checkbox: r/o labels are aligned to top, editable labels are aligned to bottom; should be middle</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1413"></a><h4>[COMMONS-1413] BocAutoCompleteReferenceValue: auto-fill behavior</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When the user types, the list of possible values shows after a certeain timeout. When the list is showing, further typing should result in auto-completion of the typed text.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1412"></a><h4>[COMMONS-1412] Various browsers: disabled images are not grayed out</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Affected browsers are: Firefox 3.5 (but not 3.0), Opera, Safari, Chrome<br/>
+solution: in addition to CSS attributes filter (IE) and -moz-opacity (Firefox 3.0), use opacity (CSS 3, but supported in all listed browsers)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1410"></a><h4>[COMMONS-1410] BocBooleanValue: client-side dirty tracking does not work in Firefox</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1399"></a><h4>[COMMONS-1399] BorderSpans: JS error in FireFox QuirksMode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1398"></a><h4>[COMMONS-1398] SingleView/TabbedMultiView in IE6 standard mode: Tabs not visible</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1397"></a><h4>[COMMONS-1397] DropDownMenu: Button rendering in IE6 Standard mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1386"></a><h4>[COMMONS-1386] BocAutoCompleteReferenceValue: NULL value cannot be set</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1163"></a><h4>[COMMONS-1163] Add DataModel classes that are needed when IDatabaseInfo is not available at the parsing stage</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1165"></a><h4>[COMMONS-1165] Add a PropertyPath class which is used to express chained expressions of the form o.Customer.OrderItems</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>A PropertyPath starts at an IdentifierReference and holds a ReadOnlyCollection of MemberInfos representing the member chain.</p>
+
+<p>Example:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from o in ...&lt;Order&gt;
+select o.Customer.OrderItems
+
+=&gt; <span class="code-keyword">new</span> PropertyPath (<span class="code-keyword">new</span> IdentifierReference (mainFromClause), <span class="code-keyword">new</span>[] {memberof (Order.Customer), memberof (Customer.OrderItems) })</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1158"></a><h4>[COMMONS-1158] Integrate DataModel with QueryModel</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Make MainFromClause simpler by replacing QuerySource expression with a QuerySourceType</li>
+	<li>Make AdditionalFromClause simpler by replacing FromExpression with a QuerySourceType and removing ProjectionExpression</li>
+	<li>Make SubQueryFromClause simpler by removing ProjectionExpression</li>
+	<li>Make WhereClause simpler by replacing BoolExpression with ICriterion</li>
+	<li>Make SelectClause simpler by replacing ProjectionExpression with IEvaluation</li>
+	<li>Make ResultModifierClause simpler by replacing MethodCallExpression with MethodCall</li>
+	<li>Make Ordering simpler by replacing Expression with IEvaluation</li>
+	<li>Make LetClause simpler by replacing Expression with IEvaluation</li>
+	<li>Make MemberFromClause simpler by replacing MemberExpression with PropertyPath</li>
+	<li>Replace all ParameterExpressions in clauses with new type (with "string Name", "Type Type" properties)</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1325"></a><h4>[COMMONS-1325] Refactor IExecutionStrategy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Replace IExecutionStrategy.GetExecutionExpression with TResult Execute&lt;TResult&gt;(...) which invokes methods via Reflection.<br/>
+  (Note: Expression might be handy for caching, but shouldn't be implemented until needed.)</li>
+	<li>Execution strategies should check whether QueryModel.ResultType matches specified TResult.</li>
+	<li>CollectionExecutionStrategy should throw if TResult is anything else but IEnumerable&lt;?&gt;</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1292"></a><h4>[COMMONS-1292] Copy SpecialName Attribute in Mixin Engine</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Cannot Reproduce</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

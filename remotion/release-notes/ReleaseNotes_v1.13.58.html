@@ -1,0 +1,132 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.58</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2724"><b>
+                  [COMMONS-2724] Data Security:
+                </b>SecurityClientTransactionExtension.FilterQueryResult should exec the security check inside a scope for the passed transaction</a></div><div class="listEntry"><a href="#COMMONS-2710"><b>
+                  [COMMONS-2710] DmsTray:
+                </b>DmsTray: Upload of saved file is not thread-safe</a></div><div class="listEntry"><a href="#COMMONS-2709"><b>
+                  [COMMONS-2709] DmsTray:
+                </b>DocumentEventMonitor: ApplicationMapping-verification always displays default application</a></div><div class="listEntry"><a href="#COMMONS-2708"><b>
+                  [COMMONS-2708] DmsTray:
+                </b>DmsTray: ApplicationMapping resolving preferrs PATH instead of registry</a></div><div class="listEntry"><a href="#COMMONS-2635"><b>
+                  [COMMONS-2635] ObjectBinding.Web:
+                </b>SingleView/TabbedMultiView have scrollbars (IE7, Standards Mode)</a></div><div class="listEntry"><a href="#COMMONS-2586"><b>
+                  [COMMONS-2586] DmsTray:
+                </b>DMS-Tray doesn't open with the correct Programm</a></div><div class="listEntry"><a href="#COMMONS-2584"><b>
+                  [COMMONS-2584] DmsTray:
+                </b>It is possible to replace a file with a folder</a></div><div class="listEntry"><a href="#COMMONS-2417"><b>
+                  [COMMONS-2417] DmsTray:
+                </b>DmsTray: File open fails: File is missing after application started</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2666"><b>
+                  [COMMONS-2666] Data.Linq:
+                </b>Support for AllResultOperator</a></div><div class="listEntry"><a href="#COMMONS-2614"><b>
+                  [COMMONS-2614] Data.Linq Data.Linq for re-store Mixins:
+                </b>Support for queries using persistent mixed properties</a></div><div class="listEntry"><a href="#COMMONS-1100"><b>
+                  [COMMONS-1100] Data.Linq:
+                </b>Support for Sum, Average, Min, and Max result operators</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2670"><b>
+                  [COMMONS-2670] DmsTray:
+                </b>XmlProcessingInstructionFilter: Change XmlDocument to XmlStreamReader</a></div><div class="listEntry"><a href="#COMMONS-2443"><b>
+                  [COMMONS-2443] Data.Linq:
+                </b>Optimize implicit joins: use foreign key instead of join if possible</a></div><div class="listEntry"><a href="#COMMONS-2231"><b>
+                  [COMMONS-2231] Data.Linq:
+                </b>Backend: SqlGeneratorVisitor should not iterate over the same field descriptors multiple times when passing them to SqlGenerationData</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2724"></a><h4>[COMMONS-2724] SecurityClientTransactionExtension.FilterQueryResult should exec the security check inside a scope for the passed transaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>So that any implicit usages of ClientTransaction.Current anywhere along the security check gets the right tx</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2710"></a><h4>[COMMONS-2710] DmsTray: Upload of saved file is not thread-safe</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>If multiple files were open simultaneously and got saved at the same time, the upload would use the same ZipFileBuilder, packaging them into the same archive.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2709"></a><h4>[COMMONS-2709] DocumentEventMonitor: ApplicationMapping-verification always displays default application</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2708"></a><h4>[COMMONS-2708] DmsTray: ApplicationMapping resolving preferrs PATH instead of registry</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The correct order for finding an executable via its filename is:</p>
+<ul>
+	<li>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\</li>
+	<li>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\</li>
+	<li>Environment.Paths</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2635"></a><h4>[COMMONS-2635] SingleView/TabbedMultiView have scrollbars (IE7, Standards Mode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2586"></a><h4>[COMMONS-2586] DMS-Tray doesn't open with the correct Programm</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>If Notepad is the only programm in the Application Mappings or it is set to prefer and the default programm is for example Wordpad, then the dms-tray opens the file with wordpad and SimpleApplicationProxy. If Notepad is set as default Programm dms Tray opens the file correctly with notpad and WatchingApplicationProxy.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2584"></a><h4>[COMMONS-2584] It is possible to replace a file with a folder</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When you copy a folder and press "Clipboard" next to a single file the DMS-Tray replaces it with the folder. The same problem happens when you press "DragAndDrop" next to a single file and move a folder in the Drag'n'Drop-field.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2417"></a><h4>[COMMONS-2417] DmsTray: File open fails: File is missing after application started</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2666"></a><h4>[COMMONS-2666] Support for AllResultOperator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following form: <tt>Cooks.All (c =&gt; c.IsStarredCook)</tt></p>
+
+<p>The SQL generated for this query contains a NOT EXISTS clause and a WHERE clause with an inversion of the condition in the All clause. <tt>(NOT EXISTS (SELECT ... FROM ... WHERE NOT (<span class="error">&#91;t0&#93;</span>.<span class="error">&#91;IsStarredCook&#93;</span> = 1)))</tt></p></span></div></div><div class="detailEntry  "><a name="COMMONS-2614"></a><h4>[COMMONS-2614] Support for queries using persistent mixed properties</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq Data.Linq for re-store Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1100"></a><h4>[COMMONS-1100] Support for Sum, Average, Min, and Max result operators</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2670"></a><h4>[COMMONS-2670] XmlProcessingInstructionFilter: Change XmlDocument to XmlStreamReader</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2443"></a><h4>[COMMONS-2443] Optimize implicit joins: use foreign key instead of join if possible</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In queries such as the following, avoid creating a join if the foreign key is already available:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from k in Kitchens where k.Cook == <span class="code-keyword">null</span> select k</pre>
+</div></div>
+
+<p>If the KitchenTable contains the foreign key, this should avoid creating a join and yield SQL similar to the following:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT [t0].*
+FROM [KitchenTable] [t0]
+WHERE [t0].[CookID] IS NULL</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2231"></a><h4>[COMMONS-2231] Backend: SqlGeneratorVisitor should not iterate over the same field descriptors multiple times when passing them to SqlGenerationData</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.54</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2576"><b>
+                  [COMMONS-2576] Core:
+                </b>AppDomainAssemblyResolver throws a FileNotFoundException when the source app domain is shadow copied (e.g., in NUnit-Gui)</a></div><div class="listEntry"><a href="#COMMONS-2548"><b>
+                  [COMMONS-2548] ObjectBinding.Web:
+                </b>IE7: bocListFakeTableHead is resized on a:hover</a></div><div class="listEntry"><a href="#COMMONS-2220"><b>
+                  [COMMONS-2220] ObjectBinding.Web:
+                </b>DateTimeValue does not support inline-behavior in StandardMode</a></div><div class="listEntry"><a href="#COMMONS-1432"><b>
+                  [COMMONS-1432] Web:
+                </b>TabbedMultiView issues in Safari and Chrome</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2576"></a><h4>[COMMONS-2576] AppDomainAssemblyResolver throws a FileNotFoundException when the source app domain is shadow copied (e.g., in NUnit-Gui)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason for this is that AppDomainAssemblyResolver's ctor uses ArgumentUtility, which lies in Remotion.Interfaces.dll. In a shadow-copied scenario, when AppDomainAssemblyResolver's ctor is called in the target AppDomain, AssemblyResolve isn't handled yet, so Remotion.Interfaces.dll cannot be found.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-object">System</span>.IO.FileNotFoundException: Could not load file or assembly 'Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=fee00910d6e5f53b' or one of its dependencies. The system cannot find the file specified.
+at Remotion.Utilities.ArgumentUtility.CheckNotNullOrEmpty(<span class="code-object">String</span> argumentName, <span class="code-object">String</span> actualValue)
+at Remotion.Utilities.AppDomainAssemblyResolver..ctor(<span class="code-object">String</span> assemblyDirectory) 
+<span class="code-object">System</span>.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+at <span class="code-object">System</span>.RuntimeMethodHandle._InvokeConstructor(<span class="code-object">Object</span>[] args, ref SignatureStruct signature, IntPtr declaringType)
+at <span class="code-object">System</span>.RuntimeMethodHandle.InvokeConstructor(<span class="code-object">Object</span>[] args, SignatureStruct signature, RuntimeTypeHandle declaringType)
+at <span class="code-object">System</span>.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, <span class="code-object">Object</span>[] parameters, CultureInfo culture)
+at <span class="code-object">System</span>.RuntimeType.CreateInstanceImpl(BindingFlags bindingAttr, Binder binder, <span class="code-object">Object</span>[] args, CultureInfo culture, <span class="code-object">Object</span>[] activationAttributes)
+at <span class="code-object">System</span>.Activator.CreateInstance(Type type, BindingFlags bindingAttr, Binder binder, <span class="code-object">Object</span>[] args, CultureInfo culture, <span class="code-object">Object</span>[] activationAttributes)
+at <span class="code-object">System</span>.Activator.CreateInstanceFrom(<span class="code-object">String</span> assemblyFile, <span class="code-object">String</span> typeName, <span class="code-object">Boolean</span> ignoreCase, BindingFlags bindingAttr, Binder binder, <span class="code-object">Object</span>[] args, CultureInfo culture, <span class="code-object">Object</span>[] activationAttributes, Evidence securityInfo)
+at 
+<span class="code-object">System</span>.AppDomain.CreateInstanceFrom(<span class="code-object">String</span> assemblyFile, <span class="code-object">String</span> typeName, <span class="code-object">Boolean</span> ignoreCase, BindingFlags bindingAttr, Binder binder, <span class="code-object">Object</span>[] args, CultureInfo culture, <span class="code-object">Object</span>[] activationAttributes, Evidence securityAttributes)
+at <span class="code-object">System</span>.AppDomain.CreateInstanceFromAndUnwrap(<span class="code-object">String</span> assemblyName, <span class="code-object">String</span> typeName, <span class="code-object">Boolean</span> ignoreCase, BindingFlags bindingAttr, Binder binder, <span class="code-object">Object</span>[] args, CultureInfo culture, <span class="code-object">Object</span>[] activationAttributes, Evidence securityAttributes)
+at <span class="code-object">System</span>.AppDomain.CreateInstanceFromAndUnwrap(<span class="code-object">String</span> assemblyName, <span class="code-object">String</span> typeName, <span class="code-object">Boolean</span> ignoreCase, BindingFlags bindingAttr, Binder binder, <span class="code-object">Object</span>[] args, CultureInfo culture, <span class="code-object">Object</span>[] activationAttributes, Evidence securityAttributes)
+at Remotion.Utilities.AppDomainAssemblyResolver.CreateInAppDomain(AppDomain appDomain, <span class="code-object">String</span> applicationBase) in AppDomainAssemblyResolver.cs: line 37
+at 
+Remotion.Utilities.AppDomainRunnerBase.Run() 
+in AppDomainRunnerBase.cs: line 54
+at 
+Remotion.Data.UnitTests.DomainObjects.Core.Configuration.Queries.QueryFileElementTest.GetRootedPath_WithUnrootedPath_ReturnsPathRelativeToAppBase_InSeparateAddDomain() 
+in QueryFileElementTest.cs: line 58</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2548"></a><h4>[COMMONS-2548] IE7: bocListFakeTableHead is resized on a:hover</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In IE7 when you scroll or go over a link the bocListFakeTableHead is changing the width.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2220"></a><h4>[COMMONS-2220] DateTimeValue does not support inline-behavior in StandardMode</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1432"></a><h4>[COMMONS-1432] TabbedMultiView issues in Safari and Chrome</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>After page load, elements are often (but not always) not positioned correctly - after resize, they are!</p>
+<ul class="alternate" type="square">
+	<li>BorderSpans (Tabs)</li>
+	<li>View div too far south</li>
+	<li>Safari: bottom controls not visible</li>
+</ul>
+
+
+<p>TabbedMultiViewTabStrip: not aligned to bottom of TabStripContainer (see also <a href="https://jira.rubicon.eu/browse/COMMONS-1429" title="TabStrip style issues in IE6 standard mode"><del>COMMONS-1429</del></a>)</p>
+</span></div></div></body></html>

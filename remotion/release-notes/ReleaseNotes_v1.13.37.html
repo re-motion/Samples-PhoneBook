@@ -1,0 +1,94 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.37</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1955"><b>
+                  [COMMONS-1955] DmsTray:
+                </b>Concurrency Issue in ManagedFileLockingStrategy.HandleLockSucceeded</a></div><div class="listEntry"><a href="#COMMONS-1954"><b>
+                  [COMMONS-1954] Build &amp; Tooling:
+                </b>Paths with whitespace in calls to FuncGen do not get escaped in the post- and re-build tasks</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1957"><b>
+                  [COMMONS-1957] Core Data.Linq:
+                </b>Remotion.Collections.ObservableCollection has been moved to re-linq</a></div><div class="listEntry"><a href="#COMMONS-1913"><b>
+                  [COMMONS-1913] Data:
+                </b>ClientTransaction events, extensions, and listeners currently getting read-only DomainObjectCollections now receive ReadOnlyCollection instances</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1946"><b>
+                  [COMMONS-1946] Data.Linq:
+                </b>Copy necessary argument checks to re-linq assembly</a></div><div class="listEntry"><a href="#COMMONS-1944"><b>
+                  [COMMONS-1944] Data.Linq:
+                </b>Split re-linq unit-tests from re-store unit tests</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1955"></a><h4>[COMMONS-1955] Concurrency Issue in ManagedFileLockingStrategy.HandleLockSucceeded</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1954"></a><h4>[COMMONS-1954] Paths with whitespace in calls to FuncGen do not get escaped in the post- and re-build tasks</h4><div class="component"><span class="label">Component/s: </span><span class="value">Build &amp; Tooling</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1957"></a><h4>[COMMONS-1957] Remotion.Collections.ObservableCollection has been moved to re-linq</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This collection type is no longer available for general use. .NET 4.0 will provide an ObservableCollection in System.dll.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1913"></a><h4>[COMMONS-1913] ClientTransaction events, extensions, and listeners currently getting read-only DomainObjectCollections now receive ReadOnlyCollection instances</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This is more performant and more clearly communicates the intention.</p>
+
+<p>ReadOnlyCollection&lt;DomainObject&gt; provides most of the functionality a read-only DomainObjectCollection does. In case access by ID is needed, a Dictionary can be created by the client.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1946"></a><h4>[COMMONS-1946] Copy necessary argument checks to re-linq assembly</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1944"></a><h4>[COMMONS-1944] Split re-linq unit-tests from re-store unit tests</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

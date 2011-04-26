@@ -1,0 +1,183 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.55</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2574"><b>
+                  [COMMONS-2574] Web.ExecutionEngine:
+                </b>WxePageExecutor is not marked as serializable</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2484"><b>
+                  [COMMONS-2484] Data.Linq:
+                </b>Invalid left outer joins generated for additional from queries with member expressions</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1445"><b>
+                  [COMMONS-1445] Data.Linq for re-store:
+                </b>re-linq generates invalid SQL for dependent subqueries that appear in the third from clause</a></div><div class="listEntry"></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2604"><b>
+                  [COMMONS-2604] Security:
+                </b>SecurityContext.AbstractRoles: type of property was changed from EnumWrapper[] to IEnumerable&lt;EnumWrapper&gt;</a></div><div class="listEntry"><a href="#COMMONS-2601"><b>
+                  [COMMONS-2601] Security:
+                </b>Changed Remotion.Security.AccessType from reference type to value type</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2600"><b>
+                  [COMMONS-2600] Core:
+                </b>Create bridge interface for Interlocked Cache</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-2313"><b>
+                    [COMMONS-2313] Data.Linq:
+                  </b>New Sql Backend</a></span></div><div class="children"><a href="#COMMONS-2540"><b>
+            [COMMONS-2540] Data.Linq:
+          </b>Support for subqueries that produce non-entity types in from expressions</a></div><div class="children"><a href="#COMMONS-2532"><b>
+            [COMMONS-2532] Data.Linq:
+          </b>Support for the Cast result operator</a></div><div class="children"><a href="#COMMONS-2462"><b>
+            [COMMONS-2462] Data.Linq:
+          </b>Support for the Contains result operator</a></div><div class="children"><a href="#COMMONS-2446"><b>
+            [COMMONS-2446] Data.Linq:
+          </b>Extensibility hooks</a></div><div class="children"><a href="#COMMONS-2427"><b>
+            [COMMONS-2427] Data.Linq:
+          </b>Support for method calls, with a facility to register own method call translations</a></div><div class="children"><a href="#COMMONS-2370"><b>
+            [COMMONS-2370] Data.Linq:
+          </b>Support for incompatible result operators using subqueries</a></div><div class="children"><a href="#COMMONS-2358"><b>
+            [COMMONS-2358] Data.Linq:
+          </b>Support for well-known method calls</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2624"><b>
+                  [COMMONS-2624] Core:
+                </b>Assertion: string.Format should only be evaluated when the assertion fails.</a></div><div class="listEntry"><a href="#COMMONS-2623"><b>
+                  [COMMONS-2623] Core:
+                </b>PropertyInfoAdapter: Added caching for DeclaringType</a></div><div class="listEntry"><a href="#COMMONS-2603"><b>
+                  [COMMONS-2603] Security:
+                </b>SecurityContext should cache its HashCode</a></div><div class="listEntry"><a href="#COMMONS-2602"><b>
+                  [COMMONS-2602] Core:
+                </b>Tuple-types should cache their hashcode</a></div><div class="listEntry"><a href="#COMMONS-2599"><b>
+                  [COMMONS-2599] Security:
+                </b>Improve performance of Security Checks</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2574"></a><h4>[COMMONS-2574] WxePageExecutor is not marked as serializable</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web.ExecutionEngine</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Effect: Serialization of WxeFunctions is not possible</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2484"></a><h4>[COMMONS-2484] Invalid left outer joins generated for additional from queries with member expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The following query should return no results for kitchens without cooks. This requires an inner join to be created, but re-linq  currently creates left outer joins.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from k in Kitchens
+from c in k.Cooks
+select <span class="code-keyword">new</span> { k, c }</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1445"></a><h4>[COMMONS-1445] re-linq generates invalid SQL for dependent subqueries that appear in the third from clause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">[Test]
+    <span class="code-keyword">public</span> void QueryWithSubQuery_InThirdFrom ()
+    {
+      <span class="code-keyword">var</span> orders =
+          (from o1 in QueryFactory.CreateLinqQuery&lt;Order&gt; ()
+          from o2 in QueryFactory.CreateLinqQuery&lt;Order&gt; ()
+          from oi in
+            (from oi in QueryFactory.CreateLinqQuery&lt;OrderItem&gt; () where oi.Order == o1 || oi.Order == o2 select oi)
+          select oi).Distinct();
+
+      CheckQueryResult (orders, DomainObjectIDs.OrderItem5, DomainObjectIDs.OrderItem4, DomainObjectIDs.OrderItem2, DomainObjectIDs.OrderItem1,
+                        DomainObjectIDs.OrderItem3);
+    }</pre>
+</div></div>
+
+<p>Should generate:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT DISTINCT [oi].* FROM [OrderView] [o1] CROSS APPLY [OrderView] [o2] CROSS APPLY (SELECT [oi].* FROM [OrderItemView] [oi] WHERE ((([oi].[OrderID] IS NULL AND [o1].[ID] IS NULL) OR [oi].[OrderID] = [o1].[ID]) OR (([oi].[OrderID] IS NULL AND [o2].[ID] IS NULL) OR [oi].[OrderID] = [o2].[ID]))) [oi]</pre>
+</div></div>
+
+<p>But generates:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT DISTINCT [oi].* FROM [OrderView] [o1], [OrderView] [o2] CROSS APPLY (SELECT [oi].* FROM [OrderItemView] [oi] WHERE ((([oi].[OrderID] IS NULL AND [o1].[ID] IS NULL) OR [oi].[OrderID] = [o1].[ID]) OR (([oi].[OrderID] IS NULL AND [o2].[ID] IS NULL) OR [oi].[OrderID] = [o2].[ID]))) [oi]</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2604"></a><h4>[COMMONS-2604] SecurityContext.AbstractRoles: type of property was changed from EnumWrapper[] to IEnumerable&lt;EnumWrapper&gt;</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2601"></a><h4>[COMMONS-2601] Changed Remotion.Security.AccessType from reference type to value type</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2600"></a><h4>[COMMONS-2600] Create bridge interface for Interlocked Cache</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Interface: Remotion.BridgeImplementations.IInterlockedCacheFactoryImplementation<br/>
+Implementation: Remotion.BridgeImplementations.InterlockedCacheFactoryImplementation</p></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-2313"></a><h4>[COMMONS-2313] New Sql Backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">re-linq vNext</span></div><br></br><div class="description"><span><p>The new SQL backend should both be a good example of how to approach SQL generation using the new re-linq front-end (QueryModel, usw.) and provide a sound, extensible architecture backing re-store's LINQ provider.</p>
+
+<p>It will sport SQL generation in three phases:</p>
+<ul class="alternate" type="square">
+	<li>The first phase will take a query model and translate it into a SqlStatement model. SqlStatement is modeled to express the syntactical possibilities and constraints of actual SQL statements.</li>
+	<li>The second phase will allow an O/R mapper to resolve all elements of the SqlStatement into SQL-specific items such as tables or columns with names and aliases.</li>
+	<li>The third phase will then take the resolved SqlStatement and produce actual SQL text (and parameters).</li>
+</ul>
+
+
+<p>LINQ providers will be able to hook into each of the three steps for customization, optimization, and advanced query transformations.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2540"></a><h4>[COMMONS-2540] Support for subqueries that produce non-entity types in from expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Queries of the form: <tt>from c in Cooks from assistantFirstName in (from a in c.Assistants select a.FirstName) select assistantFirstName</tt></p>
+
+<p>Should produce the following SQL:<br/>
+<tt>SELECT <span class="error">&#91;q0&#93;</span>.<span class="error">&#91;value&#93;</span> FROM <span class="error">&#91;CookTable&#93;</span> <span class="error">&#91;t0&#93;</span> CROSS JOIN (SELECT <span class="error">&#91;t1&#93;</span>.<span class="error">&#91;FirstName&#93;</span> AS <span class="error">&#91;value&#93;</span> FROM <span class="error">&#91;AssistantTable&#93;</span> <span class="error">&#91;t1&#93;</span> WHERE <span class="error">&#91;t1&#93;</span>.<span class="error">&#91;AssistedID&#93;</span> = <span class="error">&#91;t0&#93;</span>.ID) q0</tt></p></span></div></div><div class="detailEntry children "><a name="COMMONS-2532"></a><h4>[COMMONS-2532] Support for the Cast result operator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the form: <tt>(from c in Cooks select c).Cast&lt;object&gt;()</tt> and <tt>(from c in Cooks where c.IsStarred select c).Cast&lt;StarredCook&gt;()</tt>.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2462"></a><h4>[COMMONS-2462] Support for the Contains result operator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the following forms: <tt>where (from c in restaurant.Cooks select s.FirstName).Contains ("John")</tt>, <tt>where restaurant.Cooks.Contains (c)</tt>, <tt>where new[] { cook1, cook2, cook3 }.Contains (c)</tt></p>
+
+<p>The SQL generated for the first two queries contains an IN expression with a subquery, the last query results in an IN expression with three constant IDs or entity IDs (depending on whether cook1-3 are constants of references to query sources).</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2427"></a><h4>[COMMONS-2427] Support for method calls, with a facility to register own method call translations</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-2358"></a><h4>[COMMONS-2358] Support for well-known method calls</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the forms:</p>
+<ul class="alternate" type="square">
+	<li><tt>s.FirstName.StartsWith ("x")</tt>, <tt>s.FirstName.EndsWith ("y")</tt>, <tt>s.FirstName.Contains ("z")</tt>, <tt>s.FirstName.Like ("%hugo%")</tt><br/>
+This generates SQL LIKE expressions. If StartsWith, EndsWith, and Contains calls hold "_" or "%" characters, those are escaped using SQL ESCAPE. Like is an extension method defined by re-linq's SQL backend; it also allows a way to escape characters.</li>
+	<li><tt>s.FirstName.ContainsFulltext ("x")</tt>, <tt>s.FirstName.ContainsFreetext ("x")</tt><br/>
+This generates SQL CONTAINS and FREETEXT expressions.</li>
+	<li><tt>s.Lower()</tt>, <tt>s.Upper()</tt>, <tt>s.Remove (...)</tt>, <tt>s.Substring (...)</tt><br/>
+This generates the respective SQL string manipulation expressions.</li>
+	<li><tt>Convert.ToString (s.Age)</tt><br/>
+This generates a SQL CONVERT expression.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2624"></a><h4>[COMMONS-2624] Assertion: string.Format should only be evaluated when the assertion fails.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2623"></a><h4>[COMMONS-2623] PropertyInfoAdapter: Added caching for DeclaringType</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2603"></a><h4>[COMMONS-2603] SecurityContext should cache its HashCode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2602"></a><h4>[COMMONS-2602] Tuple-types should cache their hashcode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2599"></a><h4>[COMMONS-2599] Improve performance of Security Checks</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.98</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3809"><b>
+                  [RM-3809] Data:
+                </b>UnloadService no longer has a UnloadTransactionMode parameter</a></div><div class="listEntry"><a href="#RM-3806"><b>
+                  [RM-3806] Data:
+                </b>ClientTransaction.Discard no longer returns a boolean value</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3807"><b>
+                  [RM-3807] Data:
+                </b>Allow BidirectionalRelationSyncService to be used in transaction hierarchies (with sub-transactions)</a></div><div class="listEntry"><a href="#RM-3671"><b>
+                  [RM-3671] :
+                </b>Provide an event to notify subclasses and clients of DomainObjectCollections when an item is added by a lazy load operation</a></div><div class="listEntry"><a href="#RM-3666"><b>
+                  [RM-3666] Data:
+                </b>Add ILoadConflictStrategy</a></div><div class="listEntry"><a href="#RM-2342"><b>
+                  [RM-2342] Data:
+                </b>Tracking of active Sub-Transactions </a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3809"></a><h4>[RM-3809] UnloadService no longer has a UnloadTransactionMode parameter</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The UnloadService has been modified to always affect the whole transaction hierarchy. It is no longer possible to unload data or a collection from a sub-transaction only.</p>
+
+<p>This change was made for consistency with the BidirectionalRelationSyncService, and because there was no real use case for unloading data from a sub-transaction only.</p></span></div></div><div class="detailEntry  "><a name="RM-3806"></a><h4>[RM-3806] ClientTransaction.Discard no longer returns a boolean value</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, ClientTransaction.Discard would return whether "control was returned to the parent transaction" or not.</p>
+
+<p>Since Discard <em>always</em> returns control to the parent transaction - if any - (and because the return value could be confused with the notion of whether Discard succeeded), this return value was removed.</p>
+
+<p>To determine whether a ClientTransaction has a parent transaction, use the ParentTransaction property.</p></span></div></div><div class="detailEntry  "><a name="RM-3807"></a><h4>[RM-3807] Allow BidirectionalRelationSyncService to be used in transaction hierarchies (with sub-transactions)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The BidirectionalRelationSyncService now works when used on sub-transactions as well as on transactions that have sub-transactions.</p>
+
+<p>BidirectionalRelationSyncService.IsSynchronized always returns the same result for each transaction in the hierarchy. I.e, when a relation property is out-of-sync in a parent transaction, it will also be out-of-sync in the sub-transactions.</p>
+
+<p>BidirectionalRelationSyncService.Synchronize always affects the whole transaction hierarchy. I.e., when the API is applied to a root transaction, the relation property is also synchronized in all subtransactions. When the API is applied to a sub-transaction, the property is also synchronized in all parent transactions.</p></span></div></div><div class="detailEntry  "><a name="RM-3671"></a><h4>[RM-3671] Provide an event to notify subclasses and clients of DomainObjectCollections when an item is added by a lazy load operation</h4><div class="component"><span class="label">Component/s: </span><span class="value"></span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Obsolete</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3666"></a><h4>[RM-3666] Add ILoadConflictStrategy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Obsolete</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">interface</span> ILoadConflictStrategy
+{
+  <span class="code-comment">// A LoadRelatedObject operation yielded an object which already exists in the dataManager (and points to a different object).
+</span>  <span class="code-comment">// The strategy can <span class="code-keyword">return</span> a DataContainer to use instead of the relatedDataContainer, <span class="code-keyword">return</span> <span class="code-keyword">null</span>, or <span class="code-keyword">throw</span> a LoadConflictException.
+</span>  <span class="code-comment">// Default implementation: <span class="code-keyword">throw</span> a LoadConflictException
+</span>  <span class="code-comment">// Conceivable custom implementations:
+</span>  <span class="code-comment">//   - Unload the existing object's data <span class="code-keyword">if</span> possible (and <span class="code-keyword">return</span> relatedDataContainer to <span class="code-keyword">continue</span> loading the <span class="code-keyword">new</span> DataContainer)
+</span>  <span class="code-comment">//   - Return <span class="code-keyword">null</span> to indicate there is no related object.
+</span>  DataContainer OnRelatedObjectConflictDetected (ClientTransaction clientTransaction, RelationEndPointID endPointID, DataContainer relatedDataContainer);
+
+  <span class="code-comment">// When registering a newly loaded DataContainer, a conflict between the <span class="code-keyword">new</span> DataContainer's foreign key properties and those of an existing 
+</span>  <span class="code-comment">// DataContainer was detected.
+</span>  <span class="code-comment">// The strategy can <span class="code-keyword">return</span> a DataContainer to register instead of the dataContainer or <span class="code-keyword">throw</span> a LoadConflictException.
+</span>  <span class="code-comment">// Default implementation: <span class="code-keyword">throw</span> a LoadConflictException
+</span>  <span class="code-comment">// Conceivable custom implementations:
+</span>  <span class="code-comment">//   - Unload the existing opposite object's data <span class="code-keyword">if</span> possible (and <span class="code-keyword">return</span> dataContainer to <span class="code-keyword">try</span> again).
+</span>  <span class="code-comment">//   - Return a <span class="code-keyword">new</span> DataContainer with an adapted foreign key property (and <span class="code-keyword">return</span> it to <span class="code-keyword">try</span> again).
+</span>  DataContainer OnForeignKeyConflictDetected (ClientTransaction clientTransaction, DataContainer dataContainer, IRelationEndPointDefinition foreignKeyEndPointDefinition, ObjectID existingConflictingObject);
+
+  <span class="code-comment">// The loading of a DataContainer with a foreign key will cause <span class="code-keyword">this</span> DC's object to be added to an already existing DomainObjectCollection.
+</span>  <span class="code-comment">// The strategy can <span class="code-keyword">throw</span> a LoadConflictException; otherwise, the conflict will be compensated.
+</span>  <span class="code-comment">// Default implementation: ignore the conflict.
+</span>  <span class="code-comment">// Conceivable custom implementations:
+</span>  <span class="code-comment">//   - Throw a LoadConflictException.
+</span>  <span class="code-comment">//   - Unload the CollectionEndPoint <span class="code-keyword">if</span> possible.
+</span>  <span class="code-comment">//   - Change the additionalItemDataContainer's foreign key property to <span class="code-keyword">null</span> (so that it no longer points to the collection).
+</span>  <span class="code-comment">// Implementation note: This must be raised _before_ the actual registration is executed; otherwise, the LoadConflictException would come too late.
+</span>  <span class="code-comment">// Idea: Check <span class="code-keyword">this</span> the same way as conflicting foreign keys <span class="code-keyword">for</span> 1:1 relations are checked.
+</span>  void OnAdditionalCollectionItemDetected (ClientTransaction clientTransaction, DataContainer additionalItemDataContainer, IRelationEndPointDefinition foreignKeyEndPointDefinition, RelationEndPointID collectionEndPointID);
+}</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-2342"></a><h4>[RM-2342] Tracking of active Sub-Transactions </h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Provide a means to determine for any given ClientTransaction if any SubClientTransaction below is active.</p>
+
+<ul class="alternate" type="square">
+	<li>clientTransaction.SubTransaction: returns the sub-transaction whose parent is clientTransaction if any, or null</li>
+	<li>clientTransaction.LeafTransaction: returns the bottom-most sub-transaction if any, or clientTransaction itself</li>
+</ul>
+</span></div></div></body></html>

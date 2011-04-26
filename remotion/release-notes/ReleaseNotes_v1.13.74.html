@@ -1,0 +1,140 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.74</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3212"><b>
+                  [RM-3212] Data:
+                </b>IMappingNameResolver.GetPropertyName now expects a property instance that implements IPropertyInformation instead of a .NET PropertyInfo object</a></div><div class="listEntry"><a href="#RM-3209"><b>
+                  [RM-3209] Data:
+                </b>Dropped IMappingNameResolver.GetPropertyName (Type, string) overload</a></div><div class="listEntry"><a href="#RM-3204"><b>
+                  [RM-3204] ObjectBinding.Web:
+                </b>The BocList CssClassContainer has been renamed to BocListCssClassDefinition and was duplicated in BocListQuirksModeCssClassDefinition</a></div><div class="listEntry"><a href="#RM-3195"><b>
+                  [RM-3195] Core Mixins:
+                </b>MixedObjectInstantiationScope is now stored per-thread, not in the SafeContext</a></div><div class="listEntry"><a href="#RM-3185"><b>
+                  [RM-3185] Security:
+                </b>DemandMethodPermissionAttribute is now obsolete</a></div><div class="listEntry"><a href="#RM-3184"><b>
+                  [RM-3184] Security:
+                </b>Renamed BaseDemandPermissionAttribute to DemandPermissionAttribute and changed application from all members to methods only</a></div><div class="listEntry"><a href="#RM-3183"><b>
+                  [RM-3183] Security:
+                </b>DemandReadPermissionAttribute and DemandWritePermissionAttribute are now obsolete and throw a compiler error</a></div><div class="listEntry"><a href="#RM-3163"><b>
+                  [RM-3163] Data:
+                </b>Any changes made to the mixin configuration of DomainObjects after the mapping was built will lead to an exception</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3172"><b>
+                  [RM-3172] Scripting:
+                </b>Upgrade IronPython version linked by Remotion.Scripting to 2.6.1</a></div><div class="listEntry"><a href="#RM-1715"><b>
+                  [RM-1715] Core:
+                </b>Replace VersionDependentImplementationBridge by standard IoC</a></div><div class="listEntry"><a href="#RM-1543"><b>
+                  [RM-1543] Core:
+                </b>Provide a feature for simple default IoC configuration for re-motion components</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3162"><b>
+                  [RM-3162] Data:
+                </b>Improve performance of InterceptedDomainObjectCreator.CreateObjectReference by making mixin configuration validation faster</a></div><div class="listEntry"><a href="#RM-3159"><b>
+                  [RM-3159] Core Mixins:
+                </b>Improve performance of ObjectFactory.Create by making MixedTypeConstructorLookupInfo's cache key faster to compare (and similar fine-tuning)</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3212"></a><h4>[RM-3212] IMappingNameResolver.GetPropertyName now expects a property instance that implements IPropertyInformation instead of a .NET PropertyInfo object</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Solution: Create a new instance of PropertyInfoAdapter on the fly to wrap an existing PropertyInfo object before passing it to IMappingNameResolver.GetPropertyName.</p></span></div></div><div class="detailEntry  "><a name="RM-3209"></a><h4>[RM-3209] Dropped IMappingNameResolver.GetPropertyName (Type, string) overload</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use the GetPropertyName (IPropertyInformation) overload instead, passing the property instance you wish to resolve.<br/>
+Calculating the name of the property without having a property instance is no longer supported.</p></span></div></div><div class="detailEntry  "><a name="RM-3204"></a><h4>[RM-3204] The BocList CssClassContainer has been renamed to BocListCssClassDefinition and was duplicated in BocListQuirksModeCssClassDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>BocListRenderer and BocListQuirksModeRenderer now use distinct types for their css-class provider. For Standard-Mode rendering the update only consists of updating the usage, for quirks-mode rendering, derived css-class providers must be changed to use the new BocListQuirksModeCssClassDefinition.</p></span></div></div><div class="detailEntry  "><a name="RM-3195"></a><h4>[RM-3195] MixedObjectInstantiationScope is now stored per-thread, not in the SafeContext</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, MixedObjectInstantiationScope used to be stored in the SafeContext. This has now been changed for performance reasons: the scope is now stored by-thread</p>
+
+<p>This means that the current instantiation scope cannot be migrated over a Remoting boundary or across threads if a web request is jumping threads.<br/>
+However, this doesn't matter much because the usual scenario via a using block (using (new MixedObjectInstantionScope(...)) {...}) and of course ObjectFactory.Create will continue to function alright.</p></span></div></div><div class="detailEntry  "><a name="RM-3185"></a><h4>[RM-3185] DemandMethodPermissionAttribute is now obsolete</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use the DemandPermissionAttribute instead. A simple search&amp;replace suffices to fix compiler warnings.</p></span></div></div><div class="detailEntry  "><a name="RM-3184"></a><h4>[RM-3184] Renamed BaseDemandPermissionAttribute to DemandPermissionAttribute and changed application from all members to methods only</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The DemandPermissionAttribute is now the only attribute used by security. It should not be derived from since it will be sealed once the deprecated DemandMethodPermissionAttribute can be deleted.</p></span></div></div><div class="detailEntry  "><a name="RM-3183"></a><h4>[RM-3183] DemandReadPermissionAttribute and DemandWritePermissionAttribute are now obsolete and throw a compiler error</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The API for securing a property has been changed with the intent of simplification. Property access must now be secured by applying the <tt>DemandPermissionAttribute</tt> directly to the property accessor. The signature of <tt>DemandPermissionAttribute</tt> is compatible with <tt>DemandReadPermissionAttribute</tt> and <tt>DemandWritePermissionAttribute</tt>, so the attribute can be moved from the property to the respective accessor method.</p>
+
+<p>If an accessor does not have the attribute applied, the behavior is the same as before and the required AccessType defaults to <tt>Read</tt> and <tt>Write</tt>, respectively. If the accessor does not exist, e.g. a collection property without a setter, the required AccessType also defaults to <tt>Read</tt> and <tt>Write</tt>, respectively. If you require a different AccessType, you must define an accessor and apply the <tt>DemandPermissionAttribute</tt>. The accessor may also be protected or private, even if the property itself is public.</p></span></div></div><div class="detailEntry  "><a name="RM-3163"></a><h4>[RM-3163] Any changes made to the mixin configuration of DomainObjects after the mapping was built will lead to an exception</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, the mixin configuration of DomainObjects is split in two parts: mixins that change the persistent view of a DomainObject (by implementing IDomainObjectMixin or deriving from DomainObjectMixin) and those that don't.</p>
+
+<p>Those mixins that change the persistent view cannot change after the mapping has been built: whenever a DomainObject instance is created (via NewObject, GetObject, or GetObjectReference), the mixin configuration is validated to check that no persistence-relevant mixin has been added or removed.</p>
+
+<p>Previously, those mixins that didn't change the persistent views, could be added and removed even after the mapping was built. For performance reasons - and because the feature wasn't used anyway -, this has now changed: every change to the mixin configuration now leads to an exception in the aforementioned validation step.</p></span></div></div><div class="detailEntry  "><a name="RM-3172"></a><h4>[RM-3172] Upgrade IronPython version linked by Remotion.Scripting to 2.6.1</h4><div class="component"><span class="label">Component/s: </span><span class="value">Scripting</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-1715"></a><h4>[RM-1715] Replace VersionDependentImplementationBridge by standard IoC</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Our self-made IoC container in VersionDependentImplementationBridge doesn't really provide valuable behavior that isn't provided by any old IoC container. But it does add a lot of brittle code.</p>
+
+<p>We can replace it by using CommonServiceLocator from within the interfaces assembly. The Reflection-based version-dependent implementation lookup for the interfaces can be gotten rid of by registering the interface implementations using our automatic IoC configuration facilities.</p></span></div></div><div class="detailEntry  "><a name="RM-1543"></a><h4>[RM-1543] Provide a feature for simple default IoC configuration for re-motion components</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>re-motion uses CommonServiceLocator as an IoC container abstraction, and links to concrete IoC containers such as Windsor or autofac only in its test projects and applications. Downstream projects may use any IoC container.</p>
+
+<p>We also provide a default container called DefaultServiceLocator that is used by default (via SafeServiceLocator) when no custom IoC container is installed. In order to avoid complex configuration mechanisms, we provide an attribute for "default implementations" of interfaces resolved via DefaultServiceLocator.</p>
+
+<p>In order to make it easy for custom IoC containers to register the same default components that DefaultServiceLocator would use, we provide a DefaultServiceConfigurationDiscoveryService in the Remotion.Interfaces assembly that takes an assembly, a list of types, or a type discovery service and returns the configuration settings required to configure an IoC container accordingly.</p>
+
+<p>Use it as follows in your global.asax.cs:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">protected</span> void Application_Start(object sender, EventArgs e)
+  {
+    <span class="code-keyword">var</span> container = <span class="code-keyword">new</span> WindsorContainer(); <span class="code-comment">// or other container of choice
+</span>
+    <span class="code-comment">// Note that <span class="code-keyword">this</span> still uses the DefaultServiceLocator to retrieve an ITypeDiscoveryServiceFactoryImplementation
+</span>    <span class="code-comment">// Pass a custom type discovery service, assembly, or list of types to customize
+</span>    <span class="code-keyword">var</span> typeDiscoveryService = ContextAwareTypeDiscoveryUtility.GetTypeDiscoveryService();
+    <span class="code-keyword">var</span> configuration = DefaultServiceConfigurationDiscoveryService.GetDefaultConfiguration (typeDiscoveryService);
+
+    foreach (<span class="code-keyword">var</span> entry in configuration)
+    {
+      <span class="code-keyword">var</span> lifeStyle = entry.Lifetime == LifetimeKind.Singleton ? LifestyleType.Singleton : LifestyleType.Transient;
+      container.Register (Component.For (entry.ServiceType).ImplementedBy (entry.ImplementationType).LifeStyle.Is (lifeStyle));
+    }
+
+    ServiceLocator.SetLocatorProvider (() =&gt; <span class="code-keyword">new</span> WindsorServiceLocator (container));
+  }</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-3162"></a><h4>[RM-3162] Improve performance of InterceptedDomainObjectCreator.CreateObjectReference by making mixin configuration validation faster</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, the mixin configuration validation needs to differentiate between mixins affecting persistence and those not affecting persistence. By dropping the feature of allowing changes to those parts of a DomainObject's mixin configuration not relevant to persistance, we could make this much more efficient.</p>
+
+<p>Check the LINQ performance tests with many objects before and after the change to see the effects of this change.</p></span></div></div><div class="detailEntry  "><a name="RM-3159"></a><h4>[RM-3159] Improve performance of ObjectFactory.Create by making MixedTypeConstructorLookupInfo's cache key faster to compare (and similar fine-tuning)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ConstructorLookupInfo's cache key is based on Tuple. Making it a custom type can boost its Equals implementation. The BindingFlags should be added to the cache key, and a sensible exception should be thrown if no ctor can be found with the given binding flags.<br/>
+MixinConstructorLookupInfo adds another Tuple to add information that isn't actually required (any more). This should be refactored accordingly.</p></span></div></div></body></html>

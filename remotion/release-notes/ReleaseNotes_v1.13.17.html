@@ -1,0 +1,203 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.17</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1395"><b>
+                  [COMMONS-1395] Data.Linq:
+                </b>ResultOperators that hold expressions should implement TransformExpressions</a></div><div class="listEntry"><a href="#COMMONS-1384"><b>
+                  [COMMONS-1384] ObjectBinding:
+                </b>BocBooleanValue does not work in Firefox</a></div><div class="listEntry"><a href="#COMMONS-1157"><b>
+                  [COMMONS-1157] Data.Linq:
+                </b>Subquery in Where clause cannot be parsed when the query's main from clause accesses a variable from the outer query</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1375"><b>
+                  [COMMONS-1375] Data.Linq:
+                </b>Better ExecuteInMemory</a></div><div class="children"><a href="#COMMONS-1380"><b>
+            [COMMONS-1380] Data.Linq:
+          </b>Implement support for the GroupResultOperator in re-store's QueryExecutor via ExecuteInMemory, write integration test</a></div><div class="children"><a href="#COMMONS-1379"><b>
+            [COMMONS-1379] Data.Linq:
+          </b>Remove InputDependentExpression, replace GroupResultOperator.... by ordinary (resolved) expressions</a></div><div class="children"><a href="#COMMONS-1378"><b>
+            [COMMONS-1378] Data.Linq:
+          </b>Implement new GroupResultOperator.ExecuteInMemory using AccessorFindingExpressionTreeVisitor</a></div><div class="children"><a href="#COMMONS-1377"><b>
+            [COMMONS-1377] Data.Linq:
+          </b>Create AccessorFindingExpressionTreeVisitor</a></div><div class="children"><a href="#COMMONS-1376"><b>
+            [COMMONS-1376] Data.Linq:
+          </b>Add new ExecuteInMemoryData class and new ResultOperator.ExecuteInMemory method that makes use of that class</a></div><div class="listEntry"><a href="#COMMONS-1088"><b>
+                  [COMMONS-1088] Data.Linq:
+                </b>Refactor ContainsObjectParser to be as simple as ContainsParser</a></div><div class="listEntry"><a href="#COMMONS-1087"><b>
+                  [COMMONS-1087] Data.Linq:
+                </b>Refactor WhereConditionParsers.MemberExpressionParser to allow for collection expressions (such as "o.OrderItems"); generate SubQueries for those</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1392"><b>
+                  [COMMONS-1392] Data.Linq:
+                </b>Rewrite ContainsObjectParser to use new parser extensibility facilities</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1395"></a><h4>[COMMONS-1395] ResultOperators that hold expressions should implement TransformExpressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1384"></a><h4>[COMMONS-1384] BocBooleanValue does not work in Firefox</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1157"></a><h4>[COMMONS-1157] Subquery in Where clause cannot be parsed when the query's main from clause accesses a variable from the outer query</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Implement by leveraging the ContainsResultOperator introduced in <a href="https://jira.rubicon.eu/browse/COMMONS-1313" title="Additional query operators"><del>COMMONS-1313</del></a></p></span></div></div><div class="detailEntry  "><a name="COMMONS-1375"></a><h4>[COMMONS-1375] Better ExecuteInMemory</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1380"></a><h4>[COMMONS-1380] Implement support for the GroupResultOperator in re-store's QueryExecutor via ExecuteInMemory, write integration test</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1379"></a><h4>[COMMONS-1379] Remove InputDependentExpression, replace GroupResultOperator.... by ordinary (resolved) expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The new KeySelector/ElementSelector expressions correspond KeySelector.ResolvedExpression and ElementSelector.ResolvedExpression.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1378"></a><h4>[COMMONS-1378] Implement new GroupResultOperator.ExecuteInMemory using AccessorFindingExpressionTreeVisitor</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Use the visitor and the input expression provided via ExecuteInMemoryData to find out to get the required input data from the input object.<br/>
+  (Maybe implement this code on the ExecuteInMemoryData class.)</li>
+	<li>Construct a LambaExpression from the ElementSelector/KeySelector using the above information.</li>
+	<li>Invoke GroupBy in memory on the input stream using the lambdas constructed above.</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1377"></a><h4>[COMMONS-1377] Create AccessorFindingExpressionTreeVisitor</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Constructs a LambdaExpression that finds how to extract a specific piece of data (QuerySourceReferenceExpression) from a complex expression.</p>
+
+<p>Examples:<br/>
+AccessorFindingExpressionTreeVisitor.FindAccessor (<span class="error">&#91;s&#93;</span>, <span class="error">&#91;s&#93;</span>) -&gt; input =&gt; input<br/>
+AccessorFindingExpressionTreeVisitor.FindAccessor (<span class="error">&#91;s&#93;</span>, new {x = [s], y = [sd]}) -&gt; input =&gt; input.x<br/>
+AccessorFindingExpressionTreeVisitor.FindAccessor (<span class="error">&#91;sector&#93;</span>, new { x = <span class="error">&#91;s&#93;</span>, y = new { a = [sd], b = [sector] } }) -&gt; input =&gt; input.y.b</p>
+
+<p>Suggested implementation:</p>
+<ul class="alternate" type="square">
+	<li>hold a stack of members</li>
+	<li>VisitNewExpression/VisitMemberInitExpression (expression):
+  <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">foreach (memberbinding)
+  {
+    push memberbinding.Member; 
+    VisitExpression (memberBinding.Expression); 
+    pop memberbinding.Member;
+  }</pre>
+</div></div></li>
+	<li>VisitExpression (expression):
+  <div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">if</span> (input == searchedExpression)
+  {
+    <span class="code-keyword">return</span> MakeMemberAccessChain (members);
+  }
+  <span class="code-keyword">else</span> <span class="code-keyword">if</span> (input.NodeType != New/MemberInit)
+    <span class="code-keyword">throw</span> ...;
+  <span class="code-keyword">else</span>
+    <span class="code-keyword">return</span> base.VisitExpression (expression);</pre>
+</div></div></li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1376"></a><h4>[COMMONS-1376] Add new ExecuteInMemoryData class and new ResultOperator.ExecuteInMemory method that makes use of that class</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">class ExecuteInMemoryData
+{
+  <span class="code-keyword">public</span> object CurrentValue { get; <span class="code-keyword">private</span> set; }
+  <span class="code-keyword">public</span> Expression CurrentExpression  { get; <span class="code-keyword">private</span> set; }
+}
+
+<span class="code-keyword">public</span> <span class="code-keyword">abstract</span> ResultOperatorBase
+{
+  <span class="code-keyword">public</span> <span class="code-keyword">abstract</span> ExecuteInMemoryData ExecuteInMemory (ExecuteInMemoryData input);
+}</pre>
+</div></div>
+
+<p>Implementation is similar to current ExecuteInMemory method, with the difference that every result operator gets an Expression matching the input data and returns an Expression matching the output data. For example, for Count:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> override ExecuteInMemoryData ExecuteInMemory (ExecuteInMemoryData input)
+{
+  ArgumentUtility.CheckNotNull (<span class="code-quote">"input"</span>, input);
+  <span class="code-keyword">return</span> InvokeGenericExecuteForEnumerable&lt;<span class="code-object">int</span>&gt; (input, ExecuteInMemory);
+}
+
+<span class="code-keyword">public</span> ExecuteInMemoryData ExecuteInMemory&lt;T&gt; (ExecuteInMemoryData input)
+{
+  ArgumentUtility.CheckNotNull (<span class="code-quote">"input"</span>, input);
+  
+  <span class="code-keyword">var</span> enumerableInput = (IEnumerable&lt;T&gt;) input.CurrentValue;
+  <span class="code-keyword">var</span> result = enumerableInput.Count ():
+  <span class="code-keyword">var</span> resultExpression = Resolve&lt;IEnumerable&lt;T&gt;, <span class="code-object">int</span>&gt; (input.CurrentExpression, input =&gt; input.Count());
+
+  <span class="code-keyword">return</span> <span class="code-keyword">new</span> ExecuteInMemoryData (result, resultExpression);
+}
+
+<span class="code-keyword">protected</span> Expression Resolve&lt;TSource, TResult&gt; (Expression inputExpression, Expression&lt;Func&lt;TSource, TResult&gt;&gt; expressionToBeResolved)
+{
+  <span class="code-keyword">return</span> ReplacingExpressionTreeVisitor.Replace (expressionToBeResolved.Parameters[0], inputExpression, expressionToBeResolved.Body);
+}</pre>
+</div></div>
+
+<p>Implement for all trivial result operators, do not implement for GroupResultOperator.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1088"></a><h4>[COMMONS-1088] Refactor ContainsObjectParser to be as simple as ContainsParser</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1087"></a><h4>[COMMONS-1087] Refactor WhereConditionParsers.MemberExpressionParser to allow for collection expressions (such as "o.OrderItems"); generate SubQueries for those</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1392"></a><h4>[COMMONS-1392] Rewrite ContainsObjectParser to use new parser extensibility facilities</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Create a ContainsObjectExpressionNode, which, in its CreateResultOperator method creates a ContainsResultOperator with the argument passed to the ContainsObject method.</p>
+
+<p>Ie.</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from o in QueryFactory.CreateLinqQuery&lt;Order&gt;()
+where o.OrderItems.ContainsObject (item)
+select o</pre>
+</div></div>
+
+<p>becomes</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from o in ... 
+where { from gen in o.OrderItems select gen =&gt; Contains (item) } 
+select o</pre>
+</div></div>
+
+<p>automatically via the ContainsObjectExpressionNode.</p>
+
+<p>The new parser must be registered in DomainObjectQueryable's ctor.</p></span></div></div></body></html>

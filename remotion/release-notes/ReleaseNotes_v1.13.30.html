@@ -1,0 +1,194 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.30</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1729"><b>
+                  [COMMONS-1729] SecurityManager:
+                </b>Layout-table is broken in ACE-editor</a></div><div class="listEntry"><a href="#COMMONS-1727"><b>
+                  [COMMONS-1727] SecurityManager:
+                </b>"Delete State" button in ACE-editor is not aligned with the state-dropdown</a></div><div class="listEntry"><a href="#COMMONS-1726"><b>
+                  [COMMONS-1726] SecurityManager:
+                </b>RowSpan is not correctly applied for ACE-editor's table-layout</a></div><div class="listEntry"></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1725"><b>
+                  [COMMONS-1725] Mixins:
+                </b>Improve error messages given when an override cannot be matched to an overridden member</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1723"><b>
+                  [COMMONS-1723] DmsTray:
+                </b>Drop condition for ShouldAbort == true from UploadRequestedState.OnLockFailed and CommitRequestedState.OnLockFailed</a></div><div class="listEntry"><a href="#COMMONS-1722"><b>
+                  [COMMONS-1722] DmsTray:
+                </b>FileTransferAgentBase should only read File.ShouldAbort and use this value for determining if the transfer should be aborted.</a></div><div class="listEntry"><a href="#COMMONS-1717"><b>
+                  [COMMONS-1717] DmsTray:
+                </b>StreamCopier.CopyStream: The parameter shouldAbort should be moved into the EventArgs used for the OnProgressNotification</a></div><div class="listEntry"><a href="#COMMONS-1621"><b>
+                  [COMMONS-1621] Mixins:
+                </b>Rewrite member name and signature comparers</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1721"><b>
+                  [COMMONS-1721] Core:
+                </b>Comparer utility for MemberInfo signatures</a></div><div class="listEntry"><a href="#COMMONS-1720"><b>
+                  [COMMONS-1720] DmsTray:
+                </b>change signature of IDocumentStore.Unlock</a></div><div class="listEntry"><a href="#COMMONS-1703"><b>
+                  [COMMONS-1703] Core:
+                </b>Allow configuration of how assemblies are discovered by re-motion</a></div><div class="children"><a href="#COMMONS-1705"><b>
+            [COMMONS-1705] Core:
+          </b>Provide extensibility points for re-motion's type discovery mechanism</a></div><div class="children"><a href="#COMMONS-1704"><b>
+            [COMMONS-1704] Core:
+          </b>Allow XML configuration of how re-motion finds assemblies</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1729"></a><h4>[COMMONS-1729] Layout-table is broken in ACE-editor</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The separation line between the states and the accesstypes is broken halfway down the table.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1727"></a><h4>[COMMONS-1727] "Delete State" button in ACE-editor is not aligned with the state-dropdown</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1726"></a><h4>[COMMONS-1726] RowSpan is not correctly applied for ACE-editor's table-layout</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1725"></a><h4>[COMMONS-1725] Improve error messages given when an override cannot be matched to an overridden member</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Include member signature and candidates in the message for easier error finding.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1723"></a><h4>[COMMONS-1723] Drop condition for ShouldAbort == true from UploadRequestedState.OnLockFailed and CommitRequestedState.OnLockFailed</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1722"></a><h4>[COMMONS-1722] FileTransferAgentBase should only read File.ShouldAbort and use this value for determining if the transfer should be aborted.</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1717"></a><h4>[COMMONS-1717] StreamCopier.CopyStream: The parameter shouldAbort should be moved into the EventArgs used for the OnProgressNotification</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1621"></a><h4>[COMMONS-1621] Rewrite member name and signature comparers</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>TBD</p>
+<ul class="alternate" type="square">
+	<li>Add a new MethodInfoSignatureStringBuilder.</li>
+	<li>Add a new SignatureBasedMemberInfoEqualityComparer.</li>
+</ul>
+
+
+<p>or</p>
+
+<ul class="alternate" type="square">
+	<li>Write a nested comparer.</li>
+</ul>
+
+
+<p>or</p>
+<ul class="alternate" type="square">
+	<li>Use ToString for everything.</li>
+</ul>
+
+
+<p>Affected places:</p>
+<ul class="alternate" type="square">
+	<li>SignatureChecker usages in MemberDefinitionBase/subclasses for CanBeOverriddenBy<br/>
+  (Note: We might define that overrides can have different names or generic argument names than the overridden members. Not very likely, though.)</li>
+	<li>...NameAndSignatureEqualityComparers in RequiredMethodDefinitionBuilder (duck typing)<br/>
+  (Note: We might define that duck interface implementations can have different names or generic argument names than the overridden members. Not very likely, though.)</li>
+	<li>SignatureChecker usages in DefaultMethodIntroductionRules<br/>
+  (Note: Using ToString here will lead to incorrect results.)</li>
+</ul>
+
+
+<p>Other steps:</p>
+<ul class="alternate" type="square">
+	<li>Refactor RequiredMethodDefinitionBuilder.</li>
+	<li>Remove SignatureChecker.</li>
+	<li>Clean up ...NameAndSignatureEqualityComparers and ...SignatureEqualityComparers.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1721"></a><h4>[COMMONS-1721] Comparer utility for MemberInfo signatures</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The MemberSignatureEqualityComparer class can be used to compare the signatures of members (including generic methods) for equality. Two signatures compare equal if return/property/event type as well as any generic parameters and parameter types compare equal. Member names, parameter names, and generic parameter names are not considered.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1720"></a><h4>[COMMONS-1720] change signature of IDocumentStore.Unlock</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>add new parameter for documentID;<br/>
+'void Unlock (Guid lockID, string documentID);'</p>
+
+<p>adapt services</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1703"></a><h4>[COMMONS-1703] Allow configuration of how assemblies are discovered by re-motion</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>By default, re-motion searches the bin folder for root-assemblies and loads all types from those assemblies and their referenced assemblies. Those types are then analyzed by the mixin engine, re-store, etc.</p>
+
+<p>This mechanism should be made configurable.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1705"></a><h4>[COMMONS-1705] Provide extensibility points for re-motion's type discovery mechanism</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Extensibility points:</p>
+<ul class="alternate" type="square">
+	<li>Configuration
+	<ul class="alternate" type="square">
+		<li>Can specify a number of root assemblies by name or by file, using the default AssemblyFinderTypeDiscoveryService</li>
+		<li>Can specify a custom IRootAssemblyFinder type, using the default AssemblyFinderTypeDiscoveryService</li>
+		<li>Can specify a custom ITypeDiscoveryService type</li>
+		<li>XML =&gt; <a href="https://jira.rubicon.eu/browse/COMMONS-1703" title="Allow configuration of how assemblies are discovered by re-motion"><del>COMMONS-1703</del></a></li>
+		<li>Code: TypeDiscoveryConfiguration.Current</li>
+	</ul>
+	</li>
+	<li>ITypeDiscoveryService implementation
+	<ul class="alternate" type="square">
+		<li>Code: ContextAwareTypeDiscoveryUtility.DefaultNonDesignModeService</li>
+		<li>In design mode, designer's ITypeDiscoveryService is always used (via DesignerUtility.DesignerHost)</li>
+	</ul>
+	</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1704"></a><h4>[COMMONS-1704] Allow XML configuration of how re-motion finds assemblies</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Configuration-option:<br/>
+The list of root-assemblies gets compiled using a list of AssemblyNames and Filenames</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-xml"><span class="code-tag">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"utf-8"</span> ?&gt;</span>
+<span class="code-tag">&lt;configuration&gt;</span>
+  <span class="code-tag">&lt;configSections&gt;</span>
+    <span class="code-tag">&lt;section name=<span class="code-quote">"remotion.typeDiscovery"</span> type=<span class="code-quote">"Remotion.Configuration.TypeDiscovery.TypeDiscoveryConfiguration, Remotion"</span> /&gt;</span>
+  <span class="code-tag">&lt;/configSections&gt;</span>
+  <span class="code-tag">&lt;remotion.typeDiscovery xmlns=<span class="code-quote">"http://www.re-motion.org/typeDiscovery/configuration"</span> mode=<span class="code-quote">"CustomTypeDiscoveryService"</span>&gt;</span>
+    <span class="code-tag"><span class="code-comment">&lt;!--&lt;customRootAssemblyFinder type=<span class="code-quote">"ConsoleApplication3.CustomRootAssemblyFinder, ConsoleApplication3"</span>/&gt;</span>--&gt;</span>
+    <span class="code-tag">&lt;!--&lt;specificRootAssemblies&gt;</span>
+      <span class="code-tag">&lt;byName&gt;</span>
+        <span class="code-tag">&lt;include name=<span class="code-quote">"ConsoleApplication3"</span> includeReferencedAssemblies=<span class="code-quote">"false"</span>/&gt;</span>
+      <span class="code-tag">&lt;/byName&gt;</span>
+      <span class="code-tag">&lt;byFile&gt;</span>
+        <span class="code-tag">&lt;include filePattern=<span class="code-quote">"Castle.*.dll"</span> includeReferencedAssemblies=<span class="code-quote">"true"</span>/&gt;</span>
+        <span class="code-tag">&lt;exclude filePattern=<span class="code-quote">"Castle.Core.dll"</span>/&gt;</span>
+        <span class="code-tag">&lt;exclude filePattern=<span class="code-quote">"Castle.DynamicProxy2.dll"</span>/&gt;</span>
+      <span class="code-tag">&lt;/byFile&gt;</span>
+    <span class="code-tag">&lt;/specificRootAssemblies&gt;</span>--&gt;
+    <span class="code-tag">&lt;customTypeDiscoveryService type=<span class="code-quote">"ConsoleApplication3::CustomTypeDiscoveryService"</span>/&gt;</span>
+  <span class="code-tag">&lt;/remotion.typeDiscovery&gt;</span>
+<span class="code-tag">&lt;/configuration&gt;</span></pre>
+</div></div>
+
+<p>The default of includeReferencedAssemblies is "false".</p></span></div></div></body></html>

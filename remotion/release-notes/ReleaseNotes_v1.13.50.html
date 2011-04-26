@@ -1,0 +1,214 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.50</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2413"><b>
+                  [COMMONS-2413] Build &amp; Tooling:
+                </b>Build-Script did not package *.ashx files into the res/UI folder</a></div><div class="listEntry"><a href="#COMMONS-2160"><b>
+                  [COMMONS-2160] Web Web.ExecutionEngine:
+                </b>Registered elements in the HtmlHeadAppender are not being cleared when a Server.Transfer occurs (e.g. by WXE)</a></div><div class="listEntry"><a href="#COMMONS-1787"><b>
+                  [COMMONS-1787] ObjectBinding.Web:
+                </b>BocList: GetSelectedBusinessObjects throws if the selection-range no longer matches the values-collection</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2406"><b>
+                  [COMMONS-2406] ObjectBinding.Web:
+                </b>BocList: AddRow(s) and RemoveRow(s) now clears the selelected rows</a></div><div class="listEntry"><a href="#COMMONS-2378"><b>
+                  [COMMONS-2378] Data:
+                </b>Object references are no longer guaranteed to be valid after ITransaction.Reset</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2333"><b>
+                  [COMMONS-2333] ObjectBinding.Web Web:
+                </b>Remove dependency on ServiceLocator.Current from Renderers</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1813"><b>
+                  [COMMONS-1813] Web:
+                </b>HtmlUtility: Encode should also encode single quote characters</a></div><div class="listEntry"><a href="#COMMONS-1796"><b>
+                  [COMMONS-1796] Data.Linq for re-store:
+                </b>Allow non-persisted properties to be redirected to persisted ones in LINQ queries</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-2313"><b>
+                    [COMMONS-2313] Data.Linq:
+                  </b>New Sql Backend</a></span></div><div class="children"><a href="#COMMONS-2426"><b>
+            [COMMONS-2426] Data.Linq:
+          </b>Support for boolean expressions</a></div><div class="children"><a href="#COMMONS-2402"><b>
+            [COMMONS-2402] Data.Linq:
+          </b>Support for additional from clauses</a></div><div class="children"><a href="#COMMONS-2368"><b>
+            [COMMONS-2368] Data.Linq:
+          </b>Support for where clauses</a></div><div class="children"><a href="#COMMONS-2366"><b>
+            [COMMONS-2366] Data.Linq:
+          </b>Support for Count, Distinct, First, Take, Single</a></div><div class="children"><a href="#COMMONS-2356"><b>
+            [COMMONS-2356] Data.Linq:
+          </b>Support for unary not expression, negate expression, unary plus expression</a></div><div class="children"><a href="#COMMONS-2354"><b>
+            [COMMONS-2354] Data.Linq:
+          </b>Support for binary expressions</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2413"></a><h4>[COMMONS-2413] Build-Script did not package *.ashx files into the res/UI folder</h4><div class="component"><span class="label">Component/s: </span><span class="value">Build &amp; Tooling</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2160"></a><h4>[COMMONS-2160] Registered elements in the HtmlHeadAppender are not being cleared when a Server.Transfer occurs (e.g. by WXE)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web Web.ExecutionEngine</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>However they do it, System.Web.UI.ScriptManager.Register... methods do not have this problem!</p>
+
+<p>This can lead to unnecessary/unwanted or to a wrong ordering of scripts or stylesheets on the target page.</p>
+
+<p>Example:</p>
+
+<p>Page1.OnInit -&gt; HtmlHeadAppender.Current.RegisterStylesheetLink (... Test1.css ...)<br/>
+Page1.Button1-Click -&gt; Server.Transfer (...Page2...)</p>
+<hr />
+<p>Page2.OnInit -&gt; HtmlHeadAppender.Current.RegisterStylesheetLink (... Test2.css ...)<br/>
+...</p>
+
+<p>=&gt; In HTML Output of Page2 both stylesheets are rendered, but only Test2.css should be!!</p>
+
+
+<p>=&gt; WORKAROUND in Acta Nova branch: calling HtmlHeadAppender.Current.Clear() in SmartPage.ProcessRequest before calling base</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1787"></a><h4>[COMMONS-1787] BocList: GetSelectedBusinessObjects throws if the selection-range no longer matches the values-collection</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Exception wird geworfen: <br/>
+Server Error in '/actanova/Web' Application.<br/>
+--------------------------------------------------------------------------------</p>
+
+<p>Index was out of range. Must be non-negative and less than the size of the collection.<br/>
+Parameter name: index <br/>
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code. </p>
+
+<p>Exception Details: System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.<br/>
+Parameter name: index</p>
+
+<p>Source Error: </p>
+
+<p>Line 154:<br/>
+Line 155: Page.Form.Controls.Add (_sendEmailPanelUpdatePanel);<br/>
+Line 156: }<br/>
+Line 157:<br/>
+Line 158: private void AdjustSendButtonText ()</p>
+
+<p>Source File: c:\Development\products\ActaNova\trunk\Web\FormsConfigurationFiles\SettlementItem_Commands.cs Line: 156 </p>
+
+<p>Stack Trace: </p>
+
+<p>[ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.<br/>
+Parameter name: index]<br/>
+System.Collections.ArrayList.get_Item(Int32 index) +7483624<br/>
+Remotion.Data.DomainObjects.CommonCollection.BaseGetObject(Int32 index) in c:\build\Remotion\trunk\Remotion\Data\DomainObjects\CommonCollection.cs:191<br/>
+Remotion.Data.DomainObjects.DomainObjectCollection.get_Item(Int32 index) in c:\build\Remotion\trunk\Remotion\Data\DomainObjects\DomainObjectCollection.cs:498<br/>
+Remotion.Data.DomainObjects.DomainObjectCollection.System.Collections.IList.get_Item(Int32 index) in c:\build\Remotion\trunk\Remotion\Data\DomainObjects\DomainObjectCollection.cs:766<br/>
+Remotion.ObjectBinding.Web.UI.Controls.BocList.GetSelectedBusinessObjects() in c:\build\Remotion\trunk\Remotion\ObjectBinding\Web\UI\Controls\BocList.cs:4637<br/>
+Rubicon.ObjectBinding.Forms.Web.Controls.FormCommand.get_BusinessObjects() in c:\Development\Libraries\Remotion.AppTools\trunk\ObjectBinding.Forms\Forms\Web\Controls\FormCommand.cs:103<br/>
+ActaNova.Web.Controls.SendSettlementItemCommand.AdjustSendButtonText() in c:\Development\products\ActaNova\trunk\Web\FormsConfigurationFiles\SettlementItem_Commands.cs:156<br/>
+ActaNova.Web.Controls.SendSettlementItemCommand.Page_PreRender(Object sender, EventArgs e) in c:\Development\products\ActaNova\trunk\Web\FormsConfigurationFiles\SettlementItem_Commands.cs:129<br/>
+System.EventHandler.Invoke(Object sender, EventArgs e) +0<br/>
+System.Web.UI.Control.OnPreRender(EventArgs e) +8679510<br/>
+ActaNova.Web.Classes.BasePage.OnPreRender(EventArgs e) in c:\Development\products\ActaNova\trunk\Web\Classes\BasePage.cs:393<br/>
+ActaNova.Web.Classes.FormPage.OnPreRender(EventArgs e) in c:\Development\products\ActaNova\trunk\Web\Classes\FormPage.cs:429<br/>
+ActaNova.Web.Classes.EditFormPage.OnPreRender(EventArgs e) in c:\Development\products\ActaNova\trunk\Web\Classes\EditFormPage.cs:162<br/>
+ActaNova.Web.UI.EditObjectForm.OnPreRender(EventArgs e) in c:\Development\products\ActaNova\trunk\Web\UI\EditObjectForm.aspx.cs:84<br/>
+ActaNova.Web.UI.MixedTypes.BaseCallProxy.Rubicon.ObjectBinding.Forms.Web.Controls.ObjectFormMixin+IBaseMethods.OnPreRender(EventArgs e) +300<br/>
+Rubicon.ObjectBinding.Forms.Web.Controls.ObjectFormMixin.OnPreRender(EventArgs e) in c:\Development\Libraries\Remotion.AppTools\trunk\ObjectBinding.Forms\Forms\Web\Controls\ObjectFormMixin.cs:460<br/>
+ActaNova.Web.UI.MixedTypes.BaseCallProxy.ActaNova.Ediakt.Web.Classes.EdiaktEditObjectFormMixin+IBaseMethods.OnPreRender(EventArgs e) +217<br/>
+ActaNova.Ediakt.Web.Classes.EdiaktEditObjectFormMixin.OnPreRender(EventArgs e) in c:\Development\products\ActaNova\trunk\Ediakt.Web\Classes\EdiaktEditObjectFormMixin.cs:28<br/>
+ActaNova.Web.UI.MixedTypes.BaseCallProxy.ActaNova.Web.UI.EditObjectForm.OnPreRender(EventArgs e) +75<br/>
+ActaNova.Web.UI.MixedTypes.EditObjectForm.OnPreRender(EventArgs e) +54<br/>
+System.Web.UI.Control.PreRenderRecursiveInternal() +80<br/>
+System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +842</p>
+
+<p>[AsyncPostbackException: Index was out of range. Must be non-negative and less than the size of the collection.<br/>
+Parameter name: index]<br/>
+ActaNova.Web.UI.DisplayErrorForm.OnInit(EventArgs e) in c:\Development\products\ActaNova\trunk\Web\UI\DisplayError.aspx.cs:228<br/>
+System.Web.UI.Control.InitRecursive(Control namingContainer) +333<br/>
+System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +378</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2406"></a><h4>[COMMONS-2406] BocList: AddRow(s) and RemoveRow(s) now clears the selelected rows</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the selected rows had to be invalidated manually by calling ClearSelectedRows on the affected BocList.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2378"></a><h4>[COMMONS-2378] Object references are no longer guaranteed to be valid after ITransaction.Reset</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The Reset-operation now only resets the transaction. Object references used in the code (e.g. in the WxeFunction and WxePage) are no longer guaranteed to be valid after the reset and should be discarded. Object references stored in WxeVariables will be registered in the new transaction and thus remain valid. Collection-EventHandlers will not be restored. (Compare In- and Out-parameter enlistment.)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2333"></a><h4>[COMMONS-2333] Remove dependency on ServiceLocator.Current from Renderers</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1813"></a><h4>[COMMONS-1813] HtmlUtility: Encode should also encode single quote characters</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Encodes single quotes as &#039;</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1796"></a><h4>[COMMONS-1796] Allow non-persisted properties to be redirected to persisted ones in LINQ queries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The LinqPropertyRedirectionAttribute allows users to redirect properties with StorageClassNone to other properties. This allows "wrapper properties" to be used in LINQ queries.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">protected</span> virtual <span class="code-object">int</span> OrderNumber { get; set; }
+
+[StorageClassNone]
+[LinqPropertyRedirection (typeof (Order), <span class="code-quote">"OrderNumber"</span>)]
+<span class="code-keyword">public</span> <span class="code-object">int</span> RedirectedOrderNumber
+{
+  get 
+  {
+    <span class="code-comment">// perform additional logic, e.g, cache lookups or security checks
+</span>    <span class="code-keyword">return</span> OrderNumber;
+  }
+}</pre>
+</div></div></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-2313"></a><h4>[COMMONS-2313] New Sql Backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">re-linq vNext</span></div><br></br><div class="description"><span><p>The new SQL backend should both be a good example of how to approach SQL generation using the new re-linq front-end (QueryModel, usw.) and provide a sound, extensible architecture backing re-store's LINQ provider.</p>
+
+<p>It will sport SQL generation in three phases:</p>
+<ul class="alternate" type="square">
+	<li>The first phase will take a query model and translate it into a SqlStatement model. SqlStatement is modeled to express the syntactical possibilities and constraints of actual SQL statements.</li>
+	<li>The second phase will allow an O/R mapper to resolve all elements of the SqlStatement into SQL-specific items such as tables or columns with names and aliases.</li>
+	<li>The third phase will then take the resolved SqlStatement and produce actual SQL text (and parameters).</li>
+</ul>
+
+
+<p>LINQ providers will be able to hook into each of the three steps for customization, optimization, and advanced query transformations.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2426"></a><h4>[COMMONS-2426] Support for boolean expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support queries of the forms: <tt>select c.IsStarredCook</tt>, <tt>select c.FirstName == "John"</tt>, <tt>where c.IsStarredCook</tt>, <tt>where c.IsStarredCook == (c.FirstName == "John")</tt>, <tt>select true</tt>, <tt>where false || (c.FirstName == "John")</tt>, and similar</p>
+
+<p>The SQL generated for such queries depends on the context of the boolean expression. "True" and "False" constants are represented as 1 and 0 values; when a boolean expression should be used as a value, a CASE WHEN expression is emitted; when a boolean column should be used as a predicate, it is compared to 1.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2402"></a><h4>[COMMONS-2402] Support for additional from clauses</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the form: <tt>from s in Students from s2 in Students select ...</tt><br/>
+This query results in a SQL query with multiple from table sources separated by CROSS JOIN.</p>
+
+<p>Support for queries of the form: <tt>from s in Students from s2 in s.Friends select ...</tt><br/>
+This query results in a SQL query with multiple from table sources separated by INNER JOIN.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2368"></a><h4>[COMMONS-2368] Support for where clauses</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries of the form: <tt>from s in ... where s.ID == 0 where s.FirstName == "hugo" select s</tt></p>
+
+<p>This generates a single SQL WHERE clause; the conditions are combined via AND.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2366"></a><h4>[COMMONS-2366] Support for Count, Distinct, First, Take, Single</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the form: <tt>(from s in ... select s).Count()</tt>, etc.<br/>
+Such result operators insert COUNT, DISTINCT, and TOP clauses in the generated SQL statement.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2356"></a><h4>[COMMONS-2356] Support for unary not expression, negate expression, unary plus expression</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the form: <tt>select !(s.FirstName == "Hugo")</tt>, <tt>-s.Age</tt>, <tt>+s.Age</tt>.<br/>
+The SQL generated for these expressions contains a SQL NOT expression, -, and +.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2354"></a><h4>[COMMONS-2354] Support for binary expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the following form: <tt>select s.FirstName + " " + s.LastName</tt>.</p>
+
+<p>The SQL generated for this expression is a SQL concatenation. Only binary operators also provided by SQL are supported, other operators yield an exception.</p>
+
+<p>If the select expression of a query yields a boolean value, a CASE SQL expression is generated, returning 1 for true expressions and 0 for untrue expressions.</p>
+
+<p>If the expression compares a column or value with the constant value NULL, an IS NULL or IS NOT NULL SQL expression is generated.</p></span></div></div></body></html>

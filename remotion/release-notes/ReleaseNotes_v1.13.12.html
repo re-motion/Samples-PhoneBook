@@ -1,0 +1,109 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.12</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1231"><b>
+                  [COMMONS-1231] Data.Linq:
+                </b>Improve debugging experience of custom expression nodes in clauses via DebuggerDisplayAttribute</a></div><div class="listEntry"><a href="#COMMONS-1107"><b>
+                  [COMMONS-1107] Data.Linq:
+                </b>Refactor QueryProviderBase.Execute methods, they are not implemented as is suggested by Microsoft</a></div><div class="children"><a href="#COMMONS-1227"><b>
+            [COMMONS-1227] Data.Linq:
+          </b>Implement ExecuteScalar for bridge from re-linq to re-store</a></div><div class="children"><a href="#COMMONS-1225"><b>
+            [COMMONS-1225] Data.Linq:
+          </b>Clean up QueryProviderBase.Execute methods</a></div><div class="children"><a href="#COMMONS-1212"><b>
+            [COMMONS-1212] Data.Linq:
+          </b>Change QueryProviderBase to get execution strategy via SelectOrGroupClause</a></div><div class="children"><a href="#COMMONS-1211"><b>
+            [COMMONS-1211] Data.Linq:
+          </b>Add SelectClause.GetExecutionStrategy</a></div><div class="children"><a href="#COMMONS-1210"><b>
+            [COMMONS-1210] Data.Linq:
+          </b>Add IQueryExecutor.ExecuteScalar, remove IQueryExecutor.ExecuteSingle</a></div><div class="children"><a href="#COMMONS-1209"><b>
+            [COMMONS-1209] Data.Linq:
+          </b>Add IExecutionStrategy and implementations for scalar, single, and collection queries; associated result modifications with strategy</a></div><div class="listEntry"><a href="#COMMONS-1096"><b>
+                  [COMMONS-1096] Data.Linq:
+                </b>Remove workarounds needed to simulate SelectClauses when no actual Select expression was in the expression tree</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-505"><b>
+                    [COMMONS-505] Data.Linq for re-store:
+                  </b>Design and implement better projection support</a></span></div><div class="children"><a href="#COMMONS-1208"><b>
+            [COMMONS-1208] Data.Linq:
+          </b>Allow to run result modifications in memory</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1231"></a><h4>[COMMONS-1231] Improve debugging experience of custom expression nodes in clauses via DebuggerDisplayAttribute</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1107"></a><h4>[COMMONS-1107] Refactor QueryProviderBase.Execute methods, they are not implemented as is suggested by Microsoft</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>See <span class="nobr"><a href="http://blogs.gotdotnet.com/mattwar/archive/2007/07/30/linq-building-an-iqueryable-provider-part-i.aspx">http://blogs.gotdotnet.com/mattwar/archive/2007/07/30/linq-building-an-iqueryable-provider-part-i.aspx<sup><img class="rendericon" src="https://jira.rubicon.eu/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p></span></div></div><div class="detailEntry children "><a name="COMMONS-1227"></a><h4>[COMMONS-1227] Implement ExecuteScalar for bridge from re-linq to re-store</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1225"></a><h4>[COMMONS-1225] Clean up QueryProviderBase.Execute methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1212"></a><h4>[COMMONS-1212] Change QueryProviderBase to get execution strategy via SelectOrGroupClause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1211"></a><h4>[COMMONS-1211] Add SelectClause.GetExecutionStrategy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This should return either the last result modification's strategy or CollectionExecutionStrategy.Instance</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1210"></a><h4>[COMMONS-1210] Add IQueryExecutor.ExecuteScalar, remove IQueryExecutor.ExecuteSingle</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1209"></a><h4>[COMMONS-1209] Add IExecutionStrategy and implementations for scalar, single, and collection queries; associated result modifications with strategy</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The strategies should dispatch execution for a given QueryModel to the IQueryExecutor.ExecuteCollection or .ExecuteScalar method.<br/>
+Those result modifications demanding a single result value (and allowing defaults) should extract the single value and return that (or the default).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1096"></a><h4>[COMMONS-1096] Remove workarounds needed to simulate SelectClauses when no actual Select expression was in the expression tree</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Undo <a href="https://jira.rubicon.eu/browse/COMMONS-1196" title="Work around the issues the old Resolve mechanism has with missing Select clauses by inserting one (and a fake SelectMany projection if required) when the C# compiler optimizes it away"><del>COMMONS-1196</del></a> and other relicts of that old restriction</p></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-505"></a><h4>[COMMONS-505] Design and implement better projection support</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">2.1</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1208"></a><h4>[COMMONS-1208] Allow to run result modifications in memory</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

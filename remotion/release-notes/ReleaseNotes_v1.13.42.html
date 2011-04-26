@@ -1,0 +1,108 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.42</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2144"><b>
+                  [COMMONS-2144] Build &amp; Tooling:
+                </b>Add re-linq build artefact to web publishing-point</a></div><div class="listEntry"><a href="#COMMONS-2031"><b>
+                  [COMMONS-2031] Data:
+                </b>RepositoryAccessor.NewObject does not invoke OnDomainObjectCreated of DomainObjectMixins (DomainObject.NewObject does)</a></div><div class="listEntry"></div><div class="listEntry"></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2143"><b>
+                  [COMMONS-2143] Core:
+                </b>EnumerableExtensions.ToEnumerable has been replaced with EnumerableUtility.Singleton</a></div><div class="listEntry"><a href="#COMMONS-2142"><b>
+                  [COMMONS-2142] Core:
+                </b>Most methods in EnumerableUtility have been obsoleted</a></div><div class="listEntry"><a href="#COMMONS-2141"><b>
+                  [COMMONS-2141] Core:
+                </b>EnumerableExtensions and EnumerableUtility have been moved to namespace Remotion.FunctionalProgramming</a></div><div class="listEntry"><a href="#COMMONS-2137"><b>
+                  [COMMONS-2137] Data:
+                </b>ClientTransaction.GetObject overload not taking the "includeDeleted" parameter has been removed</a></div><div class="listEntry"><a href="#COMMONS-2135"><b>
+                  [COMMONS-2135] Data:
+                </b>RepositoryAccessor methods now take a ClientTransaction as their first argument</a></div><div class="listEntry"><a href="#COMMONS-2095"><b>
+                  [COMMONS-2095] Data:
+                </b>IClientTransactionListener.RelationEndPointMapRegistering now occurs after the ObjectsLoaded event when a related object collection is loaded</a></div><div class="listEntry"><a href="#COMMONS-2094"><b>
+                  [COMMONS-2094] Data:
+                </b>ClientTransaction.LoadRelatedObjects return type is now DomainObject[] and does not register the end point any longer</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2147"><b>
+                  [COMMONS-2147] Data:
+                </b>ClientTransaction.EnsureDataAvailable for relation end points, DomainObjectCollection.IsDataAvailable, DomainObjectCollection.EnsureDataAvailable</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1943"><b>
+                  [COMMONS-1943] Data.Linq:
+                </b>Remove dependencies from re-linq to rest of re-motion</a></div><div class="listEntry"><span class="notVisible"><a href="#COMMONS-730"><b>
+                    [COMMONS-730] Data:
+                  </b>Provide support for unloading unchanged objects from a ClientTransaction</a></span></div><div class="children"><a href="#COMMONS-2064"><b>
+            [COMMONS-2064] Data:
+          </b>DomainObjectUnloader.UnloadData</a></div><div class="children"><a href="#COMMONS-2060"><b>
+            [COMMONS-2060] Data:
+          </b>DomainObjectUnloader.UnloadCollectionEndPoint</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2144"></a><h4>[COMMONS-2144] Add re-linq build artefact to web publishing-point</h4><div class="component"><span class="label">Component/s: </span><span class="value">Build &amp; Tooling</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2031"></a><h4>[COMMONS-2031] RepositoryAccessor.NewObject does not invoke OnDomainObjectCreated of DomainObjectMixins (DomainObject.NewObject does)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>=&gt; solved in Acta Nova branch</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2143"></a><h4>[COMMONS-2143] EnumerableExtensions.ToEnumerable has been replaced with EnumerableUtility.Singleton</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The naming of the method was confusing, and its feature of being an unconstrained generic extension method (added to every type) added to that confusion.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2142"></a><h4>[COMMONS-2142] Most methods in EnumerableUtility have been obsoleted</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>They can be replaced by equivalent LINQ constructs.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2141"></a><h4>[COMMONS-2141] EnumerableExtensions and EnumerableUtility have been moved to namespace Remotion.FunctionalProgramming</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>That namespaces is meant to group functional programming constructs, and EnumerableExtensions and EnumerableUtility provide functional programming constructs.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2137"></a><h4>[COMMONS-2137] ClientTransaction.GetObject overload not taking the "includeDeleted" parameter has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>For clarity, please use the overload that forces you to specify the parameter.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2135"></a><h4>[COMMONS-2135] RepositoryAccessor methods now take a ClientTransaction as their first argument</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2095"></a><h4>[COMMONS-2095] IClientTransactionListener.RelationEndPointMapRegistering now occurs after the ObjectsLoaded event when a related object collection is loaded</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This is caused by a change made in order to support lazy loading.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2094"></a><h4>[COMMONS-2094] ClientTransaction.LoadRelatedObjects return type is now DomainObject[] and does not register the end point any longer</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The method has been changed in order to support lazy collection loading. It should not be called by client code, use RelationEndPointMap.GetRelationEndPointWithLazyLoad() instead.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2147"></a><h4>[COMMONS-2147] ClientTransaction.EnsureDataAvailable for relation end points, DomainObjectCollection.IsDataAvailable, DomainObjectCollection.EnsureDataAvailable</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>These APIs can be used to detect whether and ensure that a (collection-valued) relation property's data is available in the ClientTransaction. They are valuable when used together with DomainObjectUnloader.UnloadCollectionEndPoint().</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1943"></a><h4>[COMMONS-1943] Remove dependencies from re-linq to rest of re-motion</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="COMMONS-730"></a><h4>[COMMONS-730] Provide support for unloading unchanged objects from a ClientTransaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Reopened</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">1.13.43</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-2064"></a><h4>[COMMONS-2064] DomainObjectUnloader.UnloadData</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Removes an object's DataContainer from the ClientTransaction. In addition, all relation end points that were created when the object was loaded, are also removed. If the object is part of a collection-valued relation end point, that end-point is also transitioned into unloaded state.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2060"></a><h4>[COMMONS-2060] DomainObjectUnloader.UnloadCollectionEndPoint</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Transfers a collection-valued end point into unloaded state, the DomainObjectCollection representing the relation end point becomes a lazily-loaded proxy.</p></span></div></div></body></html>

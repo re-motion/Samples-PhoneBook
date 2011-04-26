@@ -1,0 +1,244 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.63</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2883"><b>
+                  [COMMONS-2883] Core:
+                </b>DynamicMethodBasedMethodWrapper causes an AccessViolation-exception if an interface-method from the mscorlib is being wrapped</a></div><div class="listEntry"><a href="#COMMONS-2876"><b>
+                  [COMMONS-2876] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: JavaScript error when enter is pressed</a></div><div class="listEntry"><a href="#COMMONS-2875"><b>
+                  [COMMONS-2875] ObjectBinding.Web:
+                </b>BocAutocompleteReferenceValue: When the drop down opens, the second value is selected instead of the first</a></div><div class="listEntry"><a href="#COMMONS-2872"><b>
+                  [COMMONS-2872] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: The cache does not return the correct result for single character inputs</a></div><div class="listEntry"><a href="#COMMONS-2851"><b>
+                  [COMMONS-2851] ObjectBinding.Web:
+                </b>BocReferenceValueBase: When the OptionsMenu has once been invisible, it can never turn visible again</a></div><div class="listEntry"><a href="#COMMONS-2849"><b>
+                  [COMMONS-2849] Web:
+                </b>DatePicker not closed "on blur" when used in a page inside an iframe (only standards mode)</a></div><div class="listEntry"><a href="#COMMONS-2839"><b>
+                  [COMMONS-2839] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: The value should be reset (including the TextBox) when hitting the ESC key if no value was no selected</a></div><div class="listEntry"><a href="#COMMONS-2838"><b>
+                  [COMMONS-2838] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: The value should be persisted when hitting the ESC key if the value was selected by the cursor</a></div><div class="listEntry"><a href="#COMMONS-2801"><b>
+                  [COMMONS-2801] Data.Linq:
+                </b>Ctor of StreamedSequenceInfo should throw an exception if dataType parameter is not an implementation of IEnumerable&lt;T&gt;</a></div><div class="listEntry"><a href="#COMMONS-2800"><b>
+                  [COMMONS-2800] Data.Linq:
+                </b>re-store throws exception if a LINQ query returns DomainObjects but casts them to an interface</a></div><div class="listEntry"><a href="#COMMONS-2763"><b>
+                  [COMMONS-2763] Web:
+                </b>ViewLayout.js: SetParentUpdatePanelHeight is missing</a></div><div class="listEntry"><a href="#COMMONS-2481"><b>
+                  [COMMONS-2481] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: Search results are not removed from DOM tree upon an async postback</a></div><div class="listEntry"><a href="#COMMONS-1562"><b>
+                  [COMMONS-1562] ObjectBinding.Web:
+                </b>AutoComplete: Indicator.gif is not part of the resources.</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2882"><b>
+                  [COMMONS-2882] ObjectBinding.Web:
+                </b>BocListRenderers with optional TopBlockRenderer</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2884"><b>
+                  [COMMONS-2884] ObjectBinding.Web:
+                </b>Provide a RenderContents template-method in BocListRenderer and BocListQuirksModeRenderer</a></div><div class="listEntry"><a href="#COMMONS-2881"><b>
+                  [COMMONS-2881] Web:
+                </b>WebUpdatePanel</a></div><div class="listEntry"><a href="#COMMONS-2810"><b>
+                  [COMMONS-2810] Data.Linq:
+                </b>re-linq support for ASP.NET partial (medium) trust</a></div><div class="listEntry"><a href="#COMMONS-2712"><b>
+                  [COMMONS-2712] Data.Linq:
+                </b>Support nested select projections in subqueries</a></div><div class="listEntry"><a href="#COMMONS-2711"><b>
+                  [COMMONS-2711] Data.Linq:
+                </b>Support paging via Skip and Take result operators</a></div><div class="listEntry"><a href="#COMMONS-2594"><b>
+                  [COMMONS-2594] Data.Linq:
+                </b>Support for explicit joins with an "into" clause</a></div><div class="listEntry"><a href="#COMMONS-1446"><b>
+                  [COMMONS-1446] Data.Linq for re-store:
+                </b>Eager fetching from LINQ queries should be supported even when the inner query contains an ORDER BY expression</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2627"><b>
+                  [COMMONS-2627] ObjectBinding:
+                </b>PropertyInfoAdapter should use DynamicMethods instead of Reflection APIs to get and set properties</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2883"></a><h4>[COMMONS-2883] DynamicMethodBasedMethodWrapper causes an AccessViolation-exception if an interface-method from the mscorlib is being wrapped</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2876"></a><h4>[COMMONS-2876] BocAutoCompleteReferenceValue: JavaScript error when enter is pressed</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Workaround:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-javascript"><span class="code-keyword">var</span> repositonHandler = <span class="code-keyword">function</span>() {
+  <span class="code-keyword">if</span> (repositionTimer) {
+    clearTimeout(repositionTimer);
+  }
+  <span class="code-keyword">if</span> (element.is(':visible')) {
+    <span class="code-keyword">var</span> pageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
+    <span class="code-keyword">if</span> (pageRequestManager.get_isInAsyncPostBack()) {
+      element.hide(); 
+      <span class="code-keyword">return</span>;
+    }
+    applyPositionToDropDown();
+    repositionTimer = setTimeout(repositonHandler, options.repositionInterval);
+  }
+}</pre>
+</div></div>
+
+
+<p>Repro:</p>
+<ul>
+	<li>Enter text in AutoPostBack-AutoComplete</li>
+	<li>Wait for result</li>
+	<li>Use Cursor to select a value (-&gt; causes scroll-event to fire)</li>
+	<li>Press Enter</li>
+</ul>
+
+
+<p>-&gt; Blur-Handling (activated by scroll-event) and postback cause a conflict when applyPositionToDropDown fires the next time.</p>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2875"></a><h4>[COMMONS-2875] BocAutocompleteReferenceValue: When the drop down opens, the second value is selected instead of the first</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2872"></a><h4>[COMMONS-2872] BocAutoCompleteReferenceValue: The cache does not return the correct result for single character inputs</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2851"></a><h4>[COMMONS-2851] BocReferenceValueBase: When the OptionsMenu has once been invisible, it can never turn visible again</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Solution: also set optionsmenu visibility explicitly to true if HasOptionsMenu is true</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2849"></a><h4>[COMMONS-2849] DatePicker not closed "on blur" when used in a page inside an iframe (only standards mode)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason is that in row 116 in DatePicker.js the event is registered on window.parent.document, which is the outer window when used inside an iframe -&gt; use target.document instead</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2839"></a><h4>[COMMONS-2839] BocAutoCompleteReferenceValue: The value should be reset (including the TextBox) when hitting the ESC key if no value was no selected</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2838"></a><h4>[COMMONS-2838] BocAutoCompleteReferenceValue: The value should be persisted when hitting the ESC key if the value was selected by the cursor</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Also applies to closing the DropDown via button</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2801"></a><h4>[COMMONS-2801] Ctor of StreamedSequenceInfo should throw an exception if dataType parameter is not an implementation of IEnumerable&lt;T&gt;</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2800"></a><h4>[COMMONS-2800] re-store throws exception if a LINQ query returns DomainObjects but casts them to an interface</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Code snippet throws exception with new linq provider:</p>
+
+<p>This query provider does not support the given query ('from BaseDataObjectConnection bdoc in DomainObjectQueryable&lt;BaseDataObjectConnection&gt; where (<span class="error">&#91;bdoc&#93;</span>.FileHandlingObject.ID = File|00000053-0000-0000-0000-000000000003|System.Guid) select <span class="error">&#91;bdoc&#93;</span> =&gt; Cast&lt;ActaNova.Domain.IClassifiedLink&gt;()'). re-store only supports queries selecting a scalar value, a single DomainObject, or a collection of DomainObjects. </p>
+
+<p>With old linq provider this code worked.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">private</span> <span class="code-keyword">static</span> ICollection&lt;IClassifiedLink&gt; GetAllDirektLinks(FileHandlingObject sourceObject)
+    {
+      using (<span class="code-keyword">new</span> SecurityFreeSection ())
+      {
+        <span class="code-keyword">var</span> bdos = QueryFactory.CreateLinqQuery&lt;BaseDataObjectConnection&gt;().Where (bdoc =&gt; bdoc.FileHandlingObject.ID == sourceObject.ID);
+
+        <span class="code-keyword">return</span> bdos.Cast&lt;IClassifiedLink&gt;().ToList();
+      }
+    }</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-2763"></a><h4>[COMMONS-2763] ViewLayout.js: SetParentUpdatePanelHeight is missing</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Details with MK</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2481"></a><h4>[COMMONS-2481] BocAutoCompleteReferenceValue: Search results are not removed from DOM tree upon an async postback</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1562"></a><h4>[COMMONS-1562] AutoComplete: Indicator.gif is not part of the resources.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>indicator.gif is missing or broken style in BocAutoCompleteReferenceValue.jquery.css</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2882"></a><h4>[COMMONS-2882] BocListRenderers with optional TopBlockRenderer</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In order to be able to render arbitrary additional functionality above the contents of, but still within a BocList, the BocListRenderer and BocListQuirksModeRenderer should provide a possibility to inject a "TopBlock" Renderer.</p>
+
+<p>Current ActaNovaBranch implementation employs a interface </p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> IBocListExtraBlockRenderer
+  {
+    void Render (HtmlTextWriter writer);
+    void RegisterHtmlHeadContents (HtmlHeadAppender htmlHeadAppender);
+  }</pre>
+</div></div>
+<p>which also allows for additional head contents injection.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> IBocListExtraBlockRenderer TopBlockRenderer { get; set; }</pre>
+</div></div>
+
+<p>Both, BocListRenderer and BocListQuirksModeRenderer, call the respective methods if their </p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> IBocListExtraBlockRenderer TopBlockRenderer { get; set; }</pre>
+</div></div>
+<p>property has been set. <br/>
+Currently, TopBlockRenderer cannot be set with any factory from within re-motion.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2884"></a><h4>[COMMONS-2884] Provide a RenderContents template-method in BocListRenderer and BocListQuirksModeRenderer</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2881"></a><h4>[COMMONS-2881] WebUpdatePanel</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The WebUpdatePanel extends the ASP.NET UpdatePanel to provide support for HTML attributes. This enables the developer to specify a css-class or inline-styles for the UpdatePanel.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2810"></a><h4>[COMMONS-2810] re-linq support for ASP.NET partial (medium) trust</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>re-linq now supports partial trust scenarios.</p>
+
+<p>It does not fully support ASP.NET medium trust because some features (e.g., the possibility to access a local variable or anonymous type in a LINQ expression) require reflection access to non-public members, and ASP.NET medium trust does not allow such access. Note that by default, the C# compiler automatically creates anonymous types for joins and multiple from clauses, so such queries will fail under medium trust.</p>
+
+<p>To use all re-linq features in such environments, ReflectionPermission with the MemberAccess flag must be granted in addition to the default medium trust permissions.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2712"></a><h4>[COMMONS-2712] Support nested select projections in subqueries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support queries of the following form: <tt>from c in Cooks from assistant in (from a in c.Assistants select new { Age = a.Age, Name = a.FirstName }) where assistant.Age &gt; 18 select assistant.Name })</tt>.</p>
+
+<p>Note that only anonymous types are supported.</p>
+
+<p>Full support for nested projections on the top level is a separate feature.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2711"></a><h4>[COMMONS-2711] Support paging via Skip and Take result operators</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support queries of the form: <tt>Cooks.Skip (10).Take (20)</tt>, which takes 20 items starting from the 10th one.</p>
+
+<p>The generated query uses the ROWNUMBER function and adds an ORDER BY clause if none is specified.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2594"></a><h4>[COMMONS-2594] Support for explicit joins with an "into" clause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support queries of the following forms: <tt>from k in Kitchens join c in Cooks on k equals c.Kitchen into cooks select cooks.Count()</tt>, <tt>from k in Kitchens join c in Cooks on k equals c.Kitchen into cooks from c in cooks select c</tt>, <tt>from k in Kitchens join c in Cooks on k equals c.Kitchen into cooks from c in cooks.DefaultIfEmpty() select c</tt></p>
+
+<ul class="alternate" type="square">
+	<li>A join using "into" is not directly translated into SQL unless the sequence variable is actually used.</li>
+	<li>The sequence variable can be used in a from clause: <tt>join ... into cooks ... from c in cooks</tt>. In that case, the SQL produced is equivalent to that of a where-style inner join (<tt>from c in Cooks where k == c.Kitchen</tt>).</li>
+	<li>A usage of the sequence variable with a result operator such as Count() is equivalent to using a from clause selecting from that sequence variable.</li>
+	<li>The sequence variable can not be used anywhere a value is required, including select projections (unless as a subquery).</li>
+	<li>The sequence variable can be combined with the DefaultIfEmpty() result operator. In that case, the join semantics changes from inner join semantics to left outer join semantics.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1446"></a><h4>[COMMONS-1446] Eager fetching from LINQ queries should be supported even when the inner query contains an ORDER BY expression</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> query = (from o in QueryFactory.CreateLinqQuery&lt;Order&gt; ()
+                   orderby o.OrderNumber
+                   select o)
+                   .FetchMany (o =&gt; o.OrderItems)</pre>
+</div></div>
+
+<p>This currently yields an exception because ORDER BY is not supported in subqueries unless TOP is also specified.</p>
+
+<p>This is the generated SQL:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT TOP 1 [o].* FROM [OrderView] [o] ORDER BY [o].[OrderNo] ASC
+SELECT DISTINCT [#fetch1].* FROM (SELECT [o].* FROM [OrderView] [o] ORDER BY [o].[OrderNo] ASC) [#fetch0], [OrderItemView] [#fetch1] WHERE (([#fetch0].[ID] IS NULL AND [#fetch1].[OrderID] IS NULL) OR [#fetch0].[ID] = [#fetch1].[OrderID])</pre>
+</div></div>
+
+<p>The second query holds an invalid ORDER BY clause.<br/>
+Therefore, we should strip out the OrderingClauses from fetch requests in DomainObjectQueryExecutor if no Take is present...</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2627"></a><h4>[COMMONS-2627] PropertyInfoAdapter should use DynamicMethods instead of Reflection APIs to get and set properties</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> getMethod = ValuePropertyInfo.GetGetMethod(<span class="code-keyword">true</span>);
+      <span class="code-keyword">var</span> dynamicMethod = <span class="code-keyword">new</span> DynamicMethod (<span class="code-quote">"ValuePropertyGetter"</span>, typeof (object), <span class="code-keyword">new</span>[] { typeof (object) }, typeof (PropertyInfoAdapter), <span class="code-keyword">true</span>);
+      <span class="code-keyword">var</span> il = dynamicMethod.GetILGenerator ();
+
+      il.Emit (OpCodes.Ldarg_0);
+      il.EmitCall (OpCodes.Callvirt, getMethod, <span class="code-keyword">null</span>);
+      <span class="code-keyword">if</span> (getMethod.ReturnType.IsValueType)
+        il.Emit (OpCodes.Box, getMethod.ReturnType);
+
+      il.Emit (OpCodes.Ret);
+
+      _propertyGetter = (Func&lt;object, object&gt;) dynamicMethod.CreateDelegate (typeof (Func&lt;object, object&gt;));</pre>
+</div></div></span></div></div></body></html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.27</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1552"><b>
+                  [COMMONS-1552] Mixins:
+                </b>AmbiguousMatchException in ClassDefinitionBase.GetAdjustedInterfaceMap when a generic method has the same name and parameter list as a non-generic one</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1599"><b>
+                  [COMMONS-1599] Support:
+                </b>Change "Documentation version" number to match the version number of the documented classes</a></div><div class="listEntry"><a href="#COMMONS-1590"><b>
+                  [COMMONS-1590] Data:
+                </b>DomainObjectTransporter should use streams instead of byte arrays</a></div><div class="listEntry"><a href="#COMMONS-1027"><b>
+                  [COMMONS-1027] Mixins:
+                </b>Get rid of BaseAttribute/ThisAttribute</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1545"><b>
+                  [COMMONS-1545] Mixins:
+                </b>Check usages of MixinConfiguration.ClassContexts.Get..., prefer MixinConfiguration.GetClassContext instead</a></div><div class="listEntry"><a href="#COMMONS-1529"><b>
+                  [COMMONS-1529] Mixins:
+                </b>Rewrite definition builder tests to be less integrative</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1576"><b>
+                  [COMMONS-1576] Mixins:
+                </b>Improve performance of ClassContextCollection.GetWithInheritance</a></div><div class="children"><a href="#COMMONS-1616"><b>
+            [COMMONS-1616] Mixins:
+          </b>Make ClassContextCollection immutable</a></div><div class="children"><a href="#COMMONS-1580"><b>
+            [COMMONS-1580] Mixins:
+          </b>Change ClassContextCollection to cache the generated contexts</a></div><div class="children"><a href="#COMMONS-1579"><b>
+            [COMMONS-1579] Mixins:
+          </b>Adapt MixinConfiguration.GetClassContext to return null when a ClassContext is returned that holds neither Mixins nor CompleteInterfaces</a></div><div class="children"><a href="#COMMONS-1578"><b>
+            [COMMONS-1578] Mixins:
+          </b>Analyze and refactor InheritedClassContextRetrievalAlgorithm and InheritanceAwareMixinConfigurationBuilder</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1552"></a><h4>[COMMONS-1552] AmbiguousMatchException in ClassDefinitionBase.GetAdjustedInterfaceMap when a generic method has the same name and parameter list as a non-generic one</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1599"></a><h4>[COMMONS-1599] Change "Documentation version" number to match the version number of the documented classes</h4><div class="component"><span class="label">Component/s: </span><span class="value">Support</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, the re-motion documentation contains a line saying "Documentation version 1.0.0.0.". That's not very meaningful.</p>
+
+<p>See picture.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1590"></a><h4>[COMMONS-1590] DomainObjectTransporter should use streams instead of byte arrays</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1027"></a><h4>[COMMONS-1027] Get rid of BaseAttribute/ThisAttribute</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1545"></a><h4>[COMMONS-1545] Check usages of MixinConfiguration.ClassContexts.Get..., prefer MixinConfiguration.GetClassContext instead</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1529"></a><h4>[COMMONS-1529] Rewrite definition builder tests to be less integrative</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>See AttributeDefinitionBuilderTest.CopyAttributes_Ambiguous.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1576"></a><h4>[COMMONS-1576] Improve performance of ClassContextCollection.GetWithInheritance</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Two problems:</p>
+<ul class="alternate" type="square">
+	<li>Result of GetWithInheritance for a derived class that inherits mixins is not stored</li>
+	<li>GetWithInheritance for a derived class that has no mixins (and inherits none) is not stored</li>
+</ul>
+
+
+<p>consider the following class hierarchy:</p>
+
+<p>A &lt;- B &lt;- C &lt;- D &lt;- E</p>
+
+<p>Where either none of them has mixins, or only A has mixins.</p>
+
+<p>Analyzing each of these classes will lead to 15 dictionary lookups.<br/>
+By storing the results, it can be done in 5-10 lookups (depending on the order).</p>
+
+<p>Also consider preparing that information right at mixin configuration building time - we're iterating all types anyway.<br/>
+Not sure whether it's a good idea to have an (empty) ClassContext for each type in the AppDomain, though...</p>
+
+<p>Note: If you store empty ClassContexts for non-configured classes, adapt code generation to check for non-empty Mixins/CompleteInterfaces to determine whether to generate or not.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1616"></a><h4>[COMMONS-1616] Make ClassContextCollection immutable</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1580"></a><h4>[COMMONS-1580] Change ClassContextCollection to cache the generated contexts</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Also cache empty contexts if nothing is found.</li>
+	<li>Note that this must be thread-safe because ClassContextCollection must be thread-safe.</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1579"></a><h4>[COMMONS-1579] Adapt MixinConfiguration.GetClassContext to return null when a ClassContext is returned that holds neither Mixins nor CompleteInterfaces</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Add ClassContext.IsEmpty?</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1578"></a><h4>[COMMONS-1578] Analyze and refactor InheritedClassContextRetrievalAlgorithm and InheritanceAwareMixinConfigurationBuilder</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Analyze code creating a new MixinConfiguration</li>
+	<li>Refactor and simplify InheritanceAwareMixinConfigurationBuilder</li>
+	<li>Rename InheritanceAwareMixinConfigurationBuilder to something more suitable</li>
+	<li>Simplify and rename InheritedClassContextRetrievalAlgorithm</li>
+</ul>
+</span></div></div></body></html>

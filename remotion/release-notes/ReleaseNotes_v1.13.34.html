@@ -1,0 +1,111 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.34</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1862"><b>
+                  [COMMONS-1862] Data:
+                </b>TypeProvider claims that properties of type Enum or IExtensibleEnum are supported</a></div><div class="listEntry"><a href="#COMMONS-1846"><b>
+                  [COMMONS-1846] Core:
+                </b>License files do net get included in the build zips</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1866"><b>
+                  [COMMONS-1866] Data:
+                </b>API change of ClientTransaction.GetObjects and TryGetObjects</a></div><div class="listEntry"><a href="#COMMONS-1861"><b>
+                  [COMMONS-1861] Data:
+                </b>TypeProvider.SupportedTypes is removed</a></div><div class="listEntry"><a href="#COMMONS-1756"><b>
+                  [COMMONS-1756] Data:
+                </b>BREAK: DomainObjectCollection.PerformInsert, PerformRemove, PerformDelete are removed</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1748"><b>
+                  [COMMONS-1748] Data:
+                </b>Change ClientTransaction.GetObjects and ClientTransaction.TryGetObjects to return an array instead of a DomainObjectCollection</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1859"><b>
+                  [COMMONS-1859] Data:
+                </b>Clean up TypeProvider, ValueConverterBaseTest, CommandBuilder</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1869"><b>
+                  [COMMONS-1869] Core:
+                </b>Update license info for 3rd party depedencies</a></div><div class="listEntry"><a href="#COMMONS-1844"><b>
+                  [COMMONS-1844] Core:
+                </b>Configurable extensible enum value order</a></div><div class="listEntry"><a href="#COMMONS-1797"><b>
+                  [COMMONS-1797] Core Data ObjectBinding SecurityManager:
+                </b>Extensible enums</a></div><div class="children"><a href="#COMMONS-1800"><b>
+            [COMMONS-1800] ObjectBinding:
+          </b>Extensible enum integration with re-bind</a></div><div class="listEntry"><a href="#COMMONS-1755"><b>
+                  [COMMONS-1755] Data:
+                </b>Protected DomainObjectCollection.GetNonNotifyingData() method</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1862"></a><h4>[COMMONS-1862] TypeProvider claims that properties of type Enum or IExtensibleEnum are supported</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Properties of type Enum or IExtensibleEnum seem to work at first, but when loading or saving an object, a persistence-related exception is thrown.<br/>
+Instead of this, there should be an exception at mapping construction time.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1846"></a><h4>[COMMONS-1846] License files do net get included in the build zips</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Reason: The license-folders are not checked out during the build.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1866"></a><h4>[COMMONS-1866] API change of ClientTransaction.GetObjects and TryGetObjects</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The return type of ClientTransaction.GetObjects and TryGetObjects has changed from ObjectList&lt;T&gt; to T[]. Clients requiring dictionary-based lookup should use the Enumerable.ToDictionary method to transform it into a dictionary.</p>
+
+<p>The arrays returned by TryGetObjects and GetObjects (..., false) will now contain null values for IDs that couldn't be loaded. This results in the returned array directly matching the array of IDs passed into the method, but clients must be able to deal with null values.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1861"></a><h4>[COMMONS-1861] TypeProvider.SupportedTypes is removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The reason for this is that the dictionary-based approach cannot be used to express supported base classes or interfaces.</p>
+
+<p>Instead, use IsTypeSupported to check whether a type is supported, or use one of the other TypeProvider APIs to add new supported types.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1756"></a><h4>[COMMONS-1756] BREAK: DomainObjectCollection.PerformInsert, PerformRemove, PerformDelete are removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use GetNonNotifyingData instead.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1748"></a><h4>[COMMONS-1748] Change ClientTransaction.GetObjects and ClientTransaction.TryGetObjects to return an array instead of a DomainObjectCollection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>DomainObjectCollection has some overhead because of its inner list/dictionary dichotomy, clients can create a dictionary themselves if needed.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1859"></a><h4>[COMMONS-1859] Clean up TypeProvider, ValueConverterBaseTest, CommandBuilder</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1869"></a><h4>[COMMONS-1869] Update license info for 3rd party depedencies</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1844"></a><h4>[COMMONS-1844] Configurable extensible enum value order</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Attach ExtensibleEnumPositionAttribute to the extension method defining a value to assign it a floating point positional key. That key determines the position of that value in the list of all values for the extensible enum type.</p>
+
+<p>Values that do not have the attribute applied default to 0.0. Values with equivalent keys are sorted alphabetically (by full ID).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1797"></a><h4>[COMMONS-1797] Extensible enums</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core Data ObjectBinding SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1800"></a><h4>[COMMONS-1800] Extensible enum integration with re-bind</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1755"></a><h4>[COMMONS-1755] Protected DomainObjectCollection.GetNonNotifyingData() method</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This can be used by inheritors to invoke changes to the underlying data without raising any events, invoking bidirectional end point changes and without marking the end point as touched.</p></span></div></div></body></html>

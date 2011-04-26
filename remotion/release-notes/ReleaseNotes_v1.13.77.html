@@ -1,0 +1,183 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.77</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3317"><b>
+                  [RM-3317] Data.Linq:
+                </b>Subqueries are not detected if they are nested inside an expression that acts as the main source of a query</a></div><div class="listEntry"><a href="#RM-3312"><b>
+                  [RM-3312] Data.Linq:
+                </b>SQL Backend: The in-memory projection is incorrect if a NamedExpression contains another NamedExpression, entity expression, convert expression, etc.</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#RM-3269"><b>
+                  [RM-3269] Data.Linq:
+                </b>SQL Backend: Invalid in-memory projection generated when a binary (or other) expression contains a conversion</a></div><div class="listEntry"><a href="#RM-3266"><b>
+                  [RM-3266] Data.Linq:
+                </b>SQL Backend: SubStatementReferenceResolver creates references of an invalid type when a ConvertedBoolExpression's inner expression is automatically resolved</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#RM-3016"><b>
+                  [RM-3016] Data.Linq:
+                </b>SQL Backend: Exception thrown when selecting from a sequence that returns boolean values</a></div><div class="listEntry"><a href="#RM-1439"><b>
+                  [RM-1439] ObjectBinding:
+                </b>Setting a read-write (implicitly) implemented read-only interface-property fails</a></div><div class="children"><a href="#RM-1566"><b>
+            [RM-1566] ObjectBinding:
+          </b>Integration-test new property architecture</a></div><div class="children"><a href="#RM-1565"><b>
+            [RM-1565] ObjectBinding:
+          </b>Add ExplicitInterfacePropertyInfo and ExplicitInterfacePropertyInfoFinder</a></div><div class="children"><a href="#RM-1477"><b>
+            [RM-1477] ObjectBinding:
+          </b>BREAK: Simplify PropertyInfoAdapter not to know anything about interfaces</a></div><div class="children"><a href="#RM-1476"><b>
+            [RM-1476] ObjectBinding:
+          </b>Add CompoundPropertyFinder and integrate with ReflectionBasedPropertyFinder</a></div><div class="children"><a href="#RM-1474"><b>
+            [RM-1474] ObjectBinding:
+          </b>Add MixinPropertyInfo and MixinPropertyFinder</a></div><div class="listEntry"></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3309"><b>
+                  [RM-3309] Data.Linq:
+                </b>SQL Backend: Support for additional string manipulation routines: Trim, Insert</a></div><div class="listEntry"><a href="#RM-3305"><b>
+                  [RM-3305] Data:
+                </b>Add a TryUnload API to UnloadService</a></div><div class="listEntry"></div><div class="listEntry"><a href="#RM-3126"><b>
+                  [RM-3126] Data.Linq:
+                </b>SQL Backend: Support fully qualified table names</a></div><div class="listEntry"><a href="#RM-3079"><b>
+                  [RM-3079] Data.Linq:
+                </b>SQL Backend: Support member access on subquery expressions</a></div><div class="listEntry"><a href="#RM-3012"><b>
+                  [RM-3012] Data.Linq:
+                </b>SQL Backend: When Single is used in a subquery that is moved to the SqlTables, TOP 1 should be used, not TOP 2</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3317"></a><h4>[RM-3317] Subqueries are not detected if they are nested inside an expression that acts as the main source of a query</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from c in Cooks
+select <span class="code-keyword">new</span> { Result = (from k in Kitchens select k) }.Result.Count()</pre>
+</div></div>
+
+<p>The inner query is not detected as a sub-query because the sub-query preparation takes place in MethodCallExpressionParser, and MethodCallExpressionParser is never called for the "new { Result = (from k in Kitchens select k) }.Result" expression.</p></span></div></div><div class="detailEntry  "><a name="RM-3312"></a><h4>[RM-3312] SQL Backend: The in-memory projection is incorrect if a NamedExpression contains another NamedExpression, entity expression, convert expression, etc.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>SqlGeneratingOuterSelectExpressionVisitor's methods must set the projection body <em>after</em> calling the base methods, otherwise, the base methods might cause reentrancy that overwrites the projection.</p></span></div></div><div class="detailEntry  "><a name="RM-3269"></a><h4>[RM-3269] SQL Backend: Invalid in-memory projection generated when a binary (or other) expression contains a conversion</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> q =
+  from p in DB.Products
+  select <span class="code-keyword">new</span> { p.ProductName, Availability = (<span class="code-object">int</span>) p.UnitsInStock - (<span class="code-object">int</span>) p.UnitsOnOrder &lt; 0 ? <span class="code-quote">"Out Of Stock"</span> : <span class="code-quote">"In Stock"</span> };</pre>
+</div></div>
+
+<p>The problem is that the conversion of p.UnitsInStock to int will cause SqlGeneratingOuterSelectExpressionVisitor to emit a cast in the in-memory expression even though that is never represented as a column in the SQL. We probably just need to stop emitting projections at the first NamedExpression we find.</p></span></div></div><div class="detailEntry  "><a name="RM-3266"></a><h4>[RM-3266] SQL Backend: SubStatementReferenceResolver creates references of an invalid type when a ConvertedBoolExpression's inner expression is automatically resolved</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Questions:</p>
+<ul class="alternate" type="square">
+	<li>Should there even be an automatic resolution of inner expressions in SubStatementReferenceResolver?</li>
+	<li>Why do we use the type of the outermost expression when creating the reference rather than the type of the expression we're currently creating a reference for?</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3016"></a><h4>[RM-3016] SQL Backend: Exception thrown when selecting from a sequence that returns boolean values</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from c in Cooks
+group c.IsFullTimeCook by c.Name into fullTimeCooksByName
+from isFullTime in fullTimeCooksByName
+select <span class="code-keyword">new</span> { fullTimeCooksByName.Key, Value = isFullTime }</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-1439"></a><h4>[RM-1439] Setting a read-write (implicitly) implemented read-only interface-property fails</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Case:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">public</span> <span class="code-keyword">interface</span> IInterface
+{
+  string Property {get;}
+}
+
+<span class="code-keyword">public</span> class <span class="code-object">Class</span> : IInterface
+{
+  <span class="code-keyword">public</span> string Property {get; set;} 
+}</pre>
+</div></div>
+
+<p>Setting the Class.Property using the business object APIs fails:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-comment">//<span class="code-keyword">throws</span> <span class="code-object">System</span>.ArgumentException : Property set method not found.
+</span>  ((IbusinessObject)instance).SetProperty (<span class="code-quote">"Property"</span>, <span class="code-quote">"foo"</span>);</pre>
+</div></div></span></div></div><div class="detailEntry children "><a name="RM-1566"></a><h4>[RM-1566] Integration-test new property architecture</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="RM-1565"></a><h4>[RM-1565] Add ExplicitInterfacePropertyInfo and ExplicitInterfacePropertyInfoFinder</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Represents an explicit interface property implementation</p></span></div></div><div class="detailEntry children "><a name="RM-1477"></a><h4>[RM-1477] BREAK: Simplify PropertyInfoAdapter not to know anything about interfaces</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Remove interfaceProperty, ValueProperty, etc.</p></span></div></div><div class="detailEntry children "><a name="RM-1476"></a><h4>[RM-1476] Add CompoundPropertyFinder and integrate with ReflectionBasedPropertyFinder</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Change ReflectionBasedPropertyFinder to use only target type, not concrete type (i.e. mixed properties should not be found).<br/>
+Change ReflectionBasedPropertyFinder not to find explicit interface implementations.<br/>
+Everwhere a ReflectionBasedPropertyFinder is currently used, replace with a CompoundPropertyFinder of ReflectionBasedPropertyFinder, MixinPropertyFinder, and ExplicitInterfacePropertyFinder.</p></span></div></div><div class="detailEntry children "><a name="RM-1474"></a><h4>[RM-1474] Add MixinPropertyInfo and MixinPropertyFinder</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>MixinPropertyInfo represents a property introduced by a mixin. Its read/write facilities are handled by the interface PropertyInfo, its name is the full name.<br/>
+MixinPropertyFinder uses the concrete type to get all introduced properties and returns MixinPropertyInfos for each.</p></span></div></div><div class="detailEntry  "><a name="RM-3309"></a><h4>[RM-3309] SQL Backend: Support for additional string manipulation routines: Trim, Insert</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries that call the string.Trim or string.Insert.</p></span></div></div><div class="detailEntry  "><a name="RM-3305"></a><h4>[RM-3305] Add a TryUnload API to UnloadService</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This API is intended to make unloading a DomainObject more robust. At present, it is necessary to know the exact semantics of the object's state in order to determine whether it can be unloaded. This evaluation should be encapsulated in the new API.</p></span></div></div><div class="detailEntry  "><a name="RM-3126"></a><h4>[RM-3126] SQL Backend: Support fully qualified table names</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Currently, resolved table infos can only hold a table without schema names. This feature adds support for two-part table names ("dbo.Table" instead of just "Table").</p></span></div></div><div class="detailEntry  "><a name="RM-3079"></a><h4>[RM-3079] SQL Backend: Support member access on subquery expressions</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support queries of the following form:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">Cooks.Select (c =&gt; c.Assistants.First().Name)</pre>
+</div></div>
+
+<p>For SQL generation, the member access is simply moved to the subquey.</p></span></div></div><div class="detailEntry  "><a name="RM-3012"></a><h4>[RM-3012] SQL Backend: When Single is used in a subquery that is moved to the SqlTables, TOP 1 should be used, not TOP 2</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Normally, using Single should throw an exception when the respective query returns more than one element. This works fine in expressions such as:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from c in Cooks
+where c.Assistants.Single() == c
+select c</pre>
+</div></div>
+
+<p>This leads to SQL containing something similar to the following:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT [t0].*
+FROM [CookTable] [t0]
+WHERE (SELECT TOP 2 [t1].[ID] FROM [AssistantTable] [t1] WHERE [t1].[AssistedID] = [t0].[ID]) == [t0].[ID]</pre>
+</div></div>
+
+<p>In that case, if the subquery returns more than one element, a SqlException is thrown.</p>
+
+<p>In the following case, however, it does <em>not</em> work:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from c in Cooks
+select c.Assistants.Single()</pre>
+</div></div>
+
+<p>Because a subquery in a select clause might return an entity, we need to move it to the SQL's FROM clause:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">SELECT [q1].*
+FROM [CookTable] [t0] CROSS APPLY (SELECT TOP 2 [t1].[*] FROM [AssistantTable] [t1] WHERE [t1].[AssistedID] = [t0].[ID]) AS [q1]</pre>
+</div></div>
+
+<p>In this case, the TOP 2 in conjunction with a non-single sequence will not trigger an exception but return too many result rows.</p>
+
+<p>To mitigate, TOP 1 should be used instead in exactly this case.</p></span></div></div></body></html>

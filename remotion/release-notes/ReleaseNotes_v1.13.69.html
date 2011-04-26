@@ -1,0 +1,106 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.69</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3057"><b>
+                  [RM-3057] ObjectBinding.Web:
+                </b>TabbedMultiView: Zooming inside the page causes the content-area to move to the right because of a flow-layout issue</a></div><div class="listEntry"><a href="#RM-3040"><b>
+                  [RM-3040] SecurityManager:
+                </b>SecMan: broken validation of parent hierarchy in EditGroupControl</a></div><div class="listEntry"><a href="#RM-3038"><b>
+                  [RM-3038] ObjectBinding.Web:
+                </b>BocAutoCompleteReferenceValue: when resultlist opens over an activex control, the resultlist is in the background</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3051"><b>
+                  [RM-3051] Web:
+                </b>Semantic of UrlUtility.GetAbsoluteUrl has changed  for non-rooted URLs</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#RM-2957"><b>
+                  [RM-2957] Core:
+                </b>Provide a GetValueOrDefault Extension-Method for IDictionary</a></div><div class="listEntry"></div><div class="listEntry"><a href="#RM-2549"><b>
+                  [RM-2549] DMS:
+                </b>Support AutoLogin and popupless communication with DmsTray</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3057"></a><h4>[RM-3057] TabbedMultiView: Zooming inside the page causes the content-area to move to the right because of a flow-layout issue</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="RM-3040"></a><h4>[RM-3040] SecMan: broken validation of parent hierarchy in EditGroupControl</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Solution:<br/>
+EditGroupControl.ascx.cs:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>private bool IsParentHierarchyValid (Group group)
+{
+  var groups = group.CreateSequence (g =&gt; g.Parent, g =&gt; g != null &amp;&amp; g.Parent != group);
+  if (groups.Any() &amp;&amp; groups.Last().Parent != null)
+    return false;
+  return true;
+}
+</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-3038"></a><h4>[RM-3038] BocAutoCompleteReferenceValue: when resultlist opens over an activex control, the resultlist is in the background</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Possible Solution is to patch jquery.bgiframe.js by removing the condition on the user agent to always get background iframes, not only in IE 6 =&gt; this is done in actanovabranch</p></span></div></div><div class="detailEntry  "><a name="RM-3051"></a><h4>[RM-3051] Semantic of UrlUtility.GetAbsoluteUrl has changed  for non-rooted URLs</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, non-rooted paths were resolved by pretending the application root. This implicit assumption is not guaranteed to be always valid. Therefor, the new semantic is to throw an ArgumentException if a non-rooted path is passed into the method.</p></span></div></div><div class="detailEntry  "><a name="RM-2957"></a><h4>[RM-2957] Provide a GetValueOrDefault Extension-Method for IDictionary</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Located in Remotion/Collections.<br/>
+Extension-Class: DictionaryExtensions<br/>
+Signature: TValue GetValueOrDefault&lt;TKey, TValue&gt; (this IDictionary&lt;TKey, TValue&gt; dictionary, TKey key)</p>
+
+<p>Accesses the dictionary via TryGetValue, if no value is found, the default value for TValue is returned.</p></span></div></div><div class="detailEntry  "><a name="RM-2549"></a><h4>[RM-2549] Support AutoLogin and popupless communication with DmsTray</h4><div class="component"><span class="label">Component/s: </span><span class="value">DMS</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>&lt;iframe src="about:blank" width="0" height="0" id="myframe" style="display:none"&gt;&lt;/iframe&gt;</p>
+
+<p>&lt;script type="text/javascript"&gt;<br/>
+  window.frames<span class="error">&#91;0&#93;</span>.location.href = "dms://...";<br/>
+&lt;/script&gt;</p></span></div></div></body></html>

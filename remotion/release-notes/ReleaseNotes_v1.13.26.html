@@ -1,0 +1,97 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.26</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1564"><b>
+                  [COMMONS-1564] ObjectBinding.Web:
+                </b>AutoComplete: DropDownList does not show all/correct values from json-request</a></div><div class="listEntry"><a href="#COMMONS-1561"><b>
+                  [COMMONS-1561] Web:
+                </b>SmartLabel/Boc-Compatibilty: The IDs used for the label's for-tag is not the input-element but the business object control</a></div><div class="listEntry"><a href="#COMMONS-1559"><b>
+                  [COMMONS-1559] Web:
+                </b>IE7 StandardMode: ScrollBars in TabbedMultiView are not visible when the page is first loaded</a></div><div class="listEntry"><a href="#COMMONS-1550"><b>
+                  [COMMONS-1550] Web:
+                </b>IE7 StandardsMode: TabbedMultiView tabs are stuck on the top of the page until a mouse-over happens and refreshes the CSS</a></div><div class="listEntry"><a href="#COMMONS-1549"><b>
+                  [COMMONS-1549] Web:
+                </b>IE7 Standardmode: TabbedMultiView Tabs are not correctly positioned.</a></div><div class="listEntry"><a href="#COMMONS-1533"><b>
+                  [COMMONS-1533] Web:
+                </b>BorderSpans not hidden on IE 7 and Firefox standard mode</a></div><div class="listEntry"><a href="#COMMONS-1490"><b>
+                  [COMMONS-1490] Web:
+                </b>TabbedMultiView/SingleView (?): StyleIssue: The page jumps visibly from the right side during postbacks</a></div><div class="listEntry"><a href="#COMMONS-1452"><b>
+                  [COMMONS-1452] Web:
+                </b>SmartPage: Application, Session, etc should return null if no Context is available</a></div><div class="listEntry"></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1564"></a><h4>[COMMONS-1564] AutoComplete: DropDownList does not show all/correct values from json-request</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>1) It always shows the "46, Jen" entry even if the response does not return it.<br/>
+2) Enter "s", the request returns about a dozen values, the control only shows 5</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1561"></a><h4>[COMMONS-1561] SmartLabel/Boc-Compatibilty: The IDs used for the label's for-tag is not the input-element but the business object control</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1559"></a><h4>[COMMONS-1559] IE7 StandardMode: ScrollBars in TabbedMultiView are not visible when the page is first loaded</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1550"></a><h4>[COMMONS-1550] IE7 StandardsMode: TabbedMultiView tabs are stuck on the top of the page until a mouse-over happens and refreshes the CSS</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1549"></a><h4>[COMMONS-1549] IE7 Standardmode: TabbedMultiView Tabs are not correctly positioned.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The tabs are one px too far north. Probably because the bottom-margin is not correctly evaluated.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1533"></a><h4>[COMMONS-1533] BorderSpans not hidden on IE 7 and Firefox standard mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Won't Fix yet</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When a view has scroll bars, some borders spans should be hidden. Due to calculation errors on the ContentBorder div height and width, this is not done in IE7 and Firefox (only works in IE8)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1490"></a><h4>[COMMONS-1490] TabbedMultiView/SingleView (?): StyleIssue: The page jumps visibly from the right side during postbacks</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The problem is an offset on the active-view-content div. This offset is not the same on all instances of IE8</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1452"></a><h4>[COMMONS-1452] SmartPage: Application, Session, etc should return null if no Context is available</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div></body></html>

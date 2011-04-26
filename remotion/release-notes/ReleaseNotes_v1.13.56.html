@@ -1,0 +1,257 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.56</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2646"><b>
+                  [COMMONS-2646] Data:
+                </b>When a collection-valued relation property is set to another collection, Rollback sometimes does not restore the contents correctly</a></div><div class="listEntry"><a href="#COMMONS-2582"><b>
+                  [COMMONS-2582] Data.Linq:
+                </b>Support for empty collections </a></div><div class="listEntry"><a href="#COMMONS-2516"><b>
+                  [COMMONS-2516] Data:
+                </b>BindableDomainObject implementation is not initialized on deserialization if a derived class implements ISerializable</a></div><div class="listEntry"><a href="#COMMONS-2181"><b>
+                  [COMMONS-2181] Web:
+                </b>HtmlHeadContents: IE (all versions) does not support more than 31 link tags</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2633"><b>
+                  [COMMONS-2633] Core:
+                </b>Keys used by re-motion for store values in the safe context have been changed to short strings.</a></div><div class="listEntry"><a href="#COMMONS-2630"><b>
+                  [COMMONS-2630] Security:
+                </b>EnumWrapper now uses factory methods instead of ctors</a></div><div class="listEntry"><a href="#COMMONS-2610"><b>
+                  [COMMONS-2610] Data.Linq:
+                </b>Old SQL backend has been replaced by a new one</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2619"><b>
+                  [COMMONS-2619] Data.Linq:
+                </b>For Single queries, emit TOP (2) instead of TOP (1)</a></div><div class="listEntry"><a href="#COMMONS-2445"><b>
+                  [COMMONS-2445] Data.Linq:
+                </b>re-store integration for new re-linq SQL backend</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2654"><b>
+                  [COMMONS-2654] Web:
+                </b>Add support for IResourceUrl and HtmlHeadElement to HtmlHeadAppender</a></div><div class="listEntry"><a href="#COMMONS-2617"><b>
+                  [COMMONS-2617] Data.Linq:
+                </b>Support subqueries that return a single entity to be used for comparisons and similar contexts</a></div><div class="listEntry"><a href="#COMMONS-2611"><b>
+                  [COMMONS-2611] Data.Linq for re-store:
+                </b>Support queries that use properties of base classes above the inheritance root</a></div><div class="listEntry"><a href="#COMMONS-2592"><b>
+                  [COMMONS-2592] Data.Linq:
+                </b>Support for the simple form of explicit joins without "into"</a></div><div class="listEntry"><a href="#COMMONS-2587"><b>
+                  [COMMONS-2587] Data.Linq:
+                </b>Support for conditional operator in non-entity scenarios</a></div><div class="listEntry"><a href="#COMMONS-2558"><b>
+                  [COMMONS-2558] Data.Linq for re-store:
+                </b>Support for OfType result operator and for ClassID checks in re-store LINQ provider</a></div><div class="listEntry"><a href="#COMMONS-2556"><b>
+                  [COMMONS-2556] Data.Linq:
+                </b>Support for OfType result operator and "is" comparisons</a></div><div class="listEntry"><a href="#COMMONS-2313"><b>
+                  [COMMONS-2313] Data.Linq:
+                </b>New Sql Backend</a></div><div class="children"><a href="#COMMONS-2446"><b>
+            [COMMONS-2446] Data.Linq:
+          </b>Extensibility hooks</a></div><div class="children"><a href="#COMMONS-2370"><b>
+            [COMMONS-2370] Data.Linq:
+          </b>Support for incompatible result operators using subqueries</a></div></div><h3>Performance</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2652"><b>
+                  [COMMONS-2652] Core:
+                </b>Using shorter keys for SafeContextSingleton entries</a></div><div class="listEntry"><a href="#COMMONS-2632"><b>
+                  [COMMONS-2632] Core Data Security:
+                </b>Replace keys used by SafeContext with short strings.</a></div><div class="listEntry"><a href="#COMMONS-2631"><b>
+                  [COMMONS-2631] Data:
+                </b>Added caching for ReflectionBasedNameResolver</a></div><div class="listEntry"><a href="#COMMONS-2629"><b>
+                  [COMMONS-2629] ObjectBinding.Web:
+                </b>BocRowRenderer should cache created ColumnRenderers</a></div><div class="listEntry"><a href="#COMMONS-2625"><b>
+                  [COMMONS-2625] ObjectBinding:
+                </b>BocList: ValueColumnDefinition.GetPropertyString should only be evaluated once for each cell</a></div><div class="listEntry"><a href="#COMMONS-2607"><b>
+                  [COMMONS-2607] Security:
+                </b> Improve performance of Security Checks (part 2)</a></div><div class="listEntry"><a href="#COMMONS-2606"><b>
+                  [COMMONS-2606] Security:
+                </b>Analyze if more aggressive caching of EnumWrapper and AccessTypes will improve performance</a></div><div class="listEntry"><a href="#COMMONS-2605"><b>
+                  [COMMONS-2605] Security:
+                </b>PermissionReflector: Replace Tuple with custom cache key</a></div><div class="listEntry"></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2646"></a><h4>[COMMONS-2646] When a collection-valued relation property is set to another collection, Rollback sometimes does not restore the contents correctly</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This bug occurs when two relation properties P1 and P2 are set as follows:</p>
+<ul class="alternate" type="square">
+	<li>P1 is set to another collection reference
+	<ul class="alternate" type="square">
+		<li>this causes its original collection C1 to become standalone and the new collection C1' to become associated with P1</li>
+	</ul>
+	</li>
+	<li>P2 is set to the original collection reference of P1
+	<ul class="alternate" type="square">
+		<li>this causes its original collection C2 to become standalone and C1 to become associated with P1</li>
+		<li>state is now: P1 -&gt; C1', P2 -&gt; C1, C2 standalone</li>
+	</ul>
+	</li>
+	<li>Rollback occurs</li>
+</ul>
+
+
+<p>Rollback does restore the initial state P1 -&gt; C1, P2 -&gt; C2, C1' standalone. However, it fails to ensure that C1 points to the correct data after the change.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2582"></a><h4>[COMMONS-2582] Support for empty collections </h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2516"></a><h4>[COMMONS-2516] BindableDomainObject implementation is not initialized on deserialization if a derived class implements ISerializable</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The _implementation field is neither added in GetObjectData nor retrieved in the deserialization ctor.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2181"></a><h4>[COMMONS-2181] HtmlHeadContents: IE (all versions) does not support more than 31 link tags</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>see: <span class="nobr"><a href="http://john.albin.net/css/ie-stylesheets-not-loading">http://john.albin.net/css/ie-stylesheets-not-loading<sup><img class="rendericon" src="https://jira.rubicon.eu/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span></p>
+
+<p>Desirable solution would be the server-side, level-based concatenation of stylesheets and caching the different combinations (this solution would also optimize the download time because IE8 supports a maximum of 6 concurrent connections!)</p>
+
+<p>Not so urgent anymore because of reasonable solution in acta nova branch!!</p>
+
+<p>=&gt; solved in Acta Nova branch by rendering style-tags with import statements with new style-tags after every 30 import-tags</p>
+
+<p>Example:</p>
+
+<p>&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+&lt;script type="text/javascript" src="/ActaNova/Web/res/Remotion.Web/Html/ExecutionEngine.js"&gt;&lt;/script&gt;<br/>
+&lt;script type="text/javascript" src="/ActaNova/Web/res/Remotion.Web/Html/jquery.js"&gt;&lt;/script&gt;<br/>
+....<br/>
+&lt;style type="text/css" title="text/css"&gt; <br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/ExecutionEngine.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/TabStrip.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/FormGrid.css);<br/>
+@import url(/ActaNova/Web/res/Rubicon.ObjectBinding.Forms.Web/Html/ObjectFormGrid.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/SmartLabelSearch.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/DropDownMenu.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/WebButton.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocAutoCompleteReferenceValue.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocAutoCompleteReferenceValue.jquery.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/TreeView.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/BaseTreeViewReferenceValue.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocEnumValue.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/DatePicker.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocDateTimeValue.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocReferenceValue.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocBooleanValue.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/ListMenu.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocList.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.ObjectBinding.Web/Themes/Legacy/Html/BocMultilineTextValue.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/TabbedMultiView.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/SmartPage.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/WebButton.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/WebButton.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/PopupControl.css);<br/>
+@import url(/ActaNova/Web/res/Remotion.Web/Themes/Legacy/Html/style.css);<br/>
+@import url(/ActaNova/Web/res/Rubicon.ObjectBinding.Forms.Web/Html/ObjectForm.css);<br/>
+@import url(/ActaNova/Web/res/Rubicon.ObjectBinding.Forms.Web/Html/AdditionalCommandsMenu.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/ToggleHelp.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/global.css);<br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/graphic.css);<br/>
+&lt;/style&gt;<br/>
+&lt;style type="text/css" title="text/css"&gt; <br/>
+@import url(/ActaNova/Web/res/ActaNova.Web/Html/relationViewer.css);<br/>
+&lt;/style&gt;<br/>
+&lt;title&gt;<br/>
+....</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2633"></a><h4>[COMMONS-2633] Keys used by re-motion for store values in the safe context have been changed to short strings.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the keys used to store the SecurityFreeSection, ClientsTransactionScope, etc have contained the type name of the object stored in the SafeContext (CallContext, HttpContext), guaranteeing virtual uniqueness.</p>
+
+<p>To improve performance, those keys have been shortened to strings prefixed with "Rm.". See Remotion.Context.SafeContextKeys for details.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2630"></a><h4>[COMMONS-2630] EnumWrapper now uses factory methods instead of ctors</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Change usage of new EnumWrapper (Enum value) to EnumWrapper.Get (Enum value).</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2610"></a><h4>[COMMONS-2610] Old SQL backend has been replaced by a new one</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The old backend has been completely rewritten. It is now in the namespace Remotion.Data.Linq.SqlBackend in Remotion.Data.Linq.SqlBackend.dll.</p>
+
+<p>Use it as follows:</p>
+<ul class="alternate" type="square">
+	<li>Parse the QueryModel into a SqlStatement using DefaultSqlPreparationStage.PrepareSqlStatement.</li>
+	<li>Resolve the SqlStatement using DefaultMappingResolutionStage.ResolveSqlStatement. Implement the IMappingResolver interface for your O/R mapper. See <span class="nobr"><a href="https://svn.re-motion.org/svn/Remotion/trunk/Remotion/Data/DomainObjects/Linq/MappingResolver.cs">https://svn.re-motion.org/svn/Remotion/trunk/Remotion/Data/DomainObjects/Linq/MappingResolver.cs<sup><img class="rendericon" src="https://jira.rubicon.eu/images/icons/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"/></sup></a></span> for an example of how to implement IMappingResolver.</li>
+	<li>Generate text for the resolved SqlStatement using DefaultSqlGenerationStage.GenerateTextForStatement.</li>
+</ul>
+
+
+<p>All three stages are completely replaceable and extensible.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2619"></a><h4>[COMMONS-2619] For Single queries, emit TOP (2) instead of TOP (1)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Single should throw an exception when more than one result is returned. We currently emit TOP (1) for Single queries, which will swallow this exception.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2445"></a><h4>[COMMONS-2445] re-store integration for new re-linq SQL backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>With the new SQL backend, re-store's LINQ provider gets a more extensible and more complete LINQ provider.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2654"></a><h4>[COMMONS-2654] Add support for IResourceUrl and HtmlHeadElement to HtmlHeadAppender</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p><b>IResourceUrl</b><br/>
+HtmlHeadAppender.RegisterJavaScriptInclude and HtmlHeadAppender.RegisterStylesheetLink now offer overloads that accept objects of type IResourceUrl. Use of this API is preferred because IResourceUrl is intended to encapsulate URL resolving and themeing support. IResourceUrl objects should be created using the IResourceUrlFactory returned from an IoC container.</p>
+
+<p><b>HtmlHeadElement</b><br/>
+HtmlHeadAppender.RegisterHeadElement accepts objects derived from HtmlHeadElement, e.g. StyleSheetBlock.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2617"></a><h4>[COMMONS-2617] Support subqueries that return a single entity to be used for comparisons and similar contexts</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for queries similar to the following:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">from c in Cooks where c == (from k in Kitchens select k.Cook).First () select c.ID</pre>
+</div></div>
+
+<p>In the generated SQL, the ID of the inner cook is compared to the ID of the outer cook.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2611"></a><h4>[COMMONS-2611] Support queries that use properties of base classes above the inheritance root</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, the re-store LINQ provider could not access properties that are declared above the inheritance root.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2592"></a><h4>[COMMONS-2592] Support for the simple form of explicit joins without "into"</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support queries of the following form: <tt>from c in Cooks join k in Kitchens on k.ID = c.KitchenID select c</tt></p>
+
+<p>This produces an old-style SQL join similar to the following: <tt>SELECT ... FROM <span class="error">&#91;CookTable&#93;</span> <span class="error">&#91;c&#93;</span> CROSS JOIN <span class="error">&#91;KitchenTable&#93;</span> <span class="error">&#91;k&#93;</span> WHERE <span class="error">&#91;c&#93;</span>.<span class="error">&#91;KitchenID&#93;</span> = <span class="error">&#91;k&#93;</span>.<span class="error">&#91;ID&#93;</span></tt>. Note that this has inner join semantics, i.e., it will not produce any results if there are no kitchens matching the cook.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2587"></a><h4>[COMMONS-2587] Support for conditional operator in non-entity scenarios</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support conditions of the following forms: <tt>c != null ? c.FirstName : c.LastName</tt>, <tt>c.FirstName != null ? c.FirstName : c.LastName</tt>.</p>
+
+<p>A SQL CASE WHEN expression is emitted to implement the conditional operator.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2558"></a><h4>[COMMONS-2558] Support for OfType result operator and for ClassID checks in re-store LINQ provider</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq for re-store</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for the expressions and queries of the following forms: <tt>from folder in Folders from file in folder.Items.OfType&lt;File&gt;() select file</tt>, <tt>from fsi in FileSystemItems where fsi.ID.ClassID == "File" select fsi</tt>.</p>
+
+<p>The SQL generated for both forms contains WHERE conditions checking the ClassID column.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2556"></a><h4>[COMMONS-2556] Support for OfType result operator and "is" comparisons</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support for expressions of the forms: <tt>(from fsi in FileSystemItem select fsi).OfType&lt;File&gt;()</tt>, <tt>from folder in Folder from file in folder.Items.OfType&lt;File&gt;() select file</tt>, <tt>where fsi is File</tt>.</p>
+
+<p>The SQL generated for such expressions contains a WHERE condition that restricts the set of items to those of the desired type. The concrete condition depends on the O/R mapper.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2313"></a><h4>[COMMONS-2313] New Sql Backend</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The new SQL backend should both be a good example of how to approach SQL generation using the new re-linq front-end (QueryModel, usw.) and provide a sound, extensible architecture backing re-store's LINQ provider.</p>
+
+<p>It will sport SQL generation in three phases:</p>
+<ul class="alternate" type="square">
+	<li>The first phase will take a query model and translate it into a SqlStatement model. SqlStatement is modeled to express the syntactical possibilities and constraints of actual SQL statements.</li>
+	<li>The second phase will allow an O/R mapper to resolve all elements of the SqlStatement into SQL-specific items such as tables or columns with names and aliases.</li>
+	<li>The third phase will then take the resolved SqlStatement and produce actual SQL text (and parameters).</li>
+</ul>
+
+
+<p>LINQ providers will be able to hook into each of the three steps for customization, optimization, and advanced query transformations.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-2446"></a><h4>[COMMONS-2446] Extensibility hooks</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>SQL statement preparation, resolution, and text generation occurs in three stages, each of which is completely replaceable by the provider.</li>
+	<li>The default stage implementations use virtual methods, allowing providers to override parts of each single stage.</li>
+	<li>The overall SQL structure can be modified by overriding the Build... (BuildSelectPart, BuilderWherePart, etc.) methods of SqlStatementTextGenerator.</li>
+	<li>The provider can insert SqlCustomTextExpressions into the LINQ expression tree to emit simple, custom SQL text.</li>
+	<li>The provider can derive from SqlCustomTextGeneratorExpressionBase and insert instances of the derived class into the LINQ expression tree in order to emit complex, custom SQL text.</li>
+	<li>The provider can use SqlCompositeExpression to build complex structures of custom SQL text mixed with standard expression types.</li>
+	<li>The instance of ISqlCommandBuilder used for constructing the SQL text (Append, AppendFormat, AppendEscapedIdentifier, etc.) can be replaced by the provider.</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-2370"></a><h4>[COMMONS-2370] Support for incompatible result operators using subqueries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Result operator combinations such as <tt>(...).Take(5).Distinct()</tt>, cannot be solved using a single SQL statement (because <tt>SELECT DISTINCT TOP (5)</tt> has different semantics). Instead, a subquery needs to be generated to perform the TOP operator, then the outer query can apply the DISTINCT logic.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2652"></a><h4>[COMMONS-2652] Using shorter keys for SafeContextSingleton entries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>On behalf of MK.</p>
+
+<p>Example: instead of "Remotion.Mixins.MixinConfiguration.s_activeConfiguration" use "RM.MC"</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2632"></a><h4>[COMMONS-2632] Replace keys used by SafeContext with short strings.</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core Data Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2631"></a><h4>[COMMONS-2631] Added caching for ReflectionBasedNameResolver</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2629"></a><h4>[COMMONS-2629] BocRowRenderer should cache created ColumnRenderers</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2625"></a><h4>[COMMONS-2625] BocList: ValueColumnDefinition.GetPropertyString should only be evaluated once for each cell</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2607"></a><h4>[COMMONS-2607]  Improve performance of Security Checks (part 2)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>At present, a security check takes 6.5µs in a release build. 20% of this time are incurred from using the SafeContext for the SecurityFreeSection, another 20%-30% can probably be shaved off by using a more aggressive caching strategy and Hashcode optimizations. </p></span></div></div><div class="detailEntry  "><a name="COMMONS-2606"></a><h4>[COMMONS-2606] Analyze if more aggressive caching of EnumWrapper and AccessTypes will improve performance</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>At present, caching only happens at the innermost instance. If separate caches are created for each instantiation path, cascaded cache-access could be replaced with a single cache-hit.</p>
+
+<p>Hint: The Cache-access is the single largest operation left to the security evaluation.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2605"></a><h4>[COMMONS-2605] PermissionReflector: Replace Tuple with custom cache key</h4><div class="component"><span class="label">Component/s: </span><span class="value">Security</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Performance</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Hint: Tuple uses EqualityUtility.GetSafeHashcode. Maybe implementing a custom type with a hashocde that only hashes some members instead of all four will provide a performance boost.</p></span></div></div></body></html>

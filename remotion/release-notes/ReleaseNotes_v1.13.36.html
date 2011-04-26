@@ -1,0 +1,130 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.36</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1909"><b>
+                  [COMMONS-1909] SecurityManager:
+                </b>DropDownMenuSelect does not expand to include DropDownMenuButton in IE7</a></div><div class="listEntry"><a href="#COMMONS-1856"><b>
+                  [COMMONS-1856] ObjectBinding.Web:
+                </b>BocReferenceValue, BocAutoCompleteReferenceValue are not correctly displayed in StandardMode (IE6) (ClassicBlue)</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1594"><b>
+                  [COMMONS-1594] Web:
+                </b>IE7 Stadnardmode: NovaBlue Theme: The Separator between the TabbedMenu and the main part jumps 1px on the first postback</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1904"><b>
+                  [COMMONS-1904] Data:
+                </b>ClientTransaction.SetRelatedObject has been removed</a></div><div class="listEntry"><a href="#COMMONS-1899"><b>
+                  [COMMONS-1899] Data:
+                </b>DomainObjectCollection.Combine/UnionWith does not touch the end point if there are no items added to the collection</a></div><div class="listEntry"><a href="#COMMONS-1897"><b>
+                  [COMMONS-1897] Data:
+                </b>DomainobjectCollection.IndexOf (DomainObject) now also checks whether the actual DomainObject reference is contained</a></div><div class="listEntry"><a href="#COMMONS-1889"><b>
+                  [COMMONS-1889] Data:
+                </b>ICollectionEndPointChangeDelegate and ICollectionChangeDelegate are removed</a></div><div class="listEntry"><a href="#COMMONS-1744"><b>
+                  [COMMONS-1744] Data:
+                </b>BREAK: DomainObjectCollection interface changes</a></div><div class="children"><a href="#COMMONS-1771"><b>
+            [COMMONS-1771] Data:
+          </b>DomainObjectCollection.ReplaceItems is removed</a></div><div class="children"><a href="#COMMONS-1763"><b>
+            [COMMONS-1763] Data:
+          </b>Compare methods are changed into extension methods, renamed to SetEquals/SequenceEqual</a></div><div class="children"><a href="#COMMONS-1752"><b>
+            [COMMONS-1752] Data:
+          </b>Constructor overload taking DomainObjectCollection is removed, constructor overload taking IEnumerable doesn't provide a makeReadOnly flag any longer</a></div><div class="children"><a href="#COMMONS-1745"><b>
+            [COMMONS-1745] Data:
+          </b>Combine, GetItemsNotInCollection</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1876"><b>
+                  [COMMONS-1876] Data:
+                </b>Remove DataManager.CopyFrom, RelationEndPointMap.CopyFrom, and RelationEndPoint.Clone</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1753"><b>
+                  [COMMONS-1753] Data:
+                </b>DomainObjectCollection.AsReadOnly</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1909"></a><h4>[COMMONS-1909] DropDownMenuSelect does not expand to include DropDownMenuButton in IE7</h4><div class="component"><span class="label">Component/s: </span><span class="value">SecurityManager</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1856"></a><h4>[COMMONS-1856] BocReferenceValue, BocAutoCompleteReferenceValue are not correctly displayed in StandardMode (IE6) (ClassicBlue)</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1594"></a><h4>[COMMONS-1594] IE7 Stadnardmode: NovaBlue Theme: The Separator between the TabbedMenu and the main part jumps 1px on the first postback</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1904"></a><h4>[COMMONS-1904] ClientTransaction.SetRelatedObject has been removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>To set a related object, use ObjectEndPoint.SetRelatedObject.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1899"></a><h4>[COMMONS-1899] DomainObjectCollection.Combine/UnionWith does not touch the end point if there are no items added to the collection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The rationale for this is that "Combine" (or "UnionWith") is really just a convenience method for if (!Contains) =&gt; Add. If nothing is added, nothing is "done" to the end point, so it isn't touched,</p>
+
+<p>(If absolutely required, you can touch the end-point yourself using AssociatedEndPoint.Touch().)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1897"></a><h4>[COMMONS-1897] DomainobjectCollection.IndexOf (DomainObject) now also checks whether the actual DomainObject reference is contained</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, IndexOf would only check for the ID of the given object. This was inconsistent with regards to ContainsObject and Remove, so it has been changed.<br/>
+Use IndexOf (ObjectID) to check for an ID only.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1889"></a><h4>[COMMONS-1889] ICollectionEndPointChangeDelegate and ICollectionChangeDelegate are removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>ICollectionEndPointChangeDelegate has no successor, its responsibilities have moved to EndPointDelegatingDomainObjectCollectionData.<br/>
+ICollectionChangeDelegate has been replaced by the IDomainObjectCollectionData strategies.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1744"></a><h4>[COMMONS-1744] BREAK: DomainObjectCollection interface changes</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1771"></a><h4>[COMMONS-1771] DomainObjectCollection.ReplaceItems is removed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Use Clear/Add instead, or work on the underlying NonNotifyingData.</li>
+	<li>To intercept Commit or Rollback, use the virtual Commit/Rollback methods.</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1763"></a><h4>[COMMONS-1763] Compare methods are changed into extension methods, renamed to SetEquals/SequenceEqual</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This better matches existing methods on .NET BCL classes, such as HashSet and Enumerable.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1752"></a><h4>[COMMONS-1752] Constructor overload taking DomainObjectCollection is removed, constructor overload taking IEnumerable doesn't provide a makeReadOnly flag any longer</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>To copy the contents of a DomainObjectCollection into a new collection, either use the Clone method or the constructor taking IEnumerable&lt;DomainObject&gt; (use the LINQ method <tt>Cast&lt;DomainObject&gt;()</tt> in order to transform an IEnumerable to an IEnumerable&lt;DomainObject&gt; if required).<br/>
+-To get a read-only collection, use AsReadOnly.</li>
+</ul>
+</span></div></div><div class="detailEntry children "><a name="COMMONS-1745"></a><h4>[COMMONS-1745] Combine, GetItemsNotInCollection</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>Combine is renamed to UnionWith, which mimics HashSet</li>
+	<li><tt>x.GetItemsNotInCollection&#40;y&#41;</tt> is replaced with <tt>y.GetItemsExcept&#40;x&#41;</tt> - this is much clearer than the current naming.
+	<ul class="alternate" type="square">
+		<li>Note that the order of collections has changed.</li>
+		<li>The return value is now an IEnumerable&lt;DomainObject&gt;; this allows for greater flexibility. (You can easily create a new DomainObjectCollection from this enumerable if needed.)</li>
+		<li>The comparisons are now made based on IDs not on references. This is a change, but it better matches the other methods on DomainObjectCollection, e.g. Combine.</li>
+	</ul>
+	</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1876"></a><h4>[COMMONS-1876] Remove DataManager.CopyFrom, RelationEndPointMap.CopyFrom, and RelationEndPoint.Clone</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Doesn't seem to be used?</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1753"></a><h4>[COMMONS-1753] DomainObjectCollection.AsReadOnly</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Instead of copying data, this feature returns a wrapper around the same data as the originating object.</p></span></div></div></body></html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.47</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2291"><b>
+                  [COMMONS-2291] Data.Linq:
+                </b>ExpressionTreeVisitor.VisitNewArrayExpression throws an exception when the element initialization expressions change</a></div><div class="listEntry"><a href="#COMMONS-1910"><b>
+                  [COMMONS-1910] Data.Linq:
+                </b>Remotion.Data.Linq.Backend.DetailParsing.ParserRegistry.GetParsers(Type expressionType) must be refactored to take changes in .NET 4 Expression|s into account</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2311"><b>
+                  [COMMONS-2311] Web:
+                </b>Removed ControlHelper.IsDesignMode (IControl, IHttpContext) overload </a></div><div class="listEntry"><a href="#COMMONS-2310"><b>
+                  [COMMONS-2310] Web:
+                </b>Renamed ControlHelper.IsDesignMode (Control) overload to IsDesignModeForControl</a></div><div class="listEntry"><a href="#COMMONS-2308"><b>
+                  [COMMONS-2308] Data.Linq:
+                </b>ExpressionTreeVisitor.VisitExpression is now public</a></div><div class="listEntry"><a href="#COMMONS-2298"><b>
+                  [COMMONS-2298] Web:
+                </b>Remotion.Web.Infrastrcuture.IHttpContext was replaced with System.Web.HttpContextBase</a></div><div class="listEntry"><a href="#COMMONS-2285"><b>
+                  [COMMONS-2285] Core:
+                </b>Renamed Tuple-properties from A-D to Item1-Item4</a></div><div class="listEntry"><a href="#COMMONS-2284"><b>
+                  [COMMONS-2284] Core:
+                </b>Remotion.Collections.Tuple.NewTuple(...) factory methods have been renamed to Remotion.Collections.Tuple.Create(...)</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2303"><b>
+                  [COMMONS-2303] Data.Linq:
+                </b>Extension expression support similar to .NET 4.0</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2291"></a><h4>[COMMONS-2291] ExpressionTreeVisitor.VisitNewArrayExpression throws an exception when the element initialization expressions change</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In VisitNewArrayExpression, expression.Type.ElementType should be used instead of expression.Type.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1910"></a><h4>[COMMONS-1910] Remotion.Data.Linq.Backend.DetailParsing.ParserRegistry.GetParsers(Type expressionType) must be refactored to take changes in .NET 4 Expression|s into account</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In Remotion.Data.Linq.Backend.DetailParsing.ParserRegistry GetParsers(Type expressionType) must be refactored to take into account that<br/>
+1) There exist new, Expression sub-types (e.g. MethodBinaryExpression)<br/>
+2) The order of the parsers is no longer irrelevant</p>
+
+<p>The following quick code fixes 1) to make tests green, BUT DOES NOT FIX 2) !</p>
+
+<p>   public IEnumerable&lt;IParser&gt; GetParsers(Type expressionType)<br/>
+    {<br/>
+        //return _parsers<span class="error">&#91;expressionType&#93;</span>;<br/>
+        foreach (var parser in _parsers)<br/>
+        {<br/>
+            if (parser.Key.IsAssignableFrom(expressionType))</p>
+            {
+                return parser.Value;
+            }
+<p>        }</p>
+
+<p>        throw new ParserException(string.Format("No parser to parse expression of type {0} found.",expressionType));<br/>
+    }</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2311"></a><h4>[COMMONS-2311] Removed ControlHelper.IsDesignMode (IControl, IHttpContext) overload </h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2310"></a><h4>[COMMONS-2310] Renamed ControlHelper.IsDesignMode (Control) overload to IsDesignModeForControl</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2308"></a><h4>[COMMONS-2308] ExpressionTreeVisitor.VisitExpression is now public</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This change was made to improve .NET 4.0 compatibility and to enable double-dispatch visitor scenarios.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2298"></a><h4>[COMMONS-2298] Remotion.Web.Infrastrcuture.IHttpContext was replaced with System.Web.HttpContextBase</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This adds a dependency to System.Web.Abstractions.<br/>
+<img class="emoticon" src="https://jira.rubicon.eu/images/icons/emoticons/warning.gif" height="16" width="16" align="absmiddle" alt="" border="0"/> When this reference is missing, the compiler will find the internal type System.Web.HttpContextWrapper located in System.Web assembly and fail.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2285"></a><h4>[COMMONS-2285] Renamed Tuple-properties from A-D to Item1-Item4</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>With .NET 4.0 the Tuple type will be part of the .NET framework. To ease migration, re-motion's Tuple types have been aligned with the .NET API:</p>
+
+<p>Renamed properties<br/>
+A -&gt; Item1<br/>
+B -&gt; Item2<br/>
+C -&gt; Item3<br/>
+D -&gt; Item4</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2284"></a><h4>[COMMONS-2284] Remotion.Collections.Tuple.NewTuple(...) factory methods have been renamed to Remotion.Collections.Tuple.Create(...)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>With .NET 4.0 the Tuple factory class will be part of the .NET framework. To ease migration, re-motion's Tuple factory has been aligned with the .NET API:</p>
+
+<p>Renamed factory methods:<br/>
+NewTuple&lt;...&gt;(...) -&gt; Create&lt;...&gt;(...)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2303"></a><h4>[COMMONS-2303] Extension expression support similar to .NET 4.0</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This feature provides a new ExtensionExpression class which is meant to be the base class for custom expression types:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">class ExtensionExpression : Expression
+{
+  ...
+
+  <span class="code-keyword">public</span> bool CanReduce { get; }
+  <span class="code-keyword">public</span> Expression Reduce();
+  <span class="code-keyword">public</span> Expression ReduceAndCheck();
+
+  <span class="code-keyword">public</span> void Accept (ExpressionTreeVisitor visitor);
+  <span class="code-keyword">public</span> void VisitChildren (ExpressionTreeVisitor visitor);
+}</pre>
+</div></div>
+
+<p>The methods are equivalent to the new methods on .NET 4.0's expression type.</p>
+
+<p>ExpressionTreeVisitor.VisitExpression is changed to first check the expression for assignability to ExtensionExpression. If assignment is possible, it calls ExtensionExpression.Accept, which can be implemented by custom expressions to dispatch to the right Visit method. E.g, SubQueryExpression would use this method to dispatch to VisitSubQueryExpression. The custom expression can also test for a specific visitor interface (e.g., ISubQueryExpressionVisitor). If no dedicated Visit method exists, the method dispatches to ExpressionTreeVisitor.VisitUnknownExpression.</p>
+
+<p>ExpressionTreeVisitor.VisitUnknownExpression is changed to call VisitChildren on the expression if the expression is an ExtensionExpression. If it is not, it throws a NotSupportedException (as it does now).</p>
+
+<p>As a separate feature, ThrowingExpressionTreeVisitor will get a new mode called "automatic reduce mode". In this mode, VisitUnknownExpression tests whether the expression can be reduced. If so, it reduces the expression and visits the result. An exception is only thrown when the expression is not reducible (or when the reduced expression cannot be handled). "Exact" mode corresponds to the current behavior - an exception is thrown (without an attempt for reduction) by default.</p></span></div></div></body></html>

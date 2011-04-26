@@ -1,0 +1,214 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.16</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1368"><b>
+                  [COMMONS-1368] Web:
+                </b>SingleView/TabbedMultiView: NoScript Layout is messed up</a></div><div class="listEntry"><a href="#COMMONS-1366"><b>
+                  [COMMONS-1366] Data.Linq:
+                </b>Exception is thrown when Take is called with a non-constant (and non-evaluatable before parsing) expression</a></div><div class="listEntry"><a href="#COMMONS-1364"><b>
+                  [COMMONS-1364] Web:
+                </b>View Layout (standard mode): repositioning is visible in Browser (IE8, Firefox)</a></div><div class="listEntry"><a href="#COMMONS-1363"><b>
+                  [COMMONS-1363] Web:
+                </b>PreRenderers: Do not call RegisterHeadContents in Design Mode</a></div><div class="listEntry"><a href="#COMMONS-1362"><b>
+                  [COMMONS-1362] Data.Linq:
+                </b>ReferenceReplacingExpressionTreeVisitor ignores the "ignoreUnmappedReferences" flag in subqueries</a></div><div class="listEntry"><a href="#COMMONS-1361"><b>
+                  [COMMONS-1361] ObjectBinding:
+                </b>BocDateTimeValue style issues</a></div><div class="listEntry"><a href="#COMMONS-1360"><b>
+                  [COMMONS-1360] ObjectBinding:
+                </b>BocBooleanValue: icon not grayed out when disabled</a></div><div class="listEntry"><a href="#COMMONS-1359"><b>
+                  [COMMONS-1359] ObjectBinding:
+                </b>BocList: row dropdownmenu title not grayed out when disabled</a></div><div class="listEntry"><a href="#COMMONS-1358"><b>
+                  [COMMONS-1358] Web:
+                </b>DropDownMenu Standard mode: menu title disappears after popup is closed</a></div><div class="listEntry"><a href="#COMMONS-1354"><b>
+                  [COMMONS-1354] Web:
+                </b>DropDownMenu Standard mode: Dropdown button vertical align</a></div><div class="listEntry"><a href="#COMMONS-1352"><b>
+                  [COMMONS-1352] Web:
+                </b>DropDownMenu Standard mode: iFrame issues</a></div><div class="listEntry"><a href="#COMMONS-1350"><b>
+                  [COMMONS-1350] ObjectBinding:
+                </b>BocReferenceValue Standard mode: read-only command issues</a></div><div class="listEntry"><a href="#COMMONS-1344"><b>
+                  [COMMONS-1344] ObjectBinding:
+                </b>BocReferenceValue Standard mode: border issues</a></div><div class="listEntry"><a href="#COMMONS-1339"><b>
+                  [COMMONS-1339] Web:
+                </b>DropDownMenu Standard mode: title should not highlight</a></div><div class="listEntry"><a href="#COMMONS-1338"><b>
+                  [COMMONS-1338] Web:
+                </b>DropDownMenu Standard mode: empty title should collapse</a></div><div class="listEntry"><a href="#COMMONS-1337"><b>
+                  [COMMONS-1337] Web:
+                </b>DropDownMenu Standard mode: z-Index issues</a></div><div class="listEntry"><a href="#COMMONS-1335"><b>
+                  [COMMONS-1335] Web:
+                </b>DropDownMenu QuirksMode: IconPane background missing</a></div><div class="listEntry"><a href="#COMMONS-1312"><b>
+                  [COMMONS-1312] Web:
+                </b>ListMenu: items are not disabled when BocList is in row edit mode</a></div><div class="listEntry"><a href="#COMMONS-1309"><b>
+                  [COMMONS-1309] Data.Linq:
+                </b>QueryModel.ResultType can get out of sync when a ResultOperator is added or the Selector is changed</a></div><div class="listEntry"><a href="#COMMONS-1308"><b>
+                  [COMMONS-1308] Data.Linq:
+                </b>InvalidOperationException in SubQueryFlatteningVisitor - cannot replace reference</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1310"><b>
+                  [COMMONS-1310] Data.Linq:
+                </b>Refactor QueryParser.ApplyAllNodes and MethodCallExpressionNodeBase.Apply: Move logic used for generating a new QueryModel to MainSourceExpressionNode.Apply</a></div><div class="listEntry"><a href="#COMMONS-1117"><b>
+                  [COMMONS-1117] Data.Linq:
+                </b>split IntegrationTests to different files</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1341"><b>
+                  [COMMONS-1341] Data.Linq:
+                </b>Refactor QuerySourceReferenceExpression to point to an interface rather than FromClauseBase</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1347"><b>
+                  [COMMONS-1347] Data.Linq:
+                </b>Support Queryable.GroupJoin</a></div><div class="children"><a href="#COMMONS-1357"><b>
+            [COMMONS-1357] Data.Linq:
+          </b>QueryParser integration tests for GroupJoinClause </a></div><div class="children"><a href="#COMMONS-1356"><b>
+            [COMMONS-1356] Data.Linq:
+          </b>Implement GroupJoinExpressionNode.Apply</a></div><div class="children"><a href="#COMMONS-1355"><b>
+            [COMMONS-1355] Data.Linq:
+          </b>Implement GroupJoinExpressionNode.GetResolved... and .Resolve methods </a></div><div class="children"><a href="#COMMONS-1353"><b>
+            [COMMONS-1353] Data.Linq:
+          </b>Add GroupJoinClause, similar to JoinClause</a></div><div class="children"><a href="#COMMONS-1351"><b>
+            [COMMONS-1351] Data.Linq:
+          </b>Implement GroupJoinExpressionNode</a></div><div class="listEntry"><a href="#COMMONS-1340"><b>
+                  [COMMONS-1340] Data.Linq:
+                </b>Support Queryable.Join</a></div><div class="children"><a href="#COMMONS-1348"><b>
+            [COMMONS-1348] Data.Linq:
+          </b>Implement JoinExpressionNode.Apply</a></div><div class="children"><a href="#COMMONS-1346"><b>
+            [COMMONS-1346] Data.Linq:
+          </b>QueryParser integration tests for JoinClause</a></div><div class="children"><a href="#COMMONS-1345"><b>
+            [COMMONS-1345] Data.Linq:
+          </b>Refactor JoinClause - make it independent of FromClauseBase</a></div><div class="children"><a href="#COMMONS-1343"><b>
+            [COMMONS-1343] Data.Linq:
+          </b>Implement JoinExpressionNode.GetResolved... and .Resolve methods</a></div><div class="children"><a href="#COMMONS-1342"><b>
+            [COMMONS-1342] Data.Linq:
+          </b>Implement JoinExpressionNode</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1368"></a><h4>[COMMONS-1368] SingleView/TabbedMultiView: NoScript Layout is messed up</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When scripting is disabled, the view layout is broken. Without scripting, the view parts (top, tabs, view, bottom) should just render as &lt;div&gt;s below each other.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1366"></a><h4>[COMMONS-1366] Exception is thrown when Take is called with a non-constant (and non-evaluatable before parsing) expression</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> query =
+          from o in QueryFactory.CreateLinqQuery&lt;Order&gt;()
+          where o.OrderNumber == 1
+          from oi in o.OrderItems.Take (o.OrderNumber + 1)
+          select oi;
+      CheckQueryResult (query, DomainObjectIDs.OrderItem1, DomainObjectIDs.OrderItem2);</pre>
+</div></div>
+
+<p>Change Take.Count to be an Expression.<br/>
+Change Take.ExecuteInMemory to throw a NotSupportedException if Count is not a ConstantExpression. (We cannot support executing dependent subqueries in memory without knowing what the outer object values are.)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1364"></a><h4>[COMMONS-1364] View Layout (standard mode): repositioning is visible in Browser (IE8, Firefox)</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>after the page is loaded, the various parts of the TabbedMultiView are visible before they are correctly positioned</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1363"></a><h4>[COMMONS-1363] PreRenderers: Do not call RegisterHeadContents in Design Mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>call at the end of OnInit if not in design mode</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1362"></a><h4>[COMMONS-1362] ReferenceReplacingExpressionTreeVisitor ignores the "ignoreUnmappedReferences" flag in subqueries</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>To resolve,</p>
+<ul class="alternate" type="square">
+	<li>Change ReferenceReplacingExpressionTreeVisitor.VisitSubQueryExpression: Do not clone the subquery, use subQueryModel.TransformExpressions (ex =&gt; ReplaceReferences (ex, ...)) instead, pass the flag into the call.</li>
+	<li>Add CloningExpressionTreeVisitor, derive it from ReferenceReplacingExpressionTreeVisitor, override VisitSubQueryExpression with cloning logic (which is currently in VisitSubQueryExpression)</li>
+	<li>Change all Clone methods to use CloningExpressionTreeVisitor instead of ReferenceReplacingExpressionTreeVisitor</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1361"></a><h4>[COMMONS-1361] BocDateTimeValue style issues</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>time textbox is cut off on right side<br/>
+space between date textbox and datepicker button too small<br/>
+datepicker button not grayed when disabled (filter attribute missing)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1360"></a><h4>[COMMONS-1360] BocBooleanValue: icon not grayed out when disabled</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1359"></a><h4>[COMMONS-1359] BocList: row dropdownmenu title not grayed out when disabled</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1358"></a><h4>[COMMONS-1358] DropDownMenu Standard mode: menu title disappears after popup is closed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1354"></a><h4>[COMMONS-1354] DropDownMenu Standard mode: Dropdown button vertical align</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>the drop-down icon is not in centered vertically<br/>
+=&gt; use "spacer" image and render dropdown arrow as background</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1352"></a><h4>[COMMONS-1352] DropDownMenu Standard mode: iFrame issues</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The background iFrame should be generated by JavaScript and only when necessary (IE 6 and older)<br/>
+The "src" Attribute should contain the value "javascript:false"</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1350"></a><h4>[COMMONS-1350] BocReferenceValue Standard mode: read-only command issues</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>in read-only mode, when hovering over the title command, the highlight covers only the text (not the icon)<br/>
+javascript exception on click</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1344"></a><h4>[COMMONS-1344] BocReferenceValue Standard mode: border issues</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>hovering over command icon causes visible repositioning (due to border being displayed)<br/>
+unbound read-only: top and bottom borders missing (on hover)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1339"></a><h4>[COMMONS-1339] DropDownMenu Standard mode: title should not highlight</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>unlike the dropdownmenu items, the title should not get an orange background when hovering above it</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1338"></a><h4>[COMMONS-1338] DropDownMenu Standard mode: empty title should collapse</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>when the Title property is empty, only the drop-down button should be shown - the title area should be completely invisible</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1337"></a><h4>[COMMONS-1337] DropDownMenu Standard mode: z-Index issues</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In the BocList, when a drop-down menu has been opened and another one above it is opened, the latter popup is hidden by the former DropDownMenu's title<br/>
+z-Index of title or container is probably not removed<br/>
+fix z-Index issues by making the ul element independent and positioning it with JavaScript?</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1335"></a><h4>[COMMONS-1335] DropDownMenu QuirksMode: IconPane background missing</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In the drop-down popup, the icon pane on the left has lost its background image</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1312"></a><h4>[COMMONS-1312] ListMenu: items are not disabled when BocList is in row edit mode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1309"></a><h4>[COMMONS-1309] QueryModel.ResultType can get out of sync when a ResultOperator is added or the Selector is changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Change ResultType property to GetResultType method.</p>
+
+<p>To calculate the result type, start from the select clause, construct IQueryable&lt;SelectorType&gt;, then iterate over result operators, call "GetModifiedResultType (oldResultType)". Return result.</p>
+
+<p>Requirements:</p>
+<ul class="alternate" type="square">
+	<li>SelectClause.GetResultType()</li>
+	<li>ResultOperatorBase.GetModifiedResultType (oldResultType)</li>
+</ul>
+
+
+<p>(Note: We assume that result type is always IQueryable&lt;T&gt; or a scalar value. This might change in the future if a feature request asks us to support "custom" queryable types.)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1308"></a><h4>[COMMONS-1308] InvalidOperationException in SubQueryFlatteningVisitor - cannot replace reference</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1310"></a><h4>[COMMONS-1310] Refactor QueryParser.ApplyAllNodes and MethodCallExpressionNodeBase.Apply: Move logic used for generating a new QueryModel to MainSourceExpressionNode.Apply</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1117"></a><h4>[COMMONS-1117] split IntegrationTests to different files</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1341"></a><h4>[COMMONS-1341] Refactor QuerySourceReferenceExpression to point to an interface rather than FromClauseBase</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Add IQuerySource interface:</p>
+<ul class="alternate" type="square">
+	<li>ItemType, ItemName properties</li>
+	<li>Implemented by FromClauseBase, JoinClause</li>
+</ul>
+
+
+<p>Change QuerySourceReferenceExpression.ReferencedClause to be IQuerySourceClause<br/>
+Change ClauseMapping to use IQuerySourceClause instead of IClause<br/>
+Change Backend to throw an exception when ReferencedClause is no FromClauseBase (for now)</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1347"></a><h4>[COMMONS-1347] Support Queryable.GroupJoin</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1357"></a><h4>[COMMONS-1357] QueryParser integration tests for GroupJoinClause </h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Check ItemName, ItemType, references, etc.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1356"></a><h4>[COMMONS-1356] Implement GroupJoinExpressionNode.Apply</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Create GroupJoinClause</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1355"></a><h4>[COMMONS-1355] Implement GroupJoinExpressionNode.GetResolved... and .Resolve methods </h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>See JoinExpressionNode (<a href="https://jira.rubicon.eu/browse/COMMONS-1343" title="Implement JoinExpressionNode.GetResolved... and .Resolve methods"><del>COMMONS-1343</del></a>)</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1353"></a><h4>[COMMONS-1353] Add GroupJoinClause, similar to JoinClause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Similar to JoinClause, but additional InnerItemType, InnerItemName properties<br/>
+ItemType is of type IEnumerable&lt;?&gt;, InnerItemType should be extracted via ParserUtility.GetEnumerableItemType in the constructor</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1351"></a><h4>[COMMONS-1351] Implement GroupJoinExpressionNode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Implement GroupJoinExpressionNode : MethodCallExpressionNodeBase<br/>
+Inner, OuterKeySelector, InnerKeySelector, ResultSelector<br/>
+Parsing + Tests</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1340"></a><h4>[COMMONS-1340] Support Queryable.Join</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry children "><a name="COMMONS-1348"></a><h4>[COMMONS-1348] Implement JoinExpressionNode.Apply</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Create a JoinClause</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1346"></a><h4>[COMMONS-1346] QueryParser integration tests for JoinClause</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Check ItemName, ItemType, references, etc.</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1345"></a><h4>[COMMONS-1345] Refactor JoinClause - make it independent of FromClauseBase</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Implement IBodyClause<br/>
+Remove FromClauseBase.JoinClause property<br/>
+Adapt visitors<br/>
+Clone method must add join clause to mapping (see FromClauseBase)</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1343"></a><h4>[COMMONS-1343] Implement JoinExpressionNode.GetResolved... and .Resolve methods</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>GetResolved... =&gt; Source.Resolve (...)<br/>
+GetResolvedResultSelector =&gt; replace IEnumerable&lt;TInner&gt; parameter with QuerySourceReferenceExpression to this clause<br/>
+Resolve =&gt; replace parameterToBeResolved with GetResolvedResultSelector()</p></span></div></div><div class="detailEntry children "><a name="COMMONS-1342"></a><h4>[COMMONS-1342] Implement JoinExpressionNode</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data.Linq</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-task</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Implement JoinExpressionNode : MethodCallExpressionNodeBase<br/>
+Inner, OuterKeySelector, InnerKeySelector, ResultSelector<br/>
+Parsing + Tests</p></span></div></div></body></html>

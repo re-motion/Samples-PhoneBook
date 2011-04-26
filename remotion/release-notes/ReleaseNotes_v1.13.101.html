@@ -1,0 +1,168 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.101</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3852"><b>
+                  [RM-3852] Web:
+                </b>SmartPage does not fire onpostback client-side event for an async postback</a></div></div><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3893"><b>
+                  [RM-3893] Data:
+                </b>Dropped PropertyTypeName and IsPropertyTypeResolved from IRelationEndPointDefinition</a></div><div class="listEntry"><a href="#RM-3892"><b>
+                  [RM-3892] Data:
+                </b>Merged ReflectionBasedPropertyDefinition into PropertyDefinition</a></div><div class="listEntry"><a href="#RM-3891"><b>
+                  [RM-3891] Data:
+                </b>Merged ReflectionBasedVirtualRelationEndPointDefinition into VirtualRelationEndPointDefinition</a></div><div class="listEntry"><a href="#RM-3890"><b>
+                  [RM-3890] Data:
+                </b>Merged ReflectionBasedClassDefinition into ClassDefinition</a></div><div class="listEntry"><a href="#RM-3887"><b>
+                  [RM-3887] Core:
+                </b>ReadOnlyDictionarySpecific has been replaced with ReadOnlyDictorary</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"><a href="#RM-3886"><b>
+                  [RM-3886] Core:
+                </b>ReadOnlyCollectionDecorator</a></div><div class="listEntry"><a href="#RM-3885"><b>
+                  [RM-3885] Core:
+                </b>Access to the Keys and Values properties of ReadOnlyDictionary is supported</a></div><div class="listEntry"><a href="#RM-3663"><b>
+                  [RM-3663] Core:
+                </b>DefaultServiceLocator: Decouple resolving of the dependencies from registration of a service</a></div><div class="listEntry"><a href="#RM-1127"><b>
+                  [RM-1127] DMS:
+                </b>evaluated file watcher strategy to handle closing event for MS Excel</a></div><div class="listEntry"><span class="notVisible"><a href="#RM-3853"><b>
+                    [RM-3853] Data:
+                  </b>Extensible schema generation facilities</a></span></div><div class="children"><a href="#RM-3871"><b>
+            [RM-3871] Data:
+          </b>Make it easier to create custom entity definition subclasses</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="RM-3852"></a><h4>[RM-3852] SmartPage does not fire onpostback client-side event for an async postback</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>In SmartPage.js function OnFormSubmit should call ExecuteEventHandlers(_eventHandlers<span class="error">&#91;&#39;onpostback&#39;&#93;</span>, <em>theForm.</em><em>EVENTTARGET.value, _theForm.</em>_EVENTARGUMENT.value); for an async postback.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>... 
+      if (this.CheckIsAsyncPostback(eventSource))
+      {
+        if (this.IsSynchronousPostBackRequired(eventSourceID, _theForm.__EVENTARGUMENT.value))
+        {
+          this.DoPostBackInternal(_theForm.__EVENTTARGET.value, _theForm.__EVENTARGUMENT.value);
+          return false;
+        }
+        else
+        {
+          var continueRequest = this.CheckFormState();
+          if (continueRequest)
+          {
+            _isSubmitting = true;
+            _isSubmittingBeforeUnload = true;
+
+            this.Backup();
+            ExecuteEventHandlers(_eventHandlers['onpostback'], _theForm.__EVENTTARGET.value, _theForm.__EVENTARGUMENT.value);
+            return true;
+          }
+          else
+          {
+            return false;
+          }
+        }
+</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="RM-3893"></a><h4>[RM-3893] Dropped PropertyTypeName and IsPropertyTypeResolved from IRelationEndPointDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul>
+	<li>Members PropertyTypeName and IsPropertyTypeResolved have been dropped from
+	<ul>
+		<li>IRelationEndPointDefinition</li>
+		<li>RelationEndPointDefinition</li>
+		<li>VirtualRelationEndPointDefinition</li>
+		<li>AnonymousEndPointDefinition</li>
+	</ul>
+	</li>
+	<li>Members PropertyInfo and IsPropertyInfoResolved are no longer virtual on VirtualRelationEndPointDefinition.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3892"></a><h4>[RM-3892] Merged ReflectionBasedPropertyDefinition into PropertyDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul>
+	<li>Moved features of ReflectionBasedPropertyDefinition into PropertyDefinition and deleted ReflectionBasedPropertyDefinition.</li>
+	<li>The following members are now sealed:
+	<ul>
+		<li>PropertyType</li>
+		<li>PropertyInfo</li>
+		<li>IsNullable</li>
+		<li>DefaultValue</li>
+		<li>IsObjectID</li>
+	</ul>
+	</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3891"></a><h4>[RM-3891] Merged ReflectionBasedVirtualRelationEndPointDefinition into VirtualRelationEndPointDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul>
+	<li>Moved features of ReflectionBasedVirtualRelationEndPointDefinition into VirtualRelationEndPointDefinition and deleted ReflectionBasedVirtualRelationEndPointDefinition.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3890"></a><h4>[RM-3890] Merged ReflectionBasedClassDefinition into ClassDefinition</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul>
+	<li>Moved features of ReflectionBasedClassDefinition into ClassDefiniton and deleted ReflectionBasedClassDefinition.</li>
+	<li>The following members are now sealed:
+	<ul>
+		<li>ClassType</li>
+		<li>IsAbstract</li>
+		<li>GetDomainObjectCreator</li>
+		<li>ResolveProperty</li>
+		<li>ResolveRelationEndPoint</li>
+	</ul>
+	</li>
+	<li>The MixinConfiguration is now validated directly by the ClassDefinition via ValidateCurrentMixinConfiguration. The GetValidator method was removed.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="RM-3887"></a><h4>[RM-3887] ReadOnlyDictionarySpecific has been replaced with ReadOnlyDictorary</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Use the ReadOnlyDictionary instead of ReadOnlyDictionarySpecific.</p></span></div></div><div class="detailEntry  "><a name="RM-3886"></a><h4>[RM-3886] ReadOnlyCollectionDecorator</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The ReadOnlyCollectionDecorator is an implementation of ICollection&lt;T&gt; that acts as a read-only wrapper for other collections. It differs from ReadOnlyCollection&lt;T&gt; in System.Collection.ObjectModel namespace by requiring the inner collection to only implement ICollection&lt;T&gt; instead of IList&lt;T&gt;.</p></span></div></div><div class="detailEntry  "><a name="RM-3885"></a><h4>[RM-3885] Access to the Keys and Values properties of ReadOnlyDictionary is supported</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The Keys and Values properties of the ReadOnlyDictionary offer access to a read-only representation of the Keys and Values collection of the wrapped IDictionary.</p></span></div></div><div class="detailEntry  "><a name="RM-3663"></a><h4>[RM-3663] DefaultServiceLocator: Decouple resolving of the dependencies from registration of a service</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>When a new ServiceConfigurationEntry (with a LifetimeLind of Singleton) is registered with DefaultServiceLocator, it should not be instantiated until the service is requested for the first time. This allows for overwriting the respective service during the initialization phase and decouples the registration of the service from the registration of dependent services.</p></span></div></div><div class="detailEntry  "><a name="RM-1127"></a><h4>[RM-1127] evaluated file watcher strategy to handle closing event for MS Excel</h4><div class="component"><span class="label">Component/s: </span><span class="value">DMS</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  &#xA;            detailNotVisible&#xA;          "><a name="RM-3853"></a><h4>[RM-3853] Extensible schema generation facilities</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Unresolved</span></div><div class="status"><span class="label">Status: </span><span class="value">Open</span></div><div class="fixVersion"><span class="label">FixVersion: </span><span class="value">Extensible schema generation facilities</span></div><br></br><div class="description"><span><p>Provide a persistence model supporting arbitrary tables, views, indexes, and constraints, as well as schema generation classes that allow projects to generate SQL for those entities.</p></span></div></div><div class="detailEntry children "><a name="RM-3871"></a><h4>[RM-3871] Make it easier to create custom entity definition subclasses</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Sub-Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The entity definitions for mapped classes are created by the EntityDefinitionFactory implementation of the IEntityDefinitionFactory interface. The concrete factory implementation is chosen by the SqlStorageObjectFactory class. Override that class's CreateEntityDefinitionFactory method to supply a custom factory implementation.</p>
+
+<p>Decorate IEntityDefinitionFactory in order to reuse the functionality choosing how to create each entity; after calling the decorated method, you can, for example, instantiate a custom subclass of the respective entity type (e.g., MyTableDefinition).</p></span></div></div></body></html>

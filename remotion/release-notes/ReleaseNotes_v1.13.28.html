@@ -1,0 +1,169 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.28</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Bugfixes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1666"><b>
+                  [COMMONS-1666] DmsTray:
+                </b>Restore lock and fix problem uploading files after crash</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1634"><b>
+                  [COMMONS-1634] ObjectBinding.Web Web:
+                </b>Controls can not be set to invisible.</a></div><div class="listEntry"><a href="#COMMONS-1633"><b>
+                  [COMMONS-1633] ObjectBinding.Web:
+                </b>Standardmode: BocReferenceValue, BocAutoCompleteReferenceValue hang below the line in complex layouts</a></div><div class="listEntry"></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1636"><b>
+                  [COMMONS-1636] Mixins:
+                </b>Review and improve logging performed by mixin infrastructure</a></div><div class="listEntry"><a href="#COMMONS-1619"><b>
+                  [COMMONS-1619] Mixins:
+                </b>Make MemberDefinitionFinder more accurate and simpler</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-1620"><b>
+                  [COMMONS-1620] Mixins:
+                </b>Remove MemberChain</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1638"><b>
+                  [COMMONS-1638] Core:
+                </b>Add StopwatchScope, a scope that can be used for timing blocks of code</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-1666"></a><h4>[COMMONS-1666] Restore lock and fix problem uploading files after crash</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1634"></a><h4>[COMMONS-1634] Controls can not be set to invisible.</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-1633"></a><h4>[COMMONS-1633] Standardmode: BocReferenceValue, BocAutoCompleteReferenceValue hang below the line in complex layouts</h4><div class="component"><span class="label">Component/s: </span><span class="value">ObjectBinding.Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Bug</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Duplicate</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>e.g ACE-Editor</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1636"></a><h4>[COMMONS-1636] Review and improve logging performed by mixin infrastructure</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Logging (including time spent) must be performed when:</p>
+<ul class="alternate" type="square">
+	<li>The default mixin configuration is built,</li>
+	<li>a custom mixin configuration is built,</li>
+	<li>a target class definition is created,</li>
+	<li>validation is performed,</li>
+	<li>a concrete type is created,</li>
+	<li>a mixin configuration is created, and</li>
+	<li>concrete types are loaded.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-1619"></a><h4>[COMMONS-1619] Make MemberDefinitionFinder more accurate and simpler</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>The current implementation of MemberDefinitionBuilder.CleanupMembers uses MemberChain and custom signature comparers.</p>
+
+<ul class="alternate" type="square">
+	<li>The signature comparers can be simplified by using the ToString representation of members. Note that generic method arguments probably need to be normalized in that string representation so that overrides/shadowers that rename the generic arguments are still found to be equal. (If they should be found to be equal, that is.)</li>
+	<li>The MemberChain class seems overly complex for the purpose of filtering out all overrides; that can be done much more easily.</li>
+</ul>
+
+
+<p>Proposed algorithm:</p>
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">IEnumerable&lt;T&gt; Cleanup&lt;T&gt; (IEnumerable&lt;T&gt; members, IEqualityComparer&lt;T&gt; nameAndSignatureComparer) where T : MemberInfo
+{
+  <span class="code-keyword">var</span> baseDefinitions = members.Where (m =&gt; IsBaseDefinition (m)); <span class="code-comment">// check whether m.GetBaseDefinition() == m; use accessors <span class="code-keyword">for</span> props and events
+</span>  <span class="code-comment">// note: don't use Distinct because it's not defined which of the <span class="code-quote">"equal"</span> members is retained
+</span>  <span class="code-keyword">return</span> RemoveHiddenMembers (baseDefinitions, nameAndSignatureComparer);
+}
+
+IEnumerable&lt;T&gt; RemoveHiddenMembers (IEnumerable&lt;T&gt; members, IEqualityComparer&lt;T&gt; nameAndSignatureComparer)
+{
+  <span class="code-keyword">var</span> uniqueMembers = <span class="code-keyword">new</span> Dictionary&lt;T, T&gt; (nameAndSignatureComparer); <span class="code-comment">// need Dictionary to get existing member from <span class="code-keyword">new</span> one
+</span>  foreach (<span class="code-keyword">var</span> member in members)
+  {
+    <span class="code-keyword">if</span> (uniqueMembers.ContainsKey (member))
+    {
+      <span class="code-keyword">var</span> existing = uniqueMembers[member];
+      <span class="code-keyword">if</span> (existing.DeclaringType.IsAssignableFrom (member.DeclaringType)) <span class="code-comment">// member is more derived, existing is hidden
+</span>      {
+        uniqueMembers.Remove (existing);
+        uniqueMembers.Add (member, member);
+      }
+    }
+  }
+
+  <span class="code-keyword">return</span> uniqueMembers.Values;
+}</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1620"></a><h4>[COMMONS-1620] Remove MemberChain</h4><div class="component"><span class="label">Component/s: </span><span class="value">Mixins</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Proposed algorithm:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">IEnumerable&lt;T&gt; Cleanup&lt;T&gt; (IEnumerable&lt;T&gt; members, IEqualityComparer&lt;T&gt; nameAndSignatureComparer) where T : MemberInfo
+{
+  <span class="code-keyword">var</span> baseDefinitions = members.Where (m =&gt; IsBaseDefinition (m)); <span class="code-comment">// check whether m.GetBaseDefinition() == m; use accessors <span class="code-keyword">for</span> props and events
+</span>  <span class="code-comment">// note: don't use Distinct because it's not defined which of the <span class="code-quote">"equal"</span> members is retained
+</span>  <span class="code-keyword">return</span> RemoveHiddenMembers (baseDefinitions, nameAndSignatureComparer);
+}
+
+IEnumerable&lt;T&gt; RemoveHiddenMembers (IEnumerable&lt;T&gt; members, IEqualityComparer&lt;T&gt; nameAndSignatureComparer)
+{
+  <span class="code-keyword">var</span> uniqueMembers = <span class="code-keyword">new</span> Dictionary&lt;T, T&gt; (nameAndSignatureComparer); <span class="code-comment">// need Dictionary to get existing member from <span class="code-keyword">new</span> one
+</span>  foreach (<span class="code-keyword">var</span> member in members)
+  {
+    <span class="code-keyword">if</span> (uniqueMembers.ContainsKey (member))
+    {
+      <span class="code-keyword">var</span> existing = uniqueMembers[member];
+      <span class="code-keyword">if</span> (existing.DeclaringType.IsAssignableFrom (member.DeclaringType)) <span class="code-comment">// member is more derived, existing is hidden
+</span>      {
+        uniqueMembers.Remove (existing);
+        uniqueMembers.Add (member, member);
+      }
+    }
+  }
+
+  <span class="code-keyword">return</span> uniqueMembers.Values;
+}</pre>
+</div></div></span></div></div><div class="detailEntry  "><a name="COMMONS-1638"></a><h4>[COMMONS-1638] Add StopwatchScope, a scope that can be used for timing blocks of code</h4><div class="component"><span class="label">Component/s: </span><span class="value">Core</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Support:</p>
+<ul class="alternate" type="square">
+	<li>ILog</li>
+	<li>Stream</li>
+	<li>Custom message to be included in the output</li>
+</ul>
+</span></div></div></body></html>

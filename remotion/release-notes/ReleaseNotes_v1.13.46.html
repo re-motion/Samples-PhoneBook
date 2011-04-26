@@ -1,0 +1,155 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><style type="text/css">
+            body
+            {
+            background-image: url(images/bg.png);
+            background-position: top left;
+            background-repeat: repeat-x;
+
+            margin-top: 15px;
+            font-family: "Trebuchet MS", Arial, Verdana, Helvectica;
+            font-size: 0.9em;
+            overflow:scroll;
+            }
+
+            a
+            {
+            color: #00327d;
+            text-decoration: none;
+            }
+
+            a:hover
+            {
+            text-decoration: underline;
+            }
+
+            h2{
+            text-decoration:underline;
+            }
+
+            .detailNotVisible, .detailNotVisible h4, .listEntry .notVisible a
+            {
+            color: Gray;
+            }
+
+            .children
+            {
+            margin-left:30px;
+            }
+
+            .label
+            {
+            min-width: 11em;
+            font-weight: bold;
+            }
+
+            .detailEntry, .listEntryGroup
+            {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: dashed 1px #999999;
+            background-color: #EEEEEE;
+            }
+
+            .releaseNoteList
+            {
+            padding-bottom: 30px;
+            }
+
+            .description, .component, .issueType, .status, .resolution, .fixVersion
+            {
+            margin-left:10px;
+            }
+
+            h4
+            {
+            margin-top: 0px;
+            color: #000080;
+            }
+          </style></head><body><h1>Release notes for re-motion version 1.13.46</h1><h2>List of Issues</h2><div class="releaseNoteList"><h3>Breaking Changes</h3><div class="listEntryGroup"><div class="listEntry"><a href="#COMMONS-2267"><b>
+                  [COMMONS-2267] Data:
+                </b>ClientTransaction.Current may not be valid in IClientTransactionListener/IClientTransactionExtension events</a></div><div class="listEntry"><a href="#COMMONS-2266"><b>
+                  [COMMONS-2266] Data:
+                </b>Responsibility for raising the IClientTransactionListener.ObjectsLoading event was moved from Load...DataContainer(s) methods to Load...Objects</a></div><div class="listEntry"><a href="#COMMONS-2265"><b>
+                  [COMMONS-2265] Data:
+                </b>Order of IClientTransactionListener/IClientTransactionExtension.ObjectsLoading event when an object is loaded into a sub-transaction has changed</a></div></div><h3>Improvements</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2255"><b>
+                  [COMMONS-2255] Data:
+                </b>ClientTransaction.GetObject immediately throws an ObjectNotFoundException when the object ro be returned is discarded</a></div></div><h3>Refactoring</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-1872"><b>
+                  [COMMONS-1872] DmsTray:
+                </b>Refactor PollingFileLockWatcher to evaluate arguments in contructor.</a></div></div><h3>New Features</h3><div class="listEntryGroup"><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-2268"><b>
+                  [COMMONS-2268] Web:
+                </b>Upgrade to jquery 1.4.1</a></div><div class="listEntry"></div><div class="listEntry"></div><div class="listEntry"><a href="#COMMONS-730"><b>
+                  [COMMONS-730] Data:
+                </b>Provide support for unloading unchanged objects from a ClientTransaction</a></div><div class="listEntry"><a href="#COMMONS-651"><b>
+                  [COMMONS-651] Data:
+                </b>ClientTransaction.GetObjectReference and RepositoryAccessor.GetObjectReference get a reference for a DomainObject without loading the object's data</a></div></div></div><h2>
+            Details
+          </h2><div class="detailEntry  "><a name="COMMONS-2267"></a><h4>[COMMONS-2267] ClientTransaction.Current may not be valid in IClientTransactionListener/IClientTransactionExtension events</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Implementations of IClientTransactionExtension must use the clientTransaction parameter to access the transaction triggering the event. Implementations of IClientTransactionListener that depend on the actual transaction must take the transaction in their constructor.</p>
+
+<p>Note that ClientTransaction.Current was never defined to work inside IClientTransactionListener and IClientTransactionExtension events, it just happened to do so in most cases.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2266"></a><h4>[COMMONS-2266] Responsibility for raising the IClientTransactionListener.ObjectsLoading event was moved from Load...DataContainer(s) methods to Load...Objects</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>This change was made to have ObjectsLoading and ObjectsLoaded raising in a single place. For subclasses of ClientTransaction, this means that their implementations of the data container loading methods should not raise the ObjectsLoading event any longer.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-2265"></a><h4>[COMMONS-2265] Order of IClientTransactionListener/IClientTransactionExtension.ObjectsLoading event when an object is loaded into a sub-transaction has changed</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Breaking Change</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previous:</p>
+<ul class="alternate" type="square">
+	<li>Sub-transaction: ObjectsLoading</li>
+	<li>Root-transaction: ObjectsLoading</li>
+	<li>Root-transaction: ObjectsLoaded</li>
+	<li>Sub-transaction: ObjectsLoaded</li>
+</ul>
+
+
+<p>Although this seems somewhat logical, it's asymetric to the way the notifications work with relation loading and root transaction loading. In both cases, the DataContainers are loaded from the underlying data source (storage provider or parent transaction) before the ObjectsLoading event is raised.</p>
+
+<p>For symmetry, the new order is now:</p>
+<ul class="alternate" type="square">
+	<li>Root-transaction: ObjectsLoading</li>
+	<li>Root-transaction: ObjectsLoaded</li>
+	<li>Sub-transaction: ObjectsLoading</li>
+	<li>Sub-transaction: ObjectsLoaded</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-2255"></a><h4>[COMMONS-2255] ClientTransaction.GetObject immediately throws an ObjectNotFoundException when the object ro be returned is discarded</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Improvement</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>Previously, GetObject would try to load discarded objects from the database, which would usually cause an ObjectNotFoundException for discarded objects. It was possible, however, to return an object from the database even though that object was discarded in the current transaction. In this case, behavior was undefined and could lead to unhelpful exceptions.</p>
+
+<p>Now, GetObject immediately throws an ObjectNotFoundException and does not try to load the object.</p></span></div></div><div class="detailEntry  "><a name="COMMONS-1872"></a><h4>[COMMONS-1872] Refactor PollingFileLockWatcher to evaluate arguments in contructor.</h4><div class="component"><span class="label">Component/s: </span><span class="value">DmsTray</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">Refactoring</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-2268"></a><h4>[COMMONS-2268] Upgrade to jquery 1.4.1</h4><div class="component"><span class="label">Component/s: </span><span class="value">Web</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description">
+              (no description)
+            <span></span></div></div><div class="detailEntry  "><a name="COMMONS-730"></a><h4>[COMMONS-730] Provide support for unloading unchanged objects from a ClientTransaction</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><ul class="alternate" type="square">
+	<li>UnloadService.UnloadData() can be used to unload the data stored by a ClientTransaction for unchanged DomainObject instances.</li>
+	<li>UnloadService.UnloadCollectionEndPoint() can be used to unload the data stored by a collection-valued relation end point.</li>
+	<li>UnloadService.UnloadCollectionEndPointAndData() can be used to unload the data stored by a collection-valued relation end point as well as the data of all objects held by that collection.</li>
+</ul>
+</span></div></div><div class="detailEntry  "><a name="COMMONS-651"></a><h4>[COMMONS-651] ClientTransaction.GetObjectReference and RepositoryAccessor.GetObjectReference get a reference for a DomainObject without loading the object's data</h4><div class="component"><span class="label">Component/s: </span><span class="value">Data</span></div><div class="issueType"><span class="label">Issue Type: </span><span class="value">New Feature</span></div><div class="resolution"><span class="label">Resolution: </span><span class="value">Fixed</span></div><div class="status"><span class="label">Status: </span><span class="value">Closed</span></div><br></br><div class="description"><span><p>GetObject will aleays load an object's DataContainer if that object hasn't been loaded yet:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> order1 = ...;
+
+using (ClientTransaction.Current.CreateSubTransaction().EnterDiscardingScope())
+{
+  Assert.That (order1.State, Is.EqualTo (StateType.NotLoadedYet));
+  
+  <span class="code-keyword">var</span> order1Again = Order.GetObject (order1.ID); <span class="code-comment">// DataContainer loaded here
+</span>  Assert.That (order1Again, Is.SameAs (order1));
+
+  <span class="code-keyword">var</span> order2 = Order.GetObject (DomainObjectIDs.Order2); <span class="code-comment">// DataContainer loaded here
+</span>
+  Assert.That (order1.State, Is.EqualTo (StateType.Unchanged));
+  Assert.That (order2.State, Is.EqualTo (StateType.Unchanged));
+}</pre>
+</div></div>
+
+<p>With GetObjectReference, a user gets the possibility to retrieve the object reference in NotLoadedYet state without triggering the loading of the DataContainer:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java"><span class="code-keyword">var</span> order1 = ...;
+
+using (ClientTransaction.Current.CreateSubTransaction().EnterDiscardingScope())
+{
+  Assert.That (order1.State, Is.EqualTo (StateType.NotLoadedYet));
+  
+  <span class="code-keyword">var</span> order1Again = RepositoryAccessor.GetObjectReference (ClientTransaction.Current, order1.ID); <span class="code-comment">// enlisted object returned without loading DataContainer
+</span>  Assert.That (order1Again, Is.SameAs (order1));
+
+  Assert.That (order1.State, Is.EqualTo (StateType.NotLoadedYet));
+
+  <span class="code-keyword">var</span> order2 = RepositoryAccessor.GetObjectReference (ClientTransaction.Current, DomainObjectIDs.Order2); <span class="code-comment">// lazy object created here
+</span>  Assert.That (order2.State, Is.EqualTo (StateType.NotLoadedYet));
+}</pre>
+</div></div></span></div></div></body></html>

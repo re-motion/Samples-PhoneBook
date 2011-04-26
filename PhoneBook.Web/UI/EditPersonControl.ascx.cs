@@ -32,6 +32,25 @@ namespace PhoneBook.Web.UI
 
 
     // BEGIN CUSTOM
+    protected void LocationField_MenuItemClick (object sender, Remotion.Web.UI.Controls.WebMenuItemClickEventArgs e)
+    {
+      try
+      {
+        switch (e.Item.ItemID)
+        {
+          case "NewLocation":
+            LocationField.Value = Location.GetObject(EditLocationForm.Call (WxePage, null));
+            break;
+          case "PickLocation":
+            LocationField.Value = PickLocation.Call (WxePage);
+            break;
+        }
+      }
+      catch (WxeIgnorableException)
+      {
+        // fall back to here
+      }
+    }
     // END CUSTOM
   }
 }

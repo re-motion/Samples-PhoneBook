@@ -26,7 +26,7 @@ namespace PhoneBook.Web.UI
 
     protected void LocationList_ListItemCommandClick (object sender, BocListItemCommandClickEventArgs e)
     {
-      if (e.Column.ItemID == "Edit")
+      if (e.Column.ItemID == "Edit" || e.Column.ItemID == "LeftColumnEdit")
       {
         try
         {
@@ -38,6 +38,14 @@ namespace PhoneBook.Web.UI
         }
       }
       // BEGIN HANDLER
+      else if (e.Column.ItemID == "Delete")
+      {
+        ((Location) e.BusinessObject).DeleteLocation();
+        ClientTransaction.Current.Commit ();
+        var searchAllService = new BindableDomainObjectSearchAllService ();
+        var listLocations = searchAllService.GetAllObjects (ClientTransaction.Current, typeof (Location));
+        LocationList.LoadUnboundValue (listLocations, IsPostBack);
+      }
       // END HANDLER
     }
 

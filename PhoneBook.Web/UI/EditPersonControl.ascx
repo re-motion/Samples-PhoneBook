@@ -27,9 +27,19 @@
   <tr>
     <td><remotion:SmartLabel ID="LocationLabel" runat="server" ForControl="LocationField" /></td>
     <td>
-      <remotion:BocReferenceValue ID="LocationField" runat="server" DataSourceControl="CurrentObject"
-          PropertyIdentifier="Location" >
-        
+      <remotion:BocReferenceValue ID="LocationField" runat="server" 
+       DataSourceControl="CurrentObject" PropertyIdentifier="Location" 
+        OnMenuItemClick = "LocationField_MenuItemClick" 
+        OptionsTitle="$res:OptionsActions">
+        <PersistedCommand>
+<remotion:BocCommand></remotion:BocCommand>
+</PersistedCommand>
+        <OptionsMenuItems>
+          <remotion:BocMenuItem Text="$res:NewLocation" ItemID="NewLocation">
+          </remotion:BocMenuItem>
+          <remotion:BocMenuItem Text="$res:PickLocation" ItemID="PickLocation">
+          </remotion:BocMenuItem>
+        </OptionsMenuItems>  
       </remotion:BocReferenceValue>
     </td>
   </tr>
@@ -39,11 +49,38 @@
       <remotion:BocList ID="PhoneNumbersField" runat="server" DataSourceControl="CurrentObject"
           PropertyIdentifier="PhoneNumbers" OnMenuItemClick="PhoneNumbersField_MenuItemClick">
         <FixedColumns>
-          <remotion:BocAllPropertiesPlaceholderColumnDefinition />
           <remotion:BocRowEditModeColumnDefinition CancelText="$res:Cancel" EditText="$res:Edit" SaveText="$res:Save" />
+          <remotion:BocSimpleColumnDefinition EnableIcon="False" 
+            PropertyPathIdentifier="CountryCode">
+            <persistedcommand>
+              <remotion:BocListItemCommand />
+            </persistedcommand>
+          </remotion:BocSimpleColumnDefinition>
+          <remotion:BocSimpleColumnDefinition EnableIcon="False" 
+            PropertyPathIdentifier="AreaCode">
+            <persistedcommand>
+              <remotion:BocListItemCommand />
+            </persistedcommand>
+          </remotion:BocSimpleColumnDefinition>
+          <remotion:BocSimpleColumnDefinition EnableIcon="False" 
+            PropertyPathIdentifier="Number">
+            <persistedcommand>
+              <remotion:BocListItemCommand />
+            </persistedcommand>
+          </remotion:BocSimpleColumnDefinition>
+          <remotion:BocSimpleColumnDefinition EnableIcon="False" 
+            PropertyPathIdentifier="Extension">
+            <persistedcommand>
+              <remotion:BocListItemCommand />
+            </persistedcommand>
+          </remotion:BocSimpleColumnDefinition>
         </FixedColumns>
         <ListMenuItems>
-          <remotion:BocMenuItem ItemID="AddMenuItem" Text="$res:Add" />
+          <remotion:BocMenuItem ItemID="AddMenuItem" Text="$res:Add" >
+            <PersistedCommand>
+<remotion:BocMenuItemCommand></remotion:BocMenuItemCommand>
+</PersistedCommand>
+          </remotion:BocMenuItem>
         </ListMenuItems>
       </remotion:BocList>
     </td>

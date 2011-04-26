@@ -46,6 +46,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Data.DomainObjects.dll</HintPath>
     </Reference>
+    <Reference Include="Remotion.Linq, Version=1.13.101.2, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\remotion\net-3.5\bin\debug\Remotion.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="Remotion.ObjectBinding, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.dll</HintPath>
@@ -83,6 +87,7 @@
     <Content Include="Images\re-motion_big.jpg" />
     <Content Include="Images\re-motion-logo-single.png" />
     <Content Include="Images\rubicon.jpg" />
+    <Content Include="UI\PickLocation.aspx" />
     <Content Include="UrlMapping.xml" />
     <Content Include="UI\NavigationTabs.ascx" />
     <Content Include="UI\EditLocationControl.ascx" />
@@ -109,6 +114,7 @@
     <Compile Include="Classes\EditFormPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Classes\PhoneNumberCell.cs" />
     <Compile Include="Classes\WebUiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Default.aspx.cs">
@@ -174,6 +180,13 @@
     </Compile>
     <Compile Include="UI\EditPhoneNumberForm.aspx.designer.cs">
       <DependentUpon>EditPhoneNumberForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PickLocation.aspx.cs">
+      <DependentUpon>PickLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\PickLocation.aspx.designer.cs">
+      <DependentUpon>PickLocation.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\SearchResultLocationControl.ascx.cs">
       <DependentUpon>SearchResultLocationControl.ascx</DependentUpon>

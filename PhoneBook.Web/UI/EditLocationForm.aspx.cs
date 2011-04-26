@@ -13,6 +13,7 @@ namespace PhoneBook.Web.UI
 {
   // <WxeFunction>
   //   <Parameter name="obj" type="Location" />
+  //   <ReturnValue type="ObjectID" />
   // </WxeFunction>
   public partial class EditLocationForm : EditFormPage
   {
@@ -40,8 +41,11 @@ namespace PhoneBook.Web.UI
 
     protected void SaveButton_Click (object sender, EventArgs e)
     {
-      if (SaveObject())
+      if (SaveObject ())
+      {
+        ReturnValue = obj.ID;
         Return();
+      }
     } // END SaveButton_Click
 
     protected void CancelButton_Click (object sender, EventArgs e)

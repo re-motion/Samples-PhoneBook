@@ -13,6 +13,7 @@ namespace PhoneBook.Web.UI
 		// protected Remotion.Web.UI.Controls.FormGridLabel PersonGridLabel;
 
     
+  protected global::Remotion.ObjectBinding.Web.UI.Controls.BocReferenceValue LocationField;
 	    protected global::Remotion.Web.UI.Controls.SmartLabel PhoneNumbersLabel;
 	    protected global::Remotion.ObjectBinding.Web.UI.Controls.BocList PhoneNumbersField;
     

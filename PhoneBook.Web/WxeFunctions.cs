@@ -38,11 +38,17 @@ namespace PhoneBook.Web.UI {
             }
         }
         
+        public ObjectID ReturnValue {
+            set {
+                this.Variables["ReturnValue"] = value;
+            }
+        }
+        
         protected void Return() {
             this.ExecuteNextStep();
         }
         
-        public static void Call(Remotion.Web.ExecutionEngine.IWxePage currentPage, Remotion.Web.ExecutionEngine.IWxeCallArguments arguments, Location obj) {
+        public static ObjectID Call(Remotion.Web.ExecutionEngine.IWxePage currentPage, Remotion.Web.ExecutionEngine.IWxeCallArguments arguments, Location obj) {
             EditLocationFormFunction function;
             if ((currentPage.IsReturningPostBack == false)) {
                 function = new EditLocationFormFunction(obj);
@@ -55,11 +61,12 @@ namespace PhoneBook.Web.UI {
                 if ((function.ExceptionHandler.Exception != null)) {
                     throw function.ExceptionHandler.Exception;
                 }
+                return function.ReturnValue;
             }
         }
         
-        public static void Call(Remotion.Web.ExecutionEngine.IWxePage currentPage, Location obj) {
-            EditLocationForm.Call(currentPage, Remotion.Web.ExecutionEngine.WxeCallArguments.Default, obj);
+        public static ObjectID Call(Remotion.Web.ExecutionEngine.IWxePage currentPage, Location obj) {
+            return EditLocationForm.Call(currentPage, Remotion.Web.ExecutionEngine.WxeCallArguments.Default, obj);
         }
     }
     
@@ -81,6 +88,13 @@ namespace PhoneBook.Web.UI {
         public Location obj {
             set {
                 this.Variables["obj"] = value;
+            }
+        }
+        
+        [Remotion.Web.ExecutionEngine.WxeParameterAttribute(1, Remotion.Web.ExecutionEngine.WxeParameterDirection.Out)]
+        public ObjectID ReturnValue {
+            get {
+                return ((ObjectID)(this.Variables["ReturnValue"]));
             }
         }
     }
@@ -235,6 +249,83 @@ namespace PhoneBook.Web.UI {
         public PhoneNumber obj {
             set {
                 this.Variables["obj"] = value;
+            }
+        }
+    }
+}
+namespace PhoneBook.Web.UI {
+    using System;
+    using System.Linq;
+    using PhoneBook.Web.Classes;
+    using Remotion.Data.DomainObjects.Queries;
+    using Remotion.ObjectBinding.Web.UI.Controls;
+    using Remotion.Web.ExecutionEngine;
+    using Remotion.Web.UI.Globalization;
+    using PhoneBook.Domain;
+    
+    
+    public partial class PickLocation {
+        
+        protected new PickLocationFunction CurrentFunction {
+            get {
+                return ((PickLocationFunction)(base.CurrentFunction));
+            }
+        }
+        
+        public Location ReturnValue {
+            set {
+                this.Variables["ReturnValue"] = value;
+            }
+        }
+        
+        public Location[] items {
+            get {
+                return ((Location[])(this.Variables["items"]));
+            }
+            set {
+                this.Variables["items"] = value;
+            }
+        }
+        
+        protected void Return() {
+            this.ExecuteNextStep();
+        }
+        
+        public static Location Call(Remotion.Web.ExecutionEngine.IWxePage currentPage, Remotion.Web.ExecutionEngine.IWxeCallArguments arguments) {
+            PickLocationFunction function;
+            if ((currentPage.IsReturningPostBack == false)) {
+                function = new PickLocationFunction();
+                function.ExceptionHandler.SetCatchExceptionTypes(typeof(System.Exception));
+                currentPage.ExecuteFunction(function, arguments);
+                throw new System.Exception("(Unreachable code)");
+            }
+            else {
+                function = ((PickLocationFunction)(currentPage.ReturningFunction));
+                if ((function.ExceptionHandler.Exception != null)) {
+                    throw function.ExceptionHandler.Exception;
+                }
+                return function.ReturnValue;
+            }
+        }
+        
+        public static Location Call(Remotion.Web.ExecutionEngine.IWxePage currentPage) {
+            return PickLocation.Call(currentPage, Remotion.Web.ExecutionEngine.WxeCallArguments.Default);
+        }
+    }
+    
+    [System.SerializableAttribute()]
+    public class PickLocationFunction : PhoneBook.Web.Classes.BaseFunction {
+        
+        private Remotion.Web.ExecutionEngine.WxePageStep Step1 = new Remotion.Web.ExecutionEngine.WxePageStep("UI\\PickLocation.aspx");
+        
+        public PickLocationFunction() : 
+                base(new object[0]) {
+        }
+        
+        [Remotion.Web.ExecutionEngine.WxeParameterAttribute(0, Remotion.Web.ExecutionEngine.WxeParameterDirection.Out)]
+        public Location ReturnValue {
+            get {
+                return ((Location)(this.Variables["ReturnValue"]));
             }
         }
     }

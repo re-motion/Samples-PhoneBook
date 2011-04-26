@@ -56,4 +56,3 @@ C:\PhoneBook\PhoneBook.Web\bin\de\Remotion.Web.resources.dll
 C:\PhoneBook\PhoneBook.Web\obj\Debug\de\PhoneBook.Web.resources.dll
 C:\PhoneBook\PhoneBook.Web\obj\Debug\PhoneBook.Web.dll
 C:\PhoneBook\PhoneBook.Web\obj\Debug\PhoneBook.Web.pdb
-C:\PhoneBook\PhoneBook.Web\bin\Microsoft.Practices.ServiceLocation.xml

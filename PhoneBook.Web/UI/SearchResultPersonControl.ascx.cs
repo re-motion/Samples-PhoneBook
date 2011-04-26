@@ -16,17 +16,16 @@ namespace PhoneBook.Web.UI
 {
   public partial class SearchResultPersonControl : BaseControl
   { 
-    protected override void OnLoad (EventArgs e)
+    private void Page_Load (object sender, System.EventArgs e)
     {
-      base.OnLoad (e);
       var searchAllService = new BindableDomainObjectSearchAllService ();
-      var listPerson = searchAllService.GetAllObjects (ClientTransaction.Current, typeof (Person));
-      PersonList.LoadUnboundValue (listPerson, IsPostBack);
+      var listPersons = searchAllService.GetAllObjects (ClientTransaction.Current, typeof (Person));
+      PersonList.LoadUnboundValue (listPersons, IsPostBack);
     }
 
     protected void PersonList_ListItemCommandClick (object sender, BocListItemCommandClickEventArgs e)
     {
-      if (e.Column.ItemID == "Edit")
+      if (e.Column.ItemID == "Edit" || e.Column.ItemID == "CompoundEdit")
       {
         try
         {

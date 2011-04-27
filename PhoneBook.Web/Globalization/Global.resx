@@ -118,60 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>Hinzufügen</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Abbrechen</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>Details</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>Bearbeiten</value>
   </data>
   <data name="List" xml:space="preserve">
-    <value>List</value>
+    <value>Liste</value>
   </data>
   <data name="New" xml:space="preserve">
-    <value>New</value>
+    <value>Neu</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value>Speichern</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Search</value>
+    <value>Suchen</value>
   </data>
   <data name="Location" xml:space="preserve">
-    <value>Location</value>
+    <value>Standorte</value>
   </data>
   <data name="Edit~Location" xml:space="preserve">
-    <value>Edit Location</value>
+    <value>Standort bearbeiten</value>
   </data>
   <data name="Search~Location" xml:space="preserve">
-    <value>Search Location</value>
+    <value>Standort suchen</value>
   </data>
   <data name="Person" xml:space="preserve">
-    <value>Person</value>
+    <value>Personen</value>
   </data>
   <data name="Edit~Person" xml:space="preserve">
-    <value>Edit Person</value>
+    <value>Person bearbeiten</value>
   </data>
   <data name="Search~Person" xml:space="preserve">
-    <value>Search Person</value>
+    <value>Person suchen</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
-    <value>PhoneNumber</value>
+    <value>Telefonnummern</value>
   </data>
   <data name="Edit~PhoneNumber" xml:space="preserve">
-    <value>Edit PhoneNumber</value>
+    <value>Telefonnummer bearbeiten</value>
   </data>
   <data name="Search~PhoneNumber" xml:space="preserve">
-    <value>Search PhoneNumber</value>
-  </data>
-  <data name="OptionsActions" xml:space="preserve">
-    <value>Actions</value>
+    <value>Telefonnummer suchen</value>
   </data>
 </root>

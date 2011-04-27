@@ -1,11 +1,9 @@
 C:\PhoneBook\PhoneBook.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\PhoneBook\PhoneBook.Web\obj\Debug\PhoneBook.Web.Globalization.Global.resources
-C:\PhoneBook\PhoneBook.Web\obj\Debug\PhoneBook.Web.Globalization.Global.de.resources
 C:\PhoneBook\PhoneBook.Web\obj\Debug\ResGen.read.1.tlog
 C:\PhoneBook\PhoneBook.Web\obj\Debug\ResGen.write.1.tlog
 C:\PhoneBook\PhoneBook.Web\bin\PhoneBook.Web.dll
 C:\PhoneBook\PhoneBook.Web\bin\PhoneBook.Web.pdb
-C:\PhoneBook\PhoneBook.Web\bin\de\PhoneBook.Web.resources.dll
 C:\PhoneBook\PhoneBook.Web\bin\PhoneBook.Domain.dll
 C:\PhoneBook\PhoneBook.Web\bin\Remotion.Data.DomainObjects.dll
 C:\PhoneBook\PhoneBook.Web\bin\Remotion.Data.Interfaces.dll
@@ -53,6 +51,9 @@ C:\PhoneBook\PhoneBook.Web\bin\de\Remotion.Data.DomainObjects.resources.dll
 C:\PhoneBook\PhoneBook.Web\bin\de\Remotion.ObjectBinding.resources.dll
 C:\PhoneBook\PhoneBook.Web\bin\de\Remotion.ObjectBinding.Web.resources.dll
 C:\PhoneBook\PhoneBook.Web\bin\de\Remotion.Web.resources.dll
-C:\PhoneBook\PhoneBook.Web\obj\Debug\de\PhoneBook.Web.resources.dll
 C:\PhoneBook\PhoneBook.Web\obj\Debug\PhoneBook.Web.dll
 C:\PhoneBook\PhoneBook.Web\obj\Debug\PhoneBook.Web.pdb
+C:\PhoneBook\PhoneBook.Web\bin\Microsoft.Practices.ServiceLocation.xml
+C:\PhoneBook\PhoneBook.Web\bin\en\PhoneBook.Web.resources.dll
+C:\PhoneBook\PhoneBook.Web\obj\Debug\en\PhoneBook.Web.resources.dll
+C:\PhoneBook\PhoneBook.Web\obj\Debug\PhoneBook.Web.Globalization.xGlobal.en.resources

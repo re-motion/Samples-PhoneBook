@@ -10,7 +10,10 @@ namespace PhoneBook.Console
     public static Person[] GetPersons ()
     {
       var query = from p in QueryFactory.CreateLinqQuery<Person> ()
+                  where p.Location.City == "Redmond"
+                  where p.PhoneNumbers.Any (n => n.AreaCode == "425")
                   select p;
+
       return query.ToArray ();
     }
 
@@ -59,7 +62,7 @@ namespace PhoneBook.Console
     static void Main (string[] args)
     {
       // AddSampleData ();
-      // LinqShowCase();
+    //  LinqShowCase();
       System.Console.WriteLine (@"Hit any key to continue");
       System.Console.ReadKey();
     }

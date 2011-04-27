@@ -61,11 +61,38 @@ namespace PhoneBook.Domain.Globalization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First Name.
+        ///   Looks up a localized string similar to Vorname.
         /// </summary>
         internal static string property_FirstName {
             get {
                 return ResourceManager.GetString("property:FirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nachname.
+        /// </summary>
+        internal static string property_LastName {
+            get {
+                return ResourceManager.GetString("property:LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standort.
+        /// </summary>
+        internal static string property_Location {
+            get {
+                return ResourceManager.GetString("property:Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefonnummern.
+        /// </summary>
+        internal static string property_PhoneNumbers {
+            get {
+                return ResourceManager.GetString("property:PhoneNumbers", resourceCulture);
             }
         }
     }

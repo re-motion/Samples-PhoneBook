@@ -118,61 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Add" xml:space="preserve">
-    <value>Hinzufügen</value>
+    <value>Add</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>Cancel</value>
   </data>
-	<data name="Details" xml:space="preserve">
+  <data name="Details" xml:space="preserve">
     <value>Details</value>
   </data>
-	<data name="Edit" xml:space="preserve">
-    <value>Bearbeiten</value>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="List" xml:space="preserve">
-    <value>Liste</value>
+    <value>List</value>
   </data>
   <data name="New" xml:space="preserve">
-    <value>Neu</value>
+    <value>New</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Speichern</value>
+    <value>Save</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Suchen</value>
+    <value>Search</value>
   </data>
-	
-	<data name="Location" xml:space="preserve">
-    <value>~de~Location</value>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
   </data>
-        <data name="Edit~Location" xml:space="preserve">
-    <value>~de~Edit~Location</value>
+  <data name="Edit~Location" xml:space="preserve">
+    <value>Edit Location</value>
   </data>
-        <data name="Search~Location" xml:space="preserve">
-    <value>~de~Search~Location</value>
+  <data name="Search~Location" xml:space="preserve">
+    <value>Search Location</value>
   </data>
-	
-	<data name="Person" xml:space="preserve">
-    <value>~de~Person</value>
+  <data name="Person" xml:space="preserve">
+    <value>Person</value>
   </data>
-        <data name="Edit~Person" xml:space="preserve">
-    <value>~de~Edit~Person</value>
+  <data name="Edit~Person" xml:space="preserve">
+    <value>Edit Person</value>
   </data>
-        <data name="Search~Person" xml:space="preserve">
-    <value>~de~Search~Person</value>
+  <data name="Search~Person" xml:space="preserve">
+    <value>Search Person</value>
   </data>
-	
-	<data name="PhoneNumber" xml:space="preserve">
-    <value>~de~PhoneNumber</value>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>PhoneNumber</value>
   </data>
-        <data name="Edit~PhoneNumber" xml:space="preserve">
-    <value>~de~Edit~PhoneNumber</value>
+  <data name="Edit~PhoneNumber" xml:space="preserve">
+    <value>Edit PhoneNumber</value>
   </data>
-        <data name="Search~PhoneNumber" xml:space="preserve">
-    <value>~de~Search~PhoneNumber</value>
+  <data name="Search~PhoneNumber" xml:space="preserve">
+    <value>Search PhoneNumber</value>
   </data>
-	
+  <data name="OptionsActions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
 </root>

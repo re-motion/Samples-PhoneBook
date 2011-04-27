@@ -59,5 +59,41 @@ namespace PhoneBook.Domain.Globalization {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vorwahl.
+        /// </summary>
+        internal static string property_AreaCode {
+            get {
+                return ResourceManager.GetString("property:AreaCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ländercode.
+        /// </summary>
+        internal static string property_CountryCode {
+            get {
+                return ResourceManager.GetString("property:CountryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Durchwahl.
+        /// </summary>
+        internal static string property_Extension {
+            get {
+                return ResourceManager.GetString("property:Extension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nummer.
+        /// </summary>
+        internal static string property_Number {
+            get {
+                return ResourceManager.GetString("property:Number", resourceCulture);
+            }
+        }
     }
 }

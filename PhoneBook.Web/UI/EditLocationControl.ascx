@@ -25,21 +25,21 @@
     </td>
   </tr>
   <tr>
-    <td><remotion:SmartLabel ID="CountryLabel" runat="server" ForControl="CountryField" /></td>
-    <td>
-      <remotion:BocEnumValue ID="CountryField" runat="server" DataSourceControl="CurrentObject"
-          PropertyIdentifier="Country" >
-        
-      </remotion:BocEnumValue>
-    </td>
-  </tr>
-  <tr>
     <td><remotion:SmartLabel ID="CityLabel" runat="server" ForControl="CityField" /></td>
     <td>
       <remotion:BocTextValue ID="CityField" runat="server" DataSourceControl="CurrentObject"
           PropertyIdentifier="City" >
         
       </remotion:BocTextValue>
+    </td>
+  </tr>
+  <tr>
+    <td><remotion:SmartLabel ID="CountryLabel" runat="server" ForControl="CountryField" /></td>
+    <td>
+      <remotion:BocEnumValue ID="CountryField" runat="server" DataSourceControl="CurrentObject"
+          PropertyIdentifier="Country" >
+        
+      </remotion:BocEnumValue>
     </td>
   </tr>
   <tr>

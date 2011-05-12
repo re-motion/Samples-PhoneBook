@@ -9,7 +9,7 @@ using Remotion.Utilities;
 namespace PhoneBook.Domain
 {
   [DBTable]
-  [MultiLingualResources ("PhoneBook.Domain.Globalization.PhoneNumber")]
+  [MultiLingualResources ("PhoneBook.Domain.Globalization.Location")]
   public class Location : BindableDomainObject
   {
     [StringProperty(IsNullable = false, MaximumLength = 60)]
@@ -20,11 +20,12 @@ namespace PhoneBook.Domain
     [StringProperty(IsNullable = true, MaximumLength = 12)]
     public virtual string Number { get; set; }
 
-    public virtual Country? Country { get; set; }
+  
 
     [StringProperty(MaximumLength = 60)]
     public virtual string City { get; set; }
 
+    public virtual Country? Country { get; set; }
     public virtual int ZipCode { get; set; }
 
     public static Location NewObject()

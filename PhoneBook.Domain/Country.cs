@@ -12,6 +12,7 @@ namespace PhoneBook.Domain
     Austria = 0,
     Australia,
     Germany,
-    Switzerland
+    Switzerland,
+    USA
   }
 }

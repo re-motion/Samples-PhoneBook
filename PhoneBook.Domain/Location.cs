@@ -19,7 +19,7 @@ namespace PhoneBook.Domain
     public virtual string Street { get; set; }
 
     // Location's table will have a "LocationNumber" instead a "Number" column
-    [DBColumn ("LocationNumber")] 
+    // [DBColumn ("LocationNumber")] 
     [StringProperty(MaximumLength=12)]
     public virtual string Number { get; set; }                                                    
 

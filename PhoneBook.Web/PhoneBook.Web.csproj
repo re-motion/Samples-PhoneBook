@@ -265,7 +265,7 @@
   <PropertyGroup>
     <PreBuildEvent>
       cd ..
-      \PhoneBook\Remotion\net-3.5\bin\Debug\wxegen UI\*.aspx.cs WxeFunctions.cs /prjfile:PhoneBook.Web.csproj /functionbase:PhoneBook.Web.Classes.BaseFunction
+      ..\Remotion\net-3.5\bin\Debug\wxegen UI\*.aspx.cs WxeFunctions.cs /prjfile:PhoneBook.Web.csproj /functionbase:PhoneBook.Web.Classes.BaseFunction
     </PreBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>

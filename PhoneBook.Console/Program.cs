@@ -61,7 +61,7 @@ namespace PhoneBook.Console
 
     static void Main (string[] args)
     {
-      // AddSampleData ();
+       AddSampleData ();
     //  LinqShowCase();
       System.Console.WriteLine (@"Hit any key to continue");
       System.Console.ReadKey();

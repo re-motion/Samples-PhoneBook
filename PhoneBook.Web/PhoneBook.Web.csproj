@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -14,6 +15,11 @@
     <AssemblyName>PhoneBook.Web</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,15 +42,15 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Remotion, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.Interfaces, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Interfaces.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.Data.DomainObjects, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Data.DomainObjects.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.Data.DomainObjects.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.Linq, Version=1.13.101.2, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -52,23 +58,23 @@
     </Reference>
     <Reference Include="Remotion.ObjectBinding, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.Data.Interfaces, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Data.Interfaces.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.Data.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.ObjectBinding.Interfaces, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.Interfaces.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.ObjectBinding.Web, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.Web.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.ObjectBinding.Web.dll</HintPath>
     </Reference>
     <Reference Include="Remotion.Web, Version=1.13.90.2, Culture=neutral,   &#xD;&#xA;      PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\PhoneBook\Remotion\net-3.5\bin\Debug\Remotion.Web.dll</HintPath>
+      <HintPath>..\Remotion\net-3.5\bin\Debug\Remotion.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -254,6 +260,10 @@
       <LastGenOutput>xGlobal.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -287,5 +297,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
 </Project>

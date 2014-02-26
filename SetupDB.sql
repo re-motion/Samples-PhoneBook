@@ -1,4 +1,4 @@
-USE DatabaseName
+USE Phonebook
 GO
 
 -- Drop all views that will be created below

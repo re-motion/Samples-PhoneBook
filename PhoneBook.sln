@@ -1,16 +1,16 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{75295C72-16AC-4F50-9C3D-DB8CB63E70BF}"
+	ProjectSection(SolutionItems) = preProject
+		SetupDB.sql = SetupDB.sql
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Console", "PhoneBook.Console\PhoneBook.Console.csproj", "{D5102922-D252-42C1-AD94-BB09ED39394F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Domain", "PhoneBook.Domain\PhoneBook.Domain.csproj", "{C7D88A2E-2B53-4CA9-9F0D-80B5AAA40C5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneBook.Web", "PhoneBook.Web\PhoneBook.Web.csproj", "{8488323B-3AD9-4CAF-B3D0-B815D690B628}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{75295C72-16AC-4F50-9C3D-DB8CB63E70BF}"
-	ProjectSection(SolutionItems) = preProject
-		SetupDB.sql = SetupDB.sql
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

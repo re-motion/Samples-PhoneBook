@@ -14,18 +14,12 @@
 // along with re-motion; if not, see http://www.gnu.org/licenses.
 // 
 using System;
-using System.Threading;
-using System.Globalization;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
-using Remotion.Globalization;
-using Remotion.Web.ExecutionEngine;
-using Remotion.Web.UI.Globalization;
 using Remotion.Web.UI.Controls;
 using Remotion.ObjectBinding.Web.UI.Controls;
-using Remotion.Data.DomainObjects;
 using Remotion.ObjectBinding;
-
 
 namespace PhoneBook.Web.Classes
 {
@@ -38,32 +32,27 @@ namespace PhoneBook.Web.Classes
     protected virtual IBusinessObjectDataSourceControl DataSource { get { throw new NotImplementedException("Implement DataSource in derived class."); } }
 
     /// <summary> Gets the <see cref="TabbedMultiView"/> that holds the user controls.</summary>
-    protected virtual TabbedMultiView UserControlMultiView 
-    {
-      get { return null; }
-    }
+    protected virtual TabbedMultiView UserControlMultiView => null;
 
     /// <summary> Gets all user controls that should load and save values of the current object. </summary>
     /// <remarks>
     /// The default implemenation gets all <see cref="DataEditUserControl"/> instances from the <see cref="TabbedMultiView"/>
-    /// returned by <see cref="UserControlTabView"/>.
+    /// returned by <see cref="TabView"/>.
     /// </remarks>
     protected virtual IEnumerable<DataEditUserControl> DataEditUserControls
     {
       get
       {
-        TabbedMultiView multiView = UserControlMultiView;
+        var multiView = UserControlMultiView;
         if (multiView == null)
           yield break;
 
-        foreach (TabView view in multiView.Views)
+        var userControls = multiView.Views.Cast<TabView>()
+          .SelectMany (view => view.LazyControls.OfType<DataEditUserControl>());
+
+        foreach (var userControl in userControls)
         {
-          foreach (Control control in view.LazyControls)
-          {
-            DataEditUserControl userControl = control as DataEditUserControl;
-            if (userControl != null)
-              yield return userControl;
-          }
+          yield return userControl;
         }
       }
     }
@@ -73,7 +62,7 @@ namespace PhoneBook.Web.Classes
       DataSource.BusinessObject = businessObject;
       DataSource.LoadValues (IsPostBack);
 
-      foreach (DataEditUserControl control in DataEditUserControls)
+      foreach (var control in DataEditUserControls)
       {
         control.DataSource.BusinessObject = businessObject;
         control.LoadValues (IsPostBack);
@@ -85,45 +74,45 @@ namespace PhoneBook.Web.Classes
       EnsurePostLoadInvoked();
       EnsureValidatableControlsInitialized();
 
-      bool isValid = DataSource.Validate();
-      Control firstInvalidControl = null;
+      var isValid = DataSource.Validate();
 
-      foreach (DataEditUserControl control in DataEditUserControls)
+      var firstInvalidControl = DataEditUserControls.FirstOrDefault(control => !control.Validate());
+      if (firstInvalidControl != null)
       {
-        if (! control.Validate())
+        isValid = false;
+      }
+      
+      if (isValid)
+      {
+        SaveValidObject();
+      }
+      else
+      {
+        var multiView = UserControlMultiView;
+        if (multiView == null)
+          return false;
+
+        for (Control control = firstInvalidControl; control != null; control = control.Parent)
         {
-          isValid = false;
-          firstInvalidControl = control;
+          if (!(control is TabView))
+            continue;
+
+          multiView.SetActiveView ((TabView) control);
           break;
         }
       }
 
-      if (isValid)
-      {
-        foreach (DataEditUserControl control in DataEditUserControls)
-          control.SaveValues (false);
-
-        DataSource.SaveValues (false);
-        _isSaved = true;
-        // transaction will be committed by caller or using auto commit.
-      }
-      else
-      {
-        TabbedMultiView multiView = UserControlMultiView;
-        if (multiView != null)
-        {
-          for (Control control = firstInvalidControl; control != null; control = control.Parent)
-          {
-            if (control is TabView)
-            {
-              multiView.SetActiveView ((TabView) control);
-              break;
-            }
-          }
-        }
-      }
-
       return isValid;
+    }
+
+    private void SaveValidObject ()
+    {
+      foreach (var control in DataEditUserControls)
+        control.SaveValues (false);
+
+      DataSource.SaveValues (false);
+      _isSaved = true;
+      // transaction will be committed by caller or using auto commit.
     }
 
     protected override void OnPreRender (EventArgs e)
@@ -144,51 +133,55 @@ namespace PhoneBook.Web.Classes
 
     protected void EnsureDataSourceModePropagated()
     {
-      if (! _dataSourceModePropagated)
-      {
-        PropagateDataSourceMode();
-        _dataSourceModePropagated = true;
-      }
+      if (_dataSourceModePropagated)
+        return;
+
+      PropagateDataSourceMode();
+      _dataSourceModePropagated = true;
     }
 
     private void PropagateDataSourceMode()
     {
-      foreach (DataEditUserControl control in DataEditUserControls)
-        control.DataSource.Mode = this.DataSource.Mode;
+      foreach (var control in DataEditUserControls)
+        control.DataSource.Mode = DataSource.Mode;
     }
 
     protected override void OnUnload (EventArgs e)
     {
       base.OnUnload (e);
 
-      if (! _isSaved)
-      {
-        foreach (DataEditUserControl control in DataEditUserControls)
-          control.SaveValues (true);
+      if (_isSaved)
+        return;
 
-        DataSource.SaveValues (true);  
-      }
+      foreach (var control in DataEditUserControls)
+        control.SaveValues (true);
+
+      DataSource.SaveValues (true);
     }
 
+    /// <exception cref="InvalidOperationException">Page has no <see cref="UserControlMultiView"/>.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">A <see cref="TabView"/> with the given ID could not be found.</exception>
     public TUserControl GetUserControl<TUserControl> (string tabViewID)
       where TUserControl: Control
     {
-      TabbedMultiView multiView = UserControlMultiView;
+      var multiView = UserControlMultiView;
       if (multiView == null)
         throw new InvalidOperationException ("Page has no UserControlMultiView.");
 
-      TabView view = (TabView) multiView.FindControl (tabViewID);
+      var view = (TabView) multiView.FindControl (tabViewID);
       if (view == null)
-        throw new ArgumentOutOfRangeException ("No child control with ID " + tabViewID + " found.");
+        throw new ArgumentOutOfRangeException ($"No child control with ID {tabViewID} found.");
 
       view.EnsureLazyControls();
-      foreach (Control childControl in view.LazyControls)
+
+      var firstChildControl = view.LazyControls.OfType<TUserControl>().FirstOrDefault();
+
+      if(firstChildControl != default (TUserControl))
       {
-        if (childControl is TUserControl)
-          return (TUserControl) childControl;
+        return firstChildControl;
       }
 
-      throw new ArgumentOutOfRangeException ("TabView " + ID + " has no lazy control of type " + typeof (TUserControl).Name + ".");
+      throw new ArgumentOutOfRangeException ($"TabView {ID} has no lazy control of type {typeof (TUserControl).Name}.");
     }
 
   }

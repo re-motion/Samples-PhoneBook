@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" CodeBehind="PickLocation.aspx.cs" Inherits="PhoneBook.Web.UI.PickLocation" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
 <head id="PickALocationHeader" runat="server">
   <title><!-- Page title set in Page_Load !--></title>
 </head>
+<body>
 <form id="PickLocationForm" runat="server">
 <remotion:FormGridManager ID="FormGridManager" runat="server" />
 <remotion:BindableObjectDataSourceControl ID="PickLocationDataSource" 
@@ -44,6 +44,7 @@
   </FixedColumns>
 </remotion:BocList>
 </form>
+</body>
 </html>
 
 

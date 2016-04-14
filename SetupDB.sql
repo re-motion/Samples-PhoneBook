@@ -15,6 +15,7 @@ GO
 -- Drop foreign keys of all tables that will be created below
 DECLARE @statement nvarchar (max)
 SET @statement = ''
+
 SELECT @statement = @statement + 'ALTER TABLE [dbo].[' + t.name + '] DROP CONSTRAINT [' + fk.name + ']; ' 
     FROM sysobjects fk INNER JOIN sysobjects t ON fk.parent_obj = t.id 
     WHERE fk.xtype = 'F' AND t.name IN ('Location', 'Person', 'PhoneNumber')

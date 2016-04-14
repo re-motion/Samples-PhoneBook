@@ -3,7 +3,6 @@
     xmlns="http://www.re-motion.org/Web/ExecutionEngine/UrlMapping/1.0" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.re-motion.org/Web/ExecutionEngine/UrlMapping/1.0 UrlMapping.xsd">
-
   
   <add id="EditLocation" type="PhoneBook.Web.UI.EditLocationFormFunction,PhoneBook.Web" resource="EditLocation.wxe" />
   <add id="SearchLocation" type="PhoneBook.Web.UI.SearchResultLocationFormFunction,PhoneBook.Web" resource="SearchLocation.wxe" />

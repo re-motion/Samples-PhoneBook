@@ -9,7 +9,6 @@
   <title><!-- Page title set in Page_Load !--></title>
   <remotion:htmlheadcontents id="HtmlHeadContents" runat="server"></remotion:htmlheadcontents>
 </head>
-
 <body>
   <remotion:FormGridManager id="FormGridManager" runat="server" />
   <form id="SearchResultForm" method="post" runat="server">
@@ -24,8 +23,6 @@
         </remotion:TabView>
       </Views>
     </remotion:TabbedMultiView>
-
   </form>
 </body>
-
 </html>

@@ -13,7 +13,6 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with re-motion; if not, see http://www.gnu.org/licenses.
 // 
-using System;
 using Remotion.Web.UI.Globalization;
 using Remotion.ObjectBinding.Web.UI.Controls;
 using Remotion.Web.ExecutionEngine;
@@ -23,9 +22,6 @@ namespace PhoneBook.Web.Classes
   [WebMultiLingualResources ("PhoneBook.Web.Globalization.Global")]
   public abstract class BaseControl: DataEditUserControl
   {
-    public IWxePage WxePage 
-    {
-      get { return Page as IWxePage; }
-    }
+    public IWxePage WxePage => Page as IWxePage;
   }
 }

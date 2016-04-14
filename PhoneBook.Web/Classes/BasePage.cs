@@ -14,8 +14,6 @@
 // along with re-motion; if not, see http://www.gnu.org/licenses.
 // 
 using System;
-using System.Threading;
-using System.Globalization;
 using Remotion.Globalization;
 using Remotion.ServiceLocation;
 using Remotion.Web;
@@ -32,7 +30,7 @@ namespace PhoneBook.Web.Classes
     protected override void OnPreRender (EventArgs e)
     {
       var themedResourceUrlResolver = SafeServiceLocator.Current.GetInstance<IThemedResourceUrlResolverFactory> ().CreateResourceUrlResolver ();
-      string url = themedResourceUrlResolver.GetResourceUrl (this, ResourceType.Html, "Style.css");
+      var url = themedResourceUrlResolver.GetResourceUrl (this, ResourceType.Html, "Style.css");
 
       Remotion.Web.UI.HtmlHeadAppender.Current.RegisterStylesheetLink(GetType() + "remotionstyle", url);
 
@@ -40,7 +38,7 @@ namespace PhoneBook.Web.Classes
       Remotion.Web.UI.HtmlHeadAppender.Current.RegisterStylesheetLink (GetType () + "projectstyle", url);
 
       // globalization
-      IResourceManager rm = ResourceManagerUtility.GetResourceManager (this);
+      var rm = ResourceManagerUtility.GetResourceManager (this);
 
       if (rm != null)
         ResourceDispatcher.Dispatch (this, rm);
@@ -50,17 +48,14 @@ namespace PhoneBook.Web.Classes
 
     IResourceManager IObjectWithResources.GetResourceManager()
     {
-      return this.GetResourceManager();
+      return GetResourceManager();
     }
 
     protected virtual IResourceManager GetResourceManager()
     {
-      Type type = this.GetType();
+      Type type = GetType();
 
-      if (MultiLingualResources.ExistsResource (type))
-        return MultiLingualResources.GetResourceManager (type, true);
-      else
-        return null;
+      return MultiLingualResources.ExistsResource (type) ? MultiLingualResources.GetResourceManager (type, true) : null;
     }
   }
 }

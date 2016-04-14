@@ -7,7 +7,7 @@
 2. Compile the solution
 3. Execute on the console
 ```powershell
-"c:\PhoneBook\Remotion\net-3.5\bin\debug\UIGen.exe" /uigen:"C:\PhoneBook\PhoneBook.xml" /asmdir:"C:\PhoneBook\PhoneBook.Domain\bin\Debug"
+c:\PhoneBook\Remotion\net-3.5\bin\debug\UIGen.exe /uigen:"C:\PhoneBook\PhoneBook.xml" /asmdir:"C:\PhoneBook\PhoneBook.Domain\bin\Debug"
 ```
 4. Add the project `c:\PhoneBook\Remotion.Web\Remotion.Web.csproj` to the solution
 

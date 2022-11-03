@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Text;
 using Remotion.Data.DomainObjects;
 using Remotion.Data.DomainObjects.ObjectBinding;
 using Remotion.Globalization;
@@ -40,17 +40,17 @@ namespace PhoneBook.Domain
 
     public static PhoneNumber NewObject ()
     {
-      return DomainObject.NewObject<PhoneNumber>();
+      return NewObject<PhoneNumber>();
     }
 
     public static PhoneNumber NewObject (string cc, string ac, string nu, string ext, Person p)
     {
-      return DomainObject.NewObject<PhoneNumber> (ParamList.Create(cc,ac,nu,ext,p));
+      return NewObject<PhoneNumber> (ParamList.Create(cc,ac,nu,ext,p));
     }
 
     public static PhoneNumber GetObject(ObjectID objid)
     {
-      return DomainObject.GetObject<PhoneNumber>(objid);
+      return GetObject<PhoneNumber>(objid);
     }
 
     public new void Delete ()
@@ -62,21 +62,22 @@ namespace PhoneBook.Domain
     {
       get
       {
-        string displayName = "";
-        if (!String.IsNullOrEmpty (CountryCode))
+        var displayName = new StringBuilder();
+        if (!string.IsNullOrEmpty (CountryCode))
         {
-          displayName += CountryCode + " ";
+          displayName.Append(CountryCode).Append(" ");
         }
-        if (!String.IsNullOrEmpty (AreaCode))
+
+        if (!string.IsNullOrEmpty (AreaCode))
         {
-          displayName += AreaCode + "/";
+          displayName.Append(AreaCode).Append("/");
         }
-        displayName += Number;
-        if (!String.IsNullOrEmpty (Extension))
+        displayName.Append(Number);
+        if (!string.IsNullOrEmpty (Extension))
         {
-          displayName = displayName + "-" + Extension;
+          displayName.Append("-").Append(Extension);
         }
-        return displayName;
+        return displayName.ToString();
       }
     }
   }

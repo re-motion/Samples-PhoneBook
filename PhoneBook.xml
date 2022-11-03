@@ -6,11 +6,11 @@
 <applicationGenerator template="\PhoneBook\Remotion\UIGenTemplates\TabbedEditor\TabbedEditor.xml">
 
   <settings
-			templateRoot="\PhoneBook\Remotion\UIGenTemplates\TabbedEditor"
-			targetRoot="\PhoneBook"
-			projectNamespaceRoot="PhoneBook.Web"
-			domainNamespaceRoot="PhoneBook.Domain"
-			/>
+      templateRoot="\PhoneBook\Remotion\UIGenTemplates\TabbedEditor"
+      targetRoot="\PhoneBook"
+      projectNamespaceRoot="PhoneBook.Web"
+      domainNamespaceRoot="PhoneBook.Domain"
+      />
 
   <projectReplacements>
     <replace from="$ReferencesDir$" to="References" />

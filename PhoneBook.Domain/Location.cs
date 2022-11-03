@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Remotion.Data.DomainObjects;
 using Remotion.Data.DomainObjects.ObjectBinding;
 using Remotion.Data.DomainObjects.Queries;
@@ -19,9 +20,7 @@ namespace PhoneBook.Domain
     // [DBColumn ("LocationNumber")] 
     [StringProperty(IsNullable = true, MaximumLength = 12)]
     public virtual string Number { get; set; }
-
-  
-
+    
     [StringProperty(MaximumLength = 60)]
     public virtual string City { get; set; }
 
@@ -30,12 +29,12 @@ namespace PhoneBook.Domain
 
     public static Location NewObject()
     {
-      return DomainObject.NewObject<Location>();
+      return NewObject<Location> ();
     }
 
     public static Location NewObject (string street, string number, string city, Country country, int zip)
     {
-      return DomainObject.NewObject<Location> (ParamList.Create(street, number, city, country, zip));
+      return NewObject<Location> (ParamList.Create(street, number, city, country, zip));
     }
 
     protected Location ()
@@ -53,30 +52,30 @@ namespace PhoneBook.Domain
 
     public static Location GetObject(ObjectID objid)
     {
-      return DomainObject.GetObject<Location>(objid);
+      return GetObject<Location> (objid);
     }
 
-    public static Location[] GetLocations ()
+    public static IEnumerable<Location> GetLocations ()
     {
       var query = QueryFactory.CreateLinqQuery<Location> ();
                
       return query.ToArray ();
     }
 
-    public Person[] FindPersons ()
+    public IEnumerable<Person> FindPeople ()
     {
       var query = from p in QueryFactory.CreateLinqQuery<Person> ()
                   where p.Location == this
                   select p;
-      return query.ToArray ();
+      return query.ToArray();
     }
 
     public void DeleteLocation ()
     {
-      var persons = FindPersons ();
-      foreach (var p in persons)
+      var people = FindPeople ();
+      foreach (var person in people)
       {
-        p.Location = null;
+        person.Location = null;
       }
       Delete ();
       ClientTransaction.Current.Commit ();
@@ -86,7 +85,7 @@ namespace PhoneBook.Domain
     {
       get
       {
-        string country = Country == null ? string.Empty : " (" + EnumDescription.GetDescription(Country) + ")";
+        var country = Country == null ? string.Empty : string.Concat(" (", EnumDescription.GetDescription(Country), ")");
         return Street + country;
       }
     }

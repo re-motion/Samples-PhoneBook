@@ -1,13 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using PhoneBook.Domain;
 using Remotion.Data.DomainObjects;
 using Remotion.Data.DomainObjects.Queries;
 
 namespace PhoneBook.Console
 {
-  class Program
+  internal static class Program
   {
-    public static Person[] GetPersons ()
+    private static IEnumerable<Person> GetPeople ()
     {
       var query = from p in QueryFactory.CreateLinqQuery<Person> ()
                   where p.Location.City == "Redmond"
@@ -17,7 +18,7 @@ namespace PhoneBook.Console
       return query.ToArray ();
     }
 
-    static void AddSampleData ()
+    private static void AddSampleData ()
     {
       using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
       {
@@ -53,17 +54,17 @@ namespace PhoneBook.Console
         // using parametrized constructors
         var locApple = Location.NewObject("Apple Way", "42", "Cupertino", Country.USA, 000);
         var personApple = Person.NewObject("Steve", "Jobs", locApple);
-        var phoneApple = PhoneNumber.NewObject("001", "93", "123-4567", "666",personApple);
+        var phoneApple = PhoneNumber.NewObject("001", "93", "123-4567", "666", personApple);
 
         ClientTransaction.Current.Commit ();
       }     
     }
 
-    static void Main (string[] args)
+    private static void Main ()
     {
        AddSampleData ();
     //  LinqShowCase();
-      System.Console.WriteLine (@"Hit any key to continue");
+      System.Console.WriteLine ("Hit any key to continue");
       System.Console.ReadKey();
     }
 
@@ -71,7 +72,7 @@ namespace PhoneBook.Console
     {
       using (ClientTransaction.CreateRootTransaction ().EnterDiscardingScope ())
       {
-        var Persons = GetPersons ();
+        var people = GetPeople ();
       }
     }
   }

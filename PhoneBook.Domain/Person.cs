@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Remotion.Data.DomainObjects;
 using Remotion.Data.DomainObjects.ObjectBinding;
@@ -38,24 +38,25 @@ namespace PhoneBook.Domain
 
     public static Person NewObject (string firstName, string lastName, Location location)
     {
-      return DomainObject.NewObject<Person> (ParamList.Create(firstName, lastName, location));
+      return NewObject<Person> (ParamList.Create(firstName, lastName, location));
     }
 
     public static Person NewObject()
     {
-      return DomainObject.NewObject<Person>();
+      return NewObject<Person>();
     }
 
     public static Person GetObject(ObjectID objid)
     {
-      return DomainObject.GetObject<Person>(objid);
+      return GetObject<Person>(objid);
     }
 
     public new void Delete ()
     {
       base.Delete ();
     }
-    public static Person[] PersonsFrom (string city)
+
+    public static IEnumerable<Person> PeopleFrom (string city)
     {
       using (ClientTransaction.CreateRootTransaction().EnterDiscardingScope())
       {
@@ -80,8 +81,8 @@ namespace PhoneBook.Domain
     {
       get
       {
-        string displayName = "";
-        if (!String.IsNullOrEmpty (FirstName))
+        var displayName = string.Empty;
+        if (!string.IsNullOrEmpty (FirstName))
         {
           displayName = FirstName[0] + ". ";
         }
@@ -90,9 +91,9 @@ namespace PhoneBook.Domain
       }
     }
 
-    public static Person[] QueryManFindPersonsByLocation (Location location)
+    public static IEnumerable<Person> FindPeopleByLocation (Location location)
     {
-      var query = QueryFactory.CreateQueryFromConfiguration ("QueryManFindPersonsByLocation");
+      var query = QueryFactory.CreateQueryFromConfiguration ("FindPeopleByLocation");
       query.Parameters.Add ("@location", location.ID.Value);
       return ClientTransaction.Current.QueryManager.GetCollection<Person> (query).ToArray ();
     }
